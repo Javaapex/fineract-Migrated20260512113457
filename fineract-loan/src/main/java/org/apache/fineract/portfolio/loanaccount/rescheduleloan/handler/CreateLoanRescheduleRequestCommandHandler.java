@@ -37,6 +37,7 @@ public class CreateLoanRescheduleRequestCommandHandler implements NewCommandSour
     @Transactional
     @Override
     public CommandProcessingResult processCommand(JsonCommand jsonCommand) {
+        Objects.requireNonNull(jsonCommand, "jsonCommand cannot be null");
         return this.loanRescheduleRequestWritePlatformService.create(jsonCommand);
     }
 

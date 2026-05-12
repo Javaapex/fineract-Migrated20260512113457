@@ -194,6 +194,7 @@ public class ShareAccountTransaction extends AbstractPersistableCustom<Long> {
     }
 
     public void updateChargeAmount(BigDecimal totalChargeAmount) {
+        Objects.requireNonNull(totalChargeAmount, "totalChargeAmount cannot be null");
         this.amount = this.amount.add(totalChargeAmount);
         this.chargeAmount = totalChargeAmount;
     }

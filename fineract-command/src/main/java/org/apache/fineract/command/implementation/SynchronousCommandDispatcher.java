@@ -53,6 +53,7 @@ public class SynchronousCommandDispatcher implements CommandDispatcher {
 
                 return response;
             } catch (Exception e) {
+
                 hookManager.error(command, e);
 
                 throw e;

@@ -68,8 +68,8 @@ class CreateJournalEntriesForChargeOffLoanTest {
         LoanTransactionEnumData transactionType = mock(LoanTransactionEnumData.class);
         when(transactionType.isChargeoff()).thenReturn(true);
 
-        LoanTransactionDTO loanTransactionDTO = new LoanTransactionDTO(1L, 1L, "txn-123", LocalDate.now(ZoneId.systemDefault()),
-                transactionType, new BigDecimal("500.00"), new BigDecimal("500.00"), null, null, null, null, false, Collections.emptyList(),
+        LoanTransactionDTO loanTransactionDTO = new LoanTransactionDTO(1L, 1L, "txn-123
+                transactionType, new BigDecimal("500
                 Collections.emptyList(), false, "", null, null, null, null);
 
         loanDTO = new LoanDTO(1L, 1L, 1L, "USD", false, true, true, List.of(loanTransactionDTO), false, false, chargeOffReasonId, false,

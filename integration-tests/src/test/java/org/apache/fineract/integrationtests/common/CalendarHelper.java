@@ -41,7 +41,7 @@ public final class CalendarHelper {
 
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -58,7 +58,7 @@ public final class CalendarHelper {
                 getTestCalendarAsJSON(frequency, interval, repeatsOnDay, startDate), "resourceId");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -71,12 +71,12 @@ public final class CalendarHelper {
         final String CALENDAR_RESOURCE_URL = BASE_URL + PARENT_ENTITY_NAME + groupId + ENITY_NAME + "/" + calendarID;
 
         LOG.info("{}", CALENDAR_RESOURCE_URL);
-        // TODO: check that resource id indeed exists in calendar update put.
+
         return Utils.performServerPut(requestSpec, responseSpec, CALENDAR_RESOURCE_URL,
                 getTestCalendarAsJSON(frequency, interval, repeatsOnDay, startDate), "resourceId");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -97,7 +97,7 @@ public final class CalendarHelper {
         return new Gson().toJson(map);
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -111,7 +111,7 @@ public final class CalendarHelper {
         assertEquals(generatedCalendarId, responseCalendarId, "ERROR IN CREATING THE CALENDAR");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -128,7 +128,7 @@ public final class CalendarHelper {
                 getTestCalendarAsJSON(frequency, interval, repeatsOnDay, startDate), "resourceId");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -147,7 +147,7 @@ public final class CalendarHelper {
 
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)

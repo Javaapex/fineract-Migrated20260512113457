@@ -26,7 +26,7 @@ public class AvroMonthDayMapper {
 
     public String mapMonthDay(MonthDay source) {
         if (source == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         return source.toString();
     }

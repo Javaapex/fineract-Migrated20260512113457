@@ -80,6 +80,7 @@ public class LoanInterestRecalculationData {
     }
 
     public LoanInterestRecalculationData withCalendarData(final CalendarData calendarData, CalendarData compoundingCalendarData) {
+        Objects.requireNonNull(compoundingCalendarData, "compoundingCalendarData cannot be null");
         return this.setCalendarData(calendarData).setCompoundingCalendarData(compoundingCalendarData);
     }
 

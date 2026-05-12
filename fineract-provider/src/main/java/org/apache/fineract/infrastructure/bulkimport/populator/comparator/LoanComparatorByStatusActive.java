@@ -30,6 +30,8 @@ public class LoanComparatorByStatusActive implements Comparator<LoanAccountData>
 
     @Override
     public int compare(LoanAccountData o1, LoanAccountData o2) {
+        Objects.requireNonNull(o2, "o2 cannot be null");
+        Objects.requireNonNull(o1, "o1 cannot be null");
 
         boolean isData1StatusActive = o1.getStatus() != null && o1.getStatus().getValue().equals("Active");
         boolean isData2StatusActive = o2.getStatus() != null && o2.getStatus().getValue().equals("Active");

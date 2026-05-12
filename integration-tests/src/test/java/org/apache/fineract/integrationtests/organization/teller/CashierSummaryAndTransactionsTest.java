@@ -44,7 +44,7 @@ public class CashierSummaryAndTransactionsTest {
 
         requestSpecification = new RequestSpecBuilder().setContentType(ContentType.JSON).build();
         requestSpecification.header("Authorization", "Basic " + Utils.loginIntoServerAndGetBase64EncodedAuthenticationKey());
-        responseSpecification = new ResponseSpecBuilder().expectStatusCode(200).build();
+        responseSpecification = new ResponseSpecBuilder().expectStatusCode(200
         cashierTransactionsHelper = new CashierTransactionsHelper(requestSpecification, responseSpecification);
         StaffHelper.createStaff(requestSpecification, responseSpecification);
         cashierTransactionsHelper.createTeller(requestSpecification, responseSpecification);

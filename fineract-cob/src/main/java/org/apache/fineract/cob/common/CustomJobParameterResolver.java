@@ -49,6 +49,10 @@ public class CustomJobParameterResolver {
 
     public void resolve(StepContribution contribution, ChunkContext chunkContext, String customJobParameterKey,
             String parameterNameInExecutionContext) {
+        Objects.requireNonNull(parameterNameInExecutionContext, "parameterNameInExecutionContext cannot be null");
+        Objects.requireNonNull(customJobParameterKey, "customJobParameterKey cannot be null");
+        Objects.requireNonNull(chunkContext, "chunkContext cannot be null");
+        Objects.requireNonNull(contribution, "contribution cannot be null");
         Set<JobParameterDTO> jobParameterDTOList = getCustomJobParameterSet(chunkContext.getStepContext().getStepExecution())
                 .orElseThrow(() -> new CustomJobParameterNotFoundException(SpringBatchJobConstants.CUSTOM_JOB_PARAMETER_ID_KEY));
         JobParameterDTO businessDateParameter = jobParameterDTOList.stream()

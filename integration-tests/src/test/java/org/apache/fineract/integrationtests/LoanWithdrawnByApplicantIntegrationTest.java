@@ -36,7 +36,7 @@ public class LoanWithdrawnByApplicantIntegrationTest extends BaseLoanIntegration
                 .firstname(Utils.randomFirstNameGenerator()) //
                 .lastname(Utils.randomLastNameGenerator()) //
                 .active(true) //
-                .activationDate("01 January 2012") //
+                .activationDate("01
                 .dateFormat(Utils.DATE_FORMAT) //
                 .locale("en")) //
                 .getResourceId();
@@ -45,7 +45,7 @@ public class LoanWithdrawnByApplicantIntegrationTest extends BaseLoanIntegration
                 .getResourceId();
 
         final PostLoansResponse loanResponse = loanTransactionHelper
-                .applyLoan(applyLoanRequest(clientId, loanProductId, "04 April 2012", 5000.0, 5));
+                .applyLoan(applyLoanRequest(clientId, loanProductId, "04
         final Long loanId = loanResponse.getLoanId();
 
         verifyLoanStatus(loanId, LoanStatus.SUBMITTED_AND_PENDING_APPROVAL);

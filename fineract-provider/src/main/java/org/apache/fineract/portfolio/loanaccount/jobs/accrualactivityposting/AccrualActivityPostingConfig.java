@@ -45,6 +45,7 @@ public class AccrualActivityPostingConfig {
 
     @Bean
     public Job accrualActivityPostingJob(AccrualActivityPostingTasklet accrualActivityPosting) {
+        Objects.requireNonNull(accrualActivityPosting, "accrualActivityPosting cannot be null");
         return new JobBuilder(JobName.ACCRUAL_ACTIVITY_POSTING.name(), jobRepository)
                 .start(accrualActivityPostingStep(accrualActivityPosting)).incrementer(new RunIdIncrementer()).build();
     }

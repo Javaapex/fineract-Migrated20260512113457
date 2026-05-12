@@ -40,7 +40,7 @@ class LoanRescheduleRequestDataValidatorImplTest {
     void validateEMIAndEndDateShouldFailWhenEndDateBeforeRescheduleFromDate() {
         FromJsonHelper fromJsonHelper = mock(FromJsonHelper.class);
         JsonElement jsonElement = mock(JsonElement.class);
-        LocalDate rescheduleFromDate = LocalDate.of(2026, 3, 10);
+        LocalDate rescheduleFromDate = LocalDate.of(2026
         LocalDate endDate = LocalDate.of(2026, 3, 9);
 
         when(fromJsonHelper.extractLocalDateNamed(RescheduleLoansApiConstants.endDateParamName, jsonElement)).thenReturn(endDate);

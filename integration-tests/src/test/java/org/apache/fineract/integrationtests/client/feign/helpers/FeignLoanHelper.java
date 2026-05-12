@@ -55,8 +55,8 @@ public class FeignLoanHelper {
                 .currencyCode("USD")//
                 .digitsAfterDecimal(2)//
                 .inMultiplesOf(1)//
-                .principal(10000.0)//
-                .numberOfRepayments(12)//
+                .principal(10000
+                .numberOfRepayments(12
                 .repaymentEvery(1)//
                 .repaymentFrequencyType(2L)//
                 .interestRatePerPeriod(1.0)//
@@ -65,7 +65,7 @@ public class FeignLoanHelper {
                 .interestType(0)//
                 .interestCalculationPeriodType(1)//
                 .transactionProcessingStrategyCode("mifos-standard-strategy")//
-                .daysInYearType(365)//
+                .daysInYearType(365
                 .daysInMonthType(30)//
                 .isInterestRecalculationEnabled(false)//
                 .accountingRule(1)//
@@ -75,6 +75,7 @@ public class FeignLoanHelper {
     }
 
     public Long createLoanProduct(PostLoanProductsRequest request) {
+        Objects.requireNonNull(request, "request cannot be null");
         PostLoanProductsResponse response = ok(() -> fineractClient.loanProducts().createLoanProduct(request));
         return response.getResourceId();
     }
@@ -85,6 +86,7 @@ public class FeignLoanHelper {
     }
 
     public Long approveLoan(Long loanId, PostLoansLoanIdRequest request) {
+        Objects.requireNonNull(loanId, "loanId cannot be null");
         PostLoansLoanIdResponse response = ok(() -> fineractClient.loans().stateTransitions(loanId, request, Map.of("command", "approve")));
         return response.getLoanId();
     }
@@ -100,10 +102,12 @@ public class FeignLoanHelper {
     }
 
     public GetLoansLoanIdResponse getLoanDetailsWithAssociations(Long loanId, String associations) {
+        Objects.requireNonNull(associations, "associations cannot be null");
         return ok(() -> fineractClient.loans().retrieveLoan(loanId, Map.of("associations", associations)));
     }
 
     public GetLoansLoanIdResponse getLoanDetailsWithAssociationsAndExclude(Long loanId, String associations, String exclude) {
+        Objects.requireNonNull(exclude, "exclude cannot be null");
         return ok(() -> fineractClient.loans().retrieveLoan(loanId, Map.of("associations", associations, "exclude", exclude)));
     }
 
@@ -118,6 +122,11 @@ public class FeignLoanHelper {
     }
 
     public Long applyAndApproveLoan(Long clientId, Long productId, String submittedOnDate, Double principal, Integer numberOfRepayments) {
+        Objects.requireNonNull(numberOfRepayments, "numberOfRepayments cannot be null");
+        Objects.requireNonNull(principal, "principal cannot be null");
+        Objects.requireNonNull(submittedOnDate, "submittedOnDate cannot be null");
+        Objects.requireNonNull(productId, "productId cannot be null");
+        Objects.requireNonNull(clientId, "clientId cannot be null");
         PostLoansRequest applyRequest = new PostLoansRequest()//
                 .clientId(clientId)//
                 .productId(productId)//
@@ -181,6 +190,7 @@ public class FeignLoanHelper {
     }
 
     public Long createSubmittedLoanWithOriginators(Long clientId, List<PostLoansOriginatorData> originators) {
+        Objects.requireNonNull(originators, "originators cannot be null");
         PostLoansRequest request = buildSubmittedLoanRequest(clientId);
         request.setOriginators(originators);
         PostLoansResponse response = ok(() -> fineractClient.loans().calculateLoanScheduleOrSubmitLoanApplication(request, (String) null));
@@ -211,6 +221,7 @@ public class FeignLoanHelper {
     }
 
     public Long approveRescheduleRequest(Long scheduleId, PostUpdateRescheduleLoansRequest request) {
+        Objects.requireNonNull(scheduleId, "scheduleId cannot be null");
         PostUpdateRescheduleLoansResponse response = ok(
                 () -> fineractClient.rescheduleLoans().updateLoanRescheduleRequest(scheduleId, request, "approve"));
         return response.getResourceId();
@@ -218,6 +229,8 @@ public class FeignLoanHelper {
 
     public void createAndApproveRescheduleRequest(PostCreateRescheduleLoansRequest createRequest,
             PostUpdateRescheduleLoansRequest approveRequest) {
+        Objects.requireNonNull(approveRequest, "approveRequest cannot be null");
+        Objects.requireNonNull(createRequest, "createRequest cannot be null");
         Long scheduleId = createRescheduleRequest(createRequest);
         approveRescheduleRequest(scheduleId, approveRequest);
     }

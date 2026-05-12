@@ -37,6 +37,7 @@ public class ReCreateProvisioningEntryRequestCommandHandler implements NewComman
     @Transactional
     @Override
     public CommandProcessingResult processCommand(JsonCommand jsonCommand) {
+        Objects.requireNonNull(jsonCommand, "jsonCommand cannot be null");
         return this.provisioningEntriesWritePlatformService.reCreateProvisioningEntries(jsonCommand.entityId(), jsonCommand);
     }
 

@@ -38,7 +38,7 @@ public class WorkingCapitalBreachValidationTest {
         body.remove("breachFrequency");
 
         final CallFailedRuntimeException ex = breachHelper.runCreateExpectingFailure(body);
-        assertEquals(400, ex.getStatus());
+        assertEquals(400
         assertNotNull(ex.getDeveloperMessage());
         assertTrue(ex.getDeveloperMessage().contains("breachFrequency"));
     }

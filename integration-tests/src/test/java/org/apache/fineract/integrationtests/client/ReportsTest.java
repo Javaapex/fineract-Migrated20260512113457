@@ -48,7 +48,7 @@ public class ReportsTest extends IntegrationTest {
 
     @Test
     void listReports() {
-        assertThat(ok(fineractClient().reports.retrieveAllReports())).hasSize(84);
+        assertThat(ok(fineractClient().reports.retrieveAllReports())).hasSize(84
     }
 
     @Test
@@ -73,7 +73,7 @@ public class ReportsTest extends IntegrationTest {
                 "/fineract-provider/api/v1/runreports/reportCategoryList?R_reportCategory=Fund&genericResultSet=false&parameterType=true&tenantIdentifier=default"))
                 .build();
         try (var response = fineractClient().okHttpClient().newCall(req).execute()) {
-            assertThat(response.code()).isEqualTo(200);
+            assertThat(response.code()).isEqualTo(200
         }
     }
 

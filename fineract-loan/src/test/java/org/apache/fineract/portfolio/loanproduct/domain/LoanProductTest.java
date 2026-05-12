@@ -51,7 +51,7 @@ class LoanProductTest {
         LoanProduct loanProduct = new LoanProduct();
         loanProduct.setLoanProductRelatedDetail(new LoanProductRelatedDetail());
         loanProduct.getLoanProductRelatedDetail().setLoanScheduleType(LoanScheduleType.PROGRESSIVE);
-        loanProduct.getLoanProductRelatedDetail().setDaysInYearType(360);
+        loanProduct.getLoanProductRelatedDetail().setDaysInYearType(360
         loanProduct.getLoanProductRelatedDetail().setDaysInYearCustomStrategy(DaysInYearCustomStrategyType.FEB_29_PERIOD_ONLY);
         Assertions.assertThrowsExactly(LoanProductGeneralRuleException.class, loanProduct::validateLoanProductPreSave);
     }

@@ -49,7 +49,7 @@ public class InteropTransactionTypeData {
     private final InteropTransactionRole initiator;
     @NotNull
     private final InteropInitiatorType initiatorType;
-    // TODO: SKIP FOR NOW
+
     @Valid
     private InteropRefundData refundInfo;
 

@@ -42,7 +42,7 @@ public class WorkingCapitalLoanLifecycleStateMachine {
     private LoanStatus getNextStatus(final WorkingCapitalLoanEvent event, final WorkingCapitalLoan loan) {
         LoanStatus from = loan.getLoanStatus();
         if (from == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
 
         return switch (event) {

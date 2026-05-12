@@ -23,7 +23,7 @@ import org.apache.fineract.accounting.financialactivityaccount.data.FinancialAct
 import org.apache.fineract.accounting.glaccount.data.GLAccountData;
 
 /**
- * Created by sanyam on 24/7/17.
+ * Created by sanyam on 24
  */
 final class FinancialActivityAccountsApiResourceSwagger {
 
@@ -50,7 +50,7 @@ final class FinancialActivityAccountsApiResourceSwagger {
 
         }
 
-        @Schema(example = "200")
+        @Schema(example = "200
         public Long financialActivityId;
         @Schema(example = "2")
         public Long glAccountId;

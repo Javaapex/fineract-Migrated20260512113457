@@ -32,7 +32,7 @@ public final class CobHelper {
 
     private CobHelper() {}
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)

@@ -34,7 +34,7 @@ public class ShareAccountDividendDetails extends AbstractPersistableCustom<Long>
     @Column(name = "account_id", nullable = false)
     private Long shareAccountId;
 
-    @Column(name = "amount", scale = 6, precision = 19)
+    @Column(name = "amount", scale = 6, precision = 19
     private BigDecimal amount;
 
     @Column(name = "status")

@@ -34,7 +34,7 @@ public class VariableIntallmentsTransactionHelper {
     private final RequestSpecification requestSpec;
     private final ResponseSpecification responseSpec;
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -43,7 +43,7 @@ public class VariableIntallmentsTransactionHelper {
         this.responseSpec = responseSpec;
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -52,7 +52,7 @@ public class VariableIntallmentsTransactionHelper {
         return Utils.performServerGet(requestSpec, responseSpec, url, "");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -61,7 +61,7 @@ public class VariableIntallmentsTransactionHelper {
         return Utils.performServerPost(this.requestSpec, this.responseSpec, url, exceptions, "");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)

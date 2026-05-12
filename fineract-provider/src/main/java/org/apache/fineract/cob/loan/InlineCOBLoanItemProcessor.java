@@ -32,6 +32,7 @@ public class InlineCOBLoanItemProcessor extends AbstractLoanItemProcessor {
 
     @BeforeStep
     public void beforeStep(StepExecution stepExecution) {
+        Objects.requireNonNull(stepExecution, "stepExecution cannot be null");
         setExecutionContext(stepExecution.getJobExecution().getExecutionContext());
         setBusinessDate(stepExecution);
     }

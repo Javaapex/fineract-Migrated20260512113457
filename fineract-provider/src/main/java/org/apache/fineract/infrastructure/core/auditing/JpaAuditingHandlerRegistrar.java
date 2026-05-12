@@ -27,6 +27,8 @@ public class JpaAuditingHandlerRegistrar implements ImportBeanDefinitionRegistra
 
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
+        Objects.requireNonNull(registry, "registry cannot be null");
+        Objects.requireNonNull(importingClassMetadata, "importingClassMetadata cannot be null");
         registry.registerBeanDefinition("jpaAuditingHandler",
                 BeanDefinitionBuilder.rootBeanDefinition(CustomAuditingHandler.class).addConstructorArgReference("jpaMappingContext")
                         .addConstructorArgReference("auditorAware").setScope("prototype").getBeanDefinition());

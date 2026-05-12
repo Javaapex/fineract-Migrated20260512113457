@@ -64,6 +64,7 @@ public class LoanCapitalizedIncomeAmortizationProcessingServiceImpl implements L
     @Override
     @Transactional
     public void processCapitalizedIncomeAmortizationOnLoanClosure(@NonNull final Loan loan, final boolean addJournal) {
+        Objects.requireNonNull(loan, "loan cannot be null");
         final LocalDate transactionDate = getFinalCapitalizedIncomeAmortizationTransactionDate(loan);
         final Optional<LoanTransaction> amortizationTransaction = createCapitalizedIncomeAmortizationTransaction(loan, transactionDate,
                 false, null);
@@ -85,6 +86,7 @@ public class LoanCapitalizedIncomeAmortizationProcessingServiceImpl implements L
     @Transactional
     public void processCapitalizedIncomeAmortizationOnLoanChargeOff(@NonNull final Loan loan,
             @NonNull final LoanTransaction chargeOffTransaction) {
+        Objects.requireNonNull(chargeOffTransaction, "chargeOffTransaction cannot be null");
         LocalDate transactionDate = loan.getChargedOffOnDate();
         if (transactionDate == null) {
             transactionDate = DateUtils.getBusinessLocalDate();
@@ -186,6 +188,7 @@ public class LoanCapitalizedIncomeAmortizationProcessingServiceImpl implements L
     @Override
     @Transactional
     public void processCapitalizedIncomeAmortizationOnLoanUndoChargeOff(@NonNull final LoanTransaction loanTransaction) {
+        Objects.requireNonNull(loanTransaction, "loanTransaction cannot be null");
         final Loan loan = loanTransaction.getLoan();
 
         loan.getLoanTransactions().stream().filter(LoanTransaction::isCapitalizedIncomeAmortization)
@@ -211,6 +214,7 @@ public class LoanCapitalizedIncomeAmortizationProcessingServiceImpl implements L
     @Transactional
     public void processCapitalizedIncomeAmortizationTillDate(@NonNull final Loan loan, @NonNull final LocalDate tillDate,
             final boolean addJournal) {
+        Objects.requireNonNull(tillDate, "tillDate cannot be null");
         final List<LoanCapitalizedIncomeBalance> balances = loanCapitalizedIncomeBalanceRepository
                 .findAllByLoanIdAndClosedFalse(loan.getId());
 

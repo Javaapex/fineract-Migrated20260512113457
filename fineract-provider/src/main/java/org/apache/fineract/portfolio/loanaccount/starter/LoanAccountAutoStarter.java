@@ -130,6 +130,8 @@ public class LoanAccountAutoStarter {
     public LoanRepaymentScheduleTransactionProcessorFactory loanRepaymentScheduleTransactionProcessorFactory(
             PrincipalInterestPenaltyFeesOrderLoanRepaymentScheduleTransactionProcessor defaultLoanRepaymentScheduleTransactionProcessor,
             List<LoanRepaymentScheduleTransactionProcessor> processors) {
+        Objects.requireNonNull(processors, "processors cannot be null");
+        Objects.requireNonNull(defaultLoanRepaymentScheduleTransactionProcessor, "defaultLoanRepaymentScheduleTransactionProcessor cannot be null");
         return new LoanRepaymentScheduleTransactionProcessorFactory(defaultLoanRepaymentScheduleTransactionProcessor, processors);
     }
 
@@ -141,6 +143,7 @@ public class LoanAccountAutoStarter {
             final LoanChargeValidator loanChargeValidator, final LoanBalanceService loanBalanceService,
             @Lazy final LoanChargeService loanChargeService, final ScheduledDateGenerator scheduledDateGenerator,
             final ConfigurationDomainService configurationDomainService) {
+        Objects.requireNonNull(loanChargeService, "loanChargeService cannot be null");
         return new AdvancedPaymentScheduleTransactionProcessor(emiCalculator, progressiveLoanInterestRefundService, externalIdFactory,
                 loanSchedule, loanChargeValidator, loanBalanceService, loanChargeService, scheduledDateGenerator,
                 configurationDomainService);

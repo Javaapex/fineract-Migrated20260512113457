@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
 
 /**
- * Created by Chirag Gupta on 12/30/17.
+ * Created by Chirag Gupta on 12
  */
 final class LoanScheduleApiResourceSwagger {
 

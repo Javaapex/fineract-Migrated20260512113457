@@ -50,6 +50,9 @@ public class AmazonS3Config {
     @Bean("s3Client")
     public S3Client s3Client(DefaultCredentialsProvider awsCredentialsProvider, AwsRegionProvider awsRegionProvider,
             List<S3ClientCustomizer> customizers) {
+        Objects.requireNonNull(customizers, "customizers cannot be null");
+        Objects.requireNonNull(awsRegionProvider, "awsRegionProvider cannot be null");
+        Objects.requireNonNull(awsCredentialsProvider, "awsCredentialsProvider cannot be null");
         S3ClientBuilder builder = S3Client.builder().credentialsProvider(awsCredentialsProvider).region(awsRegionProvider.getRegion());
         customizers.forEach(customizer -> customizer.customize(builder));
         return builder.build();
@@ -59,6 +62,10 @@ public class AmazonS3Config {
     @ConditionalOnBean(S3Client.class)
     public S3DatatableReportExportServiceImpl s3DatatableReportExportServiceImpl(ReadReportingService reportServiceImpl,
             ConfigurationDomainService configurationDomainService, S3Client s3Client, FineractProperties fineractProperties) {
+        Objects.requireNonNull(fineractProperties, "fineractProperties cannot be null");
+        Objects.requireNonNull(s3Client, "s3Client cannot be null");
+        Objects.requireNonNull(configurationDomainService, "configurationDomainService cannot be null");
+        Objects.requireNonNull(reportServiceImpl, "reportServiceImpl cannot be null");
         return new S3DatatableReportExportServiceImpl(reportServiceImpl, configurationDomainService, s3Client, fineractProperties);
     }
 

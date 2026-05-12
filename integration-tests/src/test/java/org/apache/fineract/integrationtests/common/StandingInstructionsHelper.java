@@ -57,7 +57,7 @@ public class StandingInstructionsHelper {
     private RequestSpecification requestSpec;
     private ResponseSpecification responseSpec;
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -66,7 +66,7 @@ public class StandingInstructionsHelper {
         this.responseSpec = responseSpec;
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -102,7 +102,7 @@ public class StandingInstructionsHelper {
         return savingsApplicationJSON;
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -115,7 +115,7 @@ public class StandingInstructionsHelper {
                 standingInstructionAsJSON, "resourceId");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -127,7 +127,7 @@ public class StandingInstructionsHelper {
         return Utils.performServerGet(this.requestSpec, this.responseSpec, GET_STANDING_INSTRUCTION_BY_ID_URL, "");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)

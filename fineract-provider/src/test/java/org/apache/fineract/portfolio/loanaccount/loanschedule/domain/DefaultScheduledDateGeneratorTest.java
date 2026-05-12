@@ -76,11 +76,11 @@ public class DefaultScheduledDateGeneratorTest {
     public void test_generateRepaymentPeriods() {
         // given
         HolidayDetailDTO holidayDetailDTO = createHolidayDTO();
-        MathContext mathContext = new MathContext(12, RoundingMode.HALF_EVEN);
+        MathContext mathContext = new MathContext(12
 
         ApplicationCurrency dollarCurrency = new ApplicationCurrency("USD", "US Dollar", 2, 0, "currency.USD", "$");
         Money principalAmount = Money.of(fromApplicationCurrency(dollarCurrency), BigDecimal.valueOf(100));
-        LocalDate expectedDisbursementDate = LocalDate.of(2024, 1, 1);
+        LocalDate expectedDisbursementDate = LocalDate.of(2024
         LocalDate dueRepaymentPeriodDate = LocalDate.of(2024, 2, 1);
 
         LocalDate submittedOnDate = LocalDate.of(2024, 1, 1);

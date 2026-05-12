@@ -34,6 +34,7 @@ public class LoanTransactionDataV1Enricher implements DataEnricher<LoanTransacti
 
     @Override
     public boolean isDataTypeSupported(Class<LoanTransactionDataV1> dataType) {
+        Objects.requireNonNull(dataType, "dataType cannot be null");
         return dataType.isAssignableFrom(LoanTransactionDataV1.class);
     }
 

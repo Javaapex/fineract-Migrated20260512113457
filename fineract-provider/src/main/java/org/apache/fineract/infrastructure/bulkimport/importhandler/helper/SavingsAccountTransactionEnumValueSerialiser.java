@@ -29,6 +29,9 @@ public class SavingsAccountTransactionEnumValueSerialiser implements JsonSeriali
 
     @Override
     public JsonElement serialize(SavingsAccountTransactionEnumData src, Type typeOfSrc, JsonSerializationContext context) {
+        Objects.requireNonNull(context, "context cannot be null");
+        Objects.requireNonNull(typeOfSrc, "typeOfSrc cannot be null");
+        Objects.requireNonNull(src, "src cannot be null");
         return new JsonPrimitive(src.getValue());
     }
 }

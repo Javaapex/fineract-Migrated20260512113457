@@ -35,6 +35,7 @@ public class AccrualActivityPostingBusinessStep implements LoanCOBBusinessStep {
 
     @Override
     public Loan execute(Loan loan) {
+        Objects.requireNonNull(loan, "loan cannot be null");
         log.debug("start processing loan accrual activity posting on installment due date with id [{}]", loan.getId());
         final LocalDate currentDate = DateUtils.getBusinessLocalDate();
 

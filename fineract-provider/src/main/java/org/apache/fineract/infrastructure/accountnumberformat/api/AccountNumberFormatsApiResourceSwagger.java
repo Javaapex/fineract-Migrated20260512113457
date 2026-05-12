@@ -24,7 +24,7 @@ import java.util.Map;
 import org.apache.fineract.infrastructure.core.data.EnumOptionData;
 
 /**
- * Created by sanyam on 28/7/17.
+ * Created by sanyam on 28
  */
 final class AccountNumberFormatsApiResourceSwagger {
 
@@ -78,7 +78,7 @@ final class AccountNumberFormatsApiResourceSwagger {
 
         @Schema(example = "1")
         public Long accountType;
-        @Schema(example = "101")
+        @Schema(example = "101
         public Long prefixType;
 
     }

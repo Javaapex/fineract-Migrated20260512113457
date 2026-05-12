@@ -694,7 +694,7 @@ public class FixedDepositAccount extends SavingsAccount {
     }
 
     private LocalDate depositStartDate() {
-        // TODO: Support to add deposit start date which can be a date after
+
         // account activation date.
         final LocalDate depositStartDate = accountSubmittedOrActivationDate();
         return depositStartDate;

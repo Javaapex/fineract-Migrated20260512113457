@@ -36,6 +36,7 @@ public class JsonNodeReadingConverter implements Converter<String, JsonNode> {
     @SneakyThrows
     @Override
     public JsonNode convert(String source) {
+        Objects.requireNonNull(source, "source cannot be null");
         return mapper.readTree(source);
     }
 }

@@ -41,6 +41,7 @@ public class UndoApproveShareAccountCommandHandler implements NewCommandSourceHa
     @Transactional
     @Override
     public CommandProcessingResult processCommand(JsonCommand jsonCommand) {
+        Objects.requireNonNull(jsonCommand, "jsonCommand cannot be null");
         return this.shareAccountWritePlatformService.undoApproveShareAccount(jsonCommand.entityId(), jsonCommand);
     }
 

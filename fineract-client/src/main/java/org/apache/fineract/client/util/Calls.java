@@ -40,7 +40,7 @@ public final class Calls {
      * @return the body of the successful call (never null)
      * @throws CallFailedRuntimeException
      *             thrown either if a problem occurred talking to the server, or the HTTP response code was not
-     *             [200..300) successful
+     *             [200
      */
     public static <T> T ok(Call<T> call) throws CallFailedRuntimeException {
         return okR(call).body();

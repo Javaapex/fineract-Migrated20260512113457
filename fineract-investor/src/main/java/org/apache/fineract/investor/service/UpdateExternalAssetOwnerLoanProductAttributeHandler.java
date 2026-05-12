@@ -38,6 +38,7 @@ public class UpdateExternalAssetOwnerLoanProductAttributeHandler implements NewC
 
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         final JsonElement json = fromApiJsonHelper.parse(command.json());
         String attributeKey = fromApiJsonHelper.extractStringNamed(ExternalAssetOwnerLoanProductAttributeRequestParameters.ATTRIBUTE_KEY,
                 json);

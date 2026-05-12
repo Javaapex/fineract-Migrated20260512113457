@@ -52,10 +52,10 @@ public class LoanSummaryTest extends BaseLoanIntegrationTest {
     @Test
     public void testUnpaidPayableNotDueInterestForProgressiveLoanInCaseOfEarlyRepayment() {
         businessStepHelper.updateSteps("LOAN_CLOSE_OF_BUSINESS", "ADD_PERIODIC_ACCRUAL_ENTRIES", "LOAN_INTEREST_RECALCULATION");
-        runAt("1 January 2024", () -> {
+        runAt("1 January 2024
             final PostLoanProductsResponse loanProductsResponse = loanProductHelper.createLoanProduct(create4IProgressive());
             PostLoansResponse postLoansResponse = loanTransactionHelper.applyLoan(applyLP2ProgressiveLoanRequest(clientId,
-                    loanProductsResponse.getResourceId(), "01 January 2024", 1000.0, 9.99, 6, null));
+                    loanProductsResponse.getResourceId(), "01
             loanId = postLoansResponse.getLoanId();
             loanTransactionHelper.approveLoan(loanId, approveLoanRequest(1000.0, "01 January 2024"));
             disburseLoan(loanId, BigDecimal.valueOf(250.0), "01 January 2024");

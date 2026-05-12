@@ -50,6 +50,7 @@ public class InterestRateChartConfiguration {
     @Bean
     @ConditionalOnMissingBean(InterestIncentiveAssembler.class)
     public InterestIncentiveAssembler interestIncentiveAssembler(FromJsonHelper fromApiJsonHelper) {
+        Objects.requireNonNull(fromApiJsonHelper, "fromApiJsonHelper cannot be null");
         return new InterestIncentiveAssembler(fromApiJsonHelper);
     }
 
@@ -57,6 +58,8 @@ public class InterestRateChartConfiguration {
     @ConditionalOnMissingBean(InterestRateChartAssembler.class)
     public InterestRateChartAssembler interestRateChartAssembler(FromJsonHelper fromApiJsonHelper,
             InterestRateChartRepositoryWrapper interestRateChartRepositoryWrapper, InterestRateChartSlabAssembler chartSlabAssembler) {
+        Objects.requireNonNull(chartSlabAssembler, "chartSlabAssembler cannot be null");
+        Objects.requireNonNull(interestRateChartRepositoryWrapper, "interestRateChartRepositoryWrapper cannot be null");
         return new InterestRateChartAssembler(fromApiJsonHelper, interestRateChartRepositoryWrapper, chartSlabAssembler);
     }
 
@@ -64,6 +67,7 @@ public class InterestRateChartConfiguration {
     @ConditionalOnMissingBean(InterestRateChartSlabAssembler.class)
     public InterestRateChartSlabAssembler interestRateChartSlabAssembler(FromJsonHelper fromApiJsonHelper,
             InterestRateChartRepositoryWrapper interestRateChartRepositoryWrapper, InterestIncentiveAssembler incentiveAssembler) {
+        Objects.requireNonNull(incentiveAssembler, "incentiveAssembler cannot be null");
         return new InterestRateChartSlabAssembler(fromApiJsonHelper, interestRateChartRepositoryWrapper, incentiveAssembler);
     }
 
@@ -100,6 +104,11 @@ public class InterestRateChartConfiguration {
             InterestRateChartDropdownReadService chartDropdownReadPlatformService,
             InterestIncentiveDropdownReadService interestIncentiveDropdownReadService,
             CodeValueReadPlatformService codeValueReadPlatformService) {
+        Objects.requireNonNull(codeValueReadPlatformService, "codeValueReadPlatformService cannot be null");
+        Objects.requireNonNull(interestIncentiveDropdownReadService, "interestIncentiveDropdownReadService cannot be null");
+        Objects.requireNonNull(chartDropdownReadPlatformService, "chartDropdownReadPlatformService cannot be null");
+        Objects.requireNonNull(chartExtractor, "chartExtractor cannot be null");
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
         return new InterestRateChartReadServiceImpl(jdbcTemplate, chartExtractor, chartDropdownReadPlatformService,
                 interestIncentiveDropdownReadService, codeValueReadPlatformService);
     }
@@ -117,6 +126,7 @@ public class InterestRateChartConfiguration {
             InterestRateChartDropdownReadService chartDropdownReadPlatformService,
             InterestIncentiveDropdownReadService interestIncentiveDropdownReadService,
             CodeValueReadPlatformService codeValueReadPlatformService) {
+        Objects.requireNonNull(chartSlabExtractor, "chartSlabExtractor cannot be null");
         return new InterestRateChartSlabsReadServiceImpl(jdbcTemplate, chartSlabExtractor, chartDropdownReadPlatformService,
                 interestIncentiveDropdownReadService, codeValueReadPlatformService);
     }
@@ -125,6 +135,7 @@ public class InterestRateChartConfiguration {
     @ConditionalOnMissingBean(InterestRateChartSlabsWriteService.class)
     public InterestRateChartSlabsWriteService interestRateChartSlabWriteService(
             InterestRateChartRepositoryWrapper interestRateChartRepository, InterestRateChartSlabRepository chartSlabRepository) {
+        Objects.requireNonNull(chartSlabRepository, "chartSlabRepository cannot be null");
         return new InterestRateChartSlabsWriteServiceImpl(interestRateChartRepository, chartSlabRepository);
     }
 

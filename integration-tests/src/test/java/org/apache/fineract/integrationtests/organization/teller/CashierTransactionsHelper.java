@@ -40,7 +40,7 @@ public class CashierTransactionsHelper {
     private static final String CREATE_TELLER_URL = "/fineract-provider/api/v1/tellers";
     private static final Logger LOG = LoggerFactory.getLogger(CashierTransactionsHelper.class);
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -61,7 +61,7 @@ public class CashierTransactionsHelper {
                 currencyCode, offset, limit, orderBy, sortOrder));
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -69,7 +69,7 @@ public class CashierTransactionsHelper {
         return (Integer) createTellerWithJson(requestSpec, responseSpec, createTellerAsJSON()).get("resourceId");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -80,7 +80,7 @@ public class CashierTransactionsHelper {
         return Utils.performServerPost(requestSpec, responseSpec, url, json, "");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -97,7 +97,7 @@ public class CashierTransactionsHelper {
         return new Gson().toJson(map);
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -111,7 +111,7 @@ public class CashierTransactionsHelper {
         return map;
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -125,7 +125,7 @@ public class CashierTransactionsHelper {
         return Utils.performServerPost(requestSpec, responseSpec, url, json, "");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -139,7 +139,7 @@ public class CashierTransactionsHelper {
         return new Gson().toJson(map);
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)

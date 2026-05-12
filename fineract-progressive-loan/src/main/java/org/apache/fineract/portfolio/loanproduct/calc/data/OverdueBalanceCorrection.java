@@ -33,4 +33,7 @@ import org.apache.fineract.organisation.monetary.domain.Money;
  *            the dueDate of the RepaymentPeriod that received this correction (for beyond/onTarget detection)
  */
 public record OverdueBalanceCorrection(LocalDate correctionDate, Money amount, LocalDate affectedRpDueDate) {
+        Objects.requireNonNull(affectedRpDueDate, "affectedRpDueDate cannot be null");
+        Objects.requireNonNull(amount, "amount cannot be null");
+        Objects.requireNonNull(correctionDate, "correctionDate cannot be null");
 }

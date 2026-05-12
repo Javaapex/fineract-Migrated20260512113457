@@ -65,7 +65,7 @@ public class InteropTransactionRequestData extends InteropRequestData {
     public static InteropTransactionRequestData validateAndParse(final DataValidatorBuilder dataValidator, JsonObject element,
             FromJsonHelper jsonHelper) {
         if (element == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
 
         jsonHelper.checkForUnsupportedParameters(element, Arrays.asList(PARAMS));

@@ -326,7 +326,7 @@ public class DefaultScheduledDateGenerator implements ScheduledDateGenerator {
             case INVALID:
             break;
             case WHOLE_TERM:
-            // TODO: Implement getRepaymentPeriodDate for WHOLE_TERM
+
             break;
         }
         return dueRepaymentPeriodDate;
@@ -368,7 +368,7 @@ public class DefaultScheduledDateGenerator implements ScheduledDateGenerator {
             case INVALID:
             break;
             case WHOLE_TERM:
-            // TODO: Implement getRepaymentPeriodDate for WHOLE_TERM
+
             break;
         }
         return isScheduledDate;
@@ -405,7 +405,7 @@ public class DefaultScheduledDateGenerator implements ScheduledDateGenerator {
             case INVALID:
             break;
             case WHOLE_TERM:
-            // TODO: Implement getRepaymentPeriodDate for WHOLE_TERM
+
             break;
         }
 

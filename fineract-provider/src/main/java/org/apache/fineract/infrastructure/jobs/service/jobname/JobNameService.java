@@ -33,6 +33,7 @@ public class JobNameService {
     private final Collection<JobNameProvider> providers;
 
     public JobNameData getJobByHumanReadableName(String jobName) {
+        Objects.requireNonNull(jobName, "jobName cannot be null");
         Optional<JobNameData> optionalJob = getJobNames().stream().filter(jn -> jobName.equals(jn.getHumanReadableName())).findAny();
         return optionalJob.orElseThrow(() -> new IllegalArgumentException("Job not found by name: " + jobName));
     }

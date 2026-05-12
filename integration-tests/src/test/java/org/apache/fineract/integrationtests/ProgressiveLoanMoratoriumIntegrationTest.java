@@ -30,7 +30,7 @@ public class ProgressiveLoanMoratoriumIntegrationTest extends BaseLoanIntegratio
     public void testProgressivePrincipalMoratoriumSchedule() {
         final PostClientsResponse client = clientHelper.createClient(ClientHelper.defaultClientCreationRequest());
 
-        runAt("1 January 2024", () -> {
+        runAt("1 January 2024
             PostLoanProductsResponse loanProduct = loanProductHelper.createLoanProduct(create4IProgressive().principal(100.0)
                     .minPrincipal(100.0).maxPrincipal(100.0).numberOfRepayments(6).interestRatePerPeriod(7.0));
 

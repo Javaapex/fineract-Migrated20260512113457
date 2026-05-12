@@ -35,6 +35,7 @@ public class CreateTaxComponentCommandHandler implements NewCommandSourceHandler
 
     @Override
     public CommandProcessingResult processCommand(JsonCommand jsonCommand) {
+        Objects.requireNonNull(jsonCommand, "jsonCommand cannot be null");
         return this.taxWritePlatformService.createTaxComponent(jsonCommand);
     }
 

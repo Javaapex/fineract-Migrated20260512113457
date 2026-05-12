@@ -56,7 +56,7 @@ public class LoanRepaymentScheduleHistory extends AbstractPersistableCustom<Long
     @Column(name = "duedate", nullable = false)
     private LocalDate dueDate;
 
-    @Column(name = "principal_amount", scale = 6, precision = 19, nullable = true)
+    @Column(name = "principal_amount", scale = 6, precision = 19
     private BigDecimal principal;
 
     @Column(name = "interest_amount", scale = 6, precision = 19, nullable = true)

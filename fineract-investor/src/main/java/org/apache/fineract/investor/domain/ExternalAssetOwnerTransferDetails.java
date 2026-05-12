@@ -43,7 +43,7 @@ public class ExternalAssetOwnerTransferDetails extends AbstractAuditableWithUTCD
     @JoinColumn(name = "asset_owner_transfer_id", referencedColumnName = "id")
     private ExternalAssetOwnerTransfer externalAssetOwnerTransfer;
 
-    @Column(name = "total_outstanding_derived", scale = 6, precision = 19, nullable = false)
+    @Column(name = "total_outstanding_derived", scale = 6, precision = 19
     private BigDecimal totalOutstanding;
 
     @Column(name = "principal_outstanding_derived", scale = 6, precision = 19, nullable = false)
@@ -62,21 +62,25 @@ public class ExternalAssetOwnerTransferDetails extends AbstractAuditableWithUTCD
     private BigDecimal totalOverpaid;
 
     public void setTotalPrincipalOutstanding(BigDecimal totalPrincipalOutstanding) {
+        Objects.requireNonNull(totalPrincipalOutstanding, "totalPrincipalOutstanding cannot be null");
         this.totalPrincipalOutstanding = Objects.requireNonNullElse(totalPrincipalOutstanding, BigDecimal.ZERO);
         updateTotalOutstanding();
     }
 
     public void setTotalInterestOutstanding(BigDecimal totalInterestOutstanding) {
+        Objects.requireNonNull(totalInterestOutstanding, "totalInterestOutstanding cannot be null");
         this.totalInterestOutstanding = Objects.requireNonNullElse(totalInterestOutstanding, BigDecimal.ZERO);
         updateTotalOutstanding();
     }
 
     public void setTotalFeeChargesOutstanding(BigDecimal totalFeeChargesOutstanding) {
+        Objects.requireNonNull(totalFeeChargesOutstanding, "totalFeeChargesOutstanding cannot be null");
         this.totalFeeChargesOutstanding = Objects.requireNonNullElse(totalFeeChargesOutstanding, BigDecimal.ZERO);
         updateTotalOutstanding();
     }
 
     public void setTotalPenaltyChargesOutstanding(BigDecimal totalPenaltyChargesOutstanding) {
+        Objects.requireNonNull(totalPenaltyChargesOutstanding, "totalPenaltyChargesOutstanding cannot be null");
         this.totalPenaltyChargesOutstanding = Objects.requireNonNullElse(totalPenaltyChargesOutstanding, BigDecimal.ZERO);
         updateTotalOutstanding();
     }
@@ -87,6 +91,7 @@ public class ExternalAssetOwnerTransferDetails extends AbstractAuditableWithUTCD
     }
 
     public void setTotalOverpaid(BigDecimal totalOverpaid) {
+        Objects.requireNonNull(totalOverpaid, "totalOverpaid cannot be null");
         this.totalOverpaid = Objects.requireNonNullElse(totalOverpaid, BigDecimal.ZERO);
     }
 }

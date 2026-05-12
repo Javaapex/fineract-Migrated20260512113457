@@ -24,6 +24,7 @@ public class TenantModuleRootFilter implements IncludeAllFilter {
 
     @Override
     public boolean include(String changeLogPath) {
+        Objects.requireNonNull(changeLogPath, "changeLogPath cannot be null");
         return changeLogPath.endsWith("module-changelog-master.xml");
     }
 }

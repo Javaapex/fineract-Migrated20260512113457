@@ -26,7 +26,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Created by Cieyou on 3/13/14.
+ * Created by Cieyou on 3/13
  */
 @Service
 @RequiredArgsConstructor
@@ -37,6 +37,7 @@ public class WriteSurveyServiceImpl implements WriteSurveyService {
     @Override
     @Transactional
     public CommandProcessingResult registerSurvey(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         datatableWriteService.registerDatatable(command);
 
         return CommandProcessingResult.commandOnlyResult(command.commandId());

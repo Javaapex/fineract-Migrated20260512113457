@@ -174,43 +174,53 @@ public class LoanProductConfigurableAttributes extends AbstractPersistableCustom
     }
 
     public void setLoanProduct(LoanProduct loanProduct) {
+        Objects.requireNonNull(loanProduct, "loanProduct cannot be null");
         this.loanProduct = loanProduct;
     }
 
     public void setAmortizationType(Boolean amortizationType) {
+        Objects.requireNonNull(amortizationType, "amortizationType cannot be null");
         this.amortizationType = amortizationType;
     }
 
     public void setInterestType(Boolean interestType) {
+        Objects.requireNonNull(interestType, "interestType cannot be null");
         this.interestType = interestType;
     }
 
     public void setTransactionProcessingStrategyCode(Boolean transactionProcessingStrategyCode) {
+        Objects.requireNonNull(transactionProcessingStrategyCode, "transactionProcessingStrategyCode cannot be null");
         this.transactionProcessingStrategyCode = transactionProcessingStrategyCode;
     }
 
     public void setInterestCalculationPeriodType(Boolean interestCalculationPeriodType) {
+        Objects.requireNonNull(interestCalculationPeriodType, "interestCalculationPeriodType cannot be null");
         this.interestCalculationPeriodType = interestCalculationPeriodType;
     }
 
     public void setInArrearsTolerance(Boolean inArrearsTolerance) {
+        Objects.requireNonNull(inArrearsTolerance, "inArrearsTolerance cannot be null");
         this.inArrearsTolerance = inArrearsTolerance;
     }
 
     public void setRepaymentEvery(Boolean repaymentEvery) {
+        Objects.requireNonNull(repaymentEvery, "repaymentEvery cannot be null");
         this.repaymentEvery = repaymentEvery;
     }
 
     public void setGraceOnPrincipalAndInterestPayment(Boolean graceOnPrincipalAndInterestPayment) {
+        Objects.requireNonNull(graceOnPrincipalAndInterestPayment, "graceOnPrincipalAndInterestPayment cannot be null");
         this.graceOnPrincipalAndInterestPayment = graceOnPrincipalAndInterestPayment;
     }
 
     public void setGraceOnArrearsAgeing(Boolean graceOnArrearsAgeing) {
+        Objects.requireNonNull(graceOnArrearsAgeing, "graceOnArrearsAgeing cannot be null");
         this.graceOnArrearsAgeing = graceOnArrearsAgeing;
     }
 
     @Override
     public boolean equals(Object o) {
+        Objects.requireNonNull(o, "o cannot be null");
         if (this == o) {
             return true;
         }

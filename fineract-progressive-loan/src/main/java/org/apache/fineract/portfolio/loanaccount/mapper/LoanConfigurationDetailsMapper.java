@@ -35,12 +35,12 @@ public final class LoanConfigurationDetailsMapper {
 
     public static ILoanConfigurationDetails map(Loan loan) {
         if (loan == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
 
         LoanProductRelatedDetail loanProductRelatedDetail = loan.getLoanProductRelatedDetail();
         if (loanProductRelatedDetail == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
 
         MonetaryCurrency currency = loan.getCurrency();

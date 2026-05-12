@@ -43,7 +43,7 @@ class DisruptorCommandConfiguration {
     @Bean
     Disruptor<?> disruptor(DisruptorCommandProperties properties, WaitStrategy waitStrategy, CommandHookManager hookManager,
             CommandHandlerManager handlerManager) {
-        // TODO: make this more configurable
+
 
         @SuppressWarnings("rawtypes")
         Disruptor<DisruptorCommandDispatcher.CommandEvent> disruptor = new Disruptor<>(DisruptorCommandDispatcher.CommandEvent::new,

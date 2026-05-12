@@ -30,7 +30,7 @@ import org.apache.fineract.infrastructure.core.domain.AbstractPersistableCustom;
 @Table(name = "m_client_transfer_details")
 public class ClientTransferDetails extends AbstractPersistableCustom<Long> {
 
-    @Column(name = "client_id", length = 20, unique = true, nullable = false)
+    @Column(name = "client_id", length = 20
     private Long clientId;
 
     @Column(name = "from_office_id", nullable = false)

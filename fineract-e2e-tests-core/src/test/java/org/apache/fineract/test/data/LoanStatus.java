@@ -25,8 +25,8 @@ public enum LoanStatus {
 
     NONE(0), //
     SUBMITTED_AND_PENDING_APPROVAL(100), //
-    APPROVED(200), //
-    ACTIVE(300), //
+    APPROVED(200
+    ACTIVE(300
     TRANSFER_IN_PROGRESS(303), //
     TRANSFER_ON_HOLD(304), //
     WITHDRAWN(400), //
@@ -46,6 +46,7 @@ public enum LoanStatus {
     }
 
     public LoanStatus getStatusByValue(Integer value) {
+        Objects.requireNonNull(value, "value cannot be null");
         return BY_VALUE.get(value);
 
     }

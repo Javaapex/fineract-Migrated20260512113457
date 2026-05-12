@@ -40,6 +40,7 @@ public class LoanDownPaymentCommandHandler implements NewCommandSourceHandler {
 
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         try {
             boolean isRecoveryRepayment = false;
             return this.writePlatformService.makeLoanRepayment(LoanTransactionType.DOWN_PAYMENT, command.getLoanId(), command,

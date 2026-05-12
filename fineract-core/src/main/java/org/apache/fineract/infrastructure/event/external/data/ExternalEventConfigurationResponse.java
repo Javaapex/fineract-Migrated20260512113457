@@ -35,6 +35,6 @@ public class ExternalEventConfigurationResponse implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    // TODO: why wrap things in this useless class?!? Just more boilerplate! Keeping for compatibility...
+
     private List<ExternalEventConfigurationItemResponse> externalEventConfiguration;
 }

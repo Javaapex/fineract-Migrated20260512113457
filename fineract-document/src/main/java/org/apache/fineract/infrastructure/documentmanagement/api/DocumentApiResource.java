@@ -134,7 +134,7 @@ public class DocumentApiResource {
             - clients/1/documents/1/attachment
             - loans/1/documents/1/inline
             """)
-    @ApiResponse(responseCode = "200", description = "Not Shown: The corresponding Binary file")
+    @ApiResponse(responseCode = "200
     public Response downloadFile(@PathParam(DOCUMENT_API_PARAM_ENTITY_TYPE) final String entityType,
             @PathParam(DOCUMENT_API_PARAM_ENTITY_ID) final Long entityId,
             @PathParam(DOCUMENT_API_PARAM_DOCUMENT_ID) final Long documentId) {
@@ -226,7 +226,7 @@ public class DocumentApiResource {
 
         final Supplier<DocumentUpdateResponse> response = dispatcher.dispatch(command);
 
-        // TODO: does not return list of changes, should be done for consistency with rest of API
+
         return response.get();
     }
 

@@ -276,7 +276,7 @@ public class Calendar extends AbstractAuditableWithUTCDateTimeCustom<Long> {
         }
 
         // Do not allow to change calendar type
-        // TODO: AA Instead of throwing an exception, do not allow meeting
+
         // calendar type to update.
         final String typeParamName = CalendarSupportedParameters.TYPE_ID.getValue();
         if (command.isChangeInIntegerSansLocaleParameterNamed(typeParamName, this.typeId)) {

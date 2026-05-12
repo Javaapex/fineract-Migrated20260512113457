@@ -34,6 +34,7 @@ public class CustomExternalEventConfigurationRepositoryImpl implements CustomExt
 
     @Override
     public ExternalEventConfiguration findExternalEventConfigurationByTypeWithNotFoundDetection(String externalEventType) {
+        Objects.requireNonNull(externalEventType, "externalEventType cannot be null");
         final ExternalEventConfiguration configuration = entityManager.find(ExternalEventConfiguration.class, externalEventType);
         if (configuration == null) {
             throw new ExternalEventConfigurationNotFoundException(externalEventType);

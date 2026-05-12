@@ -39,18 +39,23 @@ public class SpmConfiguration {
     @Bean
     @ConditionalOnMissingBean(LookupTableService.class)
     public LookupTableService lookupTableService(PlatformSecurityContext securityContext, LookupTableRepository lookupTableRepository) {
+        Objects.requireNonNull(lookupTableRepository, "lookupTableRepository cannot be null");
+        Objects.requireNonNull(securityContext, "securityContext cannot be null");
         return new LookupTableService(securityContext, lookupTableRepository);
     }
 
     @Bean
     @ConditionalOnMissingBean(ScorecardReadPlatformService.class)
     public ScorecardReadPlatformService scorecardReadPlatformService(JdbcTemplate jdbcTemplate, PlatformSecurityContext context) {
+        Objects.requireNonNull(context, "context cannot be null");
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
         return new ScorecardReadPlatformServiceImpl(jdbcTemplate, context);
     }
 
     @Bean
     @ConditionalOnMissingBean(ScorecardService.class)
     public ScorecardService scorecardService(PlatformSecurityContext securityContext, ScorecardRepository scorecardRepository) {
+        Objects.requireNonNull(scorecardRepository, "scorecardRepository cannot be null");
 
         return new ScorecardService(securityContext, scorecardRepository);
     }
@@ -59,6 +64,8 @@ public class SpmConfiguration {
     @ConditionalOnMissingBean(SpmService.class)
     public SpmService spmService(PlatformSecurityContext securityContext, SurveyRepository surveyRepository,
             SurveyValidator surveyValidator) {
+        Objects.requireNonNull(surveyValidator, "surveyValidator cannot be null");
+        Objects.requireNonNull(surveyRepository, "surveyRepository cannot be null");
         return new SpmService(securityContext, surveyRepository, surveyValidator);
     }
 }

@@ -51,6 +51,7 @@ public class JmsBatchWorkerMessageListener implements MessageListener, Initializ
     @Override
     @SuppressWarnings({ "unchecked" })
     public void onMessage(jakarta.jms.Message message) {
+        Objects.requireNonNull(message, "message cannot be null");
         try {
             Message<ContextualMessage> msg = (Message<ContextualMessage>) converter.fromMessage(message);
             log.debug("Received JMS partition message {}", msg);
@@ -65,7 +66,7 @@ public class JmsBatchWorkerMessageListener implements MessageListener, Initializ
         try {
             message.acknowledge();
         } catch (JMSException e) {
-            throw new RuntimeException("Unable to acknowledge message", e);
+            throw new RuntimeException
         }
     }
 }

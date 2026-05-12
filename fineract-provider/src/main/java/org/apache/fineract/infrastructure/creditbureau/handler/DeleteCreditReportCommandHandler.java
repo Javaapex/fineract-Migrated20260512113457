@@ -39,6 +39,7 @@ public class DeleteCreditReportCommandHandler implements NewCommandSourceHandler
 
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
 
         return this.writePlatformService.deleteCreditReport(command.entityId(), command);
     }

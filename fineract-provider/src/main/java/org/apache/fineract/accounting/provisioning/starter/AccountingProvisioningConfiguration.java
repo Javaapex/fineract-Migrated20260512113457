@@ -47,6 +47,10 @@ public class AccountingProvisioningConfiguration {
     public ProvisioningEntriesReadPlatformService provisioningEntriesReadPlatformService(JdbcTemplate jdbcTemplate,
             PaginationHelper loanProductProvisioningEntryDataPaginationHelper, PaginationHelper provisioningEntryDataPaginationHelper,
             DatabaseSpecificSQLGenerator sqlGenerator) {
+        Objects.requireNonNull(sqlGenerator, "sqlGenerator cannot be null");
+        Objects.requireNonNull(provisioningEntryDataPaginationHelper, "provisioningEntryDataPaginationHelper cannot be null");
+        Objects.requireNonNull(loanProductProvisioningEntryDataPaginationHelper, "loanProductProvisioningEntryDataPaginationHelper cannot be null");
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
         return new ProvisioningEntriesReadPlatformServiceImpl(jdbcTemplate, loanProductProvisioningEntryDataPaginationHelper,
                 provisioningEntryDataPaginationHelper, sqlGenerator);
     }
@@ -60,6 +64,17 @@ public class AccountingProvisioningConfiguration {
             ProvisioningCategoryRepository provisioningCategoryRepository, PlatformSecurityContext platformSecurityContext,
             ProvisioningEntryRepository provisioningEntryRepository, JournalEntryWritePlatformService journalEntryWritePlatformService,
             ProvisioningEntriesDefinitionJsonDeserializer fromApiJsonDeserializer, FromJsonHelper fromApiJsonHelper) {
+        Objects.requireNonNull(fromApiJsonHelper, "fromApiJsonHelper cannot be null");
+        Objects.requireNonNull(fromApiJsonDeserializer, "fromApiJsonDeserializer cannot be null");
+        Objects.requireNonNull(journalEntryWritePlatformService, "journalEntryWritePlatformService cannot be null");
+        Objects.requireNonNull(provisioningEntryRepository, "provisioningEntryRepository cannot be null");
+        Objects.requireNonNull(platformSecurityContext, "platformSecurityContext cannot be null");
+        Objects.requireNonNull(provisioningCategoryRepository, "provisioningCategoryRepository cannot be null");
+        Objects.requireNonNull(officeRepository, "officeRepository cannot be null");
+        Objects.requireNonNull(glAccountRepository, "glAccountRepository cannot be null");
+        Objects.requireNonNull(loanProductRepository, "loanProductRepository cannot be null");
+        Objects.requireNonNull(provisioningCriteriaReadPlatformService, "provisioningCriteriaReadPlatformService cannot be null");
+        Objects.requireNonNull(provisioningEntriesReadPlatformService, "provisioningEntriesReadPlatformService cannot be null");
         return new ProvisioningEntriesWritePlatformServiceJpaRepositoryImpl(provisioningEntriesReadPlatformService,
                 provisioningCriteriaReadPlatformService, loanProductRepository, glAccountRepository, officeRepository,
                 provisioningCategoryRepository, platformSecurityContext, provisioningEntryRepository, journalEntryWritePlatformService,

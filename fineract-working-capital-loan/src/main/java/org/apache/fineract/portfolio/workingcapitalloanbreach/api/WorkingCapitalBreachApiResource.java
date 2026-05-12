@@ -66,7 +66,7 @@ public class WorkingCapitalBreachApiResource {
     @Produces({ MediaType.APPLICATION_JSON })
     @Operation(operationId = "retrieveWorkingCapitalBreachTemplate", summary = "Retrieve Working Capital Breach template", description = "Returns breach options for frequency type and amount calculation type.")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = WorkingCapitalBreachTemplateResponse.class))) })
+            @ApiResponse(responseCode = "200
     public WorkingCapitalBreachTemplateResponse retrieveTemplate() {
         this.context.authenticatedUser().validateHasReadPermission(WorkingCapitalLoanProductConstants.WCLP_RESOURCE_NAME);
         return this.breachReadPlatformService.retrieveTemplate();

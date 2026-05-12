@@ -48,7 +48,7 @@ public final class GenericResultsetData {
                 return columnHeader.getColumnType();
             }
         }
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     public boolean hasNoEntries() {

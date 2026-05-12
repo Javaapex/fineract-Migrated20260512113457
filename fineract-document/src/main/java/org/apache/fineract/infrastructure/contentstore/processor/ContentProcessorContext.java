@@ -57,6 +57,8 @@ public final class ContentProcessorContext {
     }
 
     public void setResult(String key, Object value) {
+        Objects.requireNonNull(value, "value cannot be null");
+        Objects.requireNonNull(key, "key cannot be null");
         results.put(key, value);
     }
 
@@ -71,6 +73,7 @@ public final class ContentProcessorContext {
     }
 
     public ContentProcessorContext clone(InputStream inputStream) {
+        Objects.requireNonNull(inputStream, "inputStream cannot be null");
         return new ContentProcessorContext(inputStream, this.parameters, this.results);
     }
 }

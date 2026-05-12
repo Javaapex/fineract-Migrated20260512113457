@@ -60,7 +60,7 @@ public class NotificationApiResource {
     @GET
     @Produces({ MediaType.APPLICATION_JSON })
     @Operation
-    @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = NotificationApiResourceSwagger.GetNotificationsResponse.class)))
+    @ApiResponse(responseCode = "200
     public String getAllNotifications(@Context final UriInfo uriInfo,
             @QueryParam("orderBy") @Parameter(description = "orderBy") final String orderBy,
             @QueryParam("limit") @Parameter(description = "limit") final Integer limit,

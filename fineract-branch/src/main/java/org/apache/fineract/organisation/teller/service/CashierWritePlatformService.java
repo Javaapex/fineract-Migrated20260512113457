@@ -24,18 +24,20 @@ import org.apache.fineract.infrastructure.core.data.CommandProcessingResult;
 public class CashierWritePlatformService {
 
     public CommandProcessingResult allocateCashierToTeller(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         // TODO Auto-generated method stub
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     public CommandProcessingResult deleteCashier(Long entityId) {
+        Objects.requireNonNull(entityId, "entityId cannot be null");
         // TODO Auto-generated method stub
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     public CommandProcessingResult modifyCashier(Long entityId, JsonCommand command) {
         // TODO Auto-generated method stub
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
 }

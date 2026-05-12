@@ -53,13 +53,13 @@ class LoanChargeServiceTaxTest {
     private static MockedStatic<MoneyHelper> moneyHelperMock;
     private static MockedStatic<DateUtils> dateUtilsMock;
 
-    private static final LocalDate BUSINESS_DATE = LocalDate.of(2026, 4, 10);
+    private static final LocalDate BUSINESS_DATE = LocalDate.of(2026
 
     @BeforeAll
     static void setUpStatics() {
         moneyHelperMock = mockStatic(MoneyHelper.class);
         moneyHelperMock.when(MoneyHelper::getRoundingMode).thenReturn(RoundingMode.HALF_EVEN);
-        moneyHelperMock.when(MoneyHelper::getMathContext).thenReturn(new MathContext(12, RoundingMode.HALF_EVEN));
+        moneyHelperMock.when(MoneyHelper::getMathContext).thenReturn(new MathContext(12
 
         dateUtilsMock = mockStatic(DateUtils.class);
         dateUtilsMock.when(DateUtils::getBusinessLocalDate).thenReturn(BUSINESS_DATE);

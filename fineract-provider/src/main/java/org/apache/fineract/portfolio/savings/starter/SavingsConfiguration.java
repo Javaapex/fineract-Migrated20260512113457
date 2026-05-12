@@ -157,6 +157,13 @@ public class SavingsConfiguration {
     public SavingsAccountTransactionSearchService savingsAccountTransactionSearchService(PlatformSecurityContext context,
             GenericDataService genericDataService, DatabaseSpecificSQLGenerator sqlGenerator, DatatableReadService datatableService,
             DataTableValidator dataTableValidator, JdbcTemplate jdbcTemplate, SearchUtil searchUtil) {
+        Objects.requireNonNull(searchUtil, "searchUtil cannot be null");
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
+        Objects.requireNonNull(dataTableValidator, "dataTableValidator cannot be null");
+        Objects.requireNonNull(datatableService, "datatableService cannot be null");
+        Objects.requireNonNull(sqlGenerator, "sqlGenerator cannot be null");
+        Objects.requireNonNull(genericDataService, "genericDataService cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
         return new SavingsAccountTransactionsSearchServiceImpl(context, genericDataService, sqlGenerator, datatableService,
                 dataTableValidator, jdbcTemplate, searchUtil);
     }
@@ -175,6 +182,10 @@ public class SavingsConfiguration {
             InterestRateChartDropdownReadService chartDropdownReadPlatformService,
             InterestIncentiveDropdownReadService interestIncentiveDropdownReadPlatformService,
             CodeValueReadPlatformService codeValueReadPlatformService) {
+        Objects.requireNonNull(codeValueReadPlatformService, "codeValueReadPlatformService cannot be null");
+        Objects.requireNonNull(interestIncentiveDropdownReadPlatformService, "interestIncentiveDropdownReadPlatformService cannot be null");
+        Objects.requireNonNull(chartDropdownReadPlatformService, "chartDropdownReadPlatformService cannot be null");
+        Objects.requireNonNull(chartExtractor, "chartExtractor cannot be null");
         return new DepositAccountInterestRateChartReadPlatformServiceImpl(context, jdbcTemplate, chartExtractor,
                 chartDropdownReadPlatformService, interestIncentiveDropdownReadPlatformService, codeValueReadPlatformService);
     }
@@ -183,6 +194,8 @@ public class SavingsConfiguration {
     @ConditionalOnMissingBean(DepositAccountOnHoldTransactionReadPlatformService.class)
     public DepositAccountOnHoldTransactionReadPlatformService depositAccountOnHoldTransactionReadPlatformService(JdbcTemplate jdbcTemplate,
             ColumnValidator columnValidator, DatabaseSpecificSQLGenerator sqlGenerator, PaginationHelper paginationHelper) {
+        Objects.requireNonNull(paginationHelper, "paginationHelper cannot be null");
+        Objects.requireNonNull(columnValidator, "columnValidator cannot be null");
         return new DepositAccountOnHoldTransactionReadPlatformServiceImpl(jdbcTemplate, sqlGenerator, columnValidator, paginationHelper);
     }
 
@@ -192,6 +205,12 @@ public class SavingsConfiguration {
             FromJsonHelper fromJsonHelper, DepositAccountTransactionDataValidator depositAccountTransactionDataValidator,
             DepositAccountAssembler depositAccountAssembler, SavingsAccountReadPlatformService savingsAccountReadPlatformService,
             ConfigurationDomainService configurationDomainService, PaymentTypeReadService paymentTypeReadPlatformService) {
+        Objects.requireNonNull(paymentTypeReadPlatformService, "paymentTypeReadPlatformService cannot be null");
+        Objects.requireNonNull(configurationDomainService, "configurationDomainService cannot be null");
+        Objects.requireNonNull(savingsAccountReadPlatformService, "savingsAccountReadPlatformService cannot be null");
+        Objects.requireNonNull(depositAccountAssembler, "depositAccountAssembler cannot be null");
+        Objects.requireNonNull(depositAccountTransactionDataValidator, "depositAccountTransactionDataValidator cannot be null");
+        Objects.requireNonNull(fromJsonHelper, "fromJsonHelper cannot be null");
         return new DepositAccountPreMatureCalculationPlatformServiceImpl(fromJsonHelper, depositAccountTransactionDataValidator,
                 depositAccountAssembler, savingsAccountReadPlatformService, configurationDomainService, paymentTypeReadPlatformService);
 
@@ -209,6 +228,18 @@ public class SavingsConfiguration {
             StaffReadService staffReadPlatformService, DepositsDropdownReadPlatformService depositsDropdownReadPlatformService,
             SavingsAccountReadPlatformService savingsAccountReadPlatformService, DropdownReadPlatformService dropdownReadPlatformService,
             CalendarReadPlatformService calendarReadPlatformService, PaymentTypeReadService paymentTypeReadPlatformService) {
+        Objects.requireNonNull(calendarReadPlatformService, "calendarReadPlatformService cannot be null");
+        Objects.requireNonNull(dropdownReadPlatformService, "dropdownReadPlatformService cannot be null");
+        Objects.requireNonNull(depositsDropdownReadPlatformService, "depositsDropdownReadPlatformService cannot be null");
+        Objects.requireNonNull(staffReadPlatformService, "staffReadPlatformService cannot be null");
+        Objects.requireNonNull(chargeReadPlatformService, "chargeReadPlatformService cannot be null");
+        Objects.requireNonNull(savingsDropdownReadPlatformService, "savingsDropdownReadPlatformService cannot be null");
+        Objects.requireNonNull(depositProductReadPlatformService, "depositProductReadPlatformService cannot be null");
+        Objects.requireNonNull(groupReadPlatformService, "groupReadPlatformService cannot be null");
+        Objects.requireNonNull(clientReadPlatformService, "clientReadPlatformService cannot be null");
+        Objects.requireNonNull(paginationParametersDataValidator, "paginationParametersDataValidator cannot be null");
+        Objects.requireNonNull(productChartReadPlatformService, "productChartReadPlatformService cannot be null");
+        Objects.requireNonNull(chartReadPlatformService, "chartReadPlatformService cannot be null");
         return new DepositAccountReadPlatformServiceImpl(context, jdbcTemplate, chartReadPlatformService, productChartReadPlatformService,
                 paginationParametersDataValidator, sqlGenerator, paginationHelper, clientReadPlatformService, groupReadPlatformService,
                 depositProductReadPlatformService, savingsDropdownReadPlatformService, chargeReadPlatformService, staffReadPlatformService,
@@ -236,6 +267,24 @@ public class SavingsConfiguration {
             DepositAccountOnHoldTransactionRepository depositAccountOnHoldTransactionRepository
 
     ) {
+        Objects.requireNonNull(depositAccountOnHoldTransactionRepository, "depositAccountOnHoldTransactionRepository cannot be null");
+        Objects.requireNonNull(workingDaysRepository, "workingDaysRepository cannot be null");
+        Objects.requireNonNull(holidayRepository, "holidayRepository cannot be null");
+        Objects.requireNonNull(calendarInstanceRepository, "calendarInstanceRepository cannot be null");
+        Objects.requireNonNull(depositAccountReadPlatformService, "depositAccountReadPlatformService cannot be null");
+        Objects.requireNonNull(accountTransfersWritePlatformService, "accountTransfersWritePlatformService cannot be null");
+        Objects.requireNonNull(accountAssociationsReadPlatformService, "accountAssociationsReadPlatformService cannot be null");
+        Objects.requireNonNull(savingsAccountChargeRepository, "savingsAccountChargeRepository cannot be null");
+        Objects.requireNonNull(chargeRepository, "chargeRepository cannot be null");
+        Objects.requireNonNull(accountTransfersReadPlatformService, "accountTransfersReadPlatformService cannot be null");
+        Objects.requireNonNull(noteRepository, "noteRepository cannot be null");
+        Objects.requireNonNull(depositAccountDomainService, "depositAccountDomainService cannot be null");
+        Objects.requireNonNull(journalEntryWritePlatformService, "journalEntryWritePlatformService cannot be null");
+        Objects.requireNonNull(applicationCurrencyRepositoryWrapper, "applicationCurrencyRepositoryWrapper cannot be null");
+        Objects.requireNonNull(paymentDetailWritePlatformService, "paymentDetailWritePlatformService cannot be null");
+        Objects.requireNonNull(savingsAccountChargeDataValidator, "savingsAccountChargeDataValidator cannot be null");
+        Objects.requireNonNull(savingsAccountTransactionRepository, "savingsAccountTransactionRepository cannot be null");
+        Objects.requireNonNull(savingAccountRepositoryWrapper, "savingAccountRepositoryWrapper cannot be null");
         return new DepositAccountWritePlatformServiceJpaRepositoryImpl(context, savingAccountRepositoryWrapper,
                 savingsAccountTransactionRepository, depositAccountAssembler, depositAccountTransactionDataValidator,
                 savingsAccountChargeDataValidator, paymentDetailWritePlatformService, applicationCurrencyRepositoryWrapper,
@@ -258,6 +307,19 @@ public class SavingsConfiguration {
             FromJsonHelper fromJsonHelper, CalendarInstanceRepository calendarInstanceRepository,
             ConfigurationDomainService configurationDomainService, AccountNumberFormatRepositoryWrapper accountNumberFormatRepository,
             BusinessEventNotifierService businessEventNotifierService) {
+        Objects.requireNonNull(businessEventNotifierService, "businessEventNotifierService cannot be null");
+        Objects.requireNonNull(accountNumberFormatRepository, "accountNumberFormatRepository cannot be null");
+        Objects.requireNonNull(accountAssociationsRepository, "accountAssociationsRepository cannot be null");
+        Objects.requireNonNull(savingsAccountChargeAssembler, "savingsAccountChargeAssembler cannot be null");
+        Objects.requireNonNull(savingsAccountApplicationTransitionApiJsonValidator, "savingsAccountApplicationTransitionApiJsonValidator cannot be null");
+        Objects.requireNonNull(staffRepository, "staffRepository cannot be null");
+        Objects.requireNonNull(savingsProductRepository, "savingsProductRepository cannot be null");
+        Objects.requireNonNull(groupRepository, "groupRepository cannot be null");
+        Objects.requireNonNull(clientRepository, "clientRepository cannot be null");
+        Objects.requireNonNull(accountNumberGenerator, "accountNumberGenerator cannot be null");
+        Objects.requireNonNull(depositAccountDataValidator, "depositAccountDataValidator cannot be null");
+        Objects.requireNonNull(recurringDepositAccountRepository, "recurringDepositAccountRepository cannot be null");
+        Objects.requireNonNull(fixedDepositAccountRepository, "fixedDepositAccountRepository cannot be null");
         return new DepositApplicationProcessWritePlatformServiceJpaRepositoryImpl(context, savingAccountRepository,
                 fixedDepositAccountRepository, recurringDepositAccountRepository, depositAccountAssembler, depositAccountDataValidator,
                 accountNumberGenerator, clientRepository, groupRepository, savingsProductRepository, noteRepository, staffRepository,
@@ -270,6 +332,7 @@ public class SavingsConfiguration {
     @ConditionalOnMissingBean(DepositProductReadPlatformService.class)
     public DepositProductReadPlatformService depositProductReadPlatformService(PlatformSecurityContext context, JdbcTemplate jdbcTemplate,
             InterestRateChartReadService interestRateChartReadPlatformService) {
+        Objects.requireNonNull(interestRateChartReadPlatformService, "interestRateChartReadPlatformService cannot be null");
         return new DepositProductReadPlatformServiceImpl(context, jdbcTemplate, interestRateChartReadPlatformService);
     }
 
@@ -285,6 +348,11 @@ public class SavingsConfiguration {
             FixedDepositProductRepository fixedDepositProductRepository, DepositProductDataValidator fromApiJsonDataValidator,
             DepositProductAssembler depositProductAssembler,
             ProductToGLAccountMappingWritePlatformService accountMappingWritePlatformService, InterestRateChartAssembler chartAssembler) {
+        Objects.requireNonNull(chartAssembler, "chartAssembler cannot be null");
+        Objects.requireNonNull(accountMappingWritePlatformService, "accountMappingWritePlatformService cannot be null");
+        Objects.requireNonNull(depositProductAssembler, "depositProductAssembler cannot be null");
+        Objects.requireNonNull(fromApiJsonDataValidator, "fromApiJsonDataValidator cannot be null");
+        Objects.requireNonNull(fixedDepositProductRepository, "fixedDepositProductRepository cannot be null");
         return new FixedDepositProductWritePlatformServiceJpaRepositoryImpl(context, fixedDepositProductRepository,
                 fromApiJsonDataValidator, depositProductAssembler, accountMappingWritePlatformService, chartAssembler);
     }
@@ -293,6 +361,8 @@ public class SavingsConfiguration {
     @ConditionalOnMissingBean(GroupSavingsIndividualMonitoringWritePlatformService.class)
     public GroupSavingsIndividualMonitoringWritePlatformService groupSavingsIndividualMonitoringWritePlatformService(
             PlatformSecurityContext context, GSIMRepositoy gsimAccountRepository, LoanRepository loanRepository) {
+        Objects.requireNonNull(loanRepository, "loanRepository cannot be null");
+        Objects.requireNonNull(gsimAccountRepository, "gsimAccountRepository cannot be null");
         return new GroupSavingsIndividualMonitoringWritePlatformServiceImpl(context, gsimAccountRepository, loanRepository);
     }
 
@@ -309,6 +379,7 @@ public class SavingsConfiguration {
             RecurringDepositProductRepository recurringDepositProductRepository, DepositProductDataValidator fromApiJsonDataValidator,
             DepositProductAssembler depositProductAssembler,
             ProductToGLAccountMappingWritePlatformService accountMappingWritePlatformService, InterestRateChartAssembler chartAssembler) {
+        Objects.requireNonNull(recurringDepositProductRepository, "recurringDepositProductRepository cannot be null");
         return new RecurringDepositProductWritePlatformServiceJpaRepositoryImpl(context, recurringDepositProductRepository,
                 fromApiJsonDataValidator, depositProductAssembler, accountMappingWritePlatformService, chartAssembler);
     }
@@ -317,6 +388,7 @@ public class SavingsConfiguration {
     @ConditionalOnMissingBean(SavingsAccountApplicationTransitionApiJsonValidator.class)
     public SavingsAccountApplicationTransitionApiJsonValidator savingsAccountApplicationTransitionApiJsonValidator(
             FromJsonHelper fromApiJsonHelper) {
+        Objects.requireNonNull(fromApiJsonHelper, "fromApiJsonHelper cannot be null");
         return new SavingsAccountApplicationTransitionApiJsonValidator(fromApiJsonHelper);
     }
 
@@ -325,6 +397,7 @@ public class SavingsConfiguration {
     public SavingsAccountChargeReadPlatformService savingsAccountChargeReadPlatformService(PlatformSecurityContext context,
             ChargeDropdownReadPlatformService chargeDropdownReadPlatformService, JdbcTemplate jdbcTemplate,
             DropdownReadPlatformService dropdownReadPlatformService, DatabaseSpecificSQLGenerator sqlGenerator) {
+        Objects.requireNonNull(chargeDropdownReadPlatformService, "chargeDropdownReadPlatformService cannot be null");
         return new SavingsAccountChargeReadPlatformServiceImpl(context, chargeDropdownReadPlatformService, jdbcTemplate,
                 dropdownReadPlatformService, sqlGenerator);
     }
@@ -332,6 +405,7 @@ public class SavingsConfiguration {
     @Bean
     @ConditionalOnMissingBean(SavingsAccountInterestPostingService.class)
     public SavingsAccountInterestPostingService savingsAccountInterestPostingService(SavingsHelper savingsHelper) {
+        Objects.requireNonNull(savingsHelper, "savingsHelper cannot be null");
         return new SavingsAccountInterestPostingServiceImpl(savingsHelper);
     }
 
@@ -341,6 +415,8 @@ public class SavingsConfiguration {
             SavingsAccountAssembler savingAccountAssembler, PaginationHelper paginationHelper, DatabaseSpecificSQLGenerator sqlGenerator,
             SavingsAccountRepositoryWrapper savingsAccountRepositoryWrapper, ColumnValidator columnValidator,
             SavingsAccountTransactionRepository savingsAccountTransactionRepository) {
+        Objects.requireNonNull(savingsAccountRepositoryWrapper, "savingsAccountRepositoryWrapper cannot be null");
+        Objects.requireNonNull(savingAccountAssembler, "savingAccountAssembler cannot be null");
         return new SavingsAccountReadPlatformServiceImpl(context, jdbcTemplate, savingAccountAssembler, paginationHelper, columnValidator,
                 sqlGenerator, savingsAccountRepositoryWrapper, savingsAccountTransactionRepository);
     }
@@ -353,6 +429,8 @@ public class SavingsConfiguration {
             StaffReadService staffReadPlatformService, SavingsDropdownReadPlatformService dropdownReadPlatformService,
             ChargeReadPlatformService chargeReadPlatformService, EntityDatatableChecksReadService entityDatatableChecksReadService,
             ColumnValidator columnValidator) {
+        Objects.requireNonNull(entityDatatableChecksReadService, "entityDatatableChecksReadService cannot be null");
+        Objects.requireNonNull(savingProductReadPlatformService, "savingProductReadPlatformService cannot be null");
         return new SavingsAccountTemplateReadPlatformServiceImpl(context, jdbcTemplate, clientReadPlatformService, groupReadPlatformService,
                 savingProductReadPlatformService, staffReadPlatformService, dropdownReadPlatformService, chargeReadPlatformService,
                 entityDatatableChecksReadService, columnValidator);
@@ -376,6 +454,16 @@ public class SavingsConfiguration {
             StandingInstructionRepository standingInstructionRepository, BusinessEventNotifierService businessEventNotifierService,
             GSIMRepositoy gsimRepository, SavingsAccountInterestPostingService savingsAccountInterestPostingService,
             ExternalIdFactory externalIdFactory, ErrorHandler errorHandler) {
+        Objects.requireNonNull(errorHandler, "errorHandler cannot be null");
+        Objects.requireNonNull(externalIdFactory, "externalIdFactory cannot be null");
+        Objects.requireNonNull(savingsAccountInterestPostingService, "savingsAccountInterestPostingService cannot be null");
+        Objects.requireNonNull(gsimRepository, "gsimRepository cannot be null");
+        Objects.requireNonNull(standingInstructionRepository, "standingInstructionRepository cannot be null");
+        Objects.requireNonNull(appuserRepository, "appuserRepository cannot be null");
+        Objects.requireNonNull(entityDatatableChecksWritePlatformService, "entityDatatableChecksWritePlatformService cannot be null");
+        Objects.requireNonNull(savingsAccountDomainService, "savingsAccountDomainService cannot be null");
+        Objects.requireNonNull(savingsAccountTransactionDataValidator, "savingsAccountTransactionDataValidator cannot be null");
+        Objects.requireNonNull(fromApiJsonDeserializer, "fromApiJsonDeserializer cannot be null");
         return new SavingsAccountWritePlatformServiceJpaRepositoryImpl(context, fromApiJsonDeserializer, savingAccountRepositoryWrapper,
                 staffRepository, savingsAccountTransactionRepository, savingAccountAssembler, savingsAccountTransactionDataValidator,
                 savingsAccountChargeDataValidator, paymentDetailWritePlatformService, journalEntryWritePlatformService,
@@ -399,6 +487,11 @@ public class SavingsConfiguration {
             AccountNumberFormatRepositoryWrapper accountNumberFormatRepository, BusinessEventNotifierService businessEventNotifierService,
             EntityDatatableChecksWritePlatformService entityDatatableChecksWritePlatformService, GSIMRepositoy gsimRepository,
             GroupRepositoryWrapper groupRepositoryWrapper, GroupSavingsIndividualMonitoringWritePlatformService gsimWritePlatformService) {
+        Objects.requireNonNull(gsimWritePlatformService, "gsimWritePlatformService cannot be null");
+        Objects.requireNonNull(groupRepositoryWrapper, "groupRepositoryWrapper cannot be null");
+        Objects.requireNonNull(savingsAccountWritePlatformService, "savingsAccountWritePlatformService cannot be null");
+        Objects.requireNonNull(commandProcessingService, "commandProcessingService cannot be null");
+        Objects.requireNonNull(savingsAccountDataValidator, "savingsAccountDataValidator cannot be null");
         return new SavingsApplicationProcessWritePlatformServiceJpaRepositoryImpl(context, savingAccountRepository, savingAccountAssembler,
                 savingsAccountDataValidator, accountNumberGenerator, clientRepository, groupRepository, savingsProductRepository,
                 noteRepository, staffRepository, savingsAccountApplicationTransitionApiJsonValidator, savingsAccountChargeAssembler,
@@ -417,6 +510,7 @@ public class SavingsConfiguration {
     @ConditionalOnMissingBean(SavingsProductReadPlatformService.class)
     public SavingsProductReadPlatformService savingsProductReadPlatformService(PlatformSecurityContext context, JdbcTemplate jdbcTemplate,
             FineractEntityAccessUtil fineractEntityAccessUtil) {
+        Objects.requireNonNull(fineractEntityAccessUtil, "fineractEntityAccessUtil cannot be null");
         return new SavingsProductReadPlatformServiceImpl(context, jdbcTemplate, fineractEntityAccessUtil);
     }
 
@@ -427,6 +521,8 @@ public class SavingsConfiguration {
             SavingsProductAssembler savingsProductAssembler,
             ProductToGLAccountMappingWritePlatformService accountMappingWritePlatformService,
             FineractEntityAccessUtil fineractEntityAccessUtil) {
+        Objects.requireNonNull(savingsProductAssembler, "savingsProductAssembler cannot be null");
+        Objects.requireNonNull(savingProductRepository, "savingProductRepository cannot be null");
         return new SavingsProductWritePlatformServiceJpaRepositoryImpl(context, savingProductRepository, fromApiJsonDataValidator,
                 savingsProductAssembler, accountMappingWritePlatformService, fineractEntityAccessUtil);
     }
@@ -439,6 +535,7 @@ public class SavingsConfiguration {
             SavingsAccountReadPlatformService savingsAccountReadPlatformService, PlatformSecurityContext platformSecurityContext
 
     ) {
+        Objects.requireNonNull(platformSecurityContext, "platformSecurityContext cannot be null");
         return new SavingsSchedularInterestPoster(savingsAccountWritePlatformService, jdbcTemplate, savingsAccountReadPlatformService,
                 platformSecurityContext);
     }
@@ -447,6 +544,7 @@ public class SavingsConfiguration {
     @Scope("prototype")
     @ConditionalOnMissingBean(SavingsSchedularInterestPosterTask.class)
     public SavingsSchedularInterestPosterTask savingsSchedularInterestPosterTask(SavingsSchedularInterestPoster interestPoster) {
+        Objects.requireNonNull(interestPoster, "interestPoster cannot be null");
         return new SavingsSchedularInterestPosterTask(interestPoster);
     }
 }

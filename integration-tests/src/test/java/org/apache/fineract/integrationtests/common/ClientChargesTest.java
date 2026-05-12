@@ -51,7 +51,7 @@ public class ClientChargesTest {
         Utils.initializeRESTAssured();
         this.requestSpec = new RequestSpecBuilder().setContentType(ContentType.JSON).build();
         this.requestSpec.header("Authorization", "Basic " + Utils.loginIntoServerAndGetBase64EncodedAuthenticationKey());
-        this.responseSpec = new ResponseSpecBuilder().expectStatusCode(200).build();
+        this.responseSpec = new ResponseSpecBuilder().expectStatusCode(200
     }
 
     @Test
@@ -63,7 +63,7 @@ public class ClientChargesTest {
         Assertions.assertNotNull(chargeId);
 
         // creates client with activation date
-        final Integer clientId = ClientHelper.createClient(this.requestSpec, this.responseSpec, "01 October 2011");
+        final Integer clientId = ClientHelper.createClient(this.requestSpec, this.responseSpec, "01
         Assertions.assertNotNull(clientId);
 
         /**

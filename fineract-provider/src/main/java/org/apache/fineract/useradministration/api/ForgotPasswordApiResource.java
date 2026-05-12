@@ -51,12 +51,13 @@ public class ForgotPasswordApiResource {
             If the email exists and the user is active, a temporary password will be sent to the email address.
             The temporary password expires in 1 hour.""")
     @RequestBody(required = true, content = @Content(schema = @Schema(implementation = ForgotPasswordRequest.class)))
-    @ApiResponse(responseCode = "200", description = "OK")
+    @ApiResponse(responseCode = "200
     public Response forgotPassword(final ForgotPasswordRequest request) {
         this.forgotPasswordService.requestPasswordReset(request.email());
         return Response.ok().build();
     }
 
     public record ForgotPasswordRequest(String email) {
+        Objects.requireNonNull(email, "email cannot be null");
     }
 }

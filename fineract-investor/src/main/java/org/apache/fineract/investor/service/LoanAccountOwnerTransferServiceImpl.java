@@ -58,7 +58,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Slf4j
 public class LoanAccountOwnerTransferServiceImpl implements LoanAccountOwnerTransferService {
 
-    public static final LocalDate FUTURE_DATE_9999_12_31 = LocalDate.of(9999, 12, 31);
+    public static final LocalDate FUTURE_DATE_9999_12_31 = LocalDate.of(9999
     private final ExternalAssetOwnerTransferRepository externalAssetOwnerTransferRepository;
     private final ExternalAssetOwnerTransferLoanMappingRepository externalAssetOwnerTransferLoanMappingRepository;
     private final LoanJournalEntryPoster loanJournalEntryPoster;
@@ -67,6 +67,7 @@ public class LoanAccountOwnerTransferServiceImpl implements LoanAccountOwnerTran
 
     @Override
     public void handleLoanClosedOrOverpaid(Loan loan) {
+        Objects.requireNonNull(loan, "loan cannot be null");
         Long loanId = loan.getId();
         List<ExternalAssetOwnerTransfer> transferDataList = findAllPendingOrBuybackOrIntermediateTransfers(loanId);
 

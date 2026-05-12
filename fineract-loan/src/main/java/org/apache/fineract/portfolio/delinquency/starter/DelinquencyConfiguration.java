@@ -68,6 +68,21 @@ public class DelinquencyConfiguration {
             DelinquencyEffectivePauseHelper delinquencyEffectivePauseHelper, ConfigurationDomainService configurationDomainService,
             LoanTransactionRepository loanTransactionRepository,
             PossibleNextRepaymentCalculationServiceDiscovery possibleNextRepaymentCalculationService) {
+        Objects.requireNonNull(possibleNextRepaymentCalculationService, "possibleNextRepaymentCalculationService cannot be null");
+        Objects.requireNonNull(loanTransactionRepository, "loanTransactionRepository cannot be null");
+        Objects.requireNonNull(configurationDomainService, "configurationDomainService cannot be null");
+        Objects.requireNonNull(delinquencyEffectivePauseHelper, "delinquencyEffectivePauseHelper cannot be null");
+        Objects.requireNonNull(loanDelinquencyActionRepository, "loanDelinquencyActionRepository cannot be null");
+        Objects.requireNonNull(repositoryLoanInstallmentDelinquencyTag, "repositoryLoanInstallmentDelinquencyTag cannot be null");
+        Objects.requireNonNull(loanDelinquencyDomainService, "loanDelinquencyDomainService cannot be null");
+        Objects.requireNonNull(loanRepository, "loanRepository cannot be null");
+        Objects.requireNonNull(mapperLoanDelinquencyTagHistory, "mapperLoanDelinquencyTagHistory cannot be null");
+        Objects.requireNonNull(mapperBucket, "mapperBucket cannot be null");
+        Objects.requireNonNull(mapperRange, "mapperRange cannot be null");
+        Objects.requireNonNull(minimumPaymentPeriodAndRuleRepository, "minimumPaymentPeriodAndRuleRepository cannot be null");
+        Objects.requireNonNull(repositoryLoanDelinquencyTagHistory, "repositoryLoanDelinquencyTagHistory cannot be null");
+        Objects.requireNonNull(repositoryBucket, "repositoryBucket cannot be null");
+        Objects.requireNonNull(repositoryRange, "repositoryRange cannot be null");
         return new DelinquencyReadPlatformServiceImpl(repositoryRange, repositoryBucket, minimumPaymentPeriodAndRuleRepository,
                 repositoryLoanDelinquencyTagHistory, mapperRange, mapperBucket, mapperLoanDelinquencyTagHistory, loanRepository,
                 loanDelinquencyDomainService, repositoryLoanInstallmentDelinquencyTag, loanDelinquencyActionRepository,
@@ -90,6 +105,17 @@ public class DelinquencyConfiguration {
             DelinquencyWritePlatformServiceHelper delinquencyWritePlatformServiceHelper,
             DelinquencyMinimumPaymentPeriodAndRuleRepository delinquencyMinimumPaymentPeriodAndRuleRepository,
             final List<DelinquencyBucketUsageChecker> delinquencyBucketUsageCheckers) {
+        Objects.requireNonNull(delinquencyMinimumPaymentPeriodAndRuleRepository, "delinquencyMinimumPaymentPeriodAndRuleRepository cannot be null");
+        Objects.requireNonNull(delinquencyWritePlatformServiceHelper, "delinquencyWritePlatformServiceHelper cannot be null");
+        Objects.requireNonNull(delinquencyActionParseAndValidator, "delinquencyActionParseAndValidator cannot be null");
+        Objects.requireNonNull(delinquencyReadPlatformService, "delinquencyReadPlatformService cannot be null");
+        Objects.requireNonNull(loanInstallmentDelinquencyTagRepository, "loanInstallmentDelinquencyTagRepository cannot be null");
+        Objects.requireNonNull(businessEventNotifierService, "businessEventNotifierService cannot be null");
+        Objects.requireNonNull(loanProductRepository, "loanProductRepository cannot be null");
+        Objects.requireNonNull(loanDelinquencyTagRepository, "loanDelinquencyTagRepository cannot be null");
+        Objects.requireNonNull(repositoryBucketMappings, "repositoryBucketMappings cannot be null");
+        Objects.requireNonNull(dataValidatorRange, "dataValidatorRange cannot be null");
+        Objects.requireNonNull(dataValidatorBucket, "dataValidatorBucket cannot be null");
         return new DelinquencyWritePlatformServiceImpl(dataValidatorBucket, dataValidatorRange, repositoryRange, repositoryBucket,
                 repositoryBucketMappings, loanDelinquencyTagRepository, loanRepository, loanProductRepository, loanDelinquencyDomainService,
                 loanInstallmentDelinquencyTagRepository, delinquencyReadPlatformService, loanDelinquencyActionRepository,
@@ -101,6 +127,7 @@ public class DelinquencyConfiguration {
     @ConditionalOnMissingBean(LoanDelinquencyDomainService.class)
     public LoanDelinquencyDomainService loanDelinquencyDomainService(DelinquencyEffectivePauseHelper delinquencyEffectivePauseHelper,
             LoanTransactionReadService loanTransactionReadService) {
+        Objects.requireNonNull(loanTransactionReadService, "loanTransactionReadService cannot be null");
         return new LoanDelinquencyDomainServiceImpl(delinquencyEffectivePauseHelper, loanTransactionReadService);
     }
 }

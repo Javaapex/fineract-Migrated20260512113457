@@ -68,6 +68,7 @@ public class GlobalConfigurationRepositoryWrapper {
 
     @CacheEvict(value = "configByName", key = "T(org.apache.fineract.infrastructure.core.service.ThreadLocalContextUtil).getTenant().getTenantIdentifier().concat(#propertyName)")
     public void removeFromCache(String propertyName) {
+        Objects.requireNonNull(propertyName, "propertyName cannot be null");
         log.debug("Cache entry evicted {}", propertyName);
     }
 }

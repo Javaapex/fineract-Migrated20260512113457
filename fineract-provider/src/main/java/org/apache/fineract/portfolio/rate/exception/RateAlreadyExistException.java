@@ -19,7 +19,7 @@
 package org.apache.fineract.portfolio.rate.exception;
 
 /**
- * Bowpi GT Created by Jose on 24/07/2017.
+ * Bowpi GT Created by Jose on 24
  */
 public class RateAlreadyExistException extends Exception {
 

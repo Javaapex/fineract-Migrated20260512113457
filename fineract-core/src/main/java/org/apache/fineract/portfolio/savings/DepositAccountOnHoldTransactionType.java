@@ -50,12 +50,12 @@ public enum DepositAccountOnHoldTransactionType {
         };
     }
 
-    // TODO: why not just use the enum values... just more boilerplate code here!!
+
     public boolean isHold() {
         return this.equals(HOLD);
     }
 
-    // TODO: why not just use the enum values... just more boilerplate code here!!
+
     public boolean isRelease() {
         return this.equals(RELEASE);
     }

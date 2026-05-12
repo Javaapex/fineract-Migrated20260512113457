@@ -35,6 +35,7 @@ public class MimeContentPolicy implements ContentPolicy {
 
     @Override
     public void check(ContentPolicyContext ctx) {
+        Objects.requireNonNull(ctx, "ctx cannot be null");
         if (ctx.getInputStream() != null) {
             var result = contentDetectorManager
                     .detect(ContentDetectorContext.builder().inputStream(ctx.getInputStream()).inputStreamEnabled(true).build());

@@ -41,6 +41,7 @@ public class DisassociateGroupsFromCenterCommandHandler implements NewCommandSou
     @Transactional
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return this.writePlatformService.disassociateGroupsToCenter(command.entityId(), command);
     }
 

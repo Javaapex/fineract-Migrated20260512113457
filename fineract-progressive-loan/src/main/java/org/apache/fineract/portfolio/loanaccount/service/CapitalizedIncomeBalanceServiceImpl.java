@@ -33,6 +33,7 @@ public class CapitalizedIncomeBalanceServiceImpl implements CapitalizedIncomeBal
 
     @Override
     public Money calculateCapitalizedIncome(Loan loan) {
+        Objects.requireNonNull(loan, "loan cannot be null");
         BigDecimal balance = capitalizedIncomeBalanceRepository.calculateCapitalizedIncome(loan.getId());
         return Money.of(loan.getCurrency(), balance);
     }

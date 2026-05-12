@@ -35,7 +35,7 @@ public interface WorkingCapitalLoanDisbursementDetailMapper {
 
     default List<WorkingCapitalLoanDisbursementDetailData> toDataList(final List<WorkingCapitalLoanDisbursementDetails> details) {
         if (details == null || details.isEmpty()) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         return details.stream().map(this::toData).toList();
     }

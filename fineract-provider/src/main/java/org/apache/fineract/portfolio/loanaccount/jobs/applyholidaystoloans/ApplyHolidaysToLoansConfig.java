@@ -46,6 +46,7 @@ public class ApplyHolidaysToLoansConfig {
 
     @Bean
     public Job applyHolidaysToLoansJob(ApplyHolidaysToLoansTasklet applyHolidaysToLoansTasklet) {
+        Objects.requireNonNull(applyHolidaysToLoansTasklet, "applyHolidaysToLoansTasklet cannot be null");
         return new JobBuilder(JobName.APPLY_HOLIDAYS_TO_LOANS.name(), jobRepository)
                 .start(applyHolidaysToLoansStep(applyHolidaysToLoansTasklet)).incrementer(new RunIdIncrementer()).build();
     }

@@ -55,6 +55,8 @@ public class DelinquencyEffectivePauseHelperImpl implements DelinquencyEffective
 
     @Override
     public Long getPausedDaysBeforeDate(List<LoanDelinquencyActionData> effectiveDelinquencyList, LocalDate date) {
+        Objects.requireNonNull(date, "date cannot be null");
+        Objects.requireNonNull(effectiveDelinquencyList, "effectiveDelinquencyList cannot be null");
         Long pausedDaysClosedPausePeriods = effectiveDelinquencyList.stream() //
                 .filter(pausePeriod -> pausePeriod.getStartDate().isBefore(date) && pausePeriod.getEndDate().isBefore(date))
                 .map(pausePeriod -> DateUtils.getDifferenceInDays(pausePeriod.getStartDate(), pausePeriod.getEndDate())) //
@@ -69,6 +71,8 @@ public class DelinquencyEffectivePauseHelperImpl implements DelinquencyEffective
     @Override
     public Long getPausedDaysWithinRange(List<LoanDelinquencyActionData> effectiveDelinquencyList, LocalDate startInclusive,
             LocalDate endExclusive) {
+        Objects.requireNonNull(endExclusive, "endExclusive cannot be null");
+        Objects.requireNonNull(startInclusive, "startInclusive cannot be null");
         if (startInclusive == null || endExclusive == null || !startInclusive.isBefore(endExclusive)) {
             return 0L;
         }

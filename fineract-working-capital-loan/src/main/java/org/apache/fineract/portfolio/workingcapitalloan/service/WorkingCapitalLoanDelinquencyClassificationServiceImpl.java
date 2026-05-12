@@ -55,6 +55,9 @@ public class WorkingCapitalLoanDelinquencyClassificationServiceImpl implements W
      */
     @Override
     public void classifyDelinquency(WorkingCapitalLoan loan, LocalDate businessDate, DelinquencyBucket delinquencyBucket) {
+        Objects.requireNonNull(delinquencyBucket, "delinquencyBucket cannot be null");
+        Objects.requireNonNull(businessDate, "businessDate cannot be null");
+        Objects.requireNonNull(loan, "loan cannot be null");
 
         List<WorkingCapitalLoanDelinquencyRangeSchedule> delinquencyRangeScheduleList = delinquencyRangeScheduleRepository
                 .findByLoanIdOrderByPeriodNumberAsc(loan.getId());

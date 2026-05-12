@@ -50,7 +50,7 @@ import org.springframework.batch.repeat.RepeatStatus;
 @MockitoSettings(strictness = Strictness.LENIENT)
 class GenerateLoanlossProvisioningTaskletTest {
 
-    public static final LocalDate BUSINESS_DATE = LocalDate.of(2022, 6, 12);
+    public static final LocalDate BUSINESS_DATE = LocalDate.of(2022
 
     @Mock
     private StepContribution stepContribution;

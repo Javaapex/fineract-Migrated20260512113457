@@ -28,10 +28,15 @@ public final class CommandHandlerRegistry<K, P1, P2, R> {
     private final Map<K, BiFunction<P1, P2, R>> handlers;
 
     public void register(K key, BiFunction<P1, P2, R> handler) {
+        Objects.requireNonNull(handler, "handler cannot be null");
+        Objects.requireNonNull(key, "key cannot be null");
         handlers.put(key, handler);
     }
 
     public R execute(K key, P1 param1, P2 param2, RuntimeException ex) {
+        Objects.requireNonNull(ex, "ex cannot be null");
+        Objects.requireNonNull(param2, "param2 cannot be null");
+        Objects.requireNonNull(param1, "param1 cannot be null");
         return handlers.getOrDefault(key, (p1, p2) -> {
             throw ex;
         }).apply(param1, param2);

@@ -261,3 +261,7 @@ configurations {
     generatedCompileClasspath.extendsFrom implementation
     generatedRuntimeClasspath.extendsFrom runtimeClasspath
 }
+
+dependencies {
+    testImplementation "org.junit.jupiter:junit-jupiter:5.10.2"
+}

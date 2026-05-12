@@ -70,3 +70,11 @@ if (!(project.hasProperty('env') && project.getProperty('env') == 'dev')) {
         }
     }
 }
+
+dependencies {
+    testImplementation "org.junit.jupiter:junit-jupiter:5.10.2"
+}
+
+tasks.withType(org.gradle.api.tasks.testing.Test).configureEach {
+    useJUnitPlatform()
+}

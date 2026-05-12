@@ -41,6 +41,7 @@ public class AssociateGroupsToCenterCommandHandler implements NewCommandSourceHa
     @Transactional
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return this.writePlatformService.associateGroupsToCenter(command.entityId(), command);
     }
 

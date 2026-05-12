@@ -201,7 +201,7 @@ public class ProgressiveLoanScheduleGenerator implements LoanScheduleGenerator {
                 transactionDate);
         ProgressiveLoanInterestScheduleModel model = savedModel.orElseThrow();
         OutstandingDetails outstandingAmounts = emiCalculator.getOutstandingAmountsTillDate(model, transactionDate);
-        // TODO: We should add all the past due outstanding amounts as well
+
 
         OutstandingAmountsDTO result = new OutstandingAmountsDTO(currency) //
                 .principal(outstandingAmounts.getOutstandingPrincipal()) //

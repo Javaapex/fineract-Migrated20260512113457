@@ -35,7 +35,7 @@ import org.glassfish.jersey.media.multipart.FormDataParam;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StaffUploadRequest implements Serializable {
-    // TODO: prefixing attributes with "upload" when we are already in a class named "XXXUploadXXX" is inconvenient; I'd
+
     // just name it "data"; we don't have to replicate the data types in the attribute names
 
     @Serial

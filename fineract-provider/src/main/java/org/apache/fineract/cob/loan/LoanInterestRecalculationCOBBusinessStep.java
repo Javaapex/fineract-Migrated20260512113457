@@ -36,6 +36,7 @@ public class LoanInterestRecalculationCOBBusinessStep implements LoanCOBBusiness
 
     @Override
     public Loan execute(Loan loan) {
+        Objects.requireNonNull(loan, "loan cannot be null");
         try {
             ThreadLocalContextUtil.setActionContext(ActionContext.DEFAULT);
             if (!loan.getStatus().isActive() || loan.isNpa() || loan.isChargedOff()

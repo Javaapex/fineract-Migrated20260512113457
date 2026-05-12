@@ -37,6 +37,7 @@ public class BuyDownFeeAmortizationBusinessStep implements LoanCOBBusinessStep {
     @Transactional
     @Override
     public Loan execute(Loan loan) {
+        Objects.requireNonNull(loan, "loan cannot be null");
         if (!loan.getLoanProductRelatedDetail().isEnableBuyDownFee()) {
             return loan;
         }

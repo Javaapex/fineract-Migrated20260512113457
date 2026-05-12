@@ -56,6 +56,7 @@ public class StuckJobListener implements ApplicationListener<ContextRefreshedEve
 
     @Override
     public void onApplicationEvent(@NonNull final ContextRefreshedEvent event) {
+        Objects.requireNonNull(event, "event cannot be null");
         if (jobRegistry.getJobNames().isEmpty()) {
             return;
         }

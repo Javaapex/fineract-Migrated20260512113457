@@ -162,7 +162,7 @@ public class LoanApplicationWritePlatformServiceJpaRepositoryImpl implements Loa
                 this.entityDatatableChecksWritePlatformService.saveDatatables(StatusEnum.CREATE.getValue(), EntityTables.LOAN.getName(),
                         loan.getId(), loan.productId(), command.arrayOfParameterNamed(LoanApiConstants.datatables));
             }
-            // TODO: review whether we really need this
+
             loanRepositoryWrapper.flush();
             // Check mandatory datatable entries were created
             this.entityDatatableChecksWritePlatformService.runTheCheckForProduct(loan.getId(), EntityTables.LOAN.getName(),
@@ -277,7 +277,7 @@ public class LoanApplicationWritePlatformServiceJpaRepositoryImpl implements Loa
             Map<String, Object> changes = this.loanAssembler.updateFrom(command, loan);
             // Validations (further validations which requires the assembling first)
             this.loanApplicationValidator.validateForModify(loan);
-            // TODO: check whether this is needed!
+
             loan = loanRepository.saveAndFlush(loan);
             // Save note
             final String submittedOnNote = command.stringValueOfParameterNamed("submittedOnNote");
@@ -291,7 +291,7 @@ public class LoanApplicationWritePlatformServiceJpaRepositoryImpl implements Loa
             // updating loan interest recalculation details throwing null
             // pointer exception after saveAndFlush
             // http://stackoverflow.com/questions/17151757/hibernate-cascade-update-gives-null-pointer/17334374#17334374
-            // TODO: check whether this is needed!
+
             this.loanRepositoryWrapper.saveAndFlush(loan);
             // Save interest recalculation calendar
             if (loan.isInterestBearingAndInterestRecalculationEnabled()
@@ -822,7 +822,7 @@ public class LoanApplicationWritePlatformServiceJpaRepositoryImpl implements Loa
             final CalendarInstance calendarInstance = new CalendarInstance(calendar, loan.getId(), CalendarEntityType.LOANS.getValue());
             this.calendarInstanceRepository.save(calendarInstance);
         } else {
-            // TODO: Would be nice to avoid recreating the loan application terms once again
+
             final LoanApplicationTerms loanApplicationTerms = this.loanScheduleAssembler.assembleLoanTerms(command.parsedJson());
             if (loanApplicationTerms.getRepaymentPeriodFrequencyType() == PeriodFrequencyType.MONTHS
                     && loanApplicationTerms.getNthDay() != null) {

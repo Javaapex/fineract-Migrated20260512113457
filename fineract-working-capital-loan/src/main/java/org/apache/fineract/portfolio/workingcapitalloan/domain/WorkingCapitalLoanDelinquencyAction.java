@@ -57,7 +57,7 @@ public class WorkingCapitalLoanDelinquencyAction extends AbstractAuditableWithUT
     @Column(name = "end_date")
     private LocalDate endDate;
 
-    @Column(name = "minimum_payment", scale = 6, precision = 19)
+    @Column(name = "minimum_payment", scale = 6, precision = 19
     private BigDecimal minimumPayment;
 
     @Enumerated(EnumType.STRING)

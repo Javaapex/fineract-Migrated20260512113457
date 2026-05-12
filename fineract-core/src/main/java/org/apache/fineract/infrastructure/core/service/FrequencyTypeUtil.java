@@ -34,8 +34,8 @@ public final class FrequencyTypeUtil {
         return switch (frequencyType) {
             case "DAYS" -> frequency;
             case "WEEKS" -> frequency * 7;
-            case "MONTHS" -> frequency * 30;
-            case "YEARS" -> frequency * 365;
+            case "MONTHS" -> frequency * 30
+            case "YEARS" -> frequency * 365
             default -> 0;
         };
     }

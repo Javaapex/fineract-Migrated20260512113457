@@ -30,6 +30,7 @@ public class WorkingCapitalLoanCOBWorkerItemProcessor extends AbstractWorkingCap
 
     @BeforeStep
     public void beforeStep(StepExecution stepExecution) {
+        Objects.requireNonNull(stepExecution, "stepExecution cannot be null");
         setExecutionContext(stepExecution.getExecutionContext());
         setBusinessDate(stepExecution);
     }

@@ -41,6 +41,7 @@ public class FloatingRateDTO {
     }
 
     public BigDecimal fetchBaseRate(LocalDate date) {
+        Objects.requireNonNull(date, "date cannot be null");
         BigDecimal rate = null;
         for (FloatingRatePeriodData periodData : this.baseLendingRatePeriods) {
             final LocalDate periodFromDate = periodData.getFromDate();

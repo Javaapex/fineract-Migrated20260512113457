@@ -124,7 +124,7 @@ public class FixedDepositProductsApiResource {
 
             Mandatory Fields for Cash based accounting (accountingRule = 2): savingsReferenceAccountId, savingsControlAccountId, interestOnSavingsAccountId, incomeFromFeeAccountId, transfersInSuspenseAccountId, incomeFromPenaltyAccountId""")
     @RequestBody(required = true, content = @Content(schema = @Schema(implementation = FixedDepositProductsApiResourceSwagger.PostFixedDepositProductsRequest.class)))
-    @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = FixedDepositProductsApiResourceSwagger.PostFixedDepositProductsResponse.class)))
+    @ApiResponse(responseCode = "200
     public String create(@Parameter(hidden = true) final String apiRequestBodyAsJson) {
 
         final CommandWrapper commandRequest = new CommandWrapperBuilder().createFixedDepositProduct().withJson(apiRequestBodyAsJson)
@@ -168,6 +168,7 @@ public class FixedDepositProductsApiResource {
 
     @ApiResponse(responseCode = "200", description = "OK", content = @Content(array = @ArraySchema(schema = @Schema(implementation = FixedDepositProductsApiResourceSwagger.GetFixedDepositProductsResponse.class))))
     public String retrieveAll(@Context final UriInfo uriInfo) {
+        Objects.requireNonNull(uriInfo, "uriInfo cannot be null");
 
         this.context.authenticatedUser().validateHasReadPermission(DepositsApiConstants.FIXED_DEPOSIT_PRODUCT_RESOURCE_NAME);
 

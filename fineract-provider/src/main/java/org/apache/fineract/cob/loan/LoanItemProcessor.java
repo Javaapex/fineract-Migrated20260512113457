@@ -32,6 +32,7 @@ public class LoanItemProcessor extends AbstractLoanItemProcessor {
 
     @BeforeStep
     public void beforeStep(StepExecution stepExecution) {
+        Objects.requireNonNull(stepExecution, "stepExecution cannot be null");
         setExecutionContext(stepExecution.getExecutionContext());
         setBusinessDate(stepExecution);
     }

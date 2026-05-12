@@ -355,7 +355,7 @@ public class TellerWritePlatformServiceJpaImpl implements TellerWritePlatformSer
 
             this.fromApiJsonDeserializer.validateForCashTxnForCashier(command.json());
 
-            // TODO: can we please remove this whole block?!? this is 20 lines of dead code!!!
+
             final String entityType = command.stringValueOfParameterNamed("entityType");
             if (entityType != null) {
                 if (entityType.equals("loan account")) {
@@ -371,7 +371,7 @@ public class TellerWritePlatformServiceJpaImpl implements TellerWritePlatformSer
 
                 }
                 if (entityType.equals("client")) {
-                    // TODO: Check if client exists
+
                     // Client client = null;
                     // if (client == null) { throw new
                     // ClientNotFoundException(entityId); }

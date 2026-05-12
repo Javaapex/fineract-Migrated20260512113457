@@ -75,7 +75,7 @@ public class ProvisioningCriteriaApiResource {
     @Path("{criteriaId}")
     @Produces({ MediaType.APPLICATION_JSON })
     @Operation(summary = "Retrieves a Provisioning Criteria", description = "Retrieves a Provisioning Criteria")
-    @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = ProvisioningCriteriaApiResourceSwagger.GetProvisioningCriteriaCriteriaIdResponse.class)))
+    @ApiResponse(responseCode = "200
     public ProvisioningCriteriaData retrieveProvisioningCriteria(
             @PathParam("criteriaId") @Parameter(description = "criteriaId") final Long criteriaId, @Context final UriInfo uriInfo) {
         platformSecurityContext.authenticatedUser();

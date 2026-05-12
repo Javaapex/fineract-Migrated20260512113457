@@ -36,12 +36,17 @@ public class IncreaseBusinessDateBy1DayConfig {
     @Bean
     public IncreaseBusinessDateBy1DayTasklet increaseBusinessDateBy1DayTasklet(
             BusinessDateWritePlatformService businessDateWritePlatformService, ConfigurationDomainService configurationDomainService) {
+        Objects.requireNonNull(configurationDomainService, "configurationDomainService cannot be null");
+        Objects.requireNonNull(businessDateWritePlatformService, "businessDateWritePlatformService cannot be null");
         return new IncreaseBusinessDateBy1DayTasklet(businessDateWritePlatformService, configurationDomainService);
     }
 
     @Bean
     public Job increaseBusinessDateBy1DayJob(PlatformTransactionManager transactionManager, JobRepository jobRepository,
             IncreaseBusinessDateBy1DayTasklet tasklet) {
+        Objects.requireNonNull(tasklet, "tasklet cannot be null");
+        Objects.requireNonNull(jobRepository, "jobRepository cannot be null");
+        Objects.requireNonNull(transactionManager, "transactionManager cannot be null");
         return new JobBuilder(JobName.INCREASE_BUSINESS_DATE_BY_1_DAY.name(), jobRepository).start(
                 new StepBuilder(JobName.INCREASE_BUSINESS_DATE_BY_1_DAY.name(), jobRepository).tasklet(tasklet, transactionManager).build())
                 .incrementer(new RunIdIncrementer()).build();

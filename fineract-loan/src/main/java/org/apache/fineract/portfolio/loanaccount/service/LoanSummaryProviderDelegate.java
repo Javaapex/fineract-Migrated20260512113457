@@ -29,6 +29,7 @@ public class LoanSummaryProviderDelegate {
     private final List<LoanSummaryDataProvider> loanSummaryDataProviders;
 
     public LoanSummaryDataProvider resolveLoanSummaryDataProvider(String loanProcessingStrategyCode) {
+        Objects.requireNonNull(loanProcessingStrategyCode, "loanProcessingStrategyCode cannot be null");
         return loanSummaryDataProviders.stream().filter(provider -> provider.accept(loanProcessingStrategyCode)).findAny()
                 .orElseThrow(() -> new IllegalArgumentException("No provider found for :" + loanProcessingStrategyCode));
     }

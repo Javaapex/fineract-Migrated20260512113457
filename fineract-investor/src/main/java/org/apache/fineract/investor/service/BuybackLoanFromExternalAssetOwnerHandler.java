@@ -34,6 +34,7 @@ public class BuybackLoanFromExternalAssetOwnerHandler implements NewCommandSourc
 
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return externalAssetOwnersWriteService.buybackLoanByLoanId(command);
     }
 }

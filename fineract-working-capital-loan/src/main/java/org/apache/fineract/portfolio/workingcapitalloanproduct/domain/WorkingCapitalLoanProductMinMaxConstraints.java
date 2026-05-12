@@ -39,7 +39,7 @@ import lombok.Setter;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class WorkingCapitalLoanProductMinMaxConstraints {
 
-    @Column(name = "min_principal_amount", scale = 6, precision = 19)
+    @Column(name = "min_principal_amount", scale = 6, precision = 19
     private BigDecimal minPrincipal;
 
     @Column(name = "max_principal_amount", scale = 6, precision = 19)

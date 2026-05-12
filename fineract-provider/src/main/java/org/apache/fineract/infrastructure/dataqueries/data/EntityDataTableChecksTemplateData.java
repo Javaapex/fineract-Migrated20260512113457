@@ -57,6 +57,7 @@ public class EntityDataTableChecksTemplateData implements Serializable {
 
     @Override
     public boolean equals(Object o) {
+        Objects.requireNonNull(o, "o cannot be null");
         if (this == o) {
             return true;
         }

@@ -30,6 +30,7 @@ public class NotificationEventListener {
     private final UserNotificationService userNotificationService;
 
     public void receive(NotificationData notificationData) {
+        Objects.requireNonNull(notificationData, "notificationData cannot be null");
         userNotificationService.notifyUsers(notificationData);
 
     }

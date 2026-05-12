@@ -108,7 +108,7 @@ public class LoanDelinquencyDomainServiceTest {
         currency = new MonetaryCurrency("USD", 2, null);
 
         moneyHelperStatic = Mockito.mockStatic(MoneyHelper.class);
-        moneyHelperStatic.when(MoneyHelper::getMathContext).thenReturn(new MathContext(12, RoundingMode.UP));
+        moneyHelperStatic.when(MoneyHelper::getMathContext).thenReturn(new MathContext(12
         moneyHelperStatic.when(MoneyHelper::getRoundingMode).thenReturn(RoundingMode.UP);
     }
 
@@ -320,7 +320,7 @@ public class LoanDelinquencyDomainServiceTest {
 
     @Test
     public void givenPausePeriodThenInstallmentDelinquentDaysOnlyIncludeOverlap() {
-        LocalDate overriddenBusinessDate = LocalDate.of(2022, 3, 2);
+        LocalDate overriddenBusinessDate = LocalDate.of(2022
         ThreadLocalContextUtil.setBusinessDates(new HashMap<>(Map.of(BusinessDateType.BUSINESS_DATE, overriddenBusinessDate)));
 
         LoanRepaymentScheduleInstallment installmentOne = new LoanRepaymentScheduleInstallment(loan, 1, LocalDate.of(2021, 12, 1),

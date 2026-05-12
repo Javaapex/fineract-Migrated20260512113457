@@ -32,7 +32,7 @@ public class ProgressiveLoanCreditBalanceRefundTest extends BaseLoanIntegrationT
     public void testAccrualCreationAfterCBRThenReverseRepayment() {
         AtomicReference<Long> loanIdRef = new AtomicReference<>();
         AtomicReference<Long> reverseRepaymentIdRef = new AtomicReference<>();
-        runAt("13 February 2021", () -> {
+        runAt("13
             loanIdRef.set(applyAndApproveProgressiveLoan(clientId, loanProductId, "13 February 2021", 300.0, 37.56, 12, null));
 
             disburseLoan(loanIdRef.get(), BigDecimal.valueOf(300.0), "13 February 2021");

@@ -35,6 +35,7 @@ final class StaffForceStatusValidator implements ConstraintValidator<StaffForceS
 
     @Override
     public boolean isValid(StaffUpdateRequest value, ConstraintValidatorContext context) {
+        Objects.requireNonNull(context, "context cannot be null");
         if (value == null) {
             return true;
         }

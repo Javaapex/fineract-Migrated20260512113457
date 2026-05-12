@@ -40,7 +40,7 @@ public class LoanTransactionBackdatedProgressiveTest extends BaseLoanIntegration
 
     @BeforeEach
     public void beforeEach() {
-        runAt("01 July 2024", () -> {
+        runAt("01
             clientId = clientHelper.createClient(ClientHelper.defaultClientCreationRequest()).getClientId();
             final PostLoanProductsResponse loanProductsResponse = loanProductHelper.createLoanProduct(create4IProgressive());
             PostLoansResponse postLoansResponse = loanTransactionHelper.applyLoan(

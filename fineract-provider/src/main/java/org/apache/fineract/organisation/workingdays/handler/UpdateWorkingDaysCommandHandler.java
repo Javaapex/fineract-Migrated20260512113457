@@ -40,6 +40,7 @@ public class UpdateWorkingDaysCommandHandler implements CommandHandler<WorkingDa
     @Transactional
     @Override
     public WorkingDaysUpdateResponse handle(Command<WorkingDaysUpdateRequest> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         WorkingDaysUpdateRequest request = command.getPayload();
         Map<String, Object> changes = this.workingDaysWritePlatformService.updateWorkingDays(request);
         if (changes == null) {

@@ -75,6 +75,7 @@ public class KafkaManagerConfig {
 
     @Bean
     public IntegrationFlow outboundFlow(KafkaTemplate<?, ?> kafkaTemplate) {
+        Objects.requireNonNull(kafkaTemplate, "kafkaTemplate cannot be null");
         FineractProperties.KafkaTopicProperties topic = fineractProperties.getRemoteJobMessageHandler().getKafka().getTopic();
 
         KafkaProducerMessageHandler<?, ?> messageHandler = new KafkaProducerMessageHandler<>(kafkaTemplate);

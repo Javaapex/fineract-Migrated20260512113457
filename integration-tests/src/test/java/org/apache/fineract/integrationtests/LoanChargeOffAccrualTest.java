@@ -36,7 +36,7 @@ public class LoanChargeOffAccrualTest extends BaseLoanIntegrationTest {
     private Long loanId;
 
     // create client, progressive loan product, loan with disburse limit 1000 for the client,
-    // and disburse 250 on 01 June 2024
+    // and disburse 250
     @BeforeEach
     public void beforeEach() {
         runAt("01 June 2024", () -> {

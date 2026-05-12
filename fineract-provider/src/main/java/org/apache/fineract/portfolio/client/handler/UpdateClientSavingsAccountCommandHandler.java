@@ -41,6 +41,7 @@ public class UpdateClientSavingsAccountCommandHandler implements NewCommandSourc
     @Override
     @Transactional
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return this.clientWritePlatformService.updateDefaultSavingsAccount(command.entityId(), command);
     }
 

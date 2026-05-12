@@ -172,8 +172,8 @@ public class BulkImportWorkbookServiceImpl implements BulkImportWorkbookService 
             workbook.write(output);
         });
 
-        // TODO: does it really make sense to use the current user's ID?
-        // TODO: wouldn't it be better to use "entityType.name()" as entity name?
+
+
         return writePlatformService
                 .createDocument(DocumentCreateRequest.builder().entityId(this.securityContext.authenticatedUser().getId())
                         .entityType("IMPORT").name(fileDetail.getFileName()).description(fileDetail.getFileName())
@@ -190,7 +190,7 @@ public class BulkImportWorkbookServiceImpl implements BulkImportWorkbookService 
 
         importDocument.setDocumentId(response.getResourceId());
 
-        // TODO: should we mark as "not yet processed by import handler"?
+
         importDocumentRepository.saveAndFlush(importDocument);
 
         final var event = new BulkImportEvent(this, workbook, fileDetail.getFileName(), fileType, importDocument, locale, dateFormat,

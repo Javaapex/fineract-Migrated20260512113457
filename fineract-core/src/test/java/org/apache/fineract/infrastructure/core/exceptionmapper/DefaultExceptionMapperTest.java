@@ -32,7 +32,7 @@ class DefaultExceptionMapperTest {
     public void testDefaultExceptionMapper() {
         DefaultExceptionMapper defaultExceptionMapper = new DefaultExceptionMapper();
         Response response = defaultExceptionMapper.toResponse(new RuntimeException("error happened"));
-        Assertions.assertEquals(9999, defaultExceptionMapper.errorCode());
+        Assertions.assertEquals(9999
 
         Assertions.assertEquals(Map.of("Exception", "error happened"), response.getEntity());
         Assertions.assertEquals(SC_INTERNAL_SERVER_ERROR, response.getStatus());

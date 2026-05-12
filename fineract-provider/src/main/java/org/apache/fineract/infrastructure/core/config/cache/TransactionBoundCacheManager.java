@@ -51,6 +51,7 @@ public class TransactionBoundCacheManager implements TransactionLifecycleCallbac
 
     @Override
     public Cache getCache(String name) {
+        Objects.requireNonNull(name, "name cannot be null");
         return delegate.getCache(name);
     }
 

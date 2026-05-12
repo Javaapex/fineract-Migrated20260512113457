@@ -44,6 +44,9 @@ public class AdhocQueryConfiguration {
     @ConditionalOnMissingBean(AdHocReadPlatformService.class)
     public AdHocReadPlatformService adHocReadPlatformService(JdbcTemplate jdbcTemplate, DatabaseSpecificSQLGenerator sqlGenerator,
             AdHocReadPlatformServiceImpl.AdHocMapper adHocRowMapper) {
+        Objects.requireNonNull(adHocRowMapper, "adHocRowMapper cannot be null");
+        Objects.requireNonNull(sqlGenerator, "sqlGenerator cannot be null");
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
         return new AdHocReadPlatformServiceImpl(jdbcTemplate, sqlGenerator, adHocRowMapper) {
 
         };
@@ -53,6 +56,10 @@ public class AdhocQueryConfiguration {
     @ConditionalOnMissingBean(AdHocWritePlatformService.class)
     public AdHocWritePlatformService adHocWritePlatformService(PlatformSecurityContext context, AdHocRepository adHocRepository,
             AdHocDataValidator adHocCommandFromApiJsonDeserializer, SqlValidator sqlValidator) {
+        Objects.requireNonNull(sqlValidator, "sqlValidator cannot be null");
+        Objects.requireNonNull(adHocCommandFromApiJsonDeserializer, "adHocCommandFromApiJsonDeserializer cannot be null");
+        Objects.requireNonNull(adHocRepository, "adHocRepository cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
         return new AdHocWritePlatformServiceJpaRepositoryImpl(context, adHocRepository, adHocCommandFromApiJsonDeserializer, sqlValidator) {
 
         };

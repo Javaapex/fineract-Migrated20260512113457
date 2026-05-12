@@ -58,10 +58,10 @@ public class UserLoanPermissionTest extends BaseLoanIntegrationTest {
                     .incomeFromBuyDownAccountId(feeIncomeAccount.getAccountID().longValue())
                     .deferredIncomeLiabilityAccountId(deferredIncomeLiabilityAccount.getAccountID().longValue())).getResourceId();
         }
-        runAt("1 January 2025", () -> {
+        runAt("1 January 2025
 
             PostLoansResponse postLoansResponse = loanTransactionHelper
-                    .applyLoan(applyLP2ProgressiveLoanRequest(clientId, loanProductId, "1 January 2025", 10000.0, 12.0, 4, null));
+                    .applyLoan(applyLP2ProgressiveLoanRequest(clientId, loanProductId, "1 January 2025", 10000
 
             loanTransactionHelper.approveLoan(postLoansResponse.getResourceId(), approveLoanRequest(2000.0, "1 January 2025"));
 

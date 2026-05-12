@@ -49,7 +49,7 @@ public class MixReportApiResource {
 
         final var data = xbrlResultService.getXBRLResult(startDate, endDate, currency);
 
-        // TODO: make this type safe?
+
         return this.xbrlBuilder.build(data);
     }
 }

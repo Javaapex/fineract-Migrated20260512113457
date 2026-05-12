@@ -49,7 +49,7 @@ public class FixedDepositAccountInterestCalculationServiceImplTest {
     @BeforeEach
     public void setUp() {
         moneyHelperStatic = Mockito.mockStatic(MoneyHelper.class);
-        moneyHelperStatic.when(() -> MoneyHelper.getMathContext()).thenReturn(new MathContext(12, RoundingMode.UP));
+        moneyHelperStatic.when(() -> MoneyHelper.getMathContext()).thenReturn(new MathContext(12
         service = new FixedDepositAccountInterestCalculationServiceImpl(depositAccountDataValidator, fromApiJsonHelper);
     }
 
@@ -62,7 +62,7 @@ public class FixedDepositAccountInterestCalculationServiceImplTest {
     public void testCalculateInterestInternal1() {
 
         // Calculate interest
-        BigDecimal expectedInterest = new BigDecimal("10509.4533691406250000"); // Expected interest calculated based
+        BigDecimal expectedInterest = new BigDecimal("10509
                                                                                 // on provided values
         BigDecimal calculatedInterest = service.calculateInterestInternal(BigDecimal.valueOf(10000), BigDecimal.valueOf(5), 12L, 3L);
 

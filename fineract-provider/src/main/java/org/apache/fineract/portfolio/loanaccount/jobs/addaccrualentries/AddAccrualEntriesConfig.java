@@ -46,6 +46,7 @@ public class AddAccrualEntriesConfig {
 
     @Bean
     public Job addAccrualEntriesJob(AddAccrualEntriesTasklet addAccrualEntriesTasklet) {
+        Objects.requireNonNull(addAccrualEntriesTasklet, "addAccrualEntriesTasklet cannot be null");
         return new JobBuilder(JobName.ADD_ACCRUAL_ENTRIES.name(), jobRepository).start(addAccrualEntriesStep(addAccrualEntriesTasklet))
                 .incrementer(new RunIdIncrementer()).build();
     }

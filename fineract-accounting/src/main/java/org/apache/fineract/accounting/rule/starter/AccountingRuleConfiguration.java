@@ -41,6 +41,8 @@ public class AccountingRuleConfiguration {
     @ConditionalOnMissingBean(AccountingRuleReadPlatformService.class)
     public AccountingRuleReadPlatformService accountingRuleReadPlatformService(JdbcTemplate jdbcTemplate,
             GLAccountReadPlatformService glAccountReadPlatformService) {
+        Objects.requireNonNull(glAccountReadPlatformService, "glAccountReadPlatformService cannot be null");
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
         return new AccountingRuleReadPlatformServiceImpl(jdbcTemplate, glAccountReadPlatformService);
     }
 
@@ -50,6 +52,11 @@ public class AccountingRuleConfiguration {
             AccountingRuleRepositoryWrapper accountingRuleRepositoryWrapper, AccountingRuleRepository accountingRuleRepository,
             GLAccountRepositoryWrapper accountRepositoryWrapper, OfficeRepositoryWrapper officeRepositoryWrapper,
             AccountingRuleCommandFromApiJsonDeserializer fromApiJsonDeserializer, CodeValueRepository codeValueRepository) {
+        Objects.requireNonNull(codeValueRepository, "codeValueRepository cannot be null");
+        Objects.requireNonNull(fromApiJsonDeserializer, "fromApiJsonDeserializer cannot be null");
+        Objects.requireNonNull(officeRepositoryWrapper, "officeRepositoryWrapper cannot be null");
+        Objects.requireNonNull(accountRepositoryWrapper, "accountRepositoryWrapper cannot be null");
+        Objects.requireNonNull(accountingRuleRepositoryWrapper, "accountingRuleRepositoryWrapper cannot be null");
         return new AccountingRuleWritePlatformServiceJpaRepositoryImpl(accountingRuleRepositoryWrapper, accountingRuleRepository,
                 accountRepositoryWrapper, officeRepositoryWrapper, fromApiJsonDeserializer, codeValueRepository);
     }

@@ -52,6 +52,7 @@ public class FinancialActivityAccountWritePlatformServiceImpl implements Financi
 
     @Override
     public CommandProcessingResult createFinancialActivityAccountMapping(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         try {
 
             this.fromApiJsonDeserializer.validateForCreate(command.json());
@@ -91,6 +92,7 @@ public class FinancialActivityAccountWritePlatformServiceImpl implements Financi
 
     @Override
     public CommandProcessingResult updateGLAccountActivityMapping(Long financialActivityAccountId, JsonCommand command) {
+        Objects.requireNonNull(financialActivityAccountId, "financialActivityAccountId cannot be null");
         try {
             this.fromApiJsonDeserializer.validateForUpdate(command.json());
             final FinancialActivityAccount financialActivityAccount = this.financialActivityAccountRepository

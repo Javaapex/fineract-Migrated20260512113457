@@ -53,6 +53,7 @@ public class GenerateLoanlossProvisioningTasklet implements Tasklet {
         } catch (ProvisioningEntryAlreadyCreatedException e) {
             log.error("Provisioning entry already created", e);
         } catch (Exception e) {
+
             log.error("Problem occurred when generating provisioning entries", e);
         }
         return RepeatStatus.FINISHED;

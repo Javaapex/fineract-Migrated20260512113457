@@ -45,6 +45,8 @@ public class DocumentDeleteCommandHandler implements CommandHandler<DocumentDele
 
     @Override
     public DocumentDeleteResponse fallback(Command<DocumentDeleteRequest> command, Throwable t) {
+        Objects.requireNonNull(t, "t cannot be null");
+        Objects.requireNonNull(command, "command cannot be null");
         // NOTE: fallback method needs to be in the same class
         return CommandHandler.super.fallback(command, t);
     }

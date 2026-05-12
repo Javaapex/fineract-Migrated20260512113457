@@ -80,6 +80,8 @@ public class WorkingCapitalLoanCOBManagerConfiguration {
     @Bean(WORKING_CAPITAL_JOB_HUMAN_READABLE_NAME)
     public Job workingCapitalLoanCOBJob(WorkingCapitalLoanCOBPartitioner workingCapitalLoanCOBPartitioner,
             ExecutionContextPromotionListener customJobParametersPromotionListener) {
+        Objects.requireNonNull(customJobParametersPromotionListener, "customJobParametersPromotionListener cannot be null");
+        Objects.requireNonNull(workingCapitalLoanCOBPartitioner, "workingCapitalLoanCOBPartitioner cannot be null");
         return new JobBuilder(WORKING_CAPITAL_LOAN_COB_JOB.name(), jobRepository)
                 .start(resolveCustomJobParametersForWorkingCapitalStep(customJobParametersPromotionListener))
                 .next(workingCapitalLoanCOBStep(workingCapitalLoanCOBPartitioner)).incrementer(new RunIdIncrementer()) //
@@ -100,6 +102,7 @@ public class WorkingCapitalLoanCOBManagerConfiguration {
 
     @Bean(WORKING_CAPITAL_LOAN_COB_STEP)
     public Step workingCapitalLoanCOBStep(WorkingCapitalLoanCOBPartitioner partitioner) {
+        Objects.requireNonNull(partitioner, "partitioner cannot be null");
         return stepBuilderFactory.get(WORKING_CAPITAL_LOAN_COB_PARTITIONER_STEP)//
                 .partitioner(WORKING_CAPITAL_LOAN_COB_WORKER_STEP, partitioner)//
                 .pollInterval(propertyService.getPollInterval(WORKING_CAPITAL_JOB_NAME))//

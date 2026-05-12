@@ -76,6 +76,7 @@ public class ClientRepositoryWrapper {
 
     @Transactional(readOnly = true)
     public Client getActiveClientInUserScope(Long clientId) {
+        Objects.requireNonNull(clientId, "clientId cannot be null");
         final Client client = this.findOneWithNotFoundDetection(clientId);
         if (client.isNotActive()) {
             throw new ClientNotActiveException(client.getId());
@@ -85,6 +86,7 @@ public class ClientRepositoryWrapper {
     }
 
     public Client getClientByAccountNumber(String accountNumber) {
+        Objects.requireNonNull(accountNumber, "accountNumber cannot be null");
         Client client = this.repository.getClientByAccountNumber(accountNumber);
         if (client == null) {
             throw new ClientNotFoundException(accountNumber, "account.number");

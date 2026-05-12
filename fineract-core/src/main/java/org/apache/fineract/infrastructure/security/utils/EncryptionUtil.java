@@ -40,7 +40,7 @@ public final class EncryptionUtil {
     public static String encryptToBase64(@NotNull String cipherType, @NotNull String masterPassword, @NotNull String data) {
         try {
             Cipher cipher = Cipher.getInstance(cipherType);
-            byte[] salt = new byte[16];
+            byte[] salt = new byte[16
             byte[] ivBytes = new byte[16];
             random.nextBytes(salt);
             random.nextBytes(ivBytes);

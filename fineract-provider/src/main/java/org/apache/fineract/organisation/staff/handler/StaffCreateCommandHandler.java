@@ -41,11 +41,13 @@ public class StaffCreateCommandHandler implements CommandHandler<StaffCreateRequ
     @Override
     @Transactional
     public StaffCreateResponse handle(Command<StaffCreateRequest> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return writePlatformService.createStaff(command.getPayload());
     }
 
     @Override
     public StaffCreateResponse fallback(Command<StaffCreateRequest> command, Throwable t) {
+        Objects.requireNonNull(t, "t cannot be null");
         // NOTE: fallback method needs to be in the same class
         return CommandHandler.super.fallback(command, t);
     }

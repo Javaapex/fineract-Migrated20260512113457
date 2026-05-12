@@ -74,6 +74,7 @@ public class TaxGroupMappings extends AbstractAuditableCustom {
     }
 
     public void update(final LocalDate endDate, final List<Map<String, Object>> changes) {
+        Objects.requireNonNull(changes, "changes cannot be null");
         if (endDate != null && this.endDate == null) {
             this.endDate = endDate;
             Map<String, Object> map = new HashMap<>(2);
@@ -108,6 +109,7 @@ public class TaxGroupMappings extends AbstractAuditableCustom {
     }
 
     public void setTaxGroup(TaxGroup taxGroup) {
+        Objects.requireNonNull(taxGroup, "taxGroup cannot be null");
         this.taxGroup = taxGroup;
     }
 }

@@ -47,7 +47,7 @@ public class ProgressiveLoanUndoDisbursementTest extends BaseLoanIntegrationTest
                 .chargeCalculationType(1).chargePaymentMode(0).chargeTimeType(1).currencyCode("EUR").amount(10.0d)
                 .name(Utils.randomStringGenerator("FEE_" + Calendar.getInstance().getTimeInMillis(), 5)).locale("en"));
 
-        runAt("01 January 2025", () -> {
+        runAt("01
             Long loanId = applyAndApproveProgressiveLoan(client.getClientId(), loanProductsResponse.getResourceId(), "01 January 2025",
                     430.0, 7.0, 6, l -> l.setCharges(
                             List.of(new PostLoansRequestChargeData().chargeId(disbCharge.getResourceId()).amount(new BigDecimal("10.0")))));

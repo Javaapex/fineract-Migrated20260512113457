@@ -40,7 +40,11 @@ public class FeignLoanOriginatorHelper {
         this.fineractClient = fineractClient;
     }
 
-    public Long createOriginator(String externalId) {
+    public Long createOriginator(PostLoanOriginatorsRequest request) {
+        Objects.requireNonNull(request, "request cannot be null");
+        Objects.requireNonNull(status, "status cannot be null");
+        Objects.requireNonNull(name, "name cannot be null");
+        Objects.requireNonNull(externalId, "externalId cannot be null");
         return createOriginator(new PostLoanOriginatorsRequest().externalId(externalId).name(externalId));
     }
 
@@ -62,6 +66,7 @@ public class FeignLoanOriginatorHelper {
     }
 
     public GetLoanOriginatorsResponse getOriginatorById(Long originatorId) {
+        Objects.requireNonNull(originatorId, "originatorId cannot be null");
         return ok(() -> fineractClient.loanOriginators().retrieveOneLoanOriginator(originatorId));
     }
 
@@ -108,30 +113,31 @@ public class FeignLoanOriginatorHelper {
     }
 
     public void attachOriginatorToLoan(Long loanId, Long originatorId) {
+        Objects.requireNonNull(loanId, "loanId cannot be null");
         ok(() -> {
             fineractClient.loanOriginators().attachOriginatorToLoan(loanId, originatorId);
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         });
     }
 
     public CallFailedRuntimeException attachOriginatorToLoanExpectingError(Long loanId, Long originatorId) {
         return fail(() -> {
             fineractClient.loanOriginators().attachOriginatorToLoan(loanId, originatorId);
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         });
     }
 
     public void detachOriginatorFromLoan(Long loanId, Long originatorId) {
         ok(() -> {
             fineractClient.loanOriginators().detachOriginatorFromLoan(loanId, originatorId);
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         });
     }
 
     public CallFailedRuntimeException detachOriginatorFromLoanExpectingError(Long loanId, Long originatorId) {
         return fail(() -> {
             fineractClient.loanOriginators().detachOriginatorFromLoan(loanId, originatorId);
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         });
     }
 

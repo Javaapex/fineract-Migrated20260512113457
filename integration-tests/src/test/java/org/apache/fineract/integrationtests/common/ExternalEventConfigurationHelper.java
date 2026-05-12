@@ -35,7 +35,7 @@ public class ExternalEventConfigurationHelper {
     private static final String EXTERNAL_EVENT_CONFIGURATION_URL = "/fineract-provider/api/v1/externalevents/configuration?"
             + Utils.TENANT_IDENTIFIER;
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example:
     // org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
@@ -47,7 +47,7 @@ public class ExternalEventConfigurationHelper {
         return response.get(EXTERNAL_EVENT_CONFIGURATION);
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example:
     // org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
@@ -702,7 +702,7 @@ public class ExternalEventConfigurationHelper {
         return defaults;
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example:
     // org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
@@ -722,7 +722,7 @@ public class ExternalEventConfigurationHelper {
 
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example:
     // org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
@@ -734,7 +734,7 @@ public class ExternalEventConfigurationHelper {
         return response.get(EXTERNAL_EVENT_CONFIGURATION_RESPONSE);
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example:
     // org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)

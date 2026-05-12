@@ -42,6 +42,7 @@ public class StaffUploadCommandHandler implements CommandHandler<StaffUploadRequ
     @Override
     @Transactional
     public StaffUploadResponse handle(Command<StaffUploadRequest> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         var payload = command.getPayload();
 
         var id = bulkImportWorkbookService.importWorkbook(GlobalEntityType.STAFF.toString(), payload.getUploadedInputStream(),
@@ -52,6 +53,7 @@ public class StaffUploadCommandHandler implements CommandHandler<StaffUploadRequ
 
     @Override
     public StaffUploadResponse fallback(Command<StaffUploadRequest> command, Throwable t) {
+        Objects.requireNonNull(t, "t cannot be null");
         // NOTE: fallback method needs to be in the same class
         return CommandHandler.super.fallback(command, t);
     }

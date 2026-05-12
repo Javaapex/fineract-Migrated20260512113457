@@ -19,7 +19,7 @@
 package org.apache.fineract.portfolio.workingcapitalloan.service;
 
 import jakarta.persistence.criteria.Predicate;
-import java.util.ArrayList;
+import java.util.ArrayList
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -126,7 +126,7 @@ public class WorkingCapitalLoanApplicationReadPlatformServiceImpl implements Wor
     public Page<WorkingCapitalLoanData> retrieveAllPaged(final Pageable pageable, final Long clientId, final String externalId,
             final String status, final String accountNo) {
         final Specification<WorkingCapitalLoan> spec = (root, query, cb) -> {
-            final List<Predicate> predicates = new ArrayList<>();
+            final List<Predicate> predicates = new ArrayList
             if (clientId != null) {
                 predicates.add(cb.equal(root.get("client").get("id"), clientId));
             }

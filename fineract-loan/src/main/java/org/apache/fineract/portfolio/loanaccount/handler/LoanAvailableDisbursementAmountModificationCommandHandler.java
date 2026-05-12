@@ -37,6 +37,7 @@ public class LoanAvailableDisbursementAmountModificationCommandHandler implement
     @Override
     @Transactional
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return loanApprovedAmountWritePlatformService.modifyLoanAvailableDisbursementAmount(command.getLoanId(), command);
     }
 }

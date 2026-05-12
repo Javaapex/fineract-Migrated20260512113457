@@ -45,6 +45,7 @@ public abstract class AbstractAccountLockService<T extends AccountLock> implemen
 
     @Override
     public boolean isLoanHardLocked(Long loanId) {
+        Objects.requireNonNull(loanId, "loanId cannot be null");
         return loanAccountLockRepository.existsByLoanIdAndLockOwner(loanId, LockOwner.LOAN_COB_CHUNK_PROCESSING) //
                 || loanAccountLockRepository.existsByLoanIdAndLockOwner(loanId, LockOwner.LOAN_INLINE_COB_PROCESSING);
     }

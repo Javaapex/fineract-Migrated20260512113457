@@ -59,7 +59,7 @@ public class SystemCodeTest {
 
     }
 
-    // @Ignore()
+    // @Disabled()
     @Test
     // scenario 57, 58, 59, 60
     public void testCreateCode() {
@@ -100,7 +100,7 @@ public class SystemCodeTest {
         assertNull(deletedCodeValues.get(CodeHelper.CODE_SYSTEM_DEFINED_ATTRIBUTE_NAME), "Verify system defined is false");
     }
 
-    // @Ignore()
+    // @Disabled()
     @Test
     // scenario 57, 60
     public void testPreventCreateDuplicateCode() {
@@ -143,7 +143,7 @@ public class SystemCodeTest {
 
     }
 
-    // @Ignore
+    // @Disabled
     @Test
     public void testUpdateDeleteSystemDefinedCode() {
 
@@ -167,7 +167,7 @@ public class SystemCodeTest {
 
     }
 
-    // @Ignore
+    // @Disabled
     @Test
     public void testCodeValuesNotAssignedToTable() {
 

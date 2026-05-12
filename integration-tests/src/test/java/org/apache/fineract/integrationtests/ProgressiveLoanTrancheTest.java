@@ -44,7 +44,7 @@ public class ProgressiveLoanTrancheTest extends BaseLoanIntegrationTest {
 
         final AtomicReference<Long> loanIdRef = new AtomicReference<>();
 
-        runAt("20 December 2024", () -> {
+        runAt("20
             Long loanId = applyAndApproveProgressiveLoan(client.getClientId(), loanProductsResponse.getResourceId(), "20 December 2024",
                     500.0, 7.0, 6, (request) -> request.disbursementData(List.of(new PostLoansDisbursementData()
                             .expectedDisbursementDate("20 December 2024").principal(BigDecimal.valueOf(100.0)))));

@@ -41,6 +41,7 @@ public class CreateEntityToEntityMappingCommandHandler implements NewCommandSour
     @Override
     @Transactional
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return this.fineractEntityAccessWriteService.createEntityToEntityMapping(command.entityId(), command);
     }
 

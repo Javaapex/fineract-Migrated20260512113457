@@ -38,7 +38,7 @@ public class LoanAccrualTransactionWithInterestAndChargeAccrualDateAsSubmittedOn
 
     @Test
     public void accrualTransactionForInterestBearingLoan_WithoutCharges_SubmittedOnDateAsChargeAccrualDateWorksTest() {
-        runAt("15 April 2024", () -> {
+        runAt("15
 
             try {
                 // Configure Charge accrual date as submitted on date

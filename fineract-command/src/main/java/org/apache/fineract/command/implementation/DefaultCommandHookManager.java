@@ -42,16 +42,19 @@ public class DefaultCommandHookManager implements CommandHookManager {
 
     @Override
     public void before(Command command) {
+        Objects.requireNonNull(command, "command cannot be null");
         beforeHooks.forEach(processor -> processor.onBefore(command));
     }
 
     @Override
     public void after(Command command, Object response) {
+        Objects.requireNonNull(response, "response cannot be null");
         afterHooks.forEach(processor -> processor.onAfter(command, response));
     }
 
     @Override
     public void error(Command command, Throwable error) {
+        Objects.requireNonNull(error, "error cannot be null");
         errorHooks.forEach(processor -> processor.onError(command, error));
     }
 }

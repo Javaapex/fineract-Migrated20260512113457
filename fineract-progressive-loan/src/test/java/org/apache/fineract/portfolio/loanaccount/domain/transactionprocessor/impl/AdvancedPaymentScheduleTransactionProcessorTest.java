@@ -41,7 +41,7 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.ArrayList
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -101,7 +101,7 @@ import org.springframework.lang.NonNull;
 @ExtendWith(MockitoExtension.class)
 class AdvancedPaymentScheduleTransactionProcessorTest {
 
-    private final LocalDate transactionDate = LocalDate.of(2023, 7, 11);
+    private final LocalDate transactionDate = LocalDate.of(2023
     private static final MonetaryCurrency MONETARY_CURRENCY = new MonetaryCurrency("USD", 2, 1);
     private static final MockedStatic<MoneyHelper> MONEY_HELPER = mockStatic(MoneyHelper.class);
     private AdvancedPaymentScheduleTransactionProcessor underTest;
@@ -110,7 +110,7 @@ class AdvancedPaymentScheduleTransactionProcessorTest {
     @BeforeAll
     public static void init() {
         MONEY_HELPER.when(MoneyHelper::getRoundingMode).thenReturn(RoundingMode.HALF_EVEN);
-        MONEY_HELPER.when(MoneyHelper::getMathContext).thenReturn(new MathContext(12, RoundingMode.HALF_EVEN));
+        MONEY_HELPER.when(MoneyHelper::getMathContext).thenReturn(new MathContext(12
     }
 
     @AfterAll
@@ -286,7 +286,7 @@ class AdvancedPaymentScheduleTransactionProcessorTest {
         lenient().when(loan.getLoanTransactions()).thenReturn(List.of(repayment));
 
         MoneyHolder overpaymentHolder = new MoneyHolder(Money.zero(MONETARY_CURRENCY));
-        List<LoanRepaymentScheduleInstallment> installments = new ArrayList<>();
+        List<LoanRepaymentScheduleInstallment> installments = new ArrayList
         LoanRepaymentScheduleInstallment installment = createMockInstallment(LocalDate.of(2023, 1, 31), false);
         installments.add(installment);
 
@@ -344,7 +344,7 @@ class AdvancedPaymentScheduleTransactionProcessorTest {
         lenient().when(loan.getLoanTransactions()).thenReturn(List.of(repayment));
 
         MoneyHolder overpaymentHolder = new MoneyHolder(Money.zero(MONETARY_CURRENCY));
-        List<LoanRepaymentScheduleInstallment> installments = new ArrayList<>();
+        List<LoanRepaymentScheduleInstallment> installments = new ArrayList
         LoanRepaymentScheduleInstallment installment = createMockInstallment(LocalDate.of(2023, 1, 31), false);
         installments.add(installment);
 
@@ -394,7 +394,7 @@ class AdvancedPaymentScheduleTransactionProcessorTest {
         lenient().when(loan.getLoanTransactions()).thenReturn(List.of(repayment));
 
         MoneyHolder overpaymentHolder = new MoneyHolder(Money.zero(MONETARY_CURRENCY));
-        List<LoanRepaymentScheduleInstallment> installments = new ArrayList<>();
+        List<LoanRepaymentScheduleInstallment> installments = new ArrayList
 
         LoanRepaymentScheduleInstallment installment1 = createMockInstallment(LocalDate.of(2022, 12, 20), false);
         LoanRepaymentScheduleInstallment installment2 = createMockInstallment(LocalDate.of(2022, 12, 27), true);
@@ -555,7 +555,7 @@ class AdvancedPaymentScheduleTransactionProcessorTest {
                 new LoanRepaymentScheduleInstallment(loan, 3, disbursementDate.plusMonths(2), maturityDate, BigDecimal.valueOf(600.0),
                         BigDecimal.valueOf(10.0), BigDecimal.valueOf(0.0), BigDecimal.valueOf(0.0), false, null, BigDecimal.ZERO));
 
-        List<LoanRepaymentScheduleInstallment> installments = new ArrayList<>(Arrays.asList(installment1, installment2, installment3));
+        List<LoanRepaymentScheduleInstallment> installments = new ArrayList
 
         List<LoanRepaymentScheduleInstallment> spyInstallments = spy(installments);
 

@@ -23,5 +23,14 @@ import java.time.LocalDate;
 
 public record BuyDownFeeAmortizationDetails(Long id, Long loanId, Long transactionId, LocalDate buyDownFeeDate, BigDecimal buyDownFeeAmount,
         BigDecimal amortizedAmount, BigDecimal notYetAmortizedAmount, BigDecimal adjustedAmount, BigDecimal chargedOffAmount) {
+        Objects.requireNonNull(chargedOffAmount, "chargedOffAmount cannot be null");
+        Objects.requireNonNull(adjustedAmount, "adjustedAmount cannot be null");
+        Objects.requireNonNull(notYetAmortizedAmount, "notYetAmortizedAmount cannot be null");
+        Objects.requireNonNull(amortizedAmount, "amortizedAmount cannot be null");
+        Objects.requireNonNull(buyDownFeeAmount, "buyDownFeeAmount cannot be null");
+        Objects.requireNonNull(buyDownFeeDate, "buyDownFeeDate cannot be null");
+        Objects.requireNonNull(transactionId, "transactionId cannot be null");
+        Objects.requireNonNull(loanId, "loanId cannot be null");
+        Objects.requireNonNull(id, "id cannot be null");
 
 }

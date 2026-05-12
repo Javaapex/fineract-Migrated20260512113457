@@ -45,11 +45,12 @@ public class LoanDueCalculationTest extends BaseLoanIntegrationTest {
         );
     }
 
-    // Repayment dates are calculated from the provided date (2024-02-29). As repayment starting date was provided, it
+    // Repayment dates are calculated from the provided date (2024
     // overrules `repayment start date type` configuration
     @ParameterizedTest
     @MethodSource("processingStrategy")
     public void dueDateBasedOnFirstRepaymentDate(String repaymentProcessor) {
+        Objects.requireNonNull(repaymentProcessor, "repaymentProcessor cannot be null");
         runAt("2 February 2024", () -> {
             // Client and Loan account creation
             final Long clientId = clientHelper.createClient(ClientHelper.defaultClientCreationRequest()).getClientId();

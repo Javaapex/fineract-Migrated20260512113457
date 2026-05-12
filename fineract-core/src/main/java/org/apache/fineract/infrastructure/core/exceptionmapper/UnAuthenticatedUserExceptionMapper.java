@@ -42,7 +42,7 @@ public class UnAuthenticatedUserExceptionMapper implements ExceptionMapper<UnAut
 
     @Override
     public Response toResponse(@SuppressWarnings("unused") final UnAuthenticatedUserException exception) {
-        // Status code 401 really reads as: "Unauthenticated":
+        // Status code 401
         log.warn("Exception occurred", ErrorHandler.findMostSpecificException(exception));
         return Response.status(Status.UNAUTHORIZED).entity(ApiGlobalErrorResponse.unAuthenticated()).type(MediaType.APPLICATION_JSON)
                 .build();

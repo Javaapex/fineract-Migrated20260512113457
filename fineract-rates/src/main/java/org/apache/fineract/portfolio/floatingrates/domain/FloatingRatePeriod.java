@@ -40,7 +40,7 @@ public class FloatingRatePeriod extends AbstractAuditableWithUTCDateTimeCustom<L
     @Column(name = "from_date", nullable = false)
     private LocalDate fromDate;
 
-    @Column(name = "interest_rate", scale = 6, precision = 19, nullable = false)
+    @Column(name = "interest_rate", scale = 6, precision = 19
     private BigDecimal interestRate;
 
     @Column(name = "is_differential_to_base_lending_rate", nullable = false)
@@ -69,6 +69,7 @@ public class FloatingRatePeriod extends AbstractAuditableWithUTCDateTimeCustom<L
     }
 
     public void updateFloatingRate(FloatingRate floatingRate) {
+        Objects.requireNonNull(floatingRate, "floatingRate cannot be null");
         this.floatingRate = floatingRate;
     }
 

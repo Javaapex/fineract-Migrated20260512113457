@@ -149,7 +149,7 @@ public class GuarantorCommand {
                         .positiveAmount();
             }
         } else {
-            // TODO: Vishwas this validation is buggy (it is compulsory to
+
             // update
             // firstname and last name when a guarantor type is changed), to be
             // corrected while

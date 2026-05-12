@@ -85,7 +85,7 @@ class DelinquencyReadPlatformServiceImplTest {
         Collection<LoanDelinquencyActionData> delinquencyActions = List.of();
 
         // when
-        underTest.enrichWithDelinquencyPausePeriodInfo(collectionData, delinquencyActions, LocalDate.of(2023, JANUARY, 12));
+        underTest.enrichWithDelinquencyPausePeriodInfo(collectionData, delinquencyActions, LocalDate.of(2023
 
         Assertions.assertTrue(collectionData.getDelinquencyPausePeriods().isEmpty());
     }

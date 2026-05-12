@@ -70,6 +70,7 @@ public class Scorecard extends AbstractPersistableCustom<Long> {
     }
 
     public void setSurvey(Survey survey) {
+        Objects.requireNonNull(survey, "survey cannot be null");
         this.survey = survey;
     }
 
@@ -78,6 +79,7 @@ public class Scorecard extends AbstractPersistableCustom<Long> {
     }
 
     public void setQuestion(Question question) {
+        Objects.requireNonNull(question, "question cannot be null");
         this.question = question;
     }
 
@@ -86,6 +88,7 @@ public class Scorecard extends AbstractPersistableCustom<Long> {
     }
 
     public void setResponse(Response response) {
+        Objects.requireNonNull(response, "response cannot be null");
         this.response = response;
     }
 
@@ -94,6 +97,7 @@ public class Scorecard extends AbstractPersistableCustom<Long> {
     }
 
     public void setAppUser(AppUser appUser) {
+        Objects.requireNonNull(appUser, "appUser cannot be null");
         this.appUser = appUser;
     }
 
@@ -102,6 +106,7 @@ public class Scorecard extends AbstractPersistableCustom<Long> {
     }
 
     public void setClient(Client client) {
+        Objects.requireNonNull(client, "client cannot be null");
         this.client = client;
     }
 
@@ -110,6 +115,7 @@ public class Scorecard extends AbstractPersistableCustom<Long> {
     }
 
     public void setCreatedOn(LocalDateTime createdOn) {
+        Objects.requireNonNull(createdOn, "createdOn cannot be null");
         this.createdOn = createdOn;
     }
 
@@ -118,6 +124,7 @@ public class Scorecard extends AbstractPersistableCustom<Long> {
     }
 
     public void setValue(Integer value) {
+        Objects.requireNonNull(value, "value cannot be null");
         this.value = value;
     }
 }

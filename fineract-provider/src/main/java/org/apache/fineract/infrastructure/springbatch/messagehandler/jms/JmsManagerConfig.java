@@ -48,6 +48,7 @@ public class JmsManagerConfig {
 
     @Bean
     public IntegrationFlow outboundFlow(ConnectionFactory connectionFactory) {
+        Objects.requireNonNull(connectionFactory, "connectionFactory cannot be null");
         return IntegrationFlow.from(outboundRequests) //
                 .intercept(outputInterceptor) //
                 .log(LoggingHandler.Level.DEBUG) //

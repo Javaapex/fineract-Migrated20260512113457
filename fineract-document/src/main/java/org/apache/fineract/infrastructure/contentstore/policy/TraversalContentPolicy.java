@@ -36,6 +36,7 @@ public class TraversalContentPolicy implements ContentPolicy {
 
     @Override
     public void check(ContentPolicyContext ctx) {
+        Objects.requireNonNull(ctx, "ctx cannot be null");
         if (overwriteSiblingsPattern.matcher(ctx.getPath()).matches()) {
             throw new ContentPolicyException(String.format("Trying to overwrite a sibling file: %s", ctx.getPath()));
         }

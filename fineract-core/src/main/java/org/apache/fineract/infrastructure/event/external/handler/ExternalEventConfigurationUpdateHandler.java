@@ -41,11 +41,13 @@ public class ExternalEventConfigurationUpdateHandler
     @Transactional
     @Override
     public ExternalEventConfigurationUpdateResponse handle(Command<ExternalEventConfigurationUpdateRequest> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return writePlatformService.updateConfigurations(command.getPayload());
     }
 
     @Override
     public ExternalEventConfigurationUpdateResponse fallback(Command<ExternalEventConfigurationUpdateRequest> command, Throwable t) {
+        Objects.requireNonNull(t, "t cannot be null");
         // NOTE: fallback method needs to be in the same class
         return CommandHandler.super.fallback(command, t);
     }

@@ -33,6 +33,7 @@ public class JdbcConfig {
 
     @Bean
     public JdbcTemplate jdbcTemplate(RoutingDataSource dataSource) {
+        Objects.requireNonNull(dataSource, "dataSource cannot be null");
         return new JdbcTemplate(dataSource);
     }
 

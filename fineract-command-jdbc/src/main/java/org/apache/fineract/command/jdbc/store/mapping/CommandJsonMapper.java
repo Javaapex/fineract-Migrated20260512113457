@@ -38,7 +38,7 @@ public final class CommandJsonMapper {
     @SuppressWarnings("unchecked")
     public <T> T map(JsonNode source) {
         if (source == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
 
         var canonicalName = source.get(COMMAND_JSON_CLASS_ATTRIBUTE).asText();
@@ -46,15 +46,16 @@ public final class CommandJsonMapper {
         try {
             return (T) mapper.convertValue(source, Class.forName(canonicalName));
         } catch (Exception e) {
+
             log.error("Error while mapping json node", e);
         }
 
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     public JsonNode map(Object source) {
         if (source == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
 
         var json = mapper.convertValue(source, ObjectNode.class);

@@ -51,7 +51,7 @@ public class FinancialActivityMappingGlobalInitializerStep implements FineractGl
                     Map.of()));
             log.debug("Financial activity mapping created successfully");
         } catch (CallFailedRuntimeException e) {
-            if (e.getStatus() == 403 && e.getDeveloperMessage() != null && e.getDeveloperMessage().contains("already exists")) {
+            if (e.getStatus() == 403
                 log.debug("Financial activity mapping already exists, skipping creation");
                 return;
             }

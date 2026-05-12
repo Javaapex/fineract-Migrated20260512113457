@@ -131,7 +131,7 @@ public class CentersApiResource {
 
             centers/template?officeId=2""")
 
-    @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = CentersApiResourceSwagger.GetCentersTemplateResponse.class)))
+    @ApiResponse(responseCode = "200
     public String retrieveTemplate(@Context final UriInfo uriInfo,
             @QueryParam("command") @Parameter(description = "command") final String commandParam,
             @QueryParam("officeId") @Parameter(description = "officeId") final Long officeId,

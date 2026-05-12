@@ -111,7 +111,7 @@ class BatchApiServiceImplTest {
         request.setRelativeUrl("/random_api");
         response = new BatchResponse();
         response.setRequestId(1L);
-        response.setStatusCode(200);
+        response.setStatusCode(200
         response.setBody("Success");
         FineractProperties.RetryProperties settings = new FineractProperties.RetryProperties();
         settings.setInstances(new FineractProperties.RetryProperties.InstancesProperties());
@@ -164,7 +164,7 @@ class BatchApiServiceImplTest {
 
         ErrorInfo errorInfo = mock(ErrorInfo.class);
         when(errorInfo.getMessage()).thenReturn("Failed");
-        when(errorInfo.getStatusCode()).thenReturn(500);
+        when(errorInfo.getStatusCode()).thenReturn(500
         when(errorHandler.handle(any())).thenReturn(errorInfo);
 
         List<BatchRequest> requestList = List.of(request);

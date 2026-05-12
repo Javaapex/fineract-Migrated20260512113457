@@ -65,6 +65,8 @@ public class EmbeddableProgressiveLoanScheduleGenerator {
 
         @Override
         public ProgressiveLoanInterestScheduleModel writeInterestScheduleModel(Loan loan, ProgressiveLoanInterestScheduleModel model) {
+        Objects.requireNonNull(model, "model cannot be null");
+        Objects.requireNonNull(loan, "loan cannot be null");
             return null;
         }
 
@@ -76,6 +78,8 @@ public class EmbeddableProgressiveLoanScheduleGenerator {
 
         @Override
         public boolean hasValidModelForDate(Long loanId, LocalDate targetDate) {
+        Objects.requireNonNull(targetDate, "targetDate cannot be null");
+        Objects.requireNonNull(loanId, "loanId cannot be null");
             return false;
         }
 

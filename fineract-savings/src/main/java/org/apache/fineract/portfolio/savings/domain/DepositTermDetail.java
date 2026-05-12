@@ -165,6 +165,8 @@ public class DepositTermDetail {
     }
 
     public boolean isDepositBetweenMinAndMax(LocalDate depositStartDate, LocalDate depositEndDate) {
+        Objects.requireNonNull(depositEndDate, "depositEndDate cannot be null");
+        Objects.requireNonNull(depositStartDate, "depositStartDate cannot be null");
         return isEqualOrGreaterThanMin(depositStartDate, depositEndDate) && isEqualOrLessThanMax(depositStartDate, depositEndDate);
     }
 
@@ -236,7 +238,7 @@ public class DepositTermDetail {
                 toDays = period * 7;
             break;
             case MONTHS:
-                toDays = period * 30;// converting to stard 30 days
+                toDays = period * 30
             break;
             case YEARS:
                 toDays = period * 365;

@@ -36,6 +36,8 @@ public class GlobalConfigurationHelper {
     private final FineractFeignClient fineractClient;
 
     public void disableGlobalConfiguration(String configKey, Long value) {
+        Objects.requireNonNull(value, "value cannot be null");
+        Objects.requireNonNull(configKey, "configKey cannot be null");
         switchAndSetGlobalConfiguration(configKey, false, value);
     }
 

@@ -47,8 +47,8 @@ class AdvancedPaymentAllocationsValidatorTest {
     @Test
     public void testPaymentAllocationsValidationThrowsErrorWhenLessElement() {
         PlatformApiDataValidationException validationException = assertThrows(PlatformApiDataValidationException.class,
-                () -> underTest.validatePairOfOrderAndPaymentAllocationType(createPaymentAllocationTypeList().subList(0, 11)));
-        assertPlatformException("Each provided payment allocation must contain exactly 12 allocation rules, but 11 were provided",
+                () -> underTest.validatePairOfOrderAndPaymentAllocationType(createPaymentAllocationTypeList().subList(0, 11
+        assertPlatformException("Each provided payment allocation must contain exactly 12
                 "advanced-payment-strategy.each_payment_allocation_order.must.contain.12.entries", validationException);
     }
 
@@ -217,7 +217,7 @@ class AdvancedPaymentAllocationsValidatorTest {
             try {
                 return Pair.of(Integer.parseInt(String.valueOf(Integer.parseInt(String.valueOf(p.ordinal())) + 1)), p);
             } catch (NumberFormatException e) {
-                throw new RuntimeException("Failed to create payment allocation type list", e);
+                throw new RuntimeException
             }
         }).toList();
     }

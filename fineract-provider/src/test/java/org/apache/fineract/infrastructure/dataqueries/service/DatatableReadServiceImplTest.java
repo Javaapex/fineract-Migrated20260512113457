@@ -139,6 +139,8 @@ public class DatatableReadServiceImplTest {
     @ParameterizedTest
     @MethodSource("provideParameters")
     public void testQueryDataTableInvalidParameterError(String columnType, String errorMessage) {
+        Objects.requireNonNull(errorMessage, "errorMessage cannot be null");
+        Objects.requireNonNull(columnType, "columnType cannot be null");
         when(jdbcTemplate.queryForObject(anyString(), eq(Integer.class), anyString())).thenReturn(1);
         when(databaseTypeResolver.databaseType()).thenReturn(DatabaseType.POSTGRESQL);
 

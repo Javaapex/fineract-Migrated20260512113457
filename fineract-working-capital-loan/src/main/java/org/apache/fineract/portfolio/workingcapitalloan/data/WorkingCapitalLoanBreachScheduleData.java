@@ -23,5 +23,15 @@ import java.time.LocalDate;
 
 public record WorkingCapitalLoanBreachScheduleData(Long id, Long loanId, Integer periodNumber, LocalDate fromDate, LocalDate toDate,
         Integer numberOfDays, BigDecimal minPaymentAmount, BigDecimal outstandingAmount, Boolean nearBreach, Boolean breach) {
+        Objects.requireNonNull(breach, "breach cannot be null");
+        Objects.requireNonNull(nearBreach, "nearBreach cannot be null");
+        Objects.requireNonNull(outstandingAmount, "outstandingAmount cannot be null");
+        Objects.requireNonNull(minPaymentAmount, "minPaymentAmount cannot be null");
+        Objects.requireNonNull(numberOfDays, "numberOfDays cannot be null");
+        Objects.requireNonNull(toDate, "toDate cannot be null");
+        Objects.requireNonNull(fromDate, "fromDate cannot be null");
+        Objects.requireNonNull(periodNumber, "periodNumber cannot be null");
+        Objects.requireNonNull(loanId, "loanId cannot be null");
+        Objects.requireNonNull(id, "id cannot be null");
 
 }

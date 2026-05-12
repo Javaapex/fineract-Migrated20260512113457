@@ -40,11 +40,13 @@ public class NoteDeleteCommandHandler implements CommandHandler<NoteDeleteReques
     @Override
     @Transactional
     public NoteDeleteResponse handle(Command<NoteDeleteRequest> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return writePlatformService.deleteNote(command.getPayload());
     }
 
     @Override
     public NoteDeleteResponse fallback(Command<NoteDeleteRequest> command, Throwable t) {
+        Objects.requireNonNull(t, "t cannot be null");
         // NOTE: fallback method needs to be in the same class
         return CommandHandler.super.fallback(command, t);
     }

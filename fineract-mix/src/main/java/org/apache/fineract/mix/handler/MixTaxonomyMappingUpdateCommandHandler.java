@@ -41,11 +41,13 @@ public class MixTaxonomyMappingUpdateCommandHandler
     @Transactional
     @Override
     public MixTaxonomyMappingUpdateResponse handle(Command<MixTaxonomyMappingUpdateRequest> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return writeTaxonomyService.updateMapping(command.getPayload());
     }
 
     @Override
     public MixTaxonomyMappingUpdateResponse fallback(Command<MixTaxonomyMappingUpdateRequest> command, Throwable t) {
+        Objects.requireNonNull(t, "t cannot be null");
         return CommandHandler.super.fallback(command, t);
     }
 }

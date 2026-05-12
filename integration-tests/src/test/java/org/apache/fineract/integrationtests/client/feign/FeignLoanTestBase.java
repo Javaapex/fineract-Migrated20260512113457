@@ -78,6 +78,7 @@ public abstract class FeignLoanTestBase extends FeignIntegrationTest implements 
 
     @Override
     public Long getAssetAccountId(String accountName) {
+        Objects.requireNonNull(accountName, "accountName cannot be null");
         return getAccounts().getAssetAccountId(accountName);
     }
 

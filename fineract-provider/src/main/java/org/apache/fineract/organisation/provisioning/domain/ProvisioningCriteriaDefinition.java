@@ -80,6 +80,11 @@ public class ProvisioningCriteriaDefinition extends AbstractPersistableCustom<Lo
     }
 
     public void update(Long minAge, Long maxAge, BigDecimal percentage, GLAccount lia, GLAccount exp) {
+        Objects.requireNonNull(exp, "exp cannot be null");
+        Objects.requireNonNull(lia, "lia cannot be null");
+        Objects.requireNonNull(percentage, "percentage cannot be null");
+        Objects.requireNonNull(maxAge, "maxAge cannot be null");
+        Objects.requireNonNull(minAge, "minAge cannot be null");
         this.minimumAge = minAge;
         this.maximumAge = maxAge;
         this.provisioningPercentage = percentage;
@@ -88,6 +93,7 @@ public class ProvisioningCriteriaDefinition extends AbstractPersistableCustom<Lo
     }
 
     public boolean isOverlapping(ProvisioningCriteriaDefinition def) {
+        Objects.requireNonNull(def, "def cannot be null");
         return this.minimumAge <= def.maximumAge && def.minimumAge <= this.maximumAge;
     }
 }

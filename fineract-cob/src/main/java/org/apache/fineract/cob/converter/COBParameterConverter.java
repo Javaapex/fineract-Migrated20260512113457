@@ -32,6 +32,6 @@ public final class COBParameterConverter {
             // for backward compatibility
             return loanCOBParameter.toCOBParameter();
         }
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 }

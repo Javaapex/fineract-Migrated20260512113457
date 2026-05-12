@@ -28,6 +28,8 @@ public abstract class ProfileCondition implements Condition {
 
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
+        Objects.requireNonNull(metadata, "metadata cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
         String[] activeProfiles = context.getEnvironment().getActiveProfiles();
         return matches(Arrays.asList(activeProfiles));
     }

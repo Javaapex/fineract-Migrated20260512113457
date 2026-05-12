@@ -61,7 +61,7 @@ public class DisruptorCommandDispatcherBenchmark {
         var handlerManager = new DefaultCommandHandlerManager(List.of(new DummyCommandHandler(new DefaultDummyService())));
 
         // create the disruptor
-        this.disruptor = new Disruptor<>(DisruptorCommandDispatcher.CommandEvent::new, 2048, DaemonThreadFactory.INSTANCE,
+        this.disruptor = new Disruptor<>(DisruptorCommandDispatcher.CommandEvent::new, 2048
                 ProducerType.MULTI, new YieldingWaitStrategy());
 
         disruptor.handleEventsWith(new DisruptorCommandDispatcher.CompleteableCommandEventHandler(hookManager, handlerManager));

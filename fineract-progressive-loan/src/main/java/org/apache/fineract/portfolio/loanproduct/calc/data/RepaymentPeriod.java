@@ -403,10 +403,12 @@ public class RepaymentPeriod {
     }
 
     public void addPaidPrincipalAmount(Money paidPrincipal) {
+        Objects.requireNonNull(paidPrincipal, "paidPrincipal cannot be null");
         this.paidPrincipal = MathUtil.plus(this.getPaidPrincipal(), paidPrincipal, getMc());
     }
 
     public void addPaidInterestAmount(Money paidInterest) {
+        Objects.requireNonNull(paidInterest, "paidInterest cannot be null");
         this.paidInterest = MathUtil.plus(this.getPaidInterest(), paidInterest, getMc());
     }
 
@@ -474,6 +476,7 @@ public class RepaymentPeriod {
      * @return disbursed and capitalized income amount till interest period.
      */
     public Money calculateTotalDisbursedAndCapitalizedIncomeAmountTillGivenPeriod(InterestPeriod tillPeriod) {
+        Objects.requireNonNull(tillPeriod, "tillPeriod cannot be null");
         Money res = MathUtil.plus(getMc(), getTotalDisbursedAmount(), getTotalCapitalizedIncomeAmount());
         for (InterestPeriod interestPeriod : this.getInterestPeriods()) {
             if (interestPeriod.equals(tillPeriod)) {

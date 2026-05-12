@@ -111,6 +111,7 @@ public class WorkingCapitalLoanProductToGLAccountMappingHelper {
     }
 
     public void handleChangesToCashBasedAccountMapping(final Long productId, final Map<String, Object> changes, final JsonElement element) {
+        Objects.requireNonNull(changes, "changes cannot be null");
         // assets / liabilities (fund source can be either asset or liability)
         mergeAccountMappingChanges(element, LoanProductAccountingParams.FUND_SOURCE.getValue(), productId,
                 CashAccountsForLoan.FUND_SOURCE.getValue(), changes, ASSET_LIABILITY_TYPES);

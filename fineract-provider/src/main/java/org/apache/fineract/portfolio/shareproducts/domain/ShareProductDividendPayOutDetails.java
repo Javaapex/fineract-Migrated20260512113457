@@ -38,7 +38,7 @@ public class ShareProductDividendPayOutDetails extends AbstractAuditableCustom {
     @Column(name = "product_id", nullable = true)
     private Long shareProductId;
 
-    @Column(name = "amount", scale = 6, precision = 19)
+    @Column(name = "amount", scale = 6, precision = 19
     private BigDecimal amount;
 
     @Column(name = "dividend_period_start_date")

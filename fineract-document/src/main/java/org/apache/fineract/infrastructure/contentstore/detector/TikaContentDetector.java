@@ -40,6 +40,7 @@ public final class TikaContentDetector implements ContentDetector {
 
     @Override
     public ContentDetectorContext detect(ContentDetectorContext ctx) {
+        Objects.requireNonNull(ctx, "ctx cannot be null");
         if (ctx.getInputStream() != null && !ctx.isInputStreamEnabled()) {
             log.warn(
                     "Input stream provided, but not explicitly enabled for detection. This operation is potentially making the input stream unusable, especially with HTTP multipart streams. Input stream will be ignored!");

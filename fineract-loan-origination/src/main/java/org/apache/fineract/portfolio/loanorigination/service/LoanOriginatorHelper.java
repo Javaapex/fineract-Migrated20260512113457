@@ -97,7 +97,7 @@ public class LoanOriginatorHelper {
 
     private CodeValue resolveCodeValue(final Long codeValueId, final String codeName) {
         if (codeValueId == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         return codeValueRepositoryWrapper.findOneByCodeNameAndIdWithNotFoundDetection(codeName, codeValueId);
     }

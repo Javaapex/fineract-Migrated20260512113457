@@ -145,7 +145,7 @@ public class AuthorizationServerConfig {
 
         http.securityMatcher(authorizationServerConfigurer.getEndpointsMatcher()) // only OAuth2 endpoints
                 .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
-                // TODO: Make it configurable
+
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
                 .exceptionHandling(exceptions -> exceptions.authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/login")))
@@ -162,7 +162,7 @@ public class AuthorizationServerConfig {
     @Order(3)
     public SecurityFilterChain protectedEndpoints(HttpSecurity http) throws Exception {
         http
-                // TODO: Make it configurable
+
                 .csrf(AbstractHttpConfigurer::disable).authorizeHttpRequests(auth -> {
                     auth.anyRequest().authenticated();
                     if (fineractProperties.getSecurity().getTwoFactor().isEnabled()) {

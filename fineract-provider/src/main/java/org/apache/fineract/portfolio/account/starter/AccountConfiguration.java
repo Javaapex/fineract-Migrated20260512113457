@@ -68,6 +68,7 @@ public class AccountConfiguration {
     @Bean
     @ConditionalOnMissingBean(AccountAssociationsReadPlatformService.class)
     public AccountAssociationsReadPlatformService accountAssociationsReadPlatformService(JdbcTemplate jdbcTemplate) {
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
         return new AccountAssociationsReadPlatformServiceImpl(jdbcTemplate);
     }
 
@@ -78,6 +79,14 @@ public class AccountConfiguration {
             PortfolioAccountReadPlatformService portfolioAccountReadPlatformService, ColumnValidator columnValidator,
             DatabaseSpecificSQLGenerator sqlGenerator, AccountTransfersMapper accountTransfersMapper, PaginationHelper paginationHelper,
             SqlValidator sqlValidator) {
+        Objects.requireNonNull(sqlValidator, "sqlValidator cannot be null");
+        Objects.requireNonNull(paginationHelper, "paginationHelper cannot be null");
+        Objects.requireNonNull(accountTransfersMapper, "accountTransfersMapper cannot be null");
+        Objects.requireNonNull(sqlGenerator, "sqlGenerator cannot be null");
+        Objects.requireNonNull(columnValidator, "columnValidator cannot be null");
+        Objects.requireNonNull(portfolioAccountReadPlatformService, "portfolioAccountReadPlatformService cannot be null");
+        Objects.requireNonNull(officeReadPlatformService, "officeReadPlatformService cannot be null");
+        Objects.requireNonNull(clientReadPlatformService, "clientReadPlatformService cannot be null");
         return new AccountTransfersReadPlatformServiceImpl(jdbcTemplate, clientReadPlatformService, officeReadPlatformService,
                 portfolioAccountReadPlatformService, columnValidator, sqlGenerator, accountTransfersMapper, paginationHelper, sqlValidator);
     }
@@ -92,6 +101,20 @@ public class AccountConfiguration {
             AccountTransferDetailRepository accountTransferDetailRepository, LoanReadPlatformService loanReadPlatformService,
             GSIMRepositoy gsimRepository, ConfigurationDomainService configurationDomainService, ExternalIdFactory externalIdFactory,
             FineractProperties fineractProperties) {
+        Objects.requireNonNull(fineractProperties, "fineractProperties cannot be null");
+        Objects.requireNonNull(externalIdFactory, "externalIdFactory cannot be null");
+        Objects.requireNonNull(configurationDomainService, "configurationDomainService cannot be null");
+        Objects.requireNonNull(gsimRepository, "gsimRepository cannot be null");
+        Objects.requireNonNull(loanReadPlatformService, "loanReadPlatformService cannot be null");
+        Objects.requireNonNull(accountTransferDetailRepository, "accountTransferDetailRepository cannot be null");
+        Objects.requireNonNull(savingsAccountWritePlatformService, "savingsAccountWritePlatformService cannot be null");
+        Objects.requireNonNull(loanAccountDomainService, "loanAccountDomainService cannot be null");
+        Objects.requireNonNull(loanAccountAssembler, "loanAccountAssembler cannot be null");
+        Objects.requireNonNull(savingsAccountDomainService, "savingsAccountDomainService cannot be null");
+        Objects.requireNonNull(savingsAccountAssembler, "savingsAccountAssembler cannot be null");
+        Objects.requireNonNull(accountTransferRepository, "accountTransferRepository cannot be null");
+        Objects.requireNonNull(accountTransferAssembler, "accountTransferAssembler cannot be null");
+        Objects.requireNonNull(accountTransfersDataValidator, "accountTransfersDataValidator cannot be null");
         return new AccountTransfersWritePlatformServiceImpl(accountTransfersDataValidator, accountTransferAssembler,
                 accountTransferRepository, savingsAccountAssembler, savingsAccountDomainService, loanAccountAssembler,
                 loanAccountDomainService, savingsAccountWritePlatformService, accountTransferDetailRepository, loanReadPlatformService,
@@ -119,6 +142,7 @@ public class AccountConfiguration {
             PortfolioAccountReadPlatformService portfolioAccountReadPlatformService,
             DropdownReadPlatformService dropdownReadPlatformService, ColumnValidator columnValidator,
             DatabaseSpecificSQLGenerator sqlGenerator, PaginationHelper paginationHelper) {
+        Objects.requireNonNull(dropdownReadPlatformService, "dropdownReadPlatformService cannot be null");
         return new StandingInstructionReadPlatformServiceImpl(jdbcTemplate, clientReadPlatformService, officeReadPlatformService,
                 portfolioAccountReadPlatformService, dropdownReadPlatformService, columnValidator, sqlGenerator, paginationHelper);
     }
@@ -128,6 +152,9 @@ public class AccountConfiguration {
     public StandingInstructionWritePlatformService standingInstructionWritePlatformService(
             StandingInstructionDataValidator standingInstructionDataValidator, StandingInstructionAssembler standingInstructionAssembler,
             AccountTransferDetailRepository accountTransferDetailRepository, StandingInstructionRepository standingInstructionRepository) {
+        Objects.requireNonNull(standingInstructionRepository, "standingInstructionRepository cannot be null");
+        Objects.requireNonNull(standingInstructionAssembler, "standingInstructionAssembler cannot be null");
+        Objects.requireNonNull(standingInstructionDataValidator, "standingInstructionDataValidator cannot be null");
         return new StandingInstructionWritePlatformServiceImpl(standingInstructionDataValidator, standingInstructionAssembler,
                 accountTransferDetailRepository, standingInstructionRepository);
     }

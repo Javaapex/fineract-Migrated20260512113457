@@ -22,7 +22,7 @@ import org.apache.fineract.infrastructure.core.api.JsonCommand;
 import org.apache.fineract.infrastructure.core.data.CommandProcessingResult;
 
 /**
- * Created by Cieyou on 3/12/14.
+ * Created by Cieyou on 3/12
  */
 public interface WriteLikelihoodService {
 

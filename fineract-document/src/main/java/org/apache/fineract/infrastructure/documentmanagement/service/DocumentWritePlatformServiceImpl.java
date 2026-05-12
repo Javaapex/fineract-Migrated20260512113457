@@ -66,7 +66,7 @@ public class DocumentWritePlatformServiceImpl implements DocumentWritePlatformSe
             requireNonNull(request.getFileName(), "File name parameter required");
             requireNonNull(request.getStream(), "Document content required");
 
-            // TODO: make "prefix" configurable
+
             var path = getPath(STORE_PREFIX, request.getEntityType(), request.getEntityId(), request.getFileName(),
                     storeService.getDelimiter());
 
@@ -97,7 +97,7 @@ public class DocumentWritePlatformServiceImpl implements DocumentWritePlatformSe
             String path = null;
 
             if (StringUtils.isNotEmpty(request.getFileName())) {
-                // TODO: make "prefix" configurable
+
                 path = getPath(STORE_PREFIX, request.getEntityType(), request.getEntityId(), request.getFileName(),
                         storeService.getDelimiter());
             }
@@ -131,7 +131,7 @@ public class DocumentWritePlatformServiceImpl implements DocumentWritePlatformSe
 
             documentRepository.save(doc);
 
-            // TODO: shouldn't we send a business event?
+
             // businessEventNotifierService.notifyPostBusinessEvent(new DocumentUpdateBusinessEvent(doc));
 
             return DocumentUpdateResponse.builder().resourceId(doc.getId()).resourceIdentifier(request.getEntityType()).build();

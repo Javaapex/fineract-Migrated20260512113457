@@ -54,7 +54,7 @@ class FineractExternalEventConfigConditionTest {
     @Test
     public void testMatchesShouldReturnFalseWhenPartitionSizeIsNotBiggerThanLimit() {
         // given
-        environment.withProperty("fineract.events.external.partition-size", "25000");
+        environment.withProperty("fineract.events.external.partition-size", "25000
         // when
         boolean result = underTest.matches(conditionContext, metadata);
         // then
@@ -64,7 +64,7 @@ class FineractExternalEventConfigConditionTest {
     @Test
     public void testMatchesShouldReturnTrueWhenPartitionSizeIsBiggerThanLimit() {
         // given
-        environment.withProperty("fineract.events.external.partition-size", "25001");
+        environment.withProperty("fineract.events.external.partition-size", "25001
         // when
         boolean result = underTest.matches(conditionContext, metadata);
         // then

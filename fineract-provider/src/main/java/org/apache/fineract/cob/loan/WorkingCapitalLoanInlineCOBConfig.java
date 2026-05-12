@@ -88,6 +88,10 @@ public class WorkingCapitalLoanInlineCOBConfig {
             WorkingCapitalLoanInlineCOBWorkerItemProcessor inlineWorkingCapitalLoanCobWorkerItemProcessor,
             InlineWorkingCapitalLoanCOBWorkerItemWriter inlineWorkingCapitalLoanCobWorkerItemWriter,
             InlineWorkingCapitalLoanCOBWorkerItemListener inlineWorkingCapitalLoanCobLoanItemListener) {
+        Objects.requireNonNull(inlineWorkingCapitalLoanCobLoanItemListener, "inlineWorkingCapitalLoanCobLoanItemListener cannot be null");
+        Objects.requireNonNull(inlineWorkingCapitalLoanCobWorkerItemWriter, "inlineWorkingCapitalLoanCobWorkerItemWriter cannot be null");
+        Objects.requireNonNull(inlineWorkingCapitalLoanCobWorkerItemProcessor, "inlineWorkingCapitalLoanCobWorkerItemProcessor cannot be null");
+        Objects.requireNonNull(inlineWorkingCapitalLoanCobWorkerItemReader, "inlineWorkingCapitalLoanCobWorkerItemReader cannot be null");
         return new StepBuilder("Inline Working Capital Loan COB Step", jobRepository)
                 .<WorkingCapitalLoan, WorkingCapitalLoan>chunk(propertyService.getChunkSize(JobName.WORKING_CAPITAL_LOAN_COB_JOB.name()),
                         transactionManager)
@@ -98,6 +102,9 @@ public class WorkingCapitalLoanInlineCOBConfig {
     @Bean(name = "inlineWorkingCapitalLoanCOBJob")
     public Job inlineWorkingCapitalLoanCOBJob(Step inlineWorkingCapitalLoanCOBBuildExecutionContextStep,
             Step inlineWorkingCapitalLoanCOBStep, Step inlineWorkingCapitalLoanCOBResetContextStep) {
+        Objects.requireNonNull(inlineWorkingCapitalLoanCOBResetContextStep, "inlineWorkingCapitalLoanCOBResetContextStep cannot be null");
+        Objects.requireNonNull(inlineWorkingCapitalLoanCOBStep, "inlineWorkingCapitalLoanCOBStep cannot be null");
+        Objects.requireNonNull(inlineWorkingCapitalLoanCOBBuildExecutionContextStep, "inlineWorkingCapitalLoanCOBBuildExecutionContextStep cannot be null");
         return new JobBuilder(WorkingCapitalLoanCOBConstant.INLINE_WORKING_CAPITAL_LOAN_COB_JOB_NAME, jobRepository) //
                 .start(inlineWorkingCapitalLoanCOBBuildExecutionContextStep).next(inlineWorkingCapitalLoanCOBStep)
                 .next(inlineWorkingCapitalLoanCOBResetContextStep) //

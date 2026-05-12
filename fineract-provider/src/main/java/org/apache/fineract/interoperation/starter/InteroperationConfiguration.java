@@ -56,6 +56,23 @@ public class InteroperationConfiguration {
             SavingsAccountDomainService savingsAccountService, ConfigurationDomainService configurationDomainService,
             JdbcTemplate jdbcTemplate, PortfolioCommandSourceWritePlatformService commandsSourceWritePlatformService,
             DefaultToApiJsonSerializer<LoanAccountData> toApiJsonSerializer, DatabaseSpecificSQLGenerator sqlGenerator) {
+        Objects.requireNonNull(sqlGenerator, "sqlGenerator cannot be null");
+        Objects.requireNonNull(toApiJsonSerializer, "toApiJsonSerializer cannot be null");
+        Objects.requireNonNull(commandsSourceWritePlatformService, "commandsSourceWritePlatformService cannot be null");
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
+        Objects.requireNonNull(configurationDomainService, "configurationDomainService cannot be null");
+        Objects.requireNonNull(savingsAccountService, "savingsAccountService cannot be null");
+        Objects.requireNonNull(savingsAccountTransactionSummaryWrapper, "savingsAccountTransactionSummaryWrapper cannot be null");
+        Objects.requireNonNull(savingsHelper, "savingsHelper cannot be null");
+        Objects.requireNonNull(loanRepositoryWrapper, "loanRepositoryWrapper cannot be null");
+        Objects.requireNonNull(identifierRepository, "identifierRepository cannot be null");
+        Objects.requireNonNull(paymentTypeRepository, "paymentTypeRepository cannot be null");
+        Objects.requireNonNull(noteRepository, "noteRepository cannot be null");
+        Objects.requireNonNull(applicationCurrencyRepository, "applicationCurrencyRepository cannot be null");
+        Objects.requireNonNull(savingsAccountTransactionRepository, "savingsAccountTransactionRepository cannot be null");
+        Objects.requireNonNull(savingsAccountRepository, "savingsAccountRepository cannot be null");
+        Objects.requireNonNull(interopDataValidator, "interopDataValidator cannot be null");
+        Objects.requireNonNull(securityContext, "securityContext cannot be null");
         return new InteropServiceImpl(securityContext, interopDataValidator, savingsAccountRepository, savingsAccountTransactionRepository,
                 applicationCurrencyRepository, noteRepository, paymentTypeRepository, identifierRepository, loanRepositoryWrapper,
                 savingsHelper, savingsAccountTransactionSummaryWrapper, savingsAccountService, configurationDomainService, jdbcTemplate,

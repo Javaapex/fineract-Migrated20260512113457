@@ -44,11 +44,14 @@ public class KafkaRemoteMessageListener {
 
     @KafkaListener(topics = "${fineract.remote-job-message-handler.kafka.topic.name}")
     public void onMessage(@Payload ContextualMessage contextualMessage, Acknowledgment acknowledgment) {
+        Objects.requireNonNull(acknowledgment, "acknowledgment cannot be null");
+        Objects.requireNonNull(contextualMessage, "contextualMessage cannot be null");
         try {
             log.debug("Received Kafka partition message {}", contextualMessage);
             StepExecutionRequest stepExecutionRequest = inputInterceptor.beforeHandleMessage(contextualMessage);
             stepExecutionRequestHandler.handle(stepExecutionRequest);
         } catch (Exception e) {
+
             log.error("Exception while processing Kafka message", e);
         } finally {
             inputInterceptor.afterHandleMessage();

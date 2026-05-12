@@ -37,6 +37,7 @@ public class WorkingCapitalInlineCOBLoanItemReader extends AbstractLoanItemReade
     @BeforeStep
     @SuppressWarnings({ "unchecked" })
     public void beforeStep(@NonNull StepExecution stepExecution) {
+        Objects.requireNonNull(stepExecution, "stepExecution cannot be null");
         ExecutionContext executionContext = stepExecution.getJobExecution().getExecutionContext();
         List<Long> loanIds = (List<Long>) executionContext.get(COBConstant.COB_PARAMETER);
         setRemainingData(new LinkedBlockingQueue<>(loanIds));

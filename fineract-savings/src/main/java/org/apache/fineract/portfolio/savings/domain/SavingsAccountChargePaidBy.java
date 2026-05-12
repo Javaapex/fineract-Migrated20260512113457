@@ -38,7 +38,7 @@ public class SavingsAccountChargePaidBy extends AbstractPersistableCustom<Long> 
     @JoinColumn(name = "savings_account_charge_id", nullable = false)
     private SavingsAccountCharge savingsAccountCharge;
 
-    @Column(name = "amount", scale = 6, precision = 19, nullable = false)
+    @Column(name = "amount", scale = 6, precision = 19
     private BigDecimal amount;
 
     protected SavingsAccountChargePaidBy() {

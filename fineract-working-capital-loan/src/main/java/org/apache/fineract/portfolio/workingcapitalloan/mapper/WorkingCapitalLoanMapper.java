@@ -114,7 +114,7 @@ public interface WorkingCapitalLoanMapper {
     default List<WorkingCapitalPaymentAllocationData> paymentAllocationRulesToData(
             final List<WorkingCapitalLoanPaymentAllocationRule> rules) {
         if (rules == null || rules.isEmpty()) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         final List<WorkingCapitalPaymentAllocationData> result = new ArrayList<>();
         for (WorkingCapitalLoanPaymentAllocationRule rule : rules) {

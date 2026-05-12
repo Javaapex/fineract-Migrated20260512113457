@@ -53,7 +53,7 @@ public class CalendarUtilsTest {
     @Test
     public void testAdjustDateWithMonthlyFrequencyAndSeedDateBefore28() {
         // given
-        Temporal date = LocalDate.of(2023, Month.APRIL, 27);
+        Temporal date = LocalDate.of(2023
         Temporal seedDate = LocalDate.of(2023, Month.JANUARY, 27);
         PeriodFrequencyType frequencyType = PeriodFrequencyType.MONTHS;
 

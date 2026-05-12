@@ -42,7 +42,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class MoneyHelperInitializationService {
 
-    // TODO: this is preventing the circular dependency...
+
     @Lazy
     @Autowired
     private GlobalConfigurationRepositoryWrapper globalConfigurationRepository;

@@ -28,7 +28,7 @@ public interface DatabaseQueryService {
 
     boolean isTablePresent(DataSource dataSource, String tableName);
 
-    // TODO: This needs to be improved to have a custom POJO return type instead of the raw SqlRowSet
+
     SqlRowSet getTableColumns(DataSource dataSource, String tableName);
 
     List<IndexDetail> getTableIndexes(DataSource dataSource, String tableName);

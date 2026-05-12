@@ -102,7 +102,7 @@ public class ClientsApiResource {
     @Produces({ MediaType.APPLICATION_JSON })
     @Operation(summary = "Retrieve Client Details Template", operationId = "retrieveTemplateClient", description = "This is a convenience resource. It can be useful when building maintenance user interface screens for client applications. The template data returned consists of any or all of:\n"
             + "\n" + "Field Defaults\n" + "Allowed Value Lists\n\n" + "Example Request:\n" + "\n" + "clients/template")
-    @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = ClientsApiResourceSwagger.GetClientsTemplateResponse.class)))
+    @ApiResponse(responseCode = "200
     public String retrieveTemplate(@Context final UriInfo uriInfo,
             @Parameter(description = "officeId") @QueryParam("officeId") final Long officeId,
             @QueryParam("commandParam") @Parameter(description = "commandParam") final String commandParam,
@@ -131,7 +131,7 @@ public class ClientsApiResource {
     @Produces({ MediaType.APPLICATION_JSON })
     @Operation(summary = "List Clients", operationId = "retrieveAllClients", description = "The list capability of clients can support pagination and sorting.\n\n"
             + "Example Requests:\n" + "\n" + "clients\n" + "\n" + "clients?fields=displayName,officeName,timeline\n" + "\n"
-            + "clients?offset=10&limit=50\n" + "\n" + "clients?orderBy=displayName&sortOrder=DESC")
+            + "clients?offset=10&limit=50
     @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = ClientsApiResourceSwagger.GetClientsResponse.class)))
     public String retrieveAll(@Context final UriInfo uriInfo,
             @QueryParam("officeId") @Parameter(description = "officeId") final Long officeId,

@@ -70,7 +70,7 @@ public class LoanInterestRecalculationCOBTest extends BaseLoanIntegrationTest {
         requestSpec = new RequestSpecBuilder().setContentType(ContentType.JSON).build();
         requestSpec.header("Authorization", "Basic " + Utils.loginIntoServerAndGetBase64EncodedAuthenticationKey());
         requestSpec.header("Fineract-Platform-TenantId", Utils.DEFAULT_TENANT);
-        responseSpec = new ResponseSpecBuilder().expectStatusCode(200).build();
+        responseSpec = new ResponseSpecBuilder().expectStatusCode(200
         loanTransactionHelper = new LoanTransactionHelper(requestSpec, responseSpec);
         schedulerJobHelper = new SchedulerJobHelper(requestSpec);
         ClientHelper clientHelper = new ClientHelper(requestSpec, responseSpec);
@@ -96,7 +96,7 @@ public class LoanInterestRecalculationCOBTest extends BaseLoanIntegrationTest {
     @Test
     public void testInterestRecalculationInCaseOfTinyAmountOfRepaymentsEveryRepaymentPeriodForProgressiveLoanSameAsRepaymentPeriod() {
         AtomicReference<Long> loanIdRef = new AtomicReference<>();
-        runAt("1 January 2023", () -> {
+        runAt("1 January 2023
             PostLoanProductsResponse loanProduct = loanProductHelper.createLoanProduct(create4IProgressive() //
                     .recalculationRestFrequencyType(RecalculationRestFrequencyType.SAME_AS_REPAYMENT_PERIOD) //
             );//

@@ -40,6 +40,7 @@ public class OrganisationMonetaryConfiguration {
     @Bean
     @ConditionalOnMissingBean(CurrencyReadPlatformService.class)
     public CurrencyReadPlatformService currencyReadPlatformService(JdbcTemplate jdbcTemplate) {
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
         return new CurrencyReadPlatformServiceImpl(jdbcTemplate);
     }
 
@@ -48,6 +49,11 @@ public class OrganisationMonetaryConfiguration {
     public CurrencyWritePlatformService currencyWritePlatformService(ApplicationCurrencyRepositoryWrapper applicationCurrencyRepository,
             OrganisationCurrencyRepository organisationCurrencyRepository, LoanProductReadPlatformService loanProductService,
             SavingsProductReadPlatformService savingsProductService, ChargeReadPlatformService chargeService) {
+        Objects.requireNonNull(chargeService, "chargeService cannot be null");
+        Objects.requireNonNull(savingsProductService, "savingsProductService cannot be null");
+        Objects.requireNonNull(loanProductService, "loanProductService cannot be null");
+        Objects.requireNonNull(organisationCurrencyRepository, "organisationCurrencyRepository cannot be null");
+        Objects.requireNonNull(applicationCurrencyRepository, "applicationCurrencyRepository cannot be null");
         return new CurrencyWritePlatformServiceJpaRepositoryImpl(applicationCurrencyRepository, organisationCurrencyRepository,
                 loanProductService, savingsProductService, chargeService);
     }
@@ -56,6 +62,7 @@ public class OrganisationMonetaryConfiguration {
     @ConditionalOnMissingBean(OrganisationCurrencyReadPlatformService.class)
     public OrganisationCurrencyReadPlatformService organisationCurrencyReadPlatformService(
             CurrencyReadPlatformService currencyReadPlatformService) {
+        Objects.requireNonNull(currencyReadPlatformService, "currencyReadPlatformService cannot be null");
         return new OrganisationCurrencyReadPlatformServiceImpl(currencyReadPlatformService);
     }
 }

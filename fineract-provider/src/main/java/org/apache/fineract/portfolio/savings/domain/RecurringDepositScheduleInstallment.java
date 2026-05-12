@@ -52,7 +52,7 @@ public class RecurringDepositScheduleInstallment extends AbstractAuditableWithUT
     @Column(name = "duedate", nullable = false)
     private LocalDate dueDate;
 
-    @Column(name = "deposit_amount", scale = 6, precision = 19, nullable = true)
+    @Column(name = "deposit_amount", scale = 6, precision = 19
     private BigDecimal depositAmount;
 
     @Column(name = "deposit_amount_completed_derived", scale = 6, precision = 19, nullable = true)
@@ -256,6 +256,7 @@ public class RecurringDepositScheduleInstallment extends AbstractAuditableWithUT
     }
 
     public void updateDepositAmountAndResetDerivedFields(BigDecimal newDepositAmount) {
+        Objects.requireNonNull(newDepositAmount, "newDepositAmount cannot be null");
         this.depositAmount = newDepositAmount;
         this.resetDerivedFields();
     }

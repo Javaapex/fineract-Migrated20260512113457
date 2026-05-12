@@ -36,6 +36,8 @@ public class AcmeLoanAutoConfiguration {
     public LoanRepaymentScheduleTransactionProcessorFactory loanRepaymentScheduleTransactionProcessorFactory(
             AcmeLoanRepaymentScheduleTransactionProcessor defaultLoanRepaymentScheduleTransactionProcessor,
             List<LoanRepaymentScheduleTransactionProcessor> processors) {
+        Objects.requireNonNull(processors, "processors cannot be null");
+        Objects.requireNonNull(defaultLoanRepaymentScheduleTransactionProcessor, "defaultLoanRepaymentScheduleTransactionProcessor cannot be null");
         return new LoanRepaymentScheduleTransactionProcessorFactory(defaultLoanRepaymentScheduleTransactionProcessor, processors);
     }
 }

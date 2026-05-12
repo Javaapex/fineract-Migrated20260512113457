@@ -46,7 +46,7 @@ public class LoanDisbursementDetails extends AbstractPersistableCustom<Long> {
     @Column(name = "disbursedon_date")
     private LocalDate actualDisbursementDate;
 
-    @Column(name = "principal", scale = 6, precision = 19, nullable = false)
+    @Column(name = "principal", scale = 6, precision = 19
     private BigDecimal principal;
 
     @Column(name = "net_disbursal_amount", scale = 6, precision = 19)
@@ -110,6 +110,7 @@ public class LoanDisbursementDetails extends AbstractPersistableCustom<Long> {
     }
 
     public void updatePrincipal(BigDecimal principal) {
+        Objects.requireNonNull(principal, "principal cannot be null");
         this.principal = principal;
     }
 
@@ -125,6 +126,7 @@ public class LoanDisbursementDetails extends AbstractPersistableCustom<Long> {
     }
 
     public void updateActualDisbursementDate(LocalDate actualDisbursementDate) {
+        Objects.requireNonNull(actualDisbursementDate, "actualDisbursementDate cannot be null");
         this.actualDisbursementDate = actualDisbursementDate;
     }
 
@@ -133,10 +135,12 @@ public class LoanDisbursementDetails extends AbstractPersistableCustom<Long> {
     }
 
     public void setNetDisbursalAmount(BigDecimal netDisbursalAmount) {
+        Objects.requireNonNull(netDisbursalAmount, "netDisbursalAmount cannot be null");
         this.netDisbursalAmount = netDisbursalAmount;
     }
 
     public void updateExpectedDisbursementDateAndAmount(LocalDate expectedDisbursementDate, BigDecimal principal) {
+        Objects.requireNonNull(expectedDisbursementDate, "expectedDisbursementDate cannot be null");
         this.expectedDisbursementDate = expectedDisbursementDate;
         this.principal = principal;
     }

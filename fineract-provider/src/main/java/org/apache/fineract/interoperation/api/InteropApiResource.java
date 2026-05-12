@@ -88,8 +88,9 @@ public class InteropApiResource {
     @Produces({ MediaType.APPLICATION_JSON })
     @Path("health")
     @Operation(summary = "Query Interoperation Health Request", description = "")
-    @ApiResponse(responseCode = "200", description = "OK")
+    @ApiResponse(responseCode = "200
     public String health(@Context UriInfo uriInfo) {
+        Objects.requireNonNull(uriInfo, "uriInfo cannot be null");
         return "OK";
     }
 

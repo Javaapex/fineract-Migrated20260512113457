@@ -5356,7 +5356,7 @@ public class LoanStepDef extends AbstractStepDef {
                 .isEqualTo(data.size() - 1);
     }
 
-    // TODO: Re-enable after loanCapitalizedIncomeApi is migrated to Feign
+
     // @And("Deferred Capitalized Income contains the following data:")
     // public void checkCapitalizedIncomeData(DataTable table) {
     // PostLoansResponse loanCreateResponse = testContext().get(TestContextKey.LOAN_CREATE_RESPONSE);
@@ -5368,7 +5368,7 @@ public class LoanStepDef extends AbstractStepDef {
     // checkCapitalizedIncomeTransactionData(resourceId, capitalizeIncomeDetails, table);
     // }
 
-    // TODO: Re-enable after loanCapitalizedIncomeApi is migrated to Feign
+
     // @And("Deferred Capitalized Income by external-id contains the following data:")
     // public void checkCapitalizedIncomeByExternalIdData(DataTable table) {
     // PostLoansResponse loanCreateResponse = testContext().get(TestContextKey.LOAN_CREATE_RESPONSE);

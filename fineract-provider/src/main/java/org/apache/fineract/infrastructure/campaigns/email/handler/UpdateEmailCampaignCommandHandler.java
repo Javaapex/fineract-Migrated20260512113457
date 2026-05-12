@@ -41,6 +41,7 @@ public class UpdateEmailCampaignCommandHandler implements NewCommandSourceHandle
     @Transactional
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return this.emailCampaignWritePlatformService.update(command.entityId(), command);
     }
 }

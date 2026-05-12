@@ -1035,7 +1035,7 @@ public final class LoanApplicationTerms {
             case INVALID:
             break;
             case WHOLE_TERM:
-            // TODO: Implement getPeriodEndDate for WHOLE_TERM
+
             break;
         }
         return dueRepaymentPeriodDate;
@@ -1454,7 +1454,7 @@ public final class LoanApplicationTerms {
                         periodicInterestRate = oneDayOfYearInterestRate.multiply(numberOfDaysInPeriod, mc);
                     break;
                     case WHOLE_TERM:
-                    // TODO: Implement getPeriodEndDate for WHOLE_TERM
+
                     break;
                 }
             break;
@@ -2090,7 +2090,7 @@ public final class LoanApplicationTerms {
             case INVALID:
             break;
             case WHOLE_TERM:
-            // TODO: Implement getPeriodEndDate for WHOLE_TERM
+
             break;
         }
         return maxDateForFixedLength;

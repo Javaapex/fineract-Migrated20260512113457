@@ -61,6 +61,8 @@ public class ProgressiveLoanRescheduleRequestDataValidator implements LoanResche
 
     @Override
     public void validateForCreateAction(JsonCommand jsonCommand, Loan loan) {
+        Objects.requireNonNull(loan, "loan cannot be null");
+        Objects.requireNonNull(jsonCommand, "jsonCommand cannot be null");
         validateSupportedParameters(jsonCommand, CREATE_REQUEST_DATA_PARAMETERS);
 
         final List<ApiParameterError> dataValidationErrors = new ArrayList<>();
@@ -142,6 +144,7 @@ public class ProgressiveLoanRescheduleRequestDataValidator implements LoanResche
 
     @Override
     public void validateReschedulingInstallment(DataValidatorBuilder dataValidatorBuilder, LoanRepaymentScheduleInstallment installment) {
+        Objects.requireNonNull(dataValidatorBuilder, "dataValidatorBuilder cannot be null");
         if (installment == null) {
             dataValidatorBuilder.reset().parameter(RescheduleLoansApiConstants.rescheduleFromDateParamName)
                     .failWithCode("repayment.schedule.installment.does.not.exist", "Repayment schedule installment does not exist");
@@ -165,6 +168,7 @@ public class ProgressiveLoanRescheduleRequestDataValidator implements LoanResche
 
     @Override
     public void validateForApproveAction(JsonCommand jsonCommand, LoanRescheduleRequest loanRescheduleRequest) {
+        Objects.requireNonNull(loanRescheduleRequest, "loanRescheduleRequest cannot be null");
         validateSupportedParameters(jsonCommand, APPROVE_REQUEST_DATA_PARAMETERS);
 
         final List<ApiParameterError> dataValidationErrors = new ArrayList<>();

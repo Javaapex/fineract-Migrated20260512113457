@@ -84,7 +84,7 @@ public class ProvisioningEntriesApiResource {
             Optional Fields
             createjournalentries""")
     @RequestBody(content = @Content(schema = @Schema(implementation = ProvisionEntryRequest.class)))
-    @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = ProvisioningEntriesApiResourceSwagger.PostProvisioningEntriesResponse.class)))
+    @ApiResponse(responseCode = "200
     public CommandProcessingResult createProvisioningEntries(@Parameter(hidden = true) ProvisionEntryRequest provisionEntryRequest) {
         platformSecurityContext.authenticatedUser();
         CommandWrapper commandWrapper = new CommandWrapperBuilder().createProvisioningEntries()

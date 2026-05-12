@@ -63,13 +63,13 @@ public class WorkingCapitalLoanCobStepDef extends AbstractStepDef {
     @Autowired
     private FineractFeignClient fineractClient;
 
-    @Before(value = "@WCCOBFeature")
+    @BeforeEach(value = "@WCCOBFeature")
     public void beforeWcCobScenario() {
         testContext().set(TestContextKey.WC_LOAN_IDS, new ArrayList<Long>());
     }
 
-    // order > 10000 (default) so this cleanup runs before other @After hooks that may depend on DB state
-    @After(value = "@WCCOBFeature", order = 10001)
+    // order > 10000 (default) so this cleanup runs before other @AfterEach hooks that may depend on DB state
+    @AfterEach(value = "@WCCOBFeature", order = 10001)
     public void afterWcCobScenario() {
         List<Long> loanIds = getTrackedLoanIds();
         if (!loanIds.isEmpty()) {

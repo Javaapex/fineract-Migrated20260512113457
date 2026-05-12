@@ -40,11 +40,13 @@ public class NoteCreateCommandHandler implements CommandHandler<NoteCreateReques
     @Override
     @Transactional
     public NoteCreateResponse handle(Command<NoteCreateRequest> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return writePlatformService.createNote(command.getPayload());
     }
 
     @Override
     public NoteCreateResponse fallback(Command<NoteCreateRequest> command, Throwable t) {
+        Objects.requireNonNull(t, "t cannot be null");
         // NOTE: fallback method needs to be in the same class
         return CommandHandler.super.fallback(command, t);
     }

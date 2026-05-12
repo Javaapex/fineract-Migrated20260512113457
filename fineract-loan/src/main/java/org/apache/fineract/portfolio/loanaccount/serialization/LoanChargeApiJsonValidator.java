@@ -379,7 +379,7 @@ public final class LoanChargeApiJsonValidator {
 
                     if (!loanProduct.hasCurrencyCodeOf(chargeCurrencyCode)) {
                         final String errorMessage = "Charge and Loan must have the same currency.";
-                        // TODO: GeneralPlatformDomainRuleException vs PlatformApiDataValidationException
+
                         throw new InvalidCurrencyException("loanCharge", "attach.to.loan", errorMessage);
                     }
                     if (chargeDefinition.isOverdueInstallment()) {

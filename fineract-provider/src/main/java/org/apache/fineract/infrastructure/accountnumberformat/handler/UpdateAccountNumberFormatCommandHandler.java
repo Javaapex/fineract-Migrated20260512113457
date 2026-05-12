@@ -41,6 +41,7 @@ public class UpdateAccountNumberFormatCommandHandler implements NewCommandSource
     @Override
     @Transactional
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return this.accountNumberFormatWritePlatformService.updateAccountNumberFormat(command.entityId(), command);
     }
 

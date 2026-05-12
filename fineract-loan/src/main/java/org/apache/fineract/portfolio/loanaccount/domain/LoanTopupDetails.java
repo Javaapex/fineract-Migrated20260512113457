@@ -59,10 +59,12 @@ public class LoanTopupDetails extends AbstractPersistableCustom<Long> {
     }
 
     public void setTopupAmount(BigDecimal topupAmount) {
+        Objects.requireNonNull(topupAmount, "topupAmount cannot be null");
         this.topupAmount = topupAmount;
     }
 
     public void setAccountTransferDetails(Long accountTransferDetailsId) {
+        Objects.requireNonNull(accountTransferDetailsId, "accountTransferDetailsId cannot be null");
         this.accountTransferDetailsId = accountTransferDetailsId;
     }
 

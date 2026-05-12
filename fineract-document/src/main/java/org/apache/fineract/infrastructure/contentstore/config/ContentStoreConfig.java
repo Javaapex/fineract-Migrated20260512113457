@@ -32,7 +32,7 @@ class ContentStoreConfig {
 
     @Bean(BEAN_NAME_EXECUTOR)
     ExecutorService contentProcessorExecutor() {
-        // TODO: make this more configurable?
+
         return Executors.newCachedThreadPool();
     }
 }

@@ -94,7 +94,7 @@ public class MeetingReadServiceImpl implements MeetingReadService {
 
             return this.jdbcTemplate.queryForObject(sql, rm, calendarInstanceId);
         } catch (EmptyResultDataAccessException e) {
-            // TODO: should we really suppress this exception?
+
             return null;
         }
     }

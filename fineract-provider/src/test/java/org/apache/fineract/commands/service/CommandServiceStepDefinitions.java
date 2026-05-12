@@ -86,7 +86,7 @@ public class CommandServiceStepDefinitions implements En {
             try {
                 this.commandSourceWritePlatformService.logCommandSource(command);
             } catch (Exception e) {
-                // TODO: this exception is OK for now; we need to fix the whole tenant based data source setup
+
                 log.warn("At the moment mocking data access is so incredibly hard... it's easier to just ignore this exception: {}",
                         e.getMessage());
             }

@@ -32,7 +32,7 @@ public final class ShareDividendsTransactionHelper {
     private static final String SHARE_PRODUCT_URL = "/fineract-provider/api/v1/shareproduct";
     private static final String DIVIDEND = "dividend";
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -42,7 +42,7 @@ public final class ShareDividendsTransactionHelper {
         return Utils.performServerPost(requestSpec, responseSpec, url, dividendJson, "subResourceId");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -53,7 +53,7 @@ public final class ShareDividendsTransactionHelper {
         return Utils.performServerPut(requestSpec, responseSpec, url, jsonBody, "resourceId");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -63,7 +63,7 @@ public final class ShareDividendsTransactionHelper {
         return Utils.performServerGet(requestSpec, responseSpec, url, "");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)

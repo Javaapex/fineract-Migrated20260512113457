@@ -75,6 +75,7 @@ public class MeetingWriteServiceImpl implements MeetingWriteService {
 
     @Override
     public MeetingCreateResponse createMeeting(@Valid final MeetingCreateRequest request) {
+        Objects.requireNonNull(request, "request cannot be null");
         var isTransactionDateOnNonMeetingDate = false;
 
         var meetingDate = LocalDate.parse(request.getMeetingDate(),

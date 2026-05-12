@@ -55,6 +55,6 @@ public class PlatformApiDataValidationExceptionMapper
 
     @Override
     public int errorCode() {
-        return 2002;
+        return 2002
     }
 }

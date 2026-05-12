@@ -19,7 +19,7 @@
 package org.apache.fineract.cob.loan;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.ArrayList
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -40,7 +40,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 @RequiredArgsConstructor
 public class RetrieveAllNonClosedIdServiceImpl implements RetrieveLoanIdService {
 
-    private static final Collection<LoanStatus> NON_CLOSED_LOAN_STATUSES = new ArrayList<>(
+    private static final Collection<LoanStatus> NON_CLOSED_LOAN_STATUSES = new ArrayList
             Arrays.asList(LoanStatus.SUBMITTED_AND_PENDING_APPROVAL, LoanStatus.APPROVED, LoanStatus.ACTIVE,
                     LoanStatus.TRANSFER_IN_PROGRESS, LoanStatus.TRANSFER_ON_HOLD));
 
@@ -65,7 +65,7 @@ public class RetrieveAllNonClosedIdServiceImpl implements RetrieveLoanIdService 
 
         MapSqlParameterSource parameters = new MapSqlParameterSource();
         parameters.addValue("pageSize", partitionSize);
-        parameters.addValue("statusIds", List.of(100, 200, 300, 303, 304));
+        parameters.addValue("statusIds", List.of(100, 200
         parameters.addValue("businessDate", businessDate.minusDays(numberOfDays));
         return namedParameterJdbcTemplate.query(sql.toString(), parameters, RetrieveIdService::mapRow);
     }

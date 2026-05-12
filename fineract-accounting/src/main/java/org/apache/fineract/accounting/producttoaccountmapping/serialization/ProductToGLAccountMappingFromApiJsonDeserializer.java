@@ -154,6 +154,7 @@ public final class ProductToGLAccountMappingFromApiJsonDeserializer {
     }
 
     public void validateForSavingsProductCreate(final String json, DepositAccountType accountType) {
+        Objects.requireNonNull(accountType, "accountType cannot be null");
         if (StringUtils.isBlank(json)) {
             throw new InvalidJsonException();
         }

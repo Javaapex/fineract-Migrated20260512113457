@@ -85,7 +85,7 @@ public final class TrustModifier {
 
         @Override
         public X509Certificate[] getAcceptedIssuers() {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
     }
 }

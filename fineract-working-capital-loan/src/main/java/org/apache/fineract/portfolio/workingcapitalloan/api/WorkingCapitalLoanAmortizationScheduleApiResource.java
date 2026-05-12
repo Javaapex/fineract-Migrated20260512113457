@@ -57,8 +57,8 @@ public class WorkingCapitalLoanAmortizationScheduleApiResource {
 
             working-capital-loans/1/amortization-schedule""")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = ProjectedAmortizationScheduleData.class))),
-            @ApiResponse(responseCode = "404", description = "Working Capital Loan or schedule not found") })
+            @ApiResponse(responseCode = "200
+            @ApiResponse(responseCode = "404
     public ProjectedAmortizationScheduleData retrieveAmortizationSchedule(
             @PathParam("loanId") @Parameter(description = "loanId") final Long loanId) {
         return readService.retrieveAmortizationSchedule(loanId);

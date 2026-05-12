@@ -44,6 +44,8 @@ public class ScheduledJobRunnerConfig {
     @Bean
     public PlatformTransactionManager transactionManager(ObjectProvider<TransactionManagerCustomizers> transactionManagerCustomizers,
             List<TransactionLifecycleCallback> callbacks) {
+        Objects.requireNonNull(callbacks, "callbacks cannot be null");
+        Objects.requireNonNull(transactionManagerCustomizers, "transactionManagerCustomizers cannot be null");
         ExtendedJpaTransactionManager transactionManager = new ExtendedJpaTransactionManager();
         transactionManager.setLifecycleCallbacks(callbacks);
         transactionManager.setValidateExistingTransaction(true);
@@ -58,6 +60,7 @@ public class ScheduledJobRunnerConfig {
 
     @Bean
     public DataFieldMaxValueIncrementerFactory incrementerFactory(RoutingDataSource routingDataSource) {
+        Objects.requireNonNull(routingDataSource, "routingDataSource cannot be null");
         // The DefaultDataFieldMaxValueIncrementerFactory has to be overridden because Spring 6 introduced
         // a new MariaDB incrementer that's incompatible with Spring Batch 4.x
         return new FineractDataFieldMaxValueIncrementerFactory(routingDataSource);

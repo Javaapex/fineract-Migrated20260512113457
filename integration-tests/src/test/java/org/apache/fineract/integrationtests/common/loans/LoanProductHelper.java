@@ -34,14 +34,17 @@ public class LoanProductHelper {
     public LoanProductHelper() {}
 
     public PostLoanProductsResponse createLoanProduct(PostLoanProductsRequest request) {
+        Objects.requireNonNull(request, "request cannot be null");
         return Calls.ok(FineractClientHelper.getFineractClient().loanProducts.createLoanProduct(request));
     }
 
     public GetLoanProductsProductIdResponse retrieveLoanProductByExternalId(String externalId) {
+        Objects.requireNonNull(externalId, "externalId cannot be null");
         return Calls.ok(FineractClientHelper.getFineractClient().loanProducts.retrieveLoanProductDetailsByExternalId(externalId));
     }
 
     public GetLoanProductsProductIdResponse retrieveLoanProductById(Long loanProductId) {
+        Objects.requireNonNull(loanProductId, "loanProductId cannot be null");
         return Calls.ok(FineractClientHelper.getFineractClient().loanProducts.retrieveOneLoanProduct(loanProductId));
     }
 

@@ -36,6 +36,7 @@ public class LoanIdsHardLockedExceptionMapper implements FineractExceptionMapper
 
     @Override
     public Response toResponse(LoanIdsHardLockedException exception) {
+        Objects.requireNonNull(exception, "exception cannot be null");
         log.warn("Exception occurred", ErrorHandler.findMostSpecificException(exception));
         return Response.status(HttpStatus.SC_CONFLICT)
                 .entity(ApiGlobalErrorResponse.loanIsLocked(exception.getLoanIdFromRequest()).toJson()).type(MediaType.APPLICATION_JSON)
@@ -44,6 +45,6 @@ public class LoanIdsHardLockedExceptionMapper implements FineractExceptionMapper
 
     @Override
     public int errorCode() {
-        return 4090;
+        return 4090
     }
 }

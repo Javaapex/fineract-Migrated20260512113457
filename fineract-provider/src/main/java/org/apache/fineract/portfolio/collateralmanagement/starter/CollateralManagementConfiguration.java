@@ -53,6 +53,9 @@ public class CollateralManagementConfiguration {
     public ClientCollateralManagementReadPlatformService clientCollateralManagementReadPlatformService(PlatformSecurityContext context,
             ClientCollateralManagementRepositoryWrapper clientCollateralManagementRepositoryWrapper,
             LoanTransactionRepository loanTransactionRepository) {
+        Objects.requireNonNull(loanTransactionRepository, "loanTransactionRepository cannot be null");
+        Objects.requireNonNull(clientCollateralManagementRepositoryWrapper, "clientCollateralManagementRepositoryWrapper cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
         return new ClientCollateralManagementReadPlatformServiceImpl(context, clientCollateralManagementRepositoryWrapper,
                 loanTransactionRepository);
     }
@@ -62,6 +65,8 @@ public class CollateralManagementConfiguration {
     public ClientCollateralManagementWritePlatformService clientCollateralManagementWritePlatformService(
             ClientCollateralManagementRepositoryWrapper clientCollateralManagementRepositoryWrapper,
             CollateralManagementRepositoryWrapper collateralManagementRepositoryWrapper, ClientRepositoryWrapper clientRepositoryWrapper) {
+        Objects.requireNonNull(clientRepositoryWrapper, "clientRepositoryWrapper cannot be null");
+        Objects.requireNonNull(collateralManagementRepositoryWrapper, "collateralManagementRepositoryWrapper cannot be null");
         return new ClientCollateralManagementWritePlatformServiceImpl(clientCollateralManagementRepositoryWrapper,
                 collateralManagementRepositoryWrapper, clientRepositoryWrapper);
     }
@@ -78,6 +83,8 @@ public class CollateralManagementConfiguration {
     public CollateralManagementWritePlatformService collateralManagementWritePlatformService(
             CollateralManagementRepositoryWrapper collateralManagementRepositoryWrapper,
             ApplicationCurrencyRepository applicationCurrencyRepository, FromJsonHelper fromApiJsonHelper) {
+        Objects.requireNonNull(fromApiJsonHelper, "fromApiJsonHelper cannot be null");
+        Objects.requireNonNull(applicationCurrencyRepository, "applicationCurrencyRepository cannot be null");
         return new CollateralManagementWritePlatformServiceImpl(collateralManagementRepositoryWrapper, applicationCurrencyRepository,
                 fromApiJsonHelper);
     }
@@ -87,6 +94,8 @@ public class CollateralManagementConfiguration {
     public LoanCollateralAssembler loanCollateralAssembler(FromJsonHelper fromApiJsonHelper, CodeValueRepositoryWrapper codeValueRepository,
             LoanCollateralManagementRepository loanCollateralRepository,
             ClientCollateralManagementRepositoryWrapper clientCollateralManagementRepositoryWrapper) {
+        Objects.requireNonNull(loanCollateralRepository, "loanCollateralRepository cannot be null");
+        Objects.requireNonNull(codeValueRepository, "codeValueRepository cannot be null");
         return new LoanCollateralAssembler(fromApiJsonHelper, codeValueRepository, loanCollateralRepository,
                 clientCollateralManagementRepositoryWrapper);
     }
@@ -95,6 +104,8 @@ public class CollateralManagementConfiguration {
     @ConditionalOnMissingBean(LoanCollateralManagementReadPlatformService.class)
     public LoanCollateralManagementReadPlatformService loanCollateralManagementReadPlatformService(PlatformSecurityContext context,
             LoanCollateralManagementRepository loanCollateralManagementRepository, LoanRepository loanRepository) {
+        Objects.requireNonNull(loanRepository, "loanRepository cannot be null");
+        Objects.requireNonNull(loanCollateralManagementRepository, "loanCollateralManagementRepository cannot be null");
         return new LoanCollateralManagementReadPlatformServiceImpl(context, loanCollateralManagementRepository, loanRepository);
     }
 

@@ -48,7 +48,7 @@ public class LoanChargebackWithCreditAllocationsIntegrationTests extends BaseLoa
 
     @Test
     public void simpleChargebackWithCreditAllocationPenaltyFeeInterestAndPrincipal() {
-        runAt("01 January 2023", () -> {
+        runAt("01
             // Create Client
             Long clientId = clientHelper.createClient(ClientHelper.defaultClientCreationRequest()).getClientId();
             // Create Loan Product
@@ -60,7 +60,7 @@ public class LoanChargebackWithCreditAllocationsIntegrationTests extends BaseLoa
             Long loanId = applyAndApproveLoan(clientId, loanProductId);
 
             // Disburse Loan
-            disburseLoan(loanId, BigDecimal.valueOf(1250.0), "01 January 2023");
+            disburseLoan(loanId, BigDecimal.valueOf(1250
 
             // Add Charges
             Long feeId = addCharge(loanId, false, 50, "15 January 2023");
@@ -1807,6 +1807,8 @@ public class LoanChargebackWithCreditAllocationsIntegrationTests extends BaseLoa
     }
 
     public Long createLoanProduct(AdvancedPaymentData defaultAllocation, CreditAllocationData creditAllocationData) {
+        Objects.requireNonNull(creditAllocationData, "creditAllocationData cannot be null");
+        Objects.requireNonNull(defaultAllocation, "defaultAllocation cannot be null");
         PostLoanProductsRequest postLoanProductsRequest = loanProductWithAdvancedPaymentAllocationWith4Installments(defaultAllocation,
                 creditAllocationData);
         PostLoanProductsResponse loanProductResponse = loanProductHelper.createLoanProduct(postLoanProductsRequest);

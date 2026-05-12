@@ -40,11 +40,13 @@ public class NoteUpdateCommandHandler implements CommandHandler<NoteUpdateReques
     @Override
     @Transactional
     public NoteUpdateResponse handle(Command<NoteUpdateRequest> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return writePlatformService.updateNote(command.getPayload());
     }
 
     @Override
     public NoteUpdateResponse fallback(Command<NoteUpdateRequest> command, Throwable t) {
+        Objects.requireNonNull(t, "t cannot be null");
         // NOTE: fallback method needs to be in the same class
         return CommandHandler.super.fallback(command, t);
     }

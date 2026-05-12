@@ -40,6 +40,7 @@ public class LookupTableEntry {
     }
 
     public void setValueFrom(Integer valueFrom) {
+        Objects.requireNonNull(valueFrom, "valueFrom cannot be null");
         this.valueFrom = valueFrom;
     }
 
@@ -48,6 +49,7 @@ public class LookupTableEntry {
     }
 
     public void setValueTo(Integer valueTo) {
+        Objects.requireNonNull(valueTo, "valueTo cannot be null");
         this.valueTo = valueTo;
     }
 
@@ -56,6 +58,7 @@ public class LookupTableEntry {
     }
 
     public void setScore(Double score) {
+        Objects.requireNonNull(score, "score cannot be null");
         this.score = score;
     }
 }

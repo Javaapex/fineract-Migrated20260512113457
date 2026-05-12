@@ -81,6 +81,8 @@ public class JournalEntryAggregationJobExecutionDeciderTest {
     @ParameterizedTest
     @MethodSource("provideNoOpExecutionScenarios")
     public void testDecideNoOpExecution(LocalDate lastAggregatedOnDate, String scenarioDescription) {
+        Objects.requireNonNull(scenarioDescription, "scenarioDescription cannot be null");
+        Objects.requireNonNull(lastAggregatedOnDate, "lastAggregatedOnDate cannot be null");
         // Arrange
         when(jobExecution.getExecutionContext().get(JournalEntryAggregationJobConstant.LAST_AGGREGATED_ON_DATE))
                 .thenReturn(lastAggregatedOnDate);

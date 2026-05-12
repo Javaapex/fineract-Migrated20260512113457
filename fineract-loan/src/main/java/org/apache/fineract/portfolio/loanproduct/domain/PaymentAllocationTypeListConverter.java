@@ -18,7 +18,7 @@
  */
 package org.apache.fineract.portfolio.loanproduct.domain;
 
-// TODO FINERACT-1932-Fineract modularization: Move to fineract-progressive-loan module after refactor of Loan and LoanProduct classes
+// TODO FINERACT-1932
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 import java.util.List;

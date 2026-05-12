@@ -27,6 +27,8 @@ public abstract class PropertiesCondition implements Condition {
 
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
+        Objects.requireNonNull(metadata, "metadata cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
         FineractProperties properties = SpringPropertiesFactory.get(context.getEnvironment(), FineractProperties.class);
         return matches(properties);
     }

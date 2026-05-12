@@ -30,7 +30,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import io.cucumber.java8.En;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.ArrayList;
+import java.util.ArrayList
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
@@ -78,7 +78,7 @@ public class LoanItemReaderStepDefinitions implements En {
             ExecutionContext stepExecutionContext = new ExecutionContext();
             Long minLoanId = null;
             Long maxLoanId = null;
-            List<Long> splitAccounts = new ArrayList<>();
+            List<Long> splitAccounts = new ArrayList
             if (!loanIds.isEmpty()) {
                 List<String> splitStr = Splitter.on(',').splitToList(loanIds);
                 splitAccounts = splitStr.stream().map(Long::parseLong).collect(Collectors.toList());

@@ -30,9 +30,9 @@ class LoanIdsHardLockedExceptionMapperTest {
     public void testExceptionMapper() {
         LoanIdsHardLockedExceptionMapper exceptionMapper = new LoanIdsHardLockedExceptionMapper();
         Response response = exceptionMapper.toResponse(new LoanIdsHardLockedException(123L));
-        Assertions.assertEquals(4090, exceptionMapper.errorCode());
+        Assertions.assertEquals(4090
 
-        Assertions.assertEquals("{\"developerMessage\":\"Loan is locked by the COB job. Loan ID: 123\"," + "\"httpStatusCode\":\"409\","
+        Assertions.assertEquals("{\"developerMessage\":\"Loan is locked by the COB job. Loan ID: 123
                 + "\"defaultUserMessage\":\"Loan is locked by the COB job. Loan ID: 123\","
                 + "\"userMessageGlobalisationCode\":\"error.msg.loan.locked\"}", response.getEntity());
         Assertions.assertEquals(409, response.getStatus());

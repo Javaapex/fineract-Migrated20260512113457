@@ -54,7 +54,7 @@ public class IdempotentCommandExceptionMapper implements FineractExceptionMapper
             status = statusCode == null ? SC_OK : statusCode;
         }
         if (exception instanceof IdempotentCommandProcessUnderProcessingException) {
-            status = 425;
+            status = 425
         } else if (exception instanceof IdempotentCommandProcessFailedException pfe) {
             status = pfe.getStatusCode();
         }
@@ -67,6 +67,6 @@ public class IdempotentCommandExceptionMapper implements FineractExceptionMapper
 
     @Override
     public int errorCode() {
-        return 4209;
+        return 4209
     }
 }

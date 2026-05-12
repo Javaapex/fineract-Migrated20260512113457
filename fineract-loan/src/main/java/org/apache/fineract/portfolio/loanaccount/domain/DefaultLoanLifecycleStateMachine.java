@@ -29,7 +29,7 @@ import org.apache.fineract.infrastructure.event.business.service.BusinessEventNo
 import org.apache.fineract.portfolio.loanaccount.service.LoanBalanceService;
 import org.springframework.stereotype.Component;
 
-// TODO: introduce tests for the state machine
+
 @Slf4j
 @Component
 @RequiredArgsConstructor

@@ -36,7 +36,7 @@ public final class NotesHelper {
 
     private static final String CLIENT_URL = "/fineract-provider/api/v1/clients";
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -46,7 +46,7 @@ public final class NotesHelper {
         return Utils.performServerPost(requestSpec, responseSpec, createClientNoteURL, request, "resourceId");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -56,7 +56,7 @@ public final class NotesHelper {
         return Utils.performServerGet(requestSpec, responseSpec, getClientNoteURL, "note");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -66,7 +66,7 @@ public final class NotesHelper {
         return Utils.performServerPut(requestSpec, responseSpec, updateClientNoteURL, request, "resourceId");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -78,7 +78,7 @@ public final class NotesHelper {
 
     private static final String GROUP_URL = "/fineract-provider/api/v1/groups";
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -88,7 +88,7 @@ public final class NotesHelper {
         return Utils.performServerPost(requestSpec, responseSpec, createGroupNoteURL, request, "resourceId");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -98,7 +98,7 @@ public final class NotesHelper {
         return Utils.performServerGet(requestSpec, responseSpec, getGroupNoteURL, "note");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -108,7 +108,7 @@ public final class NotesHelper {
         return Utils.performServerPut(requestSpec, responseSpec, updateGroupNoteURL, request, "resourceId");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -120,7 +120,7 @@ public final class NotesHelper {
 
     private static final String LOAN_URL = "/fineract-provider/api/v1/loans";
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -130,7 +130,7 @@ public final class NotesHelper {
         return Utils.performServerPost(requestSpec, responseSpec, createLoanNoteURL, request, "resourceId");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -139,7 +139,7 @@ public final class NotesHelper {
         return Utils.performServerGet(requestSpec, responseSpec, getLoanNoteURL, "note");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -149,7 +149,7 @@ public final class NotesHelper {
         return Utils.performServerPut(requestSpec, responseSpec, updateLoanNoteURL, updateRequest, "resourceId");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -161,7 +161,7 @@ public final class NotesHelper {
 
     private static final String LOAN_TRANSACTION_URL = "/fineract-provider/api/v1/loanTransactions";
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -171,7 +171,7 @@ public final class NotesHelper {
         return Utils.performServerPost(requestSpec, responseSpec, createLoanTransactionNoteURL, request, "resourceId");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -182,7 +182,7 @@ public final class NotesHelper {
         return Utils.performServerGet(requestSpec, responseSpec, getLoanTransactionNoteURL, "note");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -193,7 +193,7 @@ public final class NotesHelper {
         return Utils.performServerPut(requestSpec, responseSpec, updateLoanTransactionNoteURL, updateRequest, "resourceId");
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -206,7 +206,7 @@ public final class NotesHelper {
 
     private static final String SAVINGS_URL = "/fineract-provider/api/v1/savings";
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)

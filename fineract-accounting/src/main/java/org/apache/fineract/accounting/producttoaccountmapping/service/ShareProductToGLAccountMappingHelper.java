@@ -77,6 +77,7 @@ public class ShareProductToGLAccountMappingHelper extends ProductToGLAccountMapp
 
     public void mergeSharesToAssetAccountMappingChanges(final JsonElement element, final String paramName, final Long productId,
             final int accountTypeId, final String accountTypeName, final Map<String, Object> changes) {
+        Objects.requireNonNull(changes, "changes cannot be null");
         mergeProductToAccountMappingChanges(element, paramName, productId, accountTypeId, accountTypeName, changes, GLAccountType.ASSET,
                 PortfolioProductType.SHARES);
     }

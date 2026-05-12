@@ -32,6 +32,7 @@ public class OfficeHelper {
     public static final long HEAD_OFFICE_ID = 1L; // The ID is hardcoded in the initial Liquibase migration script
 
     public GetOfficesResponse retrieveOffice(Long officeId) {
+        Objects.requireNonNull(officeId, "officeId cannot be null");
         return ok(() -> FineractFeignClientHelper.getFineractFeignClient().offices().retrieveOffice(officeId));
     }
 
@@ -61,6 +62,8 @@ public class OfficeHelper {
     }
 
     public PutOfficesOfficeIdResponse updateOffice(Long officeId, String name, String openingDate) {
+        Objects.requireNonNull(openingDate, "openingDate cannot be null");
+        Objects.requireNonNull(name, "name cannot be null");
         PutOfficesOfficeIdRequest request = new PutOfficesOfficeIdRequest()//
                 .name(name)//
                 .openingDate(openingDate)//
@@ -70,6 +73,7 @@ public class OfficeHelper {
     }
 
     public GetOfficesResponse retrieveOfficeByExternalId(String externalId) {
+        Objects.requireNonNull(externalId, "externalId cannot be null");
         return ok(() -> FineractFeignClientHelper.getFineractFeignClient().offices().retrieveOfficeByExternalId(externalId));
     }
 

@@ -51,7 +51,7 @@ public class SavingsAccountForceWithdrawalTest {
         Utils.initializeRESTAssured();
         this.requestSpec = new RequestSpecBuilder().setContentType(ContentType.JSON).build();
         this.requestSpec.header("Authorization", "Basic " + Utils.loginIntoServerAndGetBase64EncodedAuthenticationKey());
-        this.responseSpec = new ResponseSpecBuilder().expectStatusCode(200).build();
+        this.responseSpec = new ResponseSpecBuilder().expectStatusCode(200
         this.savingsAccountHelper = new SavingsAccountHelper(this.requestSpec, this.responseSpec);
         this.savingsProductHelper = new SavingsProductHelper();
         this.globalConfigurationHelper = new GlobalConfigurationHelper();
@@ -74,7 +74,7 @@ public class SavingsAccountForceWithdrawalTest {
         this.savingsAccountHelper.approveSavings(savingsId);
         this.savingsAccountHelper.activateSavings(savingsId);
 
-        this.savingsAccountHelper.depositToSavingsAccount(savingsId, "100", "04 March 2013", null);
+        this.savingsAccountHelper.depositToSavingsAccount(savingsId, "100", "04
 
         PostSavingsAccountTransactionsRequest request = new PostSavingsAccountTransactionsRequest() //
                 .locale("en") //
@@ -99,6 +99,7 @@ public class SavingsAccountForceWithdrawalTest {
         try {
             return response.errorBody() != null ? response.errorBody().string() : "No error body";
         } catch (Exception e) {
+
             return "Failed to read error body: " + e.getMessage();
         }
     }

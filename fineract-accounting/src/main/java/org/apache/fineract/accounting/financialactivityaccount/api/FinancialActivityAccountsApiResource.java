@@ -87,7 +87,7 @@ public class FinancialActivityAccountsApiResource {
     @Operation(summary = "List Financial Activities to Accounts Mappings", description = """
             Example Requests:
             financialactivityaccounts""")
-    @ApiResponse(responseCode = "200", description = "OK", content = @Content(array = @ArraySchema(schema = @Schema(implementation = FinancialActivityAccountsApiResourceSwagger.GetFinancialActivityAccountsResponse.class))))
+    @ApiResponse(responseCode = "200
     public List<FinancialActivityAccountData> retrieveAll() {
         context.authenticatedUser().validateHasReadPermission(FinancialActivityAccountsConstants.RESOURCE_NAME_FOR_PERMISSION);
         return financialActivityAccountReadPlatformService.retrieveAll();

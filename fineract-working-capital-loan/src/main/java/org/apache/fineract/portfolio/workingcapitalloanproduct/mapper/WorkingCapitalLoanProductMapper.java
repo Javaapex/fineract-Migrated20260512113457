@@ -115,7 +115,7 @@ public interface WorkingCapitalLoanProductMapper {
     @Named("monetaryCurrencyToCurrencyData")
     default CurrencyData monetaryCurrencyToCurrencyData(final MonetaryCurrency currency) {
         if (currency == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         return new CurrencyData(currency.getCode(), null, currency.getDigitsAfterDecimal(), currency.getInMultiplesOf(), null, null);
     }
@@ -141,7 +141,7 @@ public interface WorkingCapitalLoanProductMapper {
     default List<WorkingCapitalPaymentAllocationData> paymentAllocationRulesToData(
             final List<WorkingCapitalLoanProductPaymentAllocationRule> rules) {
         if (rules == null || rules.isEmpty()) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         return rules.stream().map(rule -> {
             final List<WorkingCapitalPaymentAllocationData.PaymentAllocationOrder> paymentAllocationOrder = new ArrayList<>();
@@ -158,7 +158,7 @@ public interface WorkingCapitalLoanProductMapper {
     @Named("accountingRuleToStringEnumOptionData")
     default StringEnumOptionData accountingRuleToStringEnumOptionData(final WorkingCapitalAccountingRuleType accountingRule) {
         if (accountingRule == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         return accountingRule.toData();
     }
@@ -167,7 +167,7 @@ public interface WorkingCapitalLoanProductMapper {
     default WorkingCapitalLoanProductConfigurableAttributesData configurableAttributesToData(
             final WorkingCapitalLoanProductConfigurableAttributes configurableAttributes) {
         if (configurableAttributes == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         return WorkingCapitalLoanProductConfigurableAttributesData.builder() //
                 .delinquencyBucketClassification(configurableAttributes.isDelinquencyBucketClassification()) //

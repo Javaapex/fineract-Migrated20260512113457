@@ -63,7 +63,7 @@ public class IdempotencyCommandProcessFailedExceptionTest {
         CommandSource source = CommandSource.fullEntryFrom(command, JsonCommand.from("{}"), null, "dummy-key", null, false);
         IdempotentCommandProcessFailedException exception = new IdempotentCommandProcessFailedException(command, null, source);
         Response result = mapper.toResponse(exception);
-        assertEquals(500, result.getStatus());
+        assertEquals(500
         assertEquals("true", result.getHeaderString(IDEMPOTENT_CACHE_HEADER));
 
     }

@@ -59,6 +59,15 @@ public class ChargeConfiguration {
             DropdownReadPlatformService dropdownReadPlatformService, FineractEntityAccessUtil fineractEntityAccessUtil,
             AccountingDropdownReadPlatformService accountingDropdownReadPlatformService, TaxReadPlatformService taxReadPlatformService,
             ConfigurationDomainServiceJpa configurationDomainServiceJpa, NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+        Objects.requireNonNull(namedParameterJdbcTemplate, "namedParameterJdbcTemplate cannot be null");
+        Objects.requireNonNull(configurationDomainServiceJpa, "configurationDomainServiceJpa cannot be null");
+        Objects.requireNonNull(taxReadPlatformService, "taxReadPlatformService cannot be null");
+        Objects.requireNonNull(accountingDropdownReadPlatformService, "accountingDropdownReadPlatformService cannot be null");
+        Objects.requireNonNull(fineractEntityAccessUtil, "fineractEntityAccessUtil cannot be null");
+        Objects.requireNonNull(dropdownReadPlatformService, "dropdownReadPlatformService cannot be null");
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
+        Objects.requireNonNull(chargeDropdownReadPlatformService, "chargeDropdownReadPlatformService cannot be null");
+        Objects.requireNonNull(currencyReadPlatformService, "currencyReadPlatformService cannot be null");
         return new ChargeReadPlatformServiceImpl(currencyReadPlatformService, chargeDropdownReadPlatformService, jdbcTemplate,
                 dropdownReadPlatformService, fineractEntityAccessUtil, accountingDropdownReadPlatformService, taxReadPlatformService,
                 configurationDomainServiceJpa, namedParameterJdbcTemplate);
@@ -71,6 +80,13 @@ public class ChargeConfiguration {
             LoanProductRepository loanProductRepository, JdbcTemplate jdbcTemplate, FineractEntityAccessUtil fineractEntityAccessUtil,
             GLAccountRepositoryWrapper glAccountRepository, TaxGroupRepositoryWrapper taxGroupRepository,
             PaymentTypeRepositoryWrapper paymentTyperepositoryWrapper) {
+        Objects.requireNonNull(paymentTyperepositoryWrapper, "paymentTyperepositoryWrapper cannot be null");
+        Objects.requireNonNull(taxGroupRepository, "taxGroupRepository cannot be null");
+        Objects.requireNonNull(glAccountRepository, "glAccountRepository cannot be null");
+        Objects.requireNonNull(loanProductRepository, "loanProductRepository cannot be null");
+        Objects.requireNonNull(chargeRepository, "chargeRepository cannot be null");
+        Objects.requireNonNull(fromApiJsonDeserializer, "fromApiJsonDeserializer cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
         return new ChargeWritePlatformServiceJpaRepositoryImpl(context, fromApiJsonDeserializer, chargeRepository, loanProductRepository,
                 jdbcTemplate, fineractEntityAccessUtil, glAccountRepository, taxGroupRepository, paymentTyperepositoryWrapper);
     }

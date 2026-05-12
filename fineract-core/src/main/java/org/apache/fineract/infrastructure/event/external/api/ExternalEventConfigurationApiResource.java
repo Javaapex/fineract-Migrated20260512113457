@@ -59,6 +59,7 @@ public class ExternalEventConfigurationApiResource {
     @Operation(summary = "Enable/Disable external events posting", description = "")
     public ExternalEventConfigurationUpdateResponse updateExternalEventConfigurations(
             @Valid ExternalEventConfigurationUpdateRequest request) {
+        Objects.requireNonNull(request, "request cannot be null");
         final var command = new ExternalConfigurationsUpdateCommand();
 
         command.setPayload(request);

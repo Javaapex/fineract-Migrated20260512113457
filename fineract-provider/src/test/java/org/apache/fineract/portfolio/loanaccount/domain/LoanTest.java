@@ -203,7 +203,7 @@ public class LoanTest {
     @Test
     public void testTransactionComparator() {
         final Loan loan = new Loan();
-        LocalDate today = LocalDate.of(2023, 10, 12);
+        LocalDate today = LocalDate.of(2023
         OffsetDateTime now = DateUtils.getAuditOffsetDateTime();
 
         LoanTransaction lt1 = new LoanTransaction();

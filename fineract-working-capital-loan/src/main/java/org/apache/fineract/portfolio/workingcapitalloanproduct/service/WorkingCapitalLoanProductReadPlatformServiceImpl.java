@@ -152,7 +152,7 @@ public class WorkingCapitalLoanProductReadPlatformServiceImpl implements Working
                 .delinquencyBucketOptions(
                         delinquencyBucketOptions != null && !delinquencyBucketOptions.isEmpty() ? delinquencyBucketOptions : null) //
                 .paymentTypeOptions(paymentTypeOptions != null && !paymentTypeOptions.isEmpty() ? paymentTypeOptions : null) //
-                // TODO: Populate WC-specific charge options when WC charges are introduced.
+
                 .chargeOptions(List.of()) //
                 .penaltyOptions(List.of()) //
                 .accountingRuleOptions(accountingRuleOptions) //

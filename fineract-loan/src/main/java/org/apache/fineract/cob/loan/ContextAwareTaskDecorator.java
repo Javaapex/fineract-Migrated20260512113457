@@ -33,6 +33,7 @@ public class ContextAwareTaskDecorator implements TaskDecorator {
     @NonNull
     @Override
     public Runnable decorate(@NonNull final Runnable runnable) {
+        Objects.requireNonNull(runnable, "runnable cannot be null");
         final FineractContext context = ThreadLocalContextUtil.getContext();
         return () -> {
             try {

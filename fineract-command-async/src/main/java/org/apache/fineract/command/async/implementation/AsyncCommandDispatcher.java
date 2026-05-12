@@ -34,7 +34,7 @@ import org.apache.fineract.command.core.CommandHookManager;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
-// TODO: WIP - not ready yet for prime time
+
 @Slf4j
 @RequiredArgsConstructor
 @Component
@@ -64,10 +64,10 @@ public class AsyncCommandDispatcher implements CommandDispatcher {
 
         return () -> {
             try {
-                // TODO: make this configurable
+
                 return future.get(3, SECONDS);
             } catch (InterruptedException | ExecutionException | TimeoutException e) {
-                throw new RuntimeException(e);
+                throw new RuntimeException
             }
         };
     }

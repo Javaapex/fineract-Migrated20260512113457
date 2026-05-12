@@ -47,7 +47,7 @@ public class CustomSnapshotEventIntegrationTest extends BaseLoanIntegrationTest 
 
     @Test
     public void testSnapshotEventGenerationWhenLoanInstallmentIsNotPayed() {
-        runAt("31 January 2023", () -> {
+        runAt("31
             // Enable Business Step
             enableCOBBusinessStep("APPLY_CHARGE_TO_OVERDUE_LOANS", "LOAN_DELINQUENCY_CLASSIFICATION", "CHECK_LOAN_REPAYMENT_DUE",
                     "CHECK_LOAN_REPAYMENT_OVERDUE", "UPDATE_LOAN_ARREARS_AGING", "ADD_PERIODIC_ACCRUAL_ENTRIES",
@@ -64,7 +64,7 @@ public class CustomSnapshotEventIntegrationTest extends BaseLoanIntegrationTest 
             PostLoanProductsResponse loanProductResponse = loanProductHelper.createLoanProduct(loanProductsRequest);
 
             // Apply and Approve Loan
-            Long loanId = applyAndApproveLoan(clientId, loanProductResponse.getResourceId(), "01 January 2023", 1250.0, 4);
+            Long loanId = applyAndApproveLoan(clientId, loanProductResponse.getResourceId(), "01
 
             // Disburse Loan
             disburseLoan(loanId, BigDecimal.valueOf(1250), "01 January 2023");

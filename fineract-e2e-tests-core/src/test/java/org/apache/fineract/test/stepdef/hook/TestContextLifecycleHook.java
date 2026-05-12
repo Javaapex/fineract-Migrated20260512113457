@@ -23,7 +23,7 @@ import org.apache.fineract.test.support.TestContext;
 
 public class TestContextLifecycleHook {
 
-    @After
+    @AfterEach
     public void tearDown() {
         TestContext.INSTANCE.reset();
     }

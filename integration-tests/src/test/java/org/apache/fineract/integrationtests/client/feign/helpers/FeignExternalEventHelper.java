@@ -37,6 +37,7 @@ public class FeignExternalEventHelper {
     }
 
     public void enableBusinessEvent(String eventName) {
+        Objects.requireNonNull(eventName, "eventName cannot be null");
         ok(() -> fineractClient.externalEventConfiguration().updateExternalEventConfigurations(
                 new ExternalEventConfigurationUpdateRequest().externalEventConfigurations(Map.of(eventName, true))));
     }
@@ -53,7 +54,7 @@ public class FeignExternalEventHelper {
     public void deleteAllExternalEvents() {
         ok(() -> {
             internalEventsApi.deleteAllExternalEvents();
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         });
     }
 }

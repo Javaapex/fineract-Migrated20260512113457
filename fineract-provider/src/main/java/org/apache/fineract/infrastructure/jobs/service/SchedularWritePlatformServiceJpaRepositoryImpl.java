@@ -156,6 +156,7 @@ public class SchedularWritePlatformServiceJpaRepositoryImpl implements Schedular
 
     @SuppressWarnings("unused")
     public boolean fallbackProcessJobDetailForExecution(Exception e) {
+        Objects.requireNonNull(e, "e cannot be null");
         return false;
     }
 

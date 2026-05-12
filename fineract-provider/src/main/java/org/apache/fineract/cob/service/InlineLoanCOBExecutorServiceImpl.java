@@ -49,6 +49,9 @@ public class InlineLoanCOBExecutorServiceImpl extends InlineCommonLockableCOBExe
 
     @Override
     public LoanAccountLock createAccountLock(Long loanId, LockOwner loanInlineCobProcessing, LocalDate businessDate) {
+        Objects.requireNonNull(businessDate, "businessDate cannot be null");
+        Objects.requireNonNull(loanInlineCobProcessing, "loanInlineCobProcessing cannot be null");
+        Objects.requireNonNull(loanId, "loanId cannot be null");
         return new LoanAccountLock(loanId, LockOwner.LOAN_INLINE_COB_PROCESSING, businessDate);
     }
 }

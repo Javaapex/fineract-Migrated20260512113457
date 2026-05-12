@@ -29,7 +29,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * Returns HTTP Request headers. Useful for debugging (e.g. for
- * <a href= "https://issues.apache.org/jira/browse/FINERACT-914">FINERACT-914</a>. Could later be replaced with <a href=
+ * <a href= "https://issues.apache.org/jira/browse/FINERACT-914
  * "https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-http-tracing">Spring
  * Boot's Actuator HTTP Tracing</a> (see also <a href="https://www.baeldung.com/spring-boot-actuator-http">related
  * tutorial on Baeldung.com</a>), but that exposes a lot more than just the current request out of the box, and would to
@@ -45,6 +45,7 @@ public class EchoHeadersApiResource {
     @Consumes({ MediaType.WILDCARD })
     @Produces({ MediaType.TEXT_PLAIN })
     public String get(@Context HttpHeaders headers) {
+        Objects.requireNonNull(headers, "headers cannot be null");
         StringBuilder sb = new StringBuilder("Request Headers:\n");
         headers.getRequestHeaders().forEach((k, v) -> sb.append(k).append(" : ").append(v.get(0)).append("\n"));
         return sb.toString();

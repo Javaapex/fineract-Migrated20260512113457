@@ -58,7 +58,7 @@ public class WorkingCapitalLoanDelinquencyRangeScheduleTagHistory extends Abstra
     @Column(name = "liftedon_date", nullable = true)
     private LocalDate liftedOnDate;
 
-    @Column(name = "outstanding_amount", scale = 6, precision = 19)
+    @Column(name = "outstanding_amount", scale = 6, precision = 19
     private BigDecimal outstandingAmount;
 
     @Version

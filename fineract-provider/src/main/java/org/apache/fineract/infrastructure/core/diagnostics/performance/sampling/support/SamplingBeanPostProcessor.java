@@ -62,11 +62,13 @@ public class SamplingBeanPostProcessor implements BeanPostProcessor {
 
     @Autowired
     public void setSamplingServiceFactory(SamplingServiceFactory samplingServiceFactory) {
+        Objects.requireNonNull(samplingServiceFactory, "samplingServiceFactory cannot be null");
         this.samplingServiceFactory = samplingServiceFactory;
     }
 
     @Autowired
     public void setSamplingConfiguration(SamplingConfiguration samplingConfiguration) {
+        Objects.requireNonNull(samplingConfiguration, "samplingConfiguration cannot be null");
         this.samplingConfiguration = samplingConfiguration;
     }
 }

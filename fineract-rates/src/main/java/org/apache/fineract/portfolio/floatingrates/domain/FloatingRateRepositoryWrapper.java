@@ -41,10 +41,12 @@ public class FloatingRateRepositoryWrapper {
     }
 
     public void save(FloatingRate newFloatingRate) {
+        Objects.requireNonNull(newFloatingRate, "newFloatingRate cannot be null");
         this.floatingRateRepository.save(newFloatingRate);
     }
 
     public void saveAndFlush(FloatingRate floatingRateForUpdate) {
+        Objects.requireNonNull(floatingRateForUpdate, "floatingRateForUpdate cannot be null");
         this.floatingRateRepository.saveAndFlush(floatingRateForUpdate);
     }
 }

@@ -31,7 +31,7 @@ public class InterestIncentiveAttributeNameTest {
     public void testFromInt() {
         assertEquals(InterestIncentiveAttributeName.GENDER, InterestIncentiveAttributeName.fromInt(2));
         assertEquals(InterestIncentiveAttributeName.AGE, InterestIncentiveAttributeName.fromInt(3));
-        assertEquals(InterestIncentiveAttributeName.INVALID, InterestIncentiveAttributeName.fromInt(99));
+        assertEquals(InterestIncentiveAttributeName.INVALID, InterestIncentiveAttributeName.fromInt(99
         assertEquals(InterestIncentiveAttributeName.INVALID, InterestIncentiveAttributeName.fromInt(null));
     }
 

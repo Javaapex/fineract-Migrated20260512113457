@@ -42,6 +42,8 @@ public class ProgressiveLoanModelProcessingService {
     private final ProgressiveLoanModelRepository progressiveLoanModelRepository;
 
     public boolean hasValidModel(Long loanId, String modelVersion) {
+        Objects.requireNonNull(modelVersion, "modelVersion cannot be null");
+        Objects.requireNonNull(loanId, "loanId cannot be null");
         return progressiveLoanModelRepository.hasValidModel(loanId, modelVersion);
     }
 

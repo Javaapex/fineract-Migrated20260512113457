@@ -92,7 +92,7 @@ public class CashierTransaction extends AbstractPersistableCustom<Long> {
         final Long entityId = command.longValueOfParameterNamed("entityId");
         final String currencyCode = command.stringValueOfParameterNamed("currencyCode");
 
-        // TODO: get client/loan/savings details
+
         return new CashierTransaction().setCashier(cashier).setTxnType(txnType).setTxnAmount(txnAmount)
                 .setTxnDate(txnDate != null ? txnDate : null).setEntityType(entityType).setEntityId(entityId).setTxnNote(txnNote)
                 .setCurrencyCode(currencyCode);

@@ -34,6 +34,7 @@ public class DefaultContentPathSanitizer implements ContentPathSanitizer {
 
     @Override
     public String sanitize(String path) {
+        Objects.requireNonNull(path, "path cannot be null");
         final var sanitizedPath = Path.of(path).normalize().toString();
 
         if (log.isDebugEnabled()) {

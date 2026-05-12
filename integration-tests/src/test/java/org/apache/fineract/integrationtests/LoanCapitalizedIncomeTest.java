@@ -84,9 +84,9 @@ public class LoanCapitalizedIncomeTest extends BaseLoanIntegrationTest {
                         .incomeFromCapitalizationAccountId(feeIncomeAccount.getAccountID().longValue())
                         .capitalizedIncomeType(PostLoanProductsRequest.CapitalizedIncomeTypeEnum.FEE));
 
-        runAt("1 January 2024", () -> {
+        runAt("1 January 2024
             Long loanId = applyAndApproveProgressiveLoan(client.getClientId(), loanProductsResponse.getResourceId(), "1 January 2024",
-                    500.0, 7.0, 3, null);
+                    500
             loanIdRef.set(loanId);
 
             disburseLoan(loanId, BigDecimal.valueOf(100), "1 January 2024");

@@ -32,6 +32,7 @@ public class UpdateLoanArrearsAgingBusinessStep implements LoanCOBBusinessStep {
 
     @Override
     public Loan execute(Loan loan) {
+        Objects.requireNonNull(loan, "loan cannot be null");
         Long loanId = loan.getId();
         loanArrearsAgeingUpdateHandler.updateLoanArrearsAgeingDetails(Arrays.asList(loanId));
         return loan;

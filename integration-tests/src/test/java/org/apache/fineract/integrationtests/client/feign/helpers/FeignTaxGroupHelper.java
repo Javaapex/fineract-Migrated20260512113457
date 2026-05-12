@@ -37,10 +37,12 @@ public class FeignTaxGroupHelper {
     }
 
     public PostTaxesGroupResponse createTaxGroup(PostTaxesGroupRequest request) {
+        Objects.requireNonNull(request, "request cannot be null");
         return ok(() -> fineractClient.taxGroup().createTaxGroup(request));
     }
 
     public GetTaxesGroupResponse retrieveTaxGroup(Long taxGroupId) {
+        Objects.requireNonNull(taxGroupId, "taxGroupId cannot be null");
         return ok(() -> fineractClient.taxGroup().retrieveOneTaxGroup(taxGroupId));
     }
 

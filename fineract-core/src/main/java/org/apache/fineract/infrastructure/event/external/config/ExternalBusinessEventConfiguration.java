@@ -32,6 +32,7 @@ public class ExternalBusinessEventConfiguration {
     @Bean
     public ExternalBusinessEventConfigurationService externalBusinessEventConfigurationService(
             ExternalEventConfigurationRepository externalEventConfigurationRepository) {
+        Objects.requireNonNull(externalEventConfigurationRepository, "externalEventConfigurationRepository cannot be null");
         return new ExternalBusinessEventConfigurationServiceImpl(externalEventConfigurationRepository);
     }
 }

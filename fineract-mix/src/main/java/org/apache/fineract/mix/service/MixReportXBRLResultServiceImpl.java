@@ -98,7 +98,7 @@ public class MixReportXBRLResultServiceImpl implements MixReportXBRLResultServic
         return null;
     }
 
-    // TODO: this should at least use prepared statements and not just string concatenate the date objects!
+
     private String getAccountSql(final Date startDate, final Date endDate) {
         return "SELECT debits.glcode AS 'glcode', debits.name AS 'name', COALESCE(debits.debitamount,0)-COALESCE(credits.creditamount,0)) AS 'balance' "
                 + "FROM (SELECT acc_gl_account.gl_code AS 'glcode',name,SUM(amount) AS 'debitamount' "
@@ -151,7 +151,7 @@ public class MixReportXBRLResultServiceImpl implements MixReportXBRLResultServic
         // evaluate the expression
         float eval = 0f;
         try {
-            // TODO: this doesn't work anymore in modern JVMs!!!!
+
             final Number value = (Number) SCRIPT_ENGINE.eval(mappingString);
             if (value != null) {
                 eval = value.floatValue();

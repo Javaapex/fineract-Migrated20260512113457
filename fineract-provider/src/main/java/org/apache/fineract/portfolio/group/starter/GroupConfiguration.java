@@ -75,6 +75,17 @@ public class GroupConfiguration {
             StaffReadService staffReadPlatformService, CodeValueReadPlatformService codeValueReadPlatformService,
             ConfigurationDomainService configurationDomainService, ColumnValidator columnValidator, PaginationHelper paginationHelper,
             DatabaseSpecificSQLGenerator sqlGenerator, PaginationParametersDataValidator paginationParametersDataValidator) {
+        Objects.requireNonNull(paginationParametersDataValidator, "paginationParametersDataValidator cannot be null");
+        Objects.requireNonNull(sqlGenerator, "sqlGenerator cannot be null");
+        Objects.requireNonNull(paginationHelper, "paginationHelper cannot be null");
+        Objects.requireNonNull(columnValidator, "columnValidator cannot be null");
+        Objects.requireNonNull(configurationDomainService, "configurationDomainService cannot be null");
+        Objects.requireNonNull(codeValueReadPlatformService, "codeValueReadPlatformService cannot be null");
+        Objects.requireNonNull(staffReadPlatformService, "staffReadPlatformService cannot be null");
+        Objects.requireNonNull(officeReadPlatformService, "officeReadPlatformService cannot be null");
+        Objects.requireNonNull(clientReadPlatformService, "clientReadPlatformService cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
         return new CenterReadPlatformServiceImpl(jdbcTemplate, context, clientReadPlatformService, officeReadPlatformService,
                 staffReadPlatformService, codeValueReadPlatformService, configurationDomainService, columnValidator, paginationHelper,
                 sqlGenerator, paginationParametersDataValidator);
@@ -94,6 +105,23 @@ public class GroupConfiguration {
             BusinessEventNotifierService businessEventNotifierService, LoanOfficerService loanOfficerService
 
     ) {
+        Objects.requireNonNull(loanOfficerService, "loanOfficerService cannot be null");
+        Objects.requireNonNull(businessEventNotifierService, "businessEventNotifierService cannot be null");
+        Objects.requireNonNull(entityDatatableChecksWritePlatformService, "entityDatatableChecksWritePlatformService cannot be null");
+        Objects.requireNonNull(accountNumberGenerator, "accountNumberGenerator cannot be null");
+        Objects.requireNonNull(accountNumberFormatRepository, "accountNumberFormatRepository cannot be null");
+        Objects.requireNonNull(savingsAccountRepositoryWrapper, "savingsAccountRepositoryWrapper cannot be null");
+        Objects.requireNonNull(calendarInstanceRepository, "calendarInstanceRepository cannot be null");
+        Objects.requireNonNull(commandProcessingService, "commandProcessingService cannot be null");
+        Objects.requireNonNull(codeValueRepository, "codeValueRepository cannot be null");
+        Objects.requireNonNull(loanRepositoryWrapper, "loanRepositoryWrapper cannot be null");
+        Objects.requireNonNull(fromApiJsonDeserializer, "fromApiJsonDeserializer cannot be null");
+        Objects.requireNonNull(groupLevelRepository, "groupLevelRepository cannot be null");
+        Objects.requireNonNull(noteRepository, "noteRepository cannot be null");
+        Objects.requireNonNull(staffRepository, "staffRepository cannot be null");
+        Objects.requireNonNull(officeRepositoryWrapper, "officeRepositoryWrapper cannot be null");
+        Objects.requireNonNull(clientRepositoryWrapper, "clientRepositoryWrapper cannot be null");
+        Objects.requireNonNull(groupRepository, "groupRepository cannot be null");
         return new GroupingTypesWritePlatformServiceJpaRepositoryImpl(context, groupRepository, clientRepositoryWrapper,
                 officeRepositoryWrapper, staffRepository, noteRepository, groupLevelRepository, fromApiJsonDeserializer,
                 loanRepositoryWrapper, codeValueRepository, commandProcessingService, calendarInstanceRepository,
@@ -117,6 +145,7 @@ public class GroupConfiguration {
             PaginationHelper paginationHelper, DatabaseSpecificSQLGenerator sqlGenerator,
             PaginationParametersDataValidator paginationParametersDataValidator, ColumnValidator columnValidator,
             ClientReadPlatformService clientReadPlatformService) {
+        Objects.requireNonNull(centerReadPlatformService, "centerReadPlatformService cannot be null");
         return new GroupReadPlatformServiceImpl(jdbcTemplate, context, officeReadPlatformService, staffReadPlatformService,
                 centerReadPlatformService, codeValueReadPlatformService, paginationHelper, sqlGenerator, paginationParametersDataValidator,
                 columnValidator, clientReadPlatformService);
@@ -134,6 +163,7 @@ public class GroupConfiguration {
             GroupRepositoryWrapper groupRepository, GroupRolesDataValidator fromApiJsonDeserializer,
             CodeValueRepositoryWrapper codeValueRepository, ClientRepositoryWrapper clientRepository,
             GroupRoleRepositoryWrapper groupRoleRepository) {
+        Objects.requireNonNull(groupRoleRepository, "groupRoleRepository cannot be null");
         return new GroupRolesWritePlatformServiceJpaRepositoryImpl(context, groupRepository, fromApiJsonDeserializer, codeValueRepository,
                 clientRepository, groupRoleRepository);
     }

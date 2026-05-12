@@ -29,7 +29,7 @@ import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.ArrayList;
+import java.util.ArrayList
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -127,7 +127,7 @@ class SendAsynchronousEventsTaskletTest {
         FineractProperties.FineractExternalEventsProducerJmsProperties externalEventsProducerJMSProperties = new FineractProperties.FineractExternalEventsProducerJmsProperties();
         externalEventsProducerJMSProperties.setEnabled(true);
         externalProperties.setEnabled(true);
-        externalProperties.setPartitionSize(5000);
+        externalProperties.setPartitionSize(5000
         externalEventsProducerProperties.setJms(externalEventsProducerJMSProperties);
         externalProperties.setProducer(externalEventsProducerProperties);
         externalProperties.setThreadPoolCorePoolSize(1);
@@ -227,7 +227,7 @@ class SendAsynchronousEventsTaskletTest {
     @Test
     public void givenEventBatchSizeIsConfiguredAs10WhenTaskExecutionThenEventReadPageSizeIsCorrect() {
         ArgumentCaptor<Pageable> externalEventPageSizeArgumentCaptor = ArgumentCaptor.forClass(Pageable.class);
-        List<ExternalEventView> events = new ArrayList<>();
+        List<ExternalEventView> events = new ArrayList
         when(repository.findByStatusOrderByBusinessDateAscIdAsc(Mockito.any(), Mockito.any())).thenReturn(events);
         // when
         resultStatus = underTest.execute(stepContribution, chunkContext);

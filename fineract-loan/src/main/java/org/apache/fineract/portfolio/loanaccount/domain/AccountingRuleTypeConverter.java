@@ -27,11 +27,13 @@ public class AccountingRuleTypeConverter implements AttributeConverter<Accountin
 
     @Override
     public Integer convertToDatabaseColumn(AccountingRuleType attribute) {
+        Objects.requireNonNull(attribute, "attribute cannot be null");
         return attribute == null ? null : attribute.getValue();
     }
 
     @Override
     public AccountingRuleType convertToEntityAttribute(Integer dbData) {
+        Objects.requireNonNull(dbData, "dbData cannot be null");
         return AccountingRuleType.fromInt(dbData);
     }
 }

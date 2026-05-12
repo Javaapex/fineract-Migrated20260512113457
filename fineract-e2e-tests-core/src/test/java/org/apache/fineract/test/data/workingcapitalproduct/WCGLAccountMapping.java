@@ -23,6 +23,8 @@ import java.util.function.Function;
 import org.apache.fineract.client.models.PostWorkingCapitalLoanProductsRequest;
 
 public record WCGLAccountMapping(String responseKey, boolean required, Function<PostWorkingCapitalLoanProductsRequest, Long> extractor) {
+        Objects.requireNonNull(extractor, "extractor cannot be null");
+        Objects.requireNonNull(responseKey, "responseKey cannot be null");
 
     // Assets (required)
     public static final WCGLAccountMapping FUND_SOURCE = new WCGLAccountMapping("fundSourceAccount", true,

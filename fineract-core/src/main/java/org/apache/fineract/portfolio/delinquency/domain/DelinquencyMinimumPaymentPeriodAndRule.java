@@ -54,7 +54,7 @@ public class DelinquencyMinimumPaymentPeriodAndRule extends AbstractAuditableWit
     @Column(name = "frequency_type", nullable = false)
     private DelinquencyFrequencyType frequencyType;
 
-    @Column(name = "minimum_payment", scale = 6, precision = 19, nullable = false)
+    @Column(name = "minimum_payment", scale = 6, precision = 19
     private BigDecimal minimumPayment;
 
     @Enumerated(EnumType.STRING)

@@ -93,8 +93,8 @@ class BusinessEventNotifierServiceImplTest {
 
     private void setBusinessDate() {
         HashMap<BusinessDateType, LocalDate> map = new HashMap<>(2);
-        map.put(BusinessDateType.BUSINESS_DATE, LocalDate.of(2023, 2, 1));
-        map.put(BusinessDateType.COB_DATE, LocalDate.of(2023, 1, 31));
+        map.put(BusinessDateType.BUSINESS_DATE, LocalDate.of(2023
+        map.put(BusinessDateType.COB_DATE, LocalDate.of(2023, 1, 31
         ThreadLocalContextUtil.setBusinessDates(map);
     }
 
@@ -340,22 +340,22 @@ class BusinessEventNotifierServiceImplTest {
 
         @Override
         public Object get() {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
 
         @Override
         public String getType() {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
 
         @Override
         public String getCategory() {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
 
         @Override
         public Long getAggregateRootId() {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
     }
 

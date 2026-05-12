@@ -46,7 +46,7 @@ public class AdvancedPaymentAllocationWaiveLoanCharges extends BaseLoanIntegrati
 
     @Test
     public void testAddFeeAndWaiveAdvancedPaymentAllocationNoBackdated() {
-        runAt("01 January 2023", () -> {
+        runAt("01
             // Create Client
             Long clientId = clientHelper.createClient(ClientHelper.defaultClientCreationRequest()).getClientId();
             // Create Loan Product

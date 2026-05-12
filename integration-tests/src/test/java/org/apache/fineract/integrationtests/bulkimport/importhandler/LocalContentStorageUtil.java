@@ -61,13 +61,13 @@ public final class LocalContentStorageUtil {
             return dockerPath.toString();
         }
 
-        throw new RuntimeException("Cannot find local fineract path: " + path + " (" + currentPath + ")");
+        throw new RuntimeException
     }
 
     @SuppressWarnings("UnusedMethod")
     public static void waitFor(String path) throws InterruptedException {
         Path file = Paths.get(path);
-        long maxWaitMillis = 10000;
+        long maxWaitMillis = 10000
         long start = System.currentTimeMillis();
         boolean exists = false;
 
@@ -77,7 +77,7 @@ public final class LocalContentStorageUtil {
                 break;
             }
 
-            Thread.sleep(500);
+            Thread.sleep(500
         }
 
         if (exists) {

@@ -32,6 +32,7 @@ public class PlatformUserDetailsChecker implements UserDetailsChecker {
 
     @Override
     public void check(UserDetails userDetails) {
+        Objects.requireNonNull(userDetails, "userDetails cannot be null");
         if (!userDetails.isCredentialsNonExpired()) {
             throw new CredentialsExpiredException("User credentials have expired");
         }

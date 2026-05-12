@@ -74,7 +74,9 @@ public class AccountTransferDetailAssembler {
 
     }
 
-    public AccountTransferDetails assembleSavingsToLoanTransfer(final JsonCommand command) {
+    public AccountTransferDetails assembleSavingsToLoanTransfer(final SavingsAccount fromSavingsAccount, final Loan toLoanAccount,
+            Integer transferType) {
+        Objects.requireNonNull(transferType, "transferType cannot be null");
 
         final Long fromSavingsAccountId = command.longValueOfParameterNamed(fromAccountIdParamName);
         final boolean backdatedTxnsAllowedTill = false;
@@ -203,6 +205,8 @@ public class AccountTransferDetailAssembler {
     }
 
     public AccountTransferDetails assembleLoanToLoanTransfer(Loan fromLoanAccount, Loan toLoanAccount, Integer transferType) {
+        Objects.requireNonNull(toLoanAccount, "toLoanAccount cannot be null");
+        Objects.requireNonNull(fromLoanAccount, "fromLoanAccount cannot be null");
         final Office fromOffice = fromLoanAccount.getOffice();
         final Client fromClient = fromLoanAccount.client();
         final Office toOffice = toLoanAccount.getOffice();

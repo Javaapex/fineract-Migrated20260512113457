@@ -37,6 +37,7 @@ public class ShareProductRepositoryWrapper {
     }
 
     public void save(ShareProduct product) {
+        Objects.requireNonNull(product, "product cannot be null");
         this.shareProductRepository.save(product);
     }
 

@@ -39,7 +39,7 @@ public class LoanApprovedAmountHistory extends AbstractAuditableWithUTCDateTimeC
     @Column(name = "loan_id", nullable = false)
     private Long loanId;
 
-    @Column(name = "new_approved_amount", scale = 6, precision = 19, nullable = false)
+    @Column(name = "new_approved_amount", scale = 6, precision = 19
     private BigDecimal newApprovedAmount;
 
     @Column(name = "old_approved_amount", scale = 6, precision = 19, nullable = false)

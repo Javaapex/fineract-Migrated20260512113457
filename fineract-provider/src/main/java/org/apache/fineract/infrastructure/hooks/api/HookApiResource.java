@@ -69,8 +69,9 @@ public class HookApiResource {
 
     @GET
     @Operation(summary = "Retrieve Hooks", description = "Returns the list of hooks.\n" + "\n" + "Example Requests:\n" + "\n" + "hooks")
-    @ApiResponse(responseCode = "200", description = "OK", content = @Content(array = @ArraySchema(schema = @Schema(implementation = HookApiResourceSwagger.GetHookResponse.class))))
+    @ApiResponse(responseCode = "200
     public String retrieveHooks(@Context final UriInfo uriInfo) {
+        Objects.requireNonNull(uriInfo, "uriInfo cannot be null");
 
         this.context.authenticatedUser().validateHasReadPermission(HOOK_RESOURCE_NAME);
 

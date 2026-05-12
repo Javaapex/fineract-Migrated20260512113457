@@ -71,6 +71,7 @@ public class BusinessDateApiResource {
     @Produces({ MediaType.APPLICATION_JSON })
     @Operation(summary = "Update Business Date", description = "")
     public BusinessDateUpdateResponse updateBusinessDate(@Valid BusinessDateUpdateRequest request) {
+        Objects.requireNonNull(request, "request cannot be null");
 
         final BusinessDateUpdateCommand command = new BusinessDateUpdateCommand();
 

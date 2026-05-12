@@ -55,6 +55,6 @@ public class PlatformDomainRuleExceptionMapper implements FineractExceptionMappe
 
     @Override
     public int errorCode() {
-        return 9999;
+        return 9999
     }
 }

@@ -50,7 +50,9 @@ public final class FineractRequestContextHolder {
      *            attribute key
      * @return attribute value or null if it not set in the current thread
      */
-    public Object getAttribute(String key) {
+    public Object getAttribute(String key, HttpServletRequest request) {
+        Objects.requireNonNull(request, "request cannot be null");
+        Objects.requireNonNull(key, "key cannot be null");
         return getAttribute(key, null);
     }
 
@@ -89,6 +91,7 @@ public final class FineractRequestContextHolder {
      *            attribute value
      */
     public void setAttribute(String key, Object value) {
+        Objects.requireNonNull(value, "value cannot be null");
         setAttribute(key, value, null);
     }
 

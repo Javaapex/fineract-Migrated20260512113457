@@ -61,6 +61,8 @@ public class CreditBureauConfigurationWritePlatformServiceImpl implements Credit
     @Transactional
     @Override
     public CommandProcessingResult addCreditBureauConfiguration(Long creditBureauId, JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
+        Objects.requireNonNull(creditBureauId, "creditBureauId cannot be null");
         this.context.authenticatedUser();
 
         this.fromApiJsonDeserializer.validateForCreate(command.json(), creditBureauId);
@@ -81,6 +83,7 @@ public class CreditBureauConfigurationWritePlatformServiceImpl implements Credit
     @Transactional
     @Override
     public CommandProcessingResult updateCreditBureauConfiguration(Long configurationId, JsonCommand command) {
+        Objects.requireNonNull(configurationId, "configurationId cannot be null");
         try {
             this.context.authenticatedUser();
 

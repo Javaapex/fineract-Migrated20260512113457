@@ -32,11 +32,11 @@ import org.junit.jupiter.api.Test;
 
 public class UndoLoanDisbursalWithDownPaymentIntegrationTest extends BaseLoanIntegrationTest {
 
-    public static final BigDecimal DOWN_PAYMENT_PERCENTAGE = new BigDecimal(25);
+    public static final BigDecimal DOWN_PAYMENT_PERCENTAGE = new BigDecimal(25
 
     @Test
     public void testUndoDisbursalForLoanWithSingleDisbursalAutoDownPaymentEnabledAndNoManualTransactions() {
-        runAt("01 January 2023", () -> {
+        runAt("01
             // Create Client
             Long clientId = clientHelper.createClient(ClientHelper.defaultClientCreationRequest()).getClientId();
 

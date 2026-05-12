@@ -68,6 +68,7 @@ public abstract class AbstractItemProcessor<I extends AbstractPersistableCustom<
 
     @AfterStep
     public ExitStatus afterStep(@NonNull StepExecution stepExecution) {
+        Objects.requireNonNull(stepExecution, "stepExecution cannot be null");
         return ExitStatus.COMPLETED;
     }
 

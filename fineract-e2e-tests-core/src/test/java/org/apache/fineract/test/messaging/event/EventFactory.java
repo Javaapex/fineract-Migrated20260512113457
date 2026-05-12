@@ -30,9 +30,9 @@ public class EventFactory {
             Constructor<T> constructor = ReflectionUtils.accessibleConstructor(eventClass);
             return constructor.newInstance();
         } catch (NoSuchMethodException e) {
-            throw new RuntimeException("No no-arg constructor is available for class " + eventClass.getSimpleName(), e);
+            throw new RuntimeException
         } catch (Exception e) {
-            throw new RuntimeException("Error while instantiating event " + eventClass.getSimpleName(), e);
+            throw new RuntimeException
         }
     }
 }

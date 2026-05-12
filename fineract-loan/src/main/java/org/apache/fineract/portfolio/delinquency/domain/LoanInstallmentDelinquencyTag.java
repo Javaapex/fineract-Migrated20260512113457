@@ -61,7 +61,7 @@ public class LoanInstallmentDelinquencyTag extends AbstractAuditableWithUTCDateT
     @Column(name = "first_overdue_date", nullable = false)
     private LocalDate firstOverdueDate;
 
-    @Column(name = "outstanding_amount", scale = 6, precision = 19)
+    @Column(name = "outstanding_amount", scale = 6, precision = 19
     private BigDecimal outstandingAmount;
 
     @Version

@@ -33,6 +33,7 @@ public class LoanProductPaymentAllocationRuleMerger {
 
     public boolean updateProductPaymentAllocationRules(LoanProduct loanProduct,
             final List<LoanProductPaymentAllocationRule> newLoanProductPaymentAllocationRules) {
+        Objects.requireNonNull(loanProduct, "loanProduct cannot be null");
         if (newLoanProductPaymentAllocationRules == null) {
             return false;
         }

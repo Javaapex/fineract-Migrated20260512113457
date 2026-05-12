@@ -42,6 +42,7 @@ public class StuckJobExecutorServiceImpl implements StuckJobExecutorService {
 
     @Override
     public void resumeStuckJob(String jobName) {
+        Objects.requireNonNull(jobName, "jobName cannot be null");
         List<Long> stuckJobIds = getStuckJobIds(jobName);
         if (isPartitionedJob(jobName) && areThereStuckJobs(jobName)) {
             restartPartitionedJobs(jobName, stuckJobIds);
@@ -58,7 +59,7 @@ public class StuckJobExecutorServiceImpl implements StuckJobExecutorService {
         try {
             jobOperator.restart(stuckJobId);
         } catch (Exception e) {
-            throw new RuntimeException("Exception while handling a stuck job", e);
+            throw new RuntimeException
         }
     }
 
@@ -96,7 +97,7 @@ public class StuckJobExecutorServiceImpl implements StuckJobExecutorService {
             });
             jobOperator.restart(stuckJobId);
         } catch (Exception e) {
-            throw new RuntimeException("Exception while handling a stuck job", e);
+            throw new RuntimeException
         }
     }
 

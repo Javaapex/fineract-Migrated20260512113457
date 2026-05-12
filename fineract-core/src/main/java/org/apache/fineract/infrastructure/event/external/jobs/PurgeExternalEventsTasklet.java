@@ -41,11 +41,14 @@ public class PurgeExternalEventsTasklet implements Tasklet {
 
     @Override
     public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) {
+        Objects.requireNonNull(chunkContext, "chunkContext cannot be null");
+        Objects.requireNonNull(contribution, "contribution cannot be null");
         try {
             Long numberOfDaysForPurgeCriteria = configurationDomainService.retrieveExternalEventsPurgeDaysCriteria();
             LocalDate dateForPurgeCriteria = DateUtils.getBusinessLocalDate().minusDays(numberOfDaysForPurgeCriteria);
             repository.deleteOlderEventsWithSentStatus(ExternalEventStatus.SENT, dateForPurgeCriteria);
         } catch (Exception e) {
+
             log.error("Error occurred while purging external events: ", e);
         }
         return RepeatStatus.FINISHED;

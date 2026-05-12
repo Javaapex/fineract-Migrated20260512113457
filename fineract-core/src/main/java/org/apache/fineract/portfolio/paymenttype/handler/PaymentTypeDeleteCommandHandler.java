@@ -40,11 +40,13 @@ public class PaymentTypeDeleteCommandHandler implements CommandHandler<PaymentTy
     @Override
     @Transactional
     public PaymentTypeDeleteResponse handle(Command<PaymentTypeDeleteRequest> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return paymentTypeWriteService.deletePaymentType(command.getPayload());
     }
 
     @Override
     public PaymentTypeDeleteResponse fallback(Command<PaymentTypeDeleteRequest> command, Throwable t) {
+        Objects.requireNonNull(t, "t cannot be null");
         return CommandHandler.super.fallback(command, t);
     }
 }

@@ -35,6 +35,7 @@ public class JobIsNotFoundOrNotEnabledExceptionMapper implements ExceptionMapper
 
     @Override
     public Response toResponse(JobIsNotFoundOrNotEnabledException exception) {
+        Objects.requireNonNull(exception, "exception cannot be null");
         log.warn("Exception occurred", ErrorHandler.findMostSpecificException(exception));
         return Response.status(Response.Status.FORBIDDEN)
                 .entity(ApiGlobalErrorResponse.jobIsDisabled(exception.getGlobalisationMessageCode(), exception.getDefaultUserMessage()))

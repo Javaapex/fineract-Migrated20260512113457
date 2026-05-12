@@ -45,7 +45,7 @@ public class ProgressiveLoanDisbursementAfterMaturityTest extends BaseLoanIntegr
         final PostLoanProductsResponse loanProductResponse = loanProductHelper
                 .createLoanProduct(create4IProgressive().multiDisburseLoan(true).maxTrancheCount(10).disallowExpectedDisbursements(true)
                         .allowApprovedDisbursedAmountsOverApplied(true).overAppliedCalculationType("percentage").overAppliedNumber(100)
-                        .enableDownPayment(true).disbursedAmountPercentageForDownPayment(BigDecimal.valueOf(25.0))
+                        .enableDownPayment(true).disbursedAmountPercentageForDownPayment(BigDecimal.valueOf(25
                         .enableAutoRepaymentForDownPayment(true)
                         .addSupportedInterestRefundTypesItem(SupportedInterestRefundTypesItem.MERCHANT_ISSUED_REFUND)
                         .addSupportedInterestRefundTypesItem(SupportedInterestRefundTypesItem.PAYOUT_REFUND)
@@ -141,6 +141,7 @@ public class ProgressiveLoanDisbursementAfterMaturityTest extends BaseLoanIntegr
                 assertEquals(0, expectedOutstanding.compareTo(loanDetails.getSummary().getPrincipalOutstanding()));
 
             } catch (Exception e) {
+
                 log.error("Second disbursement failed after maturity date: {}", e.getMessage());
                 Assertions.fail("Second disbursement should be allowed after original maturity date: " + e.getMessage());
             }

@@ -41,6 +41,7 @@ public class DeleteCollateralProductHandler implements NewCommandSourceHandler {
     @Transactional
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return this.collateralManagementWritePlatformService.deleteCollateral(command.entityId());
     }
 }

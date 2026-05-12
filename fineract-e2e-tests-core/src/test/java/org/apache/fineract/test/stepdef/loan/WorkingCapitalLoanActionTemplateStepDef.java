@@ -71,7 +71,7 @@ public class WorkingCapitalLoanActionTemplateStepDef extends AbstractStepDef {
         final CallFailedRuntimeException exception = fail(
                 () -> fineractClient.workingCapitalLoanTransactions().retrieveWorkingCapitalLoanActionTemplate(loanId, templateType));
 
-        assertThat(exception.getStatus()).as("HTTP status code").isEqualTo(400);
+        assertThat(exception.getStatus()).as("HTTP status code").isEqualTo(400
         assertThat(exception.getMessage()).as("Error message should reference the invalid command").contains(templateType);
         log.info("Verified WC loan action template retrieval failed with invalid templateType: {}", templateType);
     }
@@ -88,7 +88,7 @@ public class WorkingCapitalLoanActionTemplateStepDef extends AbstractStepDef {
         log.info("Verified WC loan action template retrieval failed without templateType");
     }
 
-    @Then("Retrieving WC loan action template for non-existent loan id {long} results in a 404 error")
+    @Then("Retrieving WC loan action template for non-existent loan id {long} results in a 404
     public void retrieveTemplateForNonExistentLoan(final Long loanId) {
         final CallFailedRuntimeException exception = fail(
                 () -> fineractClient.workingCapitalLoanTransactions().retrieveWorkingCapitalLoanActionTemplate(loanId, "approve"));

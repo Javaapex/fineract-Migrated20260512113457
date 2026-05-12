@@ -67,6 +67,7 @@ public class ProjectedAmortizationScheduleModelParserServiceGsonImpl implements 
 
     @Override
     public String toJson(@NonNull final ProjectedAmortizationScheduleModel model) {
+        Objects.requireNonNull(model, "model cannot be null");
         return serializer.toJson(model);
     }
 
@@ -74,14 +75,17 @@ public class ProjectedAmortizationScheduleModelParserServiceGsonImpl implements 
     @Nullable
     public ProjectedAmortizationScheduleModel fromJson(@Nullable final String json, @NonNull final MathContext mc,
             @NonNull final MonetaryCurrency currency) {
+        Objects.requireNonNull(currency, "currency cannot be null");
+        Objects.requireNonNull(mc, "mc cannot be null");
         if (json == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         try {
             return createDeserializer(mc, currency).fromJson(json, ProjectedAmortizationScheduleModel.class);
         } catch (Exception e) {
+
             log.warn("Failed to parse ProjectedAmortizationScheduleModel JSON. Falling back to null.", e);
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
     }
 }

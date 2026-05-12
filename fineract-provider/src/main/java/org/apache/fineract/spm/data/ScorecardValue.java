@@ -48,6 +48,7 @@ public class ScorecardValue {
     }
 
     public void setQuestionId(Long questionId) {
+        Objects.requireNonNull(questionId, "questionId cannot be null");
         this.questionId = questionId;
     }
 
@@ -56,6 +57,7 @@ public class ScorecardValue {
     }
 
     public void setResponseId(Long responseId) {
+        Objects.requireNonNull(responseId, "responseId cannot be null");
         this.responseId = responseId;
     }
 
@@ -64,6 +66,7 @@ public class ScorecardValue {
     }
 
     public void setValue(Integer value) {
+        Objects.requireNonNull(value, "value cannot be null");
         this.value = value;
     }
 
@@ -72,6 +75,7 @@ public class ScorecardValue {
     }
 
     public void setCreatedOn(OffsetDateTime createdOn) {
+        Objects.requireNonNull(createdOn, "createdOn cannot be null");
         this.createdOn = createdOn;
     }
 

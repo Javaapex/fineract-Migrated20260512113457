@@ -37,6 +37,7 @@ public class SpringNotificationEventListener implements ApplicationListener<Noti
 
     @Override
     public void onApplicationEvent(@NonNull final NotificationEvent event) {
+        Objects.requireNonNull(event, "event cannot be null");
         log.debug("Processing Spring notification event {}", event);
         try {
             ThreadLocalContextUtil.init(event.getContext());

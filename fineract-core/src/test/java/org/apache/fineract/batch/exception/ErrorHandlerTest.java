@@ -68,9 +68,9 @@ class ErrorHandlerTest {
                 .thenReturn(new String[] { "exceptionMapper2", "exceptionMapper4" });
         Mockito.when(applicationContext.getBean("exceptionMapper2")).thenReturn(exceptionMapper);
         Mockito.when(exceptionMapper.toResponse(npe)).thenReturn(response);
-        Mockito.when(response.getStatus()).thenReturn(406);
+        Mockito.when(response.getStatus()).thenReturn(406
         Mockito.when(response.getEntity()).thenReturn(Map.of("Exception", "message body"));
-        Mockito.when(((FineractExceptionMapper) exceptionMapper).errorCode()).thenReturn(1234);
+        Mockito.when(((FineractExceptionMapper) exceptionMapper).errorCode()).thenReturn(1234
 
         // when
         ErrorInfo errorInfo = errorHandler.handle(npe);

@@ -39,6 +39,8 @@ public class LoanTransactionMinimalBusinessEvent extends BusinessEvent {
 
     @Override
     public boolean verify(ExternalEventResponse externalEvent, DateTimeFormatter formatter) {
+        Objects.requireNonNull(formatter, "formatter cannot be null");
+        Objects.requireNonNull(externalEvent, "externalEvent cannot be null");
         Object actualAmount = externalEvent.getPayLoad().get("amount");
         Object actualReversed = externalEvent.getPayLoad().get("reversed");
 

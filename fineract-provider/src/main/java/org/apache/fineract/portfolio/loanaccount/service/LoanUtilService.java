@@ -193,6 +193,7 @@ public class LoanUtilService implements ILoanUtilService {
 
     @Override
     public HolidayDetailDTO constructHolidayDTO(final Long officeId, LocalDate localDate) {
+        Objects.requireNonNull(localDate, "localDate cannot be null");
         final boolean isHolidayEnabled = this.configurationDomainService.isRescheduleRepaymentsOnHolidaysEnabled();
         final List<Holiday> holidays = this.holidayRepository.findByOfficeIdAndGreaterThanDate(officeId, localDate,
                 HolidayStatusType.ACTIVE.getValue());
@@ -240,7 +241,7 @@ public class LoanUtilService implements ILoanUtilService {
                 return calculatedRepaymentsStartingFromDate;
             }
 
-            // TODO: AA - user provided first repayment date takes precedence
+
             // over recalculated meeting date
             if (calculatedRepaymentsStartingFromDate == null) {
                 // FIXME: AA - Possibility of having next meeting date
@@ -299,6 +300,7 @@ public class LoanUtilService implements ILoanUtilService {
 
     @Override
     public void validateRepaymentTransactionType(LoanTransactionType repaymentTransactionType) {
+        Objects.requireNonNull(repaymentTransactionType, "repaymentTransactionType cannot be null");
         if (!repaymentTransactionType.isRepaymentType()) {
             throw new PlatformServiceUnavailableException("error.msg.repaymentTransactionType.provided.not.a.repayment.type",
                     "Loan :" + repaymentTransactionType.getCode() + " Repayment Transaction Type provided is not a Repayment Type",

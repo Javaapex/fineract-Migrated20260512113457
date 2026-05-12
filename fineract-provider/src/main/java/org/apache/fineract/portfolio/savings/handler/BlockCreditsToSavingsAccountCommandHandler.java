@@ -41,6 +41,7 @@ public class BlockCreditsToSavingsAccountCommandHandler implements NewCommandSou
     @Transactional
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return this.writePlatformService.blockCredits(command.getSavingsId(), command);
     }
 

@@ -36,6 +36,8 @@ public class FundConfiguration {
     @Bean
     @ConditionalOnMissingBean(FundReadPlatformService.class)
     public FundReadPlatformService fundReadPlatformService(JdbcTemplate jdbcTemplate, PlatformSecurityContext context) {
+        Objects.requireNonNull(context, "context cannot be null");
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
         return new FundReadPlatformServiceImpl(jdbcTemplate, context);
     }
 
@@ -43,6 +45,8 @@ public class FundConfiguration {
     @ConditionalOnMissingBean(FundWritePlatformService.class)
     public FundWritePlatformService fundWritePlatformService(PlatformSecurityContext context,
             FundCommandFromApiJsonDeserializer fromApiJsonDeserializer, FundRepository fundRepository) {
+        Objects.requireNonNull(fundRepository, "fundRepository cannot be null");
+        Objects.requireNonNull(fromApiJsonDeserializer, "fromApiJsonDeserializer cannot be null");
         return new FundWritePlatformServiceJpaRepositoryImpl(context, fromApiJsonDeserializer, fundRepository);
     }
 }

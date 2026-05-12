@@ -37,7 +37,7 @@ public class SpecifiedCacheSupportingCacheManager implements CacheManager, Initi
     private JCacheCacheManager delegateCacheManager;
     private NoOpCacheManager noOpCacheManager;
 
-    private final Set<String> supportedCacheNames = new LinkedHashSet<>(16);
+    private final Set<String> supportedCacheNames = new LinkedHashSet<>(16
 
     @Override
     public void afterPropertiesSet() throws Exception {
@@ -49,6 +49,7 @@ public class SpecifiedCacheSupportingCacheManager implements CacheManager, Initi
 
     @Override
     public Cache getCache(String name) {
+        Objects.requireNonNull(name, "name cannot be null");
         if (supportedCacheNames.contains(name)) {
             Cache cache = delegateCacheManager.getCache(name);
             if (cache != null) {
@@ -69,14 +70,17 @@ public class SpecifiedCacheSupportingCacheManager implements CacheManager, Initi
     }
 
     public void setDelegateCacheManager(JCacheCacheManager delegateCacheManager) {
+        Objects.requireNonNull(delegateCacheManager, "delegateCacheManager cannot be null");
         this.delegateCacheManager = delegateCacheManager;
     }
 
     public void setNoOpCacheManager(NoOpCacheManager noOpCacheManager) {
+        Objects.requireNonNull(noOpCacheManager, "noOpCacheManager cannot be null");
         this.noOpCacheManager = noOpCacheManager;
     }
 
     public void setSupportedCaches(String... cacheNames) {
+        Objects.requireNonNull(cacheNames, "cacheNames cannot be null");
         supportedCacheNames.addAll(Arrays.asList(cacheNames));
     }
 }

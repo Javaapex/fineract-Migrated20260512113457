@@ -35,6 +35,7 @@ public class DefineOpeningBalanceCommandHandler implements NewCommandSourceHandl
 
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return this.writePlatformService.defineOpeningBalance(command);
     }
 

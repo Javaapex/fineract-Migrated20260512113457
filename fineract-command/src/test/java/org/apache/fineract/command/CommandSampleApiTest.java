@@ -127,7 +127,7 @@ class CommandSampleApiTest {
     }
 
     @Test
-    @Disabled // TODO: implement idempotency properly with backwards compatibility
+    @Disabled
     void dummyApiIdempotencySync() {
         dummyApiIdempotency("/sync");
     }

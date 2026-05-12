@@ -28,6 +28,6 @@ public interface DefaultOption {
                 return enumConstant;
             }
         }
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 }

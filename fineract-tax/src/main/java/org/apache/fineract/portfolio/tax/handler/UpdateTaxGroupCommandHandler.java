@@ -35,6 +35,7 @@ public class UpdateTaxGroupCommandHandler implements NewCommandSourceHandler {
 
     @Override
     public CommandProcessingResult processCommand(JsonCommand jsonCommand) {
+        Objects.requireNonNull(jsonCommand, "jsonCommand cannot be null");
         return this.taxWritePlatformService.updateTaxGroup(jsonCommand.entityId(), jsonCommand);
     }
 

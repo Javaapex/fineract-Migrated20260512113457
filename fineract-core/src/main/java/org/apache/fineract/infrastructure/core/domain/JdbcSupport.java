@@ -133,6 +133,6 @@ public final class JdbcSupport {
             return offsetDateTimeAtUTC
                     .withOffsetSameInstant(DateUtils.getDateTimeZoneOfTenant().getRules().getOffset(offsetDateTimeAtUTC.toInstant()));
         }
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 }

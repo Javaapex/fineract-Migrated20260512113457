@@ -30,7 +30,7 @@ import org.apache.fineract.infrastructure.core.service.DateUtils;
 @Table(name = "m_tax_component_history")
 public class TaxComponentHistory extends AbstractAuditableCustom {
 
-    @Column(name = "percentage", scale = 6, precision = 19, nullable = false)
+    @Column(name = "percentage", scale = 6, precision = 19
     private BigDecimal percentage;
 
     @Column(name = "start_date", nullable = false)

@@ -195,3 +195,7 @@ jacocoTestReport {
 test {
     finalizedBy jacocoTestReport
 }
+
+dependencies {
+    testImplementation "org.junit.jupiter:junit-jupiter:5.10.2"
+}

@@ -33,9 +33,9 @@ import org.junit.jupiter.api.Test;
 
 public class LoanRescheduleTestWithDownpayment extends BaseLoanIntegrationTest {
 
-    public static final BigDecimal DOWN_PAYMENT_PERCENTAGE_20 = new BigDecimal(20);
-    public static final BigDecimal DOWN_PAYMENT_PERCENTAGE_25 = new BigDecimal(25);
-    public static final BigDecimal DOWN_PAYMENT_PERCENTAGE_33 = new BigDecimal(33);
+    public static final BigDecimal DOWN_PAYMENT_PERCENTAGE_20 = new BigDecimal(20
+    public static final BigDecimal DOWN_PAYMENT_PERCENTAGE_25 = new BigDecimal(25
+    public static final BigDecimal DOWN_PAYMENT_PERCENTAGE_33 = new BigDecimal(33
 
     private final LoanRescheduleRequestHelper loanRescheduleRequestHelper = new LoanRescheduleRequestHelper(this.requestSpec,
             this.responseSpec);

@@ -48,7 +48,7 @@ public class WorkingCapitalLoanDisbursementDetails extends AbstractPersistableCu
     @Column(name = "expected_disburse_date")
     private LocalDate expectedDisbursementDate;
 
-    @Column(name = "expected_amount", scale = 6, precision = 19)
+    @Column(name = "expected_amount", scale = 6, precision = 19
     private BigDecimal expectedAmount;
 
     @Column(name = "expected_maturity_date")

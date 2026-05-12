@@ -100,6 +100,8 @@ public class LoanProductCreditAllocationRuleMergerTest {
 
     public LoanProductCreditAllocationRule createRule(CreditAllocationTransactionType transactionType,
             List<AllocationType> allocationTypeList) {
+        Objects.requireNonNull(allocationTypeList, "allocationTypeList cannot be null");
+        Objects.requireNonNull(transactionType, "transactionType cannot be null");
         return new LoanProductCreditAllocationRule(null, transactionType, allocationTypeList);
     }
 

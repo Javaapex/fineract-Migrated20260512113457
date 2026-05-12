@@ -42,7 +42,7 @@ public final class BusinessDateHelper {
 
     public BusinessDateHelper() {}
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -60,7 +60,7 @@ public final class BusinessDateHelper {
         return Calls.ok(FineractClientHelper.getFineractClient().businessDateManagement.updateBusinessDate(request));
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -80,7 +80,7 @@ public final class BusinessDateHelper {
         return Calls.ok(FineractClientHelper.getFineractClient().businessDateManagement.getBusinessDates());
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)

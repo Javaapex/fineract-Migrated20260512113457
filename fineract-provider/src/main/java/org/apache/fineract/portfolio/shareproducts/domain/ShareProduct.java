@@ -151,7 +151,7 @@ public class ShareProduct extends AbstractAuditableCustom {
         this.lockPeriodType = lockPeriodType;
         this.minimumActivePeriod = minimumActivePeriod;
         this.minimumActivePeriodType = minimumActivePeriodForDividendsType;
-        // TODO: is this used at all?
+
         this.startDate = DateUtils.getBusinessLocalDate();
         this.endDate = DateUtils.getBusinessLocalDate();
         if (accountingRuleType != null) {

@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 
-import java.util.ArrayList;
+import java.util.ArrayList
 import java.util.List;
 import org.apache.fineract.infrastructure.core.condition.FineractPartitionJobConfigValidationCondition;
 import org.junit.jupiter.api.BeforeEach;
@@ -77,7 +77,7 @@ class FineractPartitionJobConfigValidationConditionTest {
 
     private FineractProperties.FineractPartitionedJob getValidConfig() {
         FineractProperties.FineractPartitionedJob partitionedJob = new FineractProperties.FineractPartitionedJob();
-        List<FineractProperties.PartitionedJobProperty> jobProperties = new ArrayList<>();
+        List<FineractProperties.PartitionedJobProperty> jobProperties = new ArrayList
         FineractProperties.PartitionedJobProperty partitionedJobProperty = new FineractProperties.PartitionedJobProperty();
         partitionedJobProperty.setJobName("LOAN_COB");
         partitionedJobProperty.setPartitionSize(100);
@@ -92,7 +92,7 @@ class FineractPartitionJobConfigValidationConditionTest {
 
     private FineractProperties.FineractPartitionedJob getBelowOneConfig() {
         FineractProperties.FineractPartitionedJob partitionedJob = new FineractProperties.FineractPartitionedJob();
-        List<FineractProperties.PartitionedJobProperty> jobProperties = new ArrayList<>();
+        List<FineractProperties.PartitionedJobProperty> jobProperties = new ArrayList
         FineractProperties.PartitionedJobProperty partitionedJobProperty = new FineractProperties.PartitionedJobProperty();
         partitionedJobProperty.setJobName("LOAN_COB");
         partitionedJobProperty.setPartitionSize(0);

@@ -53,6 +53,7 @@ public class ShareProductsConfiguration {
     @Bean(value = "SHAREPRODUCT_COMMANDSERVICE")
     @ConditionalOnMissingBean(ShareProductCommandsServiceImpl.class)
     public ShareProductCommandsServiceImpl shareProductCommandsService(FromJsonHelper fromApiJsonHelper) {
+        Objects.requireNonNull(fromApiJsonHelper, "fromApiJsonHelper cannot be null");
         return new ShareProductCommandsServiceImpl(fromApiJsonHelper);
 
     }
@@ -61,6 +62,8 @@ public class ShareProductsConfiguration {
     @ConditionalOnMissingBean(ShareProductDividendAssembler.class)
     public ShareProductDividendAssembler shareProductDividendAssembler(ShareProductReadPlatformService shareProductReadPlatformService,
             ShareAccountReadPlatformService shareAccountReadPlatformService) {
+        Objects.requireNonNull(shareAccountReadPlatformService, "shareAccountReadPlatformService cannot be null");
+        Objects.requireNonNull(shareProductReadPlatformService, "shareProductReadPlatformService cannot be null");
         return new ShareProductDividendAssembler(shareProductReadPlatformService, shareAccountReadPlatformService);
 
     }
@@ -69,6 +72,10 @@ public class ShareProductsConfiguration {
     @ConditionalOnMissingBean(ShareProductDividendReadPlatformService.class)
     public ShareProductDividendReadPlatformService shareProductDividendReadPlatformService(JdbcTemplate jdbcTemplate,
             ColumnValidator columnValidator, PaginationHelper paginationHelper, DatabaseSpecificSQLGenerator sqlGenerator) {
+        Objects.requireNonNull(sqlGenerator, "sqlGenerator cannot be null");
+        Objects.requireNonNull(paginationHelper, "paginationHelper cannot be null");
+        Objects.requireNonNull(columnValidator, "columnValidator cannot be null");
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
         return new ShareProductDividendReadPlatformServiceImpl(jdbcTemplate, columnValidator, paginationHelper, sqlGenerator);
 
     }
@@ -87,6 +94,12 @@ public class ShareProductsConfiguration {
             AccountingDropdownReadPlatformService accountingDropdownReadPlatformService,
             ProductToGLAccountMappingReadPlatformService accountMappingReadPlatformService,
             PaginationHelper shareProductDataPaginationHelper, DatabaseSpecificSQLGenerator sqlGenerator) {
+        Objects.requireNonNull(shareProductDataPaginationHelper, "shareProductDataPaginationHelper cannot be null");
+        Objects.requireNonNull(accountMappingReadPlatformService, "accountMappingReadPlatformService cannot be null");
+        Objects.requireNonNull(accountingDropdownReadPlatformService, "accountingDropdownReadPlatformService cannot be null");
+        Objects.requireNonNull(shareProductDropdownReadPlatformService, "shareProductDropdownReadPlatformService cannot be null");
+        Objects.requireNonNull(chargeReadPlatformService, "chargeReadPlatformService cannot be null");
+        Objects.requireNonNull(currencyReadPlatformService, "currencyReadPlatformService cannot be null");
         return new ShareProductReadPlatformServiceImpl(jdbcTemplate, currencyReadPlatformService, chargeReadPlatformService,
                 shareProductDropdownReadPlatformService, accountingDropdownReadPlatformService, accountMappingReadPlatformService,
                 shareProductDataPaginationHelper, sqlGenerator);
@@ -100,6 +113,12 @@ public class ShareProductsConfiguration {
             ShareProductDividendAssembler shareProductDividendAssembler,
             ProductToGLAccountMappingWritePlatformService accountMappingWritePlatformService,
             BusinessEventNotifierService businessEventNotifierService) {
+        Objects.requireNonNull(businessEventNotifierService, "businessEventNotifierService cannot be null");
+        Objects.requireNonNull(accountMappingWritePlatformService, "accountMappingWritePlatformService cannot be null");
+        Objects.requireNonNull(shareProductDividendAssembler, "shareProductDividendAssembler cannot be null");
+        Objects.requireNonNull(shareProductDividentPayOutDetailsRepository, "shareProductDividentPayOutDetailsRepository cannot be null");
+        Objects.requireNonNull(serializer, "serializer cannot be null");
+        Objects.requireNonNull(repository, "repository cannot be null");
         return new ShareProductWritePlatformServiceJpaRepositoryImpl(repository, serializer, fromApiJsonHelper,
                 shareProductDividentPayOutDetailsRepository, shareProductDividendAssembler, accountMappingWritePlatformService,
                 businessEventNotifierService);

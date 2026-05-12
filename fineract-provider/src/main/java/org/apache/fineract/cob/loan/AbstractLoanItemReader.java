@@ -52,11 +52,12 @@ public abstract class AbstractLoanItemReader<T extends AbstractPersistableCustom
                 throw new LockedReadException(loanId, e);
             }
         }
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     @AfterStep
     public ExitStatus afterStep(@NonNull StepExecution stepExecution) {
+        Objects.requireNonNull(stepExecution, "stepExecution cannot be null");
         return ExitStatus.COMPLETED;
     }
 

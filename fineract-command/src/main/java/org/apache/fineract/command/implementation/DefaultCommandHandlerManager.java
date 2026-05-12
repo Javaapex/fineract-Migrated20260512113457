@@ -45,7 +45,7 @@ public class DefaultCommandHandlerManager implements CommandHandlerManager {
     }
 
     private <REQ, RES> CommandHandler<REQ, RES> lookup(Command<REQ> command) {
-        // TODO: make sure there are no duplicate handlers
+
         if (command == null) {
             throw new CommandHandlerNotFoundException(command);
         }

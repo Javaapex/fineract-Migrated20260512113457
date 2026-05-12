@@ -66,6 +66,7 @@ public class ProvisioningEntry extends AbstractPersistableCustom<Long> {
     private LocalDate lastModifiedDate;
 
     public void setProvisioningEntries(Collection<LoanProductProvisioningEntry> provisioningEntries) {
+        Objects.requireNonNull(provisioningEntries, "provisioningEntries cannot be null");
         if (this.provisioningEntries == null) {
             this.provisioningEntries = new HashSet<>();
         }

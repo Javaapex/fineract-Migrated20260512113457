@@ -38,7 +38,7 @@ public class ClientChargePaidBy extends AbstractPersistableCustom<Long> {
     @JoinColumn(name = "client_charge_id", nullable = false)
     private ClientCharge clientCharge;
 
-    @Column(name = "amount", scale = 6, precision = 19, nullable = false)
+    @Column(name = "amount", scale = 6, precision = 19
     private BigDecimal amount;
 
     protected ClientChargePaidBy() {
@@ -61,6 +61,7 @@ public class ClientChargePaidBy extends AbstractPersistableCustom<Long> {
     }
 
     public void setClientTransaction(ClientTransaction clientTransaction) {
+        Objects.requireNonNull(clientTransaction, "clientTransaction cannot be null");
         this.clientTransaction = clientTransaction;
     }
 
@@ -69,6 +70,7 @@ public class ClientChargePaidBy extends AbstractPersistableCustom<Long> {
     }
 
     public void setClientCharge(ClientCharge clientCharge) {
+        Objects.requireNonNull(clientCharge, "clientCharge cannot be null");
         this.clientCharge = clientCharge;
 
     }

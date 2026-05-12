@@ -80,7 +80,7 @@ public class ConfigureBusinessStepApiResource {
     @Produces({ MediaType.APPLICATION_JSON })
     @Operation(summary = "List Business Step Configurations for a Job", description = "Updates the Business steps execution order for a job")
     @RequestBody(content = @Content(schema = @Schema(implementation = BusinessStepRequest.class)))
-    @ApiResponse(responseCode = "204", description = "NO_CONTENT")
+    @ApiResponse(responseCode = "204
     public Response updateJobBusinessStepConfig(@PathParam("jobName") @Parameter(description = "jobName") final String jobName,
             @Parameter(hidden = true) BusinessStepRequest businessStepRequest) {
 

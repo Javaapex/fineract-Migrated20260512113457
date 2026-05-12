@@ -301,7 +301,7 @@ public class LoanReadPlatformServiceImpl implements LoanReadPlatformService, Loa
             final String sql = "select " + rm.loanPaymentsSchema() + " where tr.loan_id = ? and tr.transaction_type_enum not in (0, 3) "
                     + " and (tr.is_reversed=false or tr.manually_adjusted_or_reversed = true)  order by tr.transaction_date, tr.created_on_utc, tr.id ";
             Collection<LoanTransactionData> loanTransactionData = this.jdbcTemplate.query(sql, rm, loanId); // NOSONAR
-            // TODO: would worth to rework in the future. It is not nice to fetch relations one by one... might worth to
+
             // give a try to get rid of native queries
             final List<Long> loanIds = loanTransactionData.stream().map(LoanTransactionData::getId).collect(Collectors.toList());
             final List<LoanTransactionRelationData> loanTransactionRelationDatas = loanTransactionRelationReadService
@@ -2128,7 +2128,7 @@ public class LoanReadPlatformServiceImpl implements LoanReadPlatformService, Loa
         }
 
         public String schema() {
-            // TODO: investigate whether it can be refactored to be more efficient
+
             return " GREATEST(loan_transaction.transaction_date, ls.dueDate) as transactionDate,"
                     + " coalesce(ls.principal_amount, 0) - coalesce(ls.principal_writtenoff_derived, 0) - coalesce(ls.principal_completed_derived, 0) as principalDue,"
                     + " coalesce(ls.interest_amount, 0) - coalesce(ls.interest_completed_derived, 0) - coalesce(ls.interest_waived_derived, 0) - coalesce(ls.interest_writtenoff_derived, 0) as interestDue,"

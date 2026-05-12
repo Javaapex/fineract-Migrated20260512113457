@@ -35,6 +35,9 @@ public class ExternalIdAdapter implements JsonSerializer<ExternalId> {
     @Override
     @SuppressWarnings("unused")
     public JsonElement serialize(ExternalId src, Type typeOfSrc, JsonSerializationContext context) {
+        Objects.requireNonNull(context, "context cannot be null");
+        Objects.requireNonNull(typeOfSrc, "typeOfSrc cannot be null");
+        Objects.requireNonNull(src, "src cannot be null");
         if (src == null || src.isEmpty()) {
             return JsonNull.INSTANCE;
         }

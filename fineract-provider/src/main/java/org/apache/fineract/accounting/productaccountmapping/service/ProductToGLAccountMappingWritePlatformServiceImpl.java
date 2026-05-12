@@ -310,6 +310,7 @@ public class ProductToGLAccountMappingWritePlatformServiceImpl implements Produc
     @Transactional
     public void createSavingProductToGLAccountMapping(final Long savingProductId, final JsonCommand command,
             DepositAccountType accountType) {
+        Objects.requireNonNull(accountType, "accountType cannot be null");
         final JsonElement element = this.fromApiJsonHelper.parse(command.json());
         final Integer accountingRuleTypeId = this.fromApiJsonHelper.extractIntegerNamed(accountingRuleParamName, element,
                 Locale.getDefault());

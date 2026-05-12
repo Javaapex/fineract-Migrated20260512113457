@@ -48,7 +48,7 @@ public class ClientEntityWorkbookPopulatorTest {
         Utils.initializeRESTAssured();
         this.requestSpec = new RequestSpecBuilder().build();
         this.requestSpec.header("Authorization", "Basic " + Utils.loginIntoServerAndGetBase64EncodedAuthenticationKey());
-        this.responseSpec = new ResponseSpecBuilder().expectStatusCode(200).build();
+        this.responseSpec = new ResponseSpecBuilder().expectStatusCode(200
 
     }
 
@@ -61,7 +61,7 @@ public class ClientEntityWorkbookPopulatorTest {
 
         // in order to populate helper sheets
         OfficeHelper officeHelper = new OfficeHelper();
-        Integer outcome_office_creation = officeHelper.createOffice(java.time.LocalDate.of(2000, 5, 2)).getResourceId().intValue();
+        Integer outcome_office_creation = officeHelper.createOffice(java.time.LocalDate.of(2000
         Assertions.assertNotNull(outcome_office_creation, "Could not create office");
 
         ClientHelper clientHelper = new ClientHelper(requestSpec, responseSpec);

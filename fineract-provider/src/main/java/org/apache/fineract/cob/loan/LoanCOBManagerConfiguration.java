@@ -86,6 +86,7 @@ public class LoanCOBManagerConfiguration {
 
     @Bean("loanCOBStep")
     public Step loanCOBStep(LoanCOBPartitioner partitioner) {
+        Objects.requireNonNull(partitioner, "partitioner cannot be null");
         return stepBuilderFactory.get(LoanCOBConstant.LOAN_COB_PARTITIONER_STEP)
                 .partitioner(LoanCOBConstant.LOAN_COB_WORKER_STEP, partitioner).pollInterval(propertyService.getPollInterval(JOB_NAME))
                 .outputChannel(outboundRequests).build();

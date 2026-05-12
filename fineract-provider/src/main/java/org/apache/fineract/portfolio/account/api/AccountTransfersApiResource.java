@@ -68,8 +68,9 @@ public class AccountTransfersApiResource {
             + "accounttransfers/template?fromAccountType=2&fromOfficeId=1\n\n" + "\n\n"
             + "accounttransfers/template?fromAccountType=2&fromOfficeId=1&fromClientId=1\n\n" + "\n\n"
             + "accounttransfers/template?fromClientId=1&fromAccountType=2&fromAccountId=1")
-    @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = AccountTransfersApiResourceSwagger.GetAccountTransfersTemplateResponse.class)))
+    @ApiResponse(responseCode = "200
     public AccountTransferData template(@BeanParam AccountTransSearchParam accountTransSearchParam) {
+        Objects.requireNonNull(accountTransSearchParam, "accountTransSearchParam cannot be null");
 
         context.authenticatedUser().validateHasReadPermission(AccountTransfersApiConstants.ACCOUNT_TRANSFER_RESOURCE_NAME);
 

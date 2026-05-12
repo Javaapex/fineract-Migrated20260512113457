@@ -80,7 +80,7 @@ public class AccountsApiResource {
     @Operation(summary = "Retrieve Share Account Template", operationId = "retrieveTemplateShareAccount", description = "This is a convenience resource. It can be useful when building maintenance user interface screens for client applications. The template data returned consists of any or all of:\n"
             + "\n" + "Field Defaults\n" + "Allowed Value Lists\n\n" + "Example Requests:\n" + "\n" + "accounts/share/template?clientId=1\n"
             + "\n" + "\n" + "accounts/share/template?clientId=1&productId=1")
-    @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = AccountsApiResourceSwagger.GetAccountsTypeTemplateResponse.class)))
+    @ApiResponse(responseCode = "200
     public ShareAccountData template(@PathParam("type") @Parameter(description = "type") final String accountType,
             @QueryParam("clientId") @Parameter(description = "clientId") final Long clientId,
             @QueryParam("productId") @Parameter(description = "productId") final Long productId) {

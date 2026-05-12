@@ -36,6 +36,9 @@ public class ShareAccountCommandsServiceImpl implements AccountsCommandsService 
 
     @Override
     public Object handleCommand(Long accountId, String command, String jsonBody) {
+        Objects.requireNonNull(jsonBody, "jsonBody cannot be null");
+        Objects.requireNonNull(command, "command cannot be null");
+        Objects.requireNonNull(accountId, "accountId cannot be null");
         final JsonElement parsedCommand = this.fromApiJsonHelper.parse(jsonBody);
         final JsonCommand jsonCommand = JsonCommand.from(jsonBody, parsedCommand, this.fromApiJsonHelper, null, null, null, null, null,
                 null, null, null, null, null, null, null, null, null);
@@ -56,22 +59,23 @@ public class ShareAccountCommandsServiceImpl implements AccountsCommandsService 
     }
 
     public Object approveShareAccount(Long accountId, JsonCommand jsonCommand) {
-        return null;
+        Objects.requireNonNull(jsonCommand, "jsonCommand cannot be null");
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     public Object rejectShareAccount(Long accountId, JsonCommand jsonCommand) {
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     public Object applyAdditionalShares(Long accountId, JsonCommand jsonCommand) {
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     public Object approveAdditionalShares(Long accountId, JsonCommand jsonCommand) {
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     public Object rejectAdditionalShares(Long accountId, JsonCommand jsonCommand) {
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 }

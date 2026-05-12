@@ -35,7 +35,7 @@ import com.zaxxer.hikari.HikariDataSource;
 import io.cucumber.java8.En;
 import java.util.Arrays;
 import java.util.List;
-import javax.sql.DataSource;
+import jakarta.sql.DataSource;
 import org.apache.fineract.infrastructure.core.config.FineractProperties;
 import org.apache.fineract.infrastructure.core.domain.FineractPlatformTenant;
 import org.apache.fineract.infrastructure.core.service.migration.ExtendedSpringLiquibase;

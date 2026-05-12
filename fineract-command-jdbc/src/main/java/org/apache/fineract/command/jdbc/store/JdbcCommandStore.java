@@ -91,12 +91,16 @@ public class JdbcCommandStore implements CommandStore {
 
     @Override
     public CommandState getStateByKey(String key) {
+        Objects.requireNonNull(key, "key cannot be null");
         return repository.findOneByIdempotencyKey(key).map(CommandEntity::getState).orElse(UNKNOWN);
     }
 
     @Override
     @Retry(name = "commandStore", fallbackMethod = "fallback")
     public void store(Command<?> command, Object response, CommandState state) {
+        Objects.requireNonNull(state, "state cannot be null");
+        Objects.requireNonNull(response, "response cannot be null");
+        Objects.requireNonNull(command, "command cannot be null");
         final var commandEntity = isNull(response) ? mapper.map(command) : mapper.map(command, response);
 
         if (state != null) {
@@ -120,6 +124,7 @@ public class JdbcCommandStore implements CommandStore {
             var created = Path.of(properties.getFileDeadLetterQueuePath()).toFile().mkdirs();
             log.info("Created command dead-letter queue: {} ({})", properties.getFileDeadLetterQueuePath(), created);
         } catch (Exception e) {
+
             log.error("Unable to initialize command dead-letter queue:", e);
         }
     }

@@ -35,6 +35,7 @@ public class FloatingRatesConfiguration {
     @Bean
     @ConditionalOnMissingBean(FloatingRatesReadPlatformService.class)
     public FloatingRatesReadPlatformService floatingRatesReadPlatformService(JdbcTemplate jdbcTemplate) {
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
         return new FloatingRatesReadPlatformServiceImpl(jdbcTemplate);
     }
 
@@ -42,6 +43,8 @@ public class FloatingRatesConfiguration {
     @ConditionalOnMissingBean(FloatingRateWritePlatformService.class)
     public FloatingRateWritePlatformService floatingRateWritePlatformService(FloatingRateDataValidator fromApiJsonDeserializer,
             FloatingRateRepositoryWrapper floatingRateRepository) {
+        Objects.requireNonNull(floatingRateRepository, "floatingRateRepository cannot be null");
+        Objects.requireNonNull(fromApiJsonDeserializer, "fromApiJsonDeserializer cannot be null");
         return new FloatingRateWritePlatformServiceImpl(fromApiJsonDeserializer, floatingRateRepository);
     }
 }

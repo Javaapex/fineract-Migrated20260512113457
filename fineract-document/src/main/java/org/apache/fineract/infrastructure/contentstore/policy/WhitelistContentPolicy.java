@@ -46,6 +46,7 @@ public class WhitelistContentPolicy implements ContentPolicy {
 
     @Override
     public void check(ContentPolicyContext ctx) {
+        Objects.requireNonNull(ctx, "ctx cannot be null");
         if (properties.getContent().isRegexWhitelistEnabled()) {
             final var fileName = FilenameUtils.getName(ctx.getPath());
 

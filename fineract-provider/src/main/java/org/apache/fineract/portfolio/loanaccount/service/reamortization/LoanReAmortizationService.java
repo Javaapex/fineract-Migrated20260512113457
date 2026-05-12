@@ -115,6 +115,8 @@ public class LoanReAmortizationService {
     }
 
     public CommandProcessingResult undoReAmortize(Long loanId, JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
+        Objects.requireNonNull(loanId, "loanId cannot be null");
         Loan loan = loanAssembler.assembleFrom(loanId);
         final LoanTransaction reAmortizeTransaction = reAmortizationValidator.findAndValidateReAmortizeTransactionForUndo(loan);
 

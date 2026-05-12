@@ -41,10 +41,10 @@ public class LoanProductOverAppliedAmountTest extends BaseLoanIntegrationTest {
 
     @Test
     public void testCreateMultiDisburseLoanProductWithOverAppliedAmountAndExpectedTranches() {
-        runAt("01 January 2024", () -> {
+        runAt("01
             // Create Loan Product with multi-disburse, expected tranches, and over-applied amount
             final PostLoanProductsRequest loanProductRequest = create4IProgressive().multiDisburseLoan(true).maxTrancheCount(5)
-                    .outstandingLoanBalance(10000.0).disallowExpectedDisbursements(false) // Expected tranches enabled
+                    .outstandingLoanBalance(10000
                     .allowApprovedDisbursedAmountsOverApplied(true).overAppliedCalculationType("percentage").overAppliedNumber(50);
 
             // This should not throw an exception

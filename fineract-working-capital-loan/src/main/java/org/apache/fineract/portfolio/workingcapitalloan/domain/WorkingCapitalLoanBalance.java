@@ -45,7 +45,7 @@ public class WorkingCapitalLoanBalance extends AbstractAuditableWithUTCDateTimeC
     @JoinColumn(name = "wc_loan_id", nullable = false, unique = true)
     private WorkingCapitalLoan wcLoan;
 
-    @Column(name = "principal_outstanding", scale = 6, precision = 19, nullable = false)
+    @Column(name = "principal_outstanding", scale = 6, precision = 19
     @Setter
     private BigDecimal principalOutstanding = BigDecimal.ZERO;
 

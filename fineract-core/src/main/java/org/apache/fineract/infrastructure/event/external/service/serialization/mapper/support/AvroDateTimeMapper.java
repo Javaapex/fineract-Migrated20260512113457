@@ -29,21 +29,21 @@ public class AvroDateTimeMapper {
 
     public String mapOffsetDateTime(OffsetDateTime source) {
         if (source == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         return DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(source);
     }
 
     public String mapLocalDateTime(LocalDateTime source) {
         if (source == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         return DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(source);
     }
 
     public String mapLocalDate(LocalDate source) {
         if (source == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         return DateTimeFormatter.ISO_LOCAL_DATE.format(source);
     }

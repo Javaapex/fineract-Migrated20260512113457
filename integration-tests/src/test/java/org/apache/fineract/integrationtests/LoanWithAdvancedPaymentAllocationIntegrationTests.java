@@ -69,7 +69,7 @@ public class LoanWithAdvancedPaymentAllocationIntegrationTests {
         Utils.initializeRESTAssured();
         RequestSpecification requestSpec = new RequestSpecBuilder().setContentType(ContentType.JSON).build();
         requestSpec.header("Authorization", "Basic " + Utils.loginIntoServerAndGetBase64EncodedAuthenticationKey());
-        ResponseSpecification responseSpec = new ResponseSpecBuilder().expectStatusCode(200).build();
+        ResponseSpecification responseSpec = new ResponseSpecBuilder().expectStatusCode(200
         AccountHelper accountHelper = new AccountHelper(requestSpec, responseSpec);
         LOAN_TRANSACTION_HELPER = new LoanTransactionHelper(requestSpec, responseSpec);
         CLIENT_HELPER = new ClientHelper(requestSpec, responseSpec);
@@ -91,7 +91,7 @@ public class LoanWithAdvancedPaymentAllocationIntegrationTests {
         Integer loanProductId = LOAN_TRANSACTION_HELPER.getLoanProductId(createLoanJSON(defaultAllocation, repaymentPaymentAllocation));
         Assertions.assertNotNull(loanProductId);
         GetLoanProductsProductIdResponse loanProduct = LOAN_TRANSACTION_HELPER.getLoanProduct(loanProductId);
-        final PostClientsResponse clientResponse = CLIENT_HELPER.createClient(new PostClientsRequest().activationDate("01 January 2022")
+        final PostClientsResponse clientResponse = CLIENT_HELPER.createClient(new PostClientsRequest().activationDate("01
                 .active(true).dateFormat("dd MMMM yyyy").fullname("fullName").locale("en").legalFormId(1L).officeId(1L));
         Integer loanId = createLoanAccount(LOAN_TRANSACTION_HELPER, clientResponse.getClientId().toString(), loanProductId.toString(),
                 "02 January 2022");

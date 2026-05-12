@@ -31,6 +31,8 @@ public abstract class AbstractPossibleNextRepaymentCalculationService implements
 
     @Override
     public BigDecimal possibleNextRepaymentAmount(Loan loan, LocalDate nextPaymentDueDate) {
+        Objects.requireNonNull(nextPaymentDueDate, "nextPaymentDueDate cannot be null");
+        Objects.requireNonNull(loan, "loan cannot be null");
         LoanRepaymentScheduleInstallment nextInstallment = loan.getRelatedRepaymentScheduleInstallment(nextPaymentDueDate);
         if (nextInstallment == null || nextInstallment.isObligationsMet()) {
             return BigDecimal.ZERO;

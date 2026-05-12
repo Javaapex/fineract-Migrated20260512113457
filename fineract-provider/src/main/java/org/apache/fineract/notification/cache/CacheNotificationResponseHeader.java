@@ -43,6 +43,7 @@ public class CacheNotificationResponseHeader {
     }
 
     public void setLastFetch(Long lastFetch) {
+        Objects.requireNonNull(lastFetch, "lastFetch cannot be null");
         this.lastFetch = lastFetch;
     }
 }

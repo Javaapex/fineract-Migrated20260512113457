@@ -36,7 +36,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 public class WorkingCapitalLoanAmortizationScheduleReadServiceImpl implements WorkingCapitalLoanAmortizationScheduleReadService {
 
-    // TODO: currency should come from loan product once WCL lifecycle is implemented
+
     private static final MonetaryCurrency DEFAULT_CURRENCY = new MonetaryCurrency("USD", 2, null);
 
     private final WorkingCapitalLoanRepository loanRepository;

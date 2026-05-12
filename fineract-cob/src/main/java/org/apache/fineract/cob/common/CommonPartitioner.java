@@ -94,7 +94,7 @@ public abstract class CommonPartitioner {
             jobOperator.stop(jobId);
         } catch (NoSuchJobExecutionException | JobExecutionNotRunningException e) {
             log.error("There is no running execution for the given execution ID. Execution ID: {}", jobId);
-            throw new RuntimeException(e);
+            throw new RuntimeException
         }
 
     }

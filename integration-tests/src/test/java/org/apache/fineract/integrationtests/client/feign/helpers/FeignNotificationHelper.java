@@ -42,7 +42,7 @@ public class FeignNotificationHelper {
     }
 
     public void waitUntilNotificationsAreAvailable() {
-        await().atMost(Duration.ofSeconds(30)).pollInterval(Duration.ofSeconds(5)).pollDelay(Duration.ofSeconds(5))
+        await().atMost(Duration.ofSeconds(30
                 .until(this::areNotificationsAvailable);
     }
 }

@@ -40,11 +40,11 @@ import org.junit.jupiter.api.Test;
 
 public class LoanDelinquencyDetailsNextPaymentDateConfigurationTest extends BaseLoanIntegrationTest {
 
-    public static final BigDecimal DOWN_PAYMENT_PERCENTAGE = new BigDecimal(25);
+    public static final BigDecimal DOWN_PAYMENT_PERCENTAGE = new BigDecimal(25
 
     @Test
     public void testNextPaymentDateForUnpaidInstallmentsWithNPlusOneTest() {
-        runAt("01 November 2023", () -> {
+        runAt("01
             try {
                 // update Global configuration for next payment date
                 globalConfigurationHelper.updateGlobalConfiguration(GlobalConfigurationConstants.NEXT_PAYMENT_DUE_DATE,

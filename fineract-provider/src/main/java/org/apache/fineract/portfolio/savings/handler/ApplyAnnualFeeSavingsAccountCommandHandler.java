@@ -42,13 +42,13 @@ public class ApplyAnnualFeeSavingsAccountCommandHandler implements NewCommandSou
     @Transactional
     @Override
     public CommandProcessingResult processCommand(final JsonCommand command) {
-        // TODO: why do we keep this class when we literally do nothing here?!?
+
         // final LocalDate annualFeeTransactionDate =
         // command.localDateValueOfParameterNamed("annualFeeTransactionDate");
 
         // return
         // this.writePlatformService.applyAnnualFee(command.getSavingsId(),
         // annualFeeTransactionDate);
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 }

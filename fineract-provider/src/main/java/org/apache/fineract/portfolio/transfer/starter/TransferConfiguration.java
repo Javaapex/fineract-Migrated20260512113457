@@ -51,6 +51,20 @@ public class TransferConfiguration {
             SavingsAccountWritePlatformService savingsAccountWritePlatformService,
             ClientTransferDetailsRepositoryWrapper clientTransferDetailsRepositoryWrapper, PlatformSecurityContext context,
             LoanOfficerService loanOfficerService, ApplicationEventPublisher eventPublisher) {
+        Objects.requireNonNull(eventPublisher, "eventPublisher cannot be null");
+        Objects.requireNonNull(loanOfficerService, "loanOfficerService cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
+        Objects.requireNonNull(clientTransferDetailsRepositoryWrapper, "clientTransferDetailsRepositoryWrapper cannot be null");
+        Objects.requireNonNull(savingsAccountWritePlatformService, "savingsAccountWritePlatformService cannot be null");
+        Objects.requireNonNull(savingsAccountRepositoryWrapper, "savingsAccountRepositoryWrapper cannot be null");
+        Objects.requireNonNull(staffRepositoryWrapper, "staffRepositoryWrapper cannot be null");
+        Objects.requireNonNull(transfersDataValidator, "transfersDataValidator cannot be null");
+        Objects.requireNonNull(loanRepositoryWrapper, "loanRepositoryWrapper cannot be null");
+        Objects.requireNonNull(groupRepository, "groupRepository cannot be null");
+        Objects.requireNonNull(loanWritePlatformService, "loanWritePlatformService cannot be null");
+        Objects.requireNonNull(calendarInstanceRepository, "calendarInstanceRepository cannot be null");
+        Objects.requireNonNull(officeRepository, "officeRepository cannot be null");
+        Objects.requireNonNull(clientRepositoryWrapper, "clientRepositoryWrapper cannot be null");
         return new TransferWritePlatformServiceJpaRepositoryImpl(clientRepositoryWrapper, officeRepository, calendarInstanceRepository,
                 groupRepository, loanWritePlatformService, savingsAccountWritePlatformService, loanRepositoryWrapper,
                 savingsAccountRepositoryWrapper, transfersDataValidator, staffRepositoryWrapper, clientTransferDetailsRepositoryWrapper,

@@ -33,6 +33,10 @@ import org.springframework.stereotype.Component;
 public class FileUploadValidator {
 
     public void validate(Long contentLength, InputStream inputStream, FormDataContentDisposition fileDetails, FormDataBodyPart bodyPart) {
+        Objects.requireNonNull(bodyPart, "bodyPart cannot be null");
+        Objects.requireNonNull(fileDetails, "fileDetails cannot be null");
+        Objects.requireNonNull(inputStream, "inputStream cannot be null");
+        Objects.requireNonNull(contentLength, "contentLength cannot be null");
         new DataValidatorBuilder().resource("fileUpload").reset().parameter("Content-Length").value(contentLength).notBlank()
                 .integerGreaterThanNumber(0).reset().parameter("InputStream").value(inputStream).notNull().reset()
                 .parameter("FormDataContentDisposition").value(fileDetails).notNull().reset().parameter("FormDataBodyPart").value(bodyPart)

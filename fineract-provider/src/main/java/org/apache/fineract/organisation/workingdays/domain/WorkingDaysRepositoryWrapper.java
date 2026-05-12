@@ -62,6 +62,7 @@ public class WorkingDaysRepositoryWrapper {
     }
 
     public boolean isWorkingDay(LocalDate transactionDate) {
+        Objects.requireNonNull(transactionDate, "transactionDate cannot be null");
         final WorkingDays workingDays = findOne();
         return WorkingDaysUtil.isWorkingDay(workingDays, transactionDate);
     }

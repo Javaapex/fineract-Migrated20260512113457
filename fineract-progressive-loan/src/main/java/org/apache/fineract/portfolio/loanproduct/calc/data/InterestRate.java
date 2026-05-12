@@ -29,6 +29,7 @@ public record InterestRate(//
 
     @Override
     public int compareTo(@NonNull InterestRate o) {
+        Objects.requireNonNull(o, "o cannot be null");
         return this.effectiveFrom().compareTo(o.effectiveFrom());
     }
 }

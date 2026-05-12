@@ -53,7 +53,7 @@ public interface WorkingCapitalLoanTransactionMapper {
     @Named("paymentDetailToData")
     default PaymentDetailData paymentDetailToData(final PaymentDetail paymentDetail) {
         if (paymentDetail == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         return PaymentDetailData.builder().id(paymentDetail.getId()).accountNumber(paymentDetail.getAccountNumber())
                 .checkNumber(paymentDetail.getCheckNumber()).routingCode(paymentDetail.getRoutingCode())

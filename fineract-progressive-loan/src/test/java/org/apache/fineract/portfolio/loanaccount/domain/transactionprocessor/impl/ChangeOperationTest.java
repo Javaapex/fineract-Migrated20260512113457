@@ -58,7 +58,7 @@ public class ChangeOperationTest {
 
     @Test
     public void testCompareToEqual() {
-        ChangeOperation interestChange = createInterestRateChange("2023-10-17");
+        ChangeOperation interestChange = createInterestRateChange("2023
         ChangeOperation charge = createCharge("2023-10-17", "2023-10-17", "2023-10-17T10:15:30+01:00");
         ChangeOperation transaction = createTransaction("2023-10-17", "2023-10-17", "2023-10-17T10:15:30+01:00");
         Assertions.assertEquals(-1, interestChange.compareTo(transaction));
@@ -83,6 +83,12 @@ public class ChangeOperationTest {
     public void testComparison(String chargeEffectiveDate, String chargeSubmittedDate, String chargeCreationDateTime,
             String transactionDate, String transactionSubmittedDate, String transactionCreationDateTime, int expectedChargeVsTransaction,
             int expectedTransactionVsCharge) {
+        Objects.requireNonNull(transactionCreationDateTime, "transactionCreationDateTime cannot be null");
+        Objects.requireNonNull(transactionSubmittedDate, "transactionSubmittedDate cannot be null");
+        Objects.requireNonNull(transactionDate, "transactionDate cannot be null");
+        Objects.requireNonNull(chargeCreationDateTime, "chargeCreationDateTime cannot be null");
+        Objects.requireNonNull(chargeSubmittedDate, "chargeSubmittedDate cannot be null");
+        Objects.requireNonNull(chargeEffectiveDate, "chargeEffectiveDate cannot be null");
         ChangeOperation charge = createCharge(chargeEffectiveDate, chargeSubmittedDate, chargeCreationDateTime);
         ChangeOperation transaction = createTransaction(transactionDate, transactionSubmittedDate, transactionCreationDateTime);
 

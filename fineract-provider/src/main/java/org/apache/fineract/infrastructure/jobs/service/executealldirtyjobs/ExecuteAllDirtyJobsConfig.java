@@ -46,6 +46,7 @@ public class ExecuteAllDirtyJobsConfig {
 
     @Bean
     public Job executeAllDirtyJobsJob(ExecuteAllDirtyJobsTasklet executeAllDirtyJobsTasklet) {
+        Objects.requireNonNull(executeAllDirtyJobsTasklet, "executeAllDirtyJobsTasklet cannot be null");
         return new JobBuilder(JobName.EXECUTE_DIRTY_JOBS.name(), jobRepository).start(executeAllDirtyJobsStep(executeAllDirtyJobsTasklet))
                 .incrementer(new RunIdIncrementer()).build();
     }

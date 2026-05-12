@@ -37,6 +37,7 @@ public class InlineJobExecuteHandler implements NewCommandSourceHandler {
 
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         InlineJobType inlineJobType = InlineJobType.getInlineJobType(command.getJobName());
         try {
             InlineExecutorService inlineJobExecutorService = applicationContext.getBean(inlineJobType.getExecutorServiceClass());

@@ -64,6 +64,7 @@ public class ShareAccountsConfiguration {
     @Bean
     @ConditionalOnMissingBean(PurchasedSharesReadPlatformService.class)
     public PurchasedSharesReadPlatformService purchasedSharesReadPlatformService(JdbcTemplate jdbcTemplate) {
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
         return new PurchasedSharesReadPlatformServiceImpl(jdbcTemplate);
     }
 
@@ -77,6 +78,8 @@ public class ShareAccountsConfiguration {
     @ConditionalOnMissingBean(AccountsCommandsService.class)
     public AccountsCommandsService accountsCommandsService(FromJsonHelper fromApiJsonHelper,
             ShareAccountDataSerializer shareAccountDataSerializer) {
+        Objects.requireNonNull(shareAccountDataSerializer, "shareAccountDataSerializer cannot be null");
+        Objects.requireNonNull(fromApiJsonHelper, "fromApiJsonHelper cannot be null");
         return new ShareAccountCommandsServiceImpl(fromApiJsonHelper, shareAccountDataSerializer);
     }
 
@@ -84,6 +87,9 @@ public class ShareAccountsConfiguration {
     @ConditionalOnMissingBean(ShareAccountDividendReadPlatformService.class)
     public ShareAccountDividendReadPlatformService shareAccountDividendReadPlatformService(JdbcTemplate jdbcTemplate,
             ColumnValidator columnValidator, PaginationHelper paginationHelper, DatabaseSpecificSQLGenerator sqlGenerator) {
+        Objects.requireNonNull(sqlGenerator, "sqlGenerator cannot be null");
+        Objects.requireNonNull(paginationHelper, "paginationHelper cannot be null");
+        Objects.requireNonNull(columnValidator, "columnValidator cannot be null");
         return new ShareAccountDividendReadPlatformServiceImpl(jdbcTemplate, columnValidator, paginationHelper, sqlGenerator);
 
     }
@@ -97,6 +103,13 @@ public class ShareAccountsConfiguration {
             ShareAccountChargeReadPlatformService shareAccountChargeReadPlatformService,
             PurchasedSharesReadPlatformService purchasedSharesReadPlatformService, JdbcTemplate jdbcTemplate,
             PaginationHelper paginationHelper, DatabaseSpecificSQLGenerator sqlGenerator) {
+        Objects.requireNonNull(purchasedSharesReadPlatformService, "purchasedSharesReadPlatformService cannot be null");
+        Objects.requireNonNull(shareAccountChargeReadPlatformService, "shareAccountChargeReadPlatformService cannot be null");
+        Objects.requireNonNull(clientReadPlatformService, "clientReadPlatformService cannot be null");
+        Objects.requireNonNull(savingsAccountReadPlatformService, "savingsAccountReadPlatformService cannot be null");
+        Objects.requireNonNull(shareProductDropdownReadPlatformService, "shareProductDropdownReadPlatformService cannot be null");
+        Objects.requireNonNull(chargeReadPlatformService, "chargeReadPlatformService cannot be null");
+        Objects.requireNonNull(applicationContext, "applicationContext cannot be null");
         return new ShareAccountReadPlatformServiceImpl(applicationContext, chargeReadPlatformService,
                 shareProductDropdownReadPlatformService, savingsAccountReadPlatformService, clientReadPlatformService,
                 shareAccountChargeReadPlatformService, purchasedSharesReadPlatformService, jdbcTemplate, paginationHelper, sqlGenerator);
@@ -106,6 +119,9 @@ public class ShareAccountsConfiguration {
     @ConditionalOnMissingBean(ShareAccountSchedularService.class)
     public ShareAccountSchedularService shareAccountSchedularService(ShareAccountDividendRepository shareAccountDividendRepository,
             SavingsAccountDomainService savingsAccountDomainService, SavingsAccountAssembler savingsAccountAssembler) {
+        Objects.requireNonNull(savingsAccountAssembler, "savingsAccountAssembler cannot be null");
+        Objects.requireNonNull(savingsAccountDomainService, "savingsAccountDomainService cannot be null");
+        Objects.requireNonNull(shareAccountDividendRepository, "shareAccountDividendRepository cannot be null");
         return new ShareAccountSchedularServiceImpl(shareAccountDividendRepository, savingsAccountDomainService, savingsAccountAssembler);
     }
 
@@ -116,6 +132,14 @@ public class ShareAccountsConfiguration {
             AccountNumberGenerator accountNumberGenerator, AccountNumberFormatRepositoryWrapper accountNumberFormatRepository,
             JournalEntryWritePlatformService journalEntryWritePlatformService, NoteRepository noteRepository,
             BusinessEventNotifierService businessEventNotifierService) {
+        Objects.requireNonNull(businessEventNotifierService, "businessEventNotifierService cannot be null");
+        Objects.requireNonNull(noteRepository, "noteRepository cannot be null");
+        Objects.requireNonNull(journalEntryWritePlatformService, "journalEntryWritePlatformService cannot be null");
+        Objects.requireNonNull(accountNumberFormatRepository, "accountNumberFormatRepository cannot be null");
+        Objects.requireNonNull(accountNumberGenerator, "accountNumberGenerator cannot be null");
+        Objects.requireNonNull(shareProductRepository, "shareProductRepository cannot be null");
+        Objects.requireNonNull(shareAccountRepository, "shareAccountRepository cannot be null");
+        Objects.requireNonNull(accountDataSerializer, "accountDataSerializer cannot be null");
         return new ShareAccountWritePlatformServiceJpaRepositoryImpl(accountDataSerializer, shareAccountRepository, shareProductRepository,
                 accountNumberGenerator, accountNumberFormatRepository, journalEntryWritePlatformService, noteRepository,
                 businessEventNotifierService);

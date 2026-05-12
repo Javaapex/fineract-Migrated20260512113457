@@ -55,6 +55,7 @@ public class InterestIncentives extends AbstractPersistableCustom<Long> {
     }
 
     public void updateInterestRateChartSlab(InterestRateChartSlab interestRateChartSlab) {
+        Objects.requireNonNull(interestRateChartSlab, "interestRateChartSlab cannot be null");
         this.interestRateChartSlab = interestRateChartSlab;
     }
 
@@ -68,6 +69,7 @@ public class InterestIncentives extends AbstractPersistableCustom<Long> {
 
     public void update(final JsonCommand command, final Map<String, Object> actualChanges, final DataValidatorBuilder baseDataValidator,
             final Locale locale) {
+        Objects.requireNonNull(actualChanges, "actualChanges cannot be null");
         this.interestIncentivesFields.update(command, actualChanges, baseDataValidator, locale);
     }
 

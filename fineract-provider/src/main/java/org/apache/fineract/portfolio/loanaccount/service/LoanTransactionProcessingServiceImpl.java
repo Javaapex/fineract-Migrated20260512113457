@@ -69,6 +69,9 @@ public class LoanTransactionProcessingServiceImpl implements LoanTransactionProc
     @Override
     public boolean canProcessLatestTransactionOnly(Loan loan, LoanTransaction loanTransaction,
             LoanRepaymentScheduleInstallment currentInstallment) {
+        Objects.requireNonNull(currentInstallment, "currentInstallment cannot be null");
+        Objects.requireNonNull(loanTransaction, "loanTransaction cannot be null");
+        Objects.requireNonNull(loan, "loan cannot be null");
         if (!loan.isInterestBearingAndInterestRecalculationEnabled()) {
             return true;
         }
@@ -95,6 +98,8 @@ public class LoanTransactionProcessingServiceImpl implements LoanTransactionProc
     @Override
     public ChangedTransactionDetail processLatestTransaction(String transactionProcessingStrategyCode, LoanTransaction loanTransaction,
             TransactionCtx ctx) {
+        Objects.requireNonNull(ctx, "ctx cannot be null");
+        Objects.requireNonNull(transactionProcessingStrategyCode, "transactionProcessingStrategyCode cannot be null");
         final LoanRepaymentScheduleTransactionProcessor loanRepaymentScheduleTransactionProcessor = getTransactionProcessor(
                 transactionProcessingStrategyCode);
         if (loanRepaymentScheduleTransactionProcessor instanceof AdvancedPaymentScheduleTransactionProcessor advancedProcessor
@@ -108,6 +113,11 @@ public class LoanTransactionProcessingServiceImpl implements LoanTransactionProc
     public ChangedTransactionDetail reprocessLoanTransactions(String transactionProcessingStrategyCode, LocalDate disbursementDate,
             List<LoanTransaction> loanTransactions, MonetaryCurrency currency, List<LoanRepaymentScheduleInstallment> installments,
             Set<LoanCharge> charges) {
+        Objects.requireNonNull(charges, "charges cannot be null");
+        Objects.requireNonNull(installments, "installments cannot be null");
+        Objects.requireNonNull(currency, "currency cannot be null");
+        Objects.requireNonNull(loanTransactions, "loanTransactions cannot be null");
+        Objects.requireNonNull(disbursementDate, "disbursementDate cannot be null");
         final LoanRepaymentScheduleTransactionProcessor loanRepaymentScheduleTransactionProcessor = getTransactionProcessor(
                 transactionProcessingStrategyCode);
         if (loanRepaymentScheduleTransactionProcessor instanceof AdvancedPaymentScheduleTransactionProcessor advancedProcessor) {

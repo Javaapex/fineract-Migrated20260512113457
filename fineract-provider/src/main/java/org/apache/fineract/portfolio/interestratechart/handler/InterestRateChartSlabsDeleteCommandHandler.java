@@ -42,11 +42,13 @@ public class InterestRateChartSlabsDeleteCommandHandler
     @Override
     @Transactional
     public InterestRateChartSlabsDeleteResponse handle(Command<InterestRateChartSlabsDeleteRequest> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return writePlatformService.deleteInterestRateChartSlab(command.getPayload());
     }
 
     @Override
     public InterestRateChartSlabsDeleteResponse fallback(Command<InterestRateChartSlabsDeleteRequest> command, Throwable t) {
+        Objects.requireNonNull(t, "t cannot be null");
         // NOTE: fallback method needs to be in the same class
         return CommandHandler.super.fallback(command, t);
     }

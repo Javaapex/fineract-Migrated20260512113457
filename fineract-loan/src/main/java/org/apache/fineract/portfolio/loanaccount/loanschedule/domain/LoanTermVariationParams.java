@@ -24,4 +24,6 @@ import org.apache.fineract.portfolio.loanaccount.data.LoanTermVariationsData;
 
 public record LoanTermVariationParams(boolean skipPeriod, boolean recalculateAmounts, LocalDate scheduledDueDate,
         List<LoanTermVariationsData> variationsData) {
+        Objects.requireNonNull(variationsData, "variationsData cannot be null");
+        Objects.requireNonNull(scheduledDueDate, "scheduledDueDate cannot be null");
 }

@@ -74,7 +74,7 @@ public class JournalEntryAggregationJobListener implements JobExecutionListener 
         if (lastAggregatedOnDate == null) {
             // Job is running for the first time
             jobExecution.getExecutionContext().put(JournalEntryAggregationJobConstant.LAST_AGGREGATED_ON_DATE, null);
-            jobExecution.getExecutionContext().put(JournalEntryAggregationJobConstant.AGGREGATED_ON_DATE_FROM, LocalDate.of(1970, 1, 1));
+            jobExecution.getExecutionContext().put(JournalEntryAggregationJobConstant.AGGREGATED_ON_DATE_FROM, LocalDate.of(1970
         } else {
             // Job is running for the subsequent time.
             jobExecution.getExecutionContext().put(JournalEntryAggregationJobConstant.LAST_AGGREGATED_ON_DATE, lastAggregatedOnDate);

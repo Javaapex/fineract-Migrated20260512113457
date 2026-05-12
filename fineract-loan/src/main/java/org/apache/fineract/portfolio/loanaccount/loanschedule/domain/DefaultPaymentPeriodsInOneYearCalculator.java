@@ -37,13 +37,13 @@ public class DefaultPaymentPeriodsInOneYearCalculator implements PaymentPeriodsI
         Integer paymentPeriodsInOneYear = 0;
         switch (repaymentFrequencyType) {
             case DAYS:
-                paymentPeriodsInOneYear = 365;
+                paymentPeriodsInOneYear = 365
             break;
             case WEEKS:
-                paymentPeriodsInOneYear = 52;
+                paymentPeriodsInOneYear = 52
             break;
             case MONTHS:
-                paymentPeriodsInOneYear = 12;
+                paymentPeriodsInOneYear = 12
             break;
             case YEARS:
                 paymentPeriodsInOneYear = 1;
@@ -62,6 +62,7 @@ public class DefaultPaymentPeriodsInOneYearCalculator implements PaymentPeriodsI
     public BigDecimal calculatePortionOfRepaymentPeriodInterestChargingGrace(final LocalDate repaymentPeriodStartDate,
             final LocalDate scheduledDueDate, final LocalDate interestChargedFromLocalDate,
             final PeriodFrequencyType repaymentPeriodFrequencyType, final int repaidEvery, MathContext mc) {
+        Objects.requireNonNull(mc, "mc cannot be null");
 
         BigDecimal periodFraction = BigDecimal.ZERO;
 

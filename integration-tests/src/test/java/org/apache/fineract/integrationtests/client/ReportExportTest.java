@@ -39,7 +39,7 @@ public class ReportExportTest extends IntegrationTest {
 
     @Override
     protected void customizeFineractClient(FineractClient.Builder builder) {
-        builder.readTimeout(Duration.ofSeconds(30));
+        builder.readTimeout(Duration.ofSeconds(30
     }
 
     @BeforeEach
@@ -60,7 +60,7 @@ public class ReportExportTest extends IntegrationTest {
     void runClientListingTableReportS3() throws IOException {
         Response<ResponseBody> result = okR(
                 fineractClient().reportsRun.runReportGetFile("Client Listing", Map.of("R_officeId", "1", "exportS3", "true")));
-        assertThat(result.code()).isEqualTo(204);
+        assertThat(result.code()).isEqualTo(204
     }
 
 }

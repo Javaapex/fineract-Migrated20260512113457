@@ -26,6 +26,8 @@ public abstract class PropertiesCondition<T> implements Condition {
 
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
+        Objects.requireNonNull(metadata, "metadata cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
         T properties = PropertiesFactory.get(context.getEnvironment(), getPropertiesClass());
         return matches(properties);
     }

@@ -68,6 +68,15 @@ public class AccountingJournalEntryConfiguration {
             GLAccountRepository glAccountRepository, OfficeRepository officeRepository,
             AccountTransfersReadPlatformService accountTransfersReadPlatformService, ChargeRepositoryWrapper chargeRepositoryWrapper,
             BusinessEventNotifierService businessEventNotifierService) {
+        Objects.requireNonNull(businessEventNotifierService, "businessEventNotifierService cannot be null");
+        Objects.requireNonNull(chargeRepositoryWrapper, "chargeRepositoryWrapper cannot be null");
+        Objects.requireNonNull(accountTransfersReadPlatformService, "accountTransfersReadPlatformService cannot be null");
+        Objects.requireNonNull(officeRepository, "officeRepository cannot be null");
+        Objects.requireNonNull(glAccountRepository, "glAccountRepository cannot be null");
+        Objects.requireNonNull(closureRepository, "closureRepository cannot be null");
+        Objects.requireNonNull(financialActivityAccountRepository, "financialActivityAccountRepository cannot be null");
+        Objects.requireNonNull(accountMappingRepository, "accountMappingRepository cannot be null");
+        Objects.requireNonNull(glJournalEntryRepository, "glJournalEntryRepository cannot be null");
         return new AccountingProcessorHelper(glJournalEntryRepository, accountMappingRepository, financialActivityAccountRepository,
                 closureRepository, glAccountRepository, officeRepository, accountTransfersReadPlatformService, chargeRepositoryWrapper,
                 businessEventNotifierService);
@@ -79,6 +88,13 @@ public class AccountingJournalEntryConfiguration {
             GLAccountReadPlatformService glAccountReadPlatformService, OfficeReadPlatformService officeReadPlatformService,
             ColumnValidator columnValidator, FinancialActivityAccountRepositoryWrapper financialActivityAccountRepositoryWrapper,
             PaginationHelper paginationHelper, DatabaseSpecificSQLGenerator sqlGenerator) {
+        Objects.requireNonNull(sqlGenerator, "sqlGenerator cannot be null");
+        Objects.requireNonNull(paginationHelper, "paginationHelper cannot be null");
+        Objects.requireNonNull(financialActivityAccountRepositoryWrapper, "financialActivityAccountRepositoryWrapper cannot be null");
+        Objects.requireNonNull(columnValidator, "columnValidator cannot be null");
+        Objects.requireNonNull(officeReadPlatformService, "officeReadPlatformService cannot be null");
+        Objects.requireNonNull(glAccountReadPlatformService, "glAccountReadPlatformService cannot be null");
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
         return new JournalEntryReadPlatformServiceImpl(jdbcTemplate, glAccountReadPlatformService, officeReadPlatformService,
                 columnValidator, financialActivityAccountRepositoryWrapper, paginationHelper, sqlGenerator);
     }
@@ -99,6 +115,23 @@ public class AccountingJournalEntryConfiguration {
             ExternalAssetOwnerRepository externalAssetOwnerRepository,
             LoanAmortizationAllocationMappingRepository loanAmortizationAllocationMappingRepository,
             LoanTransactionRepository loanTransactionRepository) {
+        Objects.requireNonNull(loanTransactionRepository, "loanTransactionRepository cannot be null");
+        Objects.requireNonNull(loanAmortizationAllocationMappingRepository, "loanAmortizationAllocationMappingRepository cannot be null");
+        Objects.requireNonNull(externalAssetOwnerRepository, "externalAssetOwnerRepository cannot be null");
+        Objects.requireNonNull(accountingService, "accountingService cannot be null");
+        Objects.requireNonNull(configurationReadPlatformService, "configurationReadPlatformService cannot be null");
+        Objects.requireNonNull(accountingProcessorForClientTransactions, "accountingProcessorForClientTransactions cannot be null");
+        Objects.requireNonNull(paymentDetailWritePlatformService, "paymentDetailWritePlatformService cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
+        Objects.requireNonNull(organisationCurrencyRepository, "organisationCurrencyRepository cannot be null");
+        Objects.requireNonNull(accountingRuleRepository, "accountingRuleRepository cannot be null");
+        Objects.requireNonNull(fromApiJsonDeserializer, "fromApiJsonDeserializer cannot be null");
+        Objects.requireNonNull(helper, "helper cannot be null");
+        Objects.requireNonNull(accountingProcessorForSharesFactory, "accountingProcessorForSharesFactory cannot be null");
+        Objects.requireNonNull(accountingProcessorForSavingsFactory, "accountingProcessorForSavingsFactory cannot be null");
+        Objects.requireNonNull(accountingProcessorForLoanFactory, "accountingProcessorForLoanFactory cannot be null");
+        Objects.requireNonNull(officeRepositoryWrapper, "officeRepositoryWrapper cannot be null");
+        Objects.requireNonNull(glClosureRepository, "glClosureRepository cannot be null");
         return new JournalEntryWritePlatformServiceJpaRepositoryImpl(glClosureRepository, glAccountRepository, glJournalEntryRepository,
                 officeRepositoryWrapper, accountingProcessorForLoanFactory, accountingProcessorForSavingsFactory,
                 accountingProcessorForSharesFactory, helper, fromApiJsonDeserializer, accountingRuleRepository,

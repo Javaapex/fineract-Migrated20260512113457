@@ -57,7 +57,7 @@ public final class MixTaxonomy implements Serializable {
     @Column("description")
     private String description;
 
-    // TODO: this is never used, but creates an error on MySQL (tinyint vs boolean mapping)
+
     // @Column("need_mapping")
     // private Boolean needMapping;
 }

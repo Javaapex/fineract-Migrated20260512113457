@@ -21,7 +21,7 @@ package org.apache.fineract.cob.savings;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.ArrayList
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -42,7 +42,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class RetrieveSavingsIdServiceImpl implements RetrieveSavingsIdService {
 
-    private static final Collection<Integer> NON_CLOSED_SAVINGS_STATUSES = new ArrayList<>(
+    private static final Collection<Integer> NON_CLOSED_SAVINGS_STATUSES = new ArrayList
             Arrays.asList(SavingsAccountStatusType.SUBMITTED_AND_PENDING_APPROVAL.getValue(), SavingsAccountStatusType.APPROVED.getValue(),
                     SavingsAccountStatusType.ACTIVE.getValue(), SavingsAccountStatusType.TRANSFER_IN_PROGRESS.getValue(),
                     SavingsAccountStatusType.TRANSFER_ON_HOLD.getValue()));

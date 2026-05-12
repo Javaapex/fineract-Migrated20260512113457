@@ -55,6 +55,8 @@ public class OrganisationCreditBureauWritePlatflormServiceImpl implements Organi
 
     @Override
     public CommandProcessingResult addOrganisationCreditBureau(Long creditBureauId, JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
+        Objects.requireNonNull(creditBureauId, "creditBureauId cannot be null");
         this.context.authenticatedUser();
         this.fromApiJsonDeserializer.validateForCreate(command.json(), creditBureauId);
 

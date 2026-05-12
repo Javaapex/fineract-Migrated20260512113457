@@ -31,6 +31,7 @@ public class DefaultPostUploadContentPolicy implements ContentPolicy {
 
     @Override
     public void check(ContentPolicyContext ctx) {
+        Objects.requireNonNull(ctx, "ctx cannot be null");
         mimeContentPolicy.check(ctx);
     }
 }

@@ -41,6 +41,7 @@ public class ApproveShareProductDividendCommandHandler implements NewCommandSour
     @Transactional
     @Override
     public CommandProcessingResult processCommand(JsonCommand jsonCommand) {
+        Objects.requireNonNull(jsonCommand, "jsonCommand cannot be null");
         return this.shareProductWritePlatformService.approveShareProductDividend(jsonCommand.entityId());
     }
 

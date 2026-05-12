@@ -50,7 +50,7 @@ public class InterestRateChartValidationTest {
         DataValidatorBuilder v = new DataValidatorBuilder(dataValidationErrors).resource("savings.interestRateChart").parameter("slabs");
 
         // When - simulate overlapping ranges validation
-        v.failWithCode("overlap", 1, 12, 6, 18, 1000.0, 5000.0, 3000.0, 8000.0);
+        v.failWithCode("overlap", 1, 12
 
         // Then
         assertEquals(1, dataValidationErrors.size(), "Expected exactly one validation error");

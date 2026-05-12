@@ -40,6 +40,8 @@ public class OrganisationHolidayConfiguration {
     @Bean
     @ConditionalOnMissingBean(HolidayReadPlatformService.class)
     public HolidayReadPlatformService holidayReadPlatformService(PlatformSecurityContext context, JdbcTemplate jdbcTemplate) {
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
         return new HolidayReadPlatformServiceImpl(context, jdbcTemplate);
     }
 
@@ -48,6 +50,11 @@ public class OrganisationHolidayConfiguration {
     public HolidayWritePlatformService holidayWritePlatformService(HolidayDataValidator fromApiJsonDeserializer,
             HolidayRepositoryWrapper holidayRepository, PlatformSecurityContext context, OfficeRepositoryWrapper officeRepositoryWrapper,
             OfficeRepository officeRepository, FromJsonHelper fromApiJsonHelper, WorkingDaysRepositoryWrapper daysRepositoryWrapper) {
+        Objects.requireNonNull(daysRepositoryWrapper, "daysRepositoryWrapper cannot be null");
+        Objects.requireNonNull(fromApiJsonHelper, "fromApiJsonHelper cannot be null");
+        Objects.requireNonNull(officeRepositoryWrapper, "officeRepositoryWrapper cannot be null");
+        Objects.requireNonNull(holidayRepository, "holidayRepository cannot be null");
+        Objects.requireNonNull(fromApiJsonDeserializer, "fromApiJsonDeserializer cannot be null");
         return new HolidayWritePlatformServiceJpaRepositoryImpl(fromApiJsonDeserializer, holidayRepository, daysRepositoryWrapper, context,
                 officeRepositoryWrapper, officeRepository, fromApiJsonHelper);
     }

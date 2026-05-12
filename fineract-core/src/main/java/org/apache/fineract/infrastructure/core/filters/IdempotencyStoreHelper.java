@@ -37,6 +37,9 @@ public class IdempotencyStoreHelper {
     private final FineractRequestContextHolder fineractRequestContextHolder;
 
     public void storeCommandResult(Integer response, String body, Long commandId) {
+        Objects.requireNonNull(commandId, "commandId cannot be null");
+        Objects.requireNonNull(body, "body cannot be null");
+        Objects.requireNonNull(response, "response cannot be null");
         commandSourceRepository.findById(commandId).ifPresent(commandSource -> {
             commandSource.setResultStatusCode(response);
             commandSource.setResult(body);
@@ -46,10 +49,11 @@ public class IdempotencyStoreHelper {
 
     public boolean isAllowedContentTypeResponse(HttpServletResponse response) {
         return Optional.ofNullable(response.getContentType()).map(String::toLowerCase).map(ct -> ct.contains("application/json"))
-                .orElse(false) || (response.getStatus() > 200 && response.getStatus() < 300);
+                .orElse(false) || (response.getStatus() > 200
     }
 
     public boolean isAllowedContentTypeRequest(HttpServletRequest request) {
+        Objects.requireNonNull(request, "request cannot be null");
         return Optional.ofNullable(request.getContentType()).map(String::toLowerCase).map(ct -> ct.contains("application/json"))
                 .orElse(false);
     }

@@ -108,7 +108,7 @@ public class LoanCOBFilterHelperTest {
                         \\"mainBusinessLineId\\": \\"\\",
                         \\"remarks\\": \\"\\"
                     },
-                    \\"activationDate\\": \\"01 January 2022\\",
+                    \\"activationDate\\": \\"01
                     \\"familyMembers\\": [],
                     \\"dateFormat\\": \\"dd MMMM yyyy\\",
                     \\"locale\\": \\"en\\"

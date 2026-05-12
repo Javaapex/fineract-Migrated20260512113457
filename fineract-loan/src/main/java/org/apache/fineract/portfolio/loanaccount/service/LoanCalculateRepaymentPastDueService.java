@@ -33,6 +33,7 @@ import org.apache.fineract.portfolio.loanaccount.domain.LoanRepaymentScheduleIns
 public class LoanCalculateRepaymentPastDueService {
 
     public LoanRepaymentPastDueData retrieveLoanRepaymentPastDueAmountTillDate(Loan loan) {
+        Objects.requireNonNull(loan, "loan cannot be null");
         List<LoanRepaymentScheduleInstallment> pastDueRepayments = getPastDueRepayments(loan);
         MonetaryCurrency loanCurrency = loan.getCurrency();
         LoanRepaymentPastDueData pastDueData = calculatePastDueAmountsForRepayments(pastDueRepayments, loanCurrency);

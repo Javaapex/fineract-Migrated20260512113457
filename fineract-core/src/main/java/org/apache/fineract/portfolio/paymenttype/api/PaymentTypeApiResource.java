@@ -78,6 +78,7 @@ public class PaymentTypeApiResource {
     @Produces({ MediaType.APPLICATION_JSON })
     @Operation(summary = "Create a Payment Type", description = "Creates a new Payment type")
     public PaymentTypeCreateResponse createPaymentType(PaymentTypeCreateRequest request) {
+        Objects.requireNonNull(request, "request cannot be null");
         final var command = new PaymentTypeCreateCommand();
 
         command.setPayload(request);

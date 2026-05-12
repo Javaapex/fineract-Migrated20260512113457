@@ -51,6 +51,6 @@ public class UnsupporterOperationExceptionMapper implements FineractExceptionMap
 
     @Override
     public int errorCode() {
-        return 5010;
+        return 5010
     }
 }

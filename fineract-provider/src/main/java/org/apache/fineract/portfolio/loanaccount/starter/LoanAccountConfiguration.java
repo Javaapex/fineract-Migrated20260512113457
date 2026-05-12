@@ -198,6 +198,9 @@ public class LoanAccountConfiguration {
     @ConditionalOnMissingBean(BulkLoansReadPlatformService.class)
     public BulkLoansReadPlatformService bulkLoansReadPlatformServicev(JdbcTemplate jdbcTemplate, PlatformSecurityContext context,
             AccountDetailsReadPlatformService accountDetailsReadPlatformService) {
+        Objects.requireNonNull(accountDetailsReadPlatformService, "accountDetailsReadPlatformService cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
         return new BulkLoansReadPlatformServiceImpl(jdbcTemplate, context, accountDetailsReadPlatformService);
     }
 
@@ -205,12 +208,14 @@ public class LoanAccountConfiguration {
     @ConditionalOnMissingBean(GLIMAccountInfoReadPlatformService.class)
     public GLIMAccountInfoReadPlatformService glimAccountInfoReadPlatformService(JdbcTemplate jdbcTemplate, PlatformSecurityContext context,
             AccountDetailsReadPlatformService accountDetailsReadPlatforService) {
+        Objects.requireNonNull(accountDetailsReadPlatforService, "accountDetailsReadPlatforService cannot be null");
         return new GLIMAccountInfoReadPlatformServiceImpl(jdbcTemplate, context, accountDetailsReadPlatforService);
     }
 
     @Bean
     @ConditionalOnMissingBean(GLIMAccountInfoWritePlatformService.class)
     public GLIMAccountInfoWritePlatformService glimAccountInfoWritePlatformService(GLIMAccountInfoRepository glimAccountRepository) {
+        Objects.requireNonNull(glimAccountRepository, "glimAccountRepository cannot be null");
         return new GLIMAccountInfoWritePlatformServiceImpl(glimAccountRepository);
     }
 
@@ -235,6 +240,27 @@ public class LoanAccountConfiguration {
             LoanLifecycleStateMachine loanLifecycleStateMachine, LoanAccrualsProcessingService loanAccrualsProcessingService,
             LoanDownPaymentTransactionValidator loanDownPaymentTransactionValidator, LoanScheduleService loanScheduleService,
             LoanOriginatorLinkingService loanOriginatorLinkingService) {
+        Objects.requireNonNull(loanOriginatorLinkingService, "loanOriginatorLinkingService cannot be null");
+        Objects.requireNonNull(loanScheduleService, "loanScheduleService cannot be null");
+        Objects.requireNonNull(loanDownPaymentTransactionValidator, "loanDownPaymentTransactionValidator cannot be null");
+        Objects.requireNonNull(loanAccrualsProcessingService, "loanAccrualsProcessingService cannot be null");
+        Objects.requireNonNull(loanLifecycleStateMachine, "loanLifecycleStateMachine cannot be null");
+        Objects.requireNonNull(gsimReadPlatformService, "gsimReadPlatformService cannot be null");
+        Objects.requireNonNull(glimRepository, "glimRepository cannot be null");
+        Objects.requireNonNull(entityDatatableChecksWritePlatformService, "entityDatatableChecksWritePlatformService cannot be null");
+        Objects.requireNonNull(calendarReadPlatformService, "calendarReadPlatformService cannot be null");
+        Objects.requireNonNull(loanUtilService, "loanUtilService cannot be null");
+        Objects.requireNonNull(loanScheduleAssembler, "loanScheduleAssembler cannot be null");
+        Objects.requireNonNull(businessEventNotifierService, "businessEventNotifierService cannot be null");
+        Objects.requireNonNull(accountAssociationsRepository, "accountAssociationsRepository cannot be null");
+        Objects.requireNonNull(savingsAccountRepository, "savingsAccountRepository cannot be null");
+        Objects.requireNonNull(calendarInstanceRepository, "calendarInstanceRepository cannot be null");
+        Objects.requireNonNull(calendarRepository, "calendarRepository cannot be null");
+        Objects.requireNonNull(loanAssembler, "loanAssembler cannot be null");
+        Objects.requireNonNull(noteRepository, "noteRepository cannot be null");
+        Objects.requireNonNull(loanRepositoryWrapper, "loanRepositoryWrapper cannot be null");
+        Objects.requireNonNull(loanApplicationValidator, "loanApplicationValidator cannot be null");
+        Objects.requireNonNull(loanApplicationTransitionValidator, "loanApplicationTransitionValidator cannot be null");
         return new LoanApplicationWritePlatformServiceJpaRepositoryImpl(context, loanApplicationTransitionValidator,
                 loanApplicationValidator, loanRepositoryWrapper, noteRepository, loanAssembler, calendarRepository,
                 calendarInstanceRepository, savingsAccountRepository, accountAssociationsRepository, businessEventNotifierService,
@@ -247,6 +273,7 @@ public class LoanAccountConfiguration {
     @ConditionalOnMissingBean(LoanArrearsAgingService.class)
     public LoanArrearsAgingService loanArrearsAgingService(JdbcTemplate jdbcTemplate,
             BusinessEventNotifierService businessEventNotifierService, DatabaseSpecificSQLGenerator sqlGenerator) {
+        Objects.requireNonNull(sqlGenerator, "sqlGenerator cannot be null");
         return new LoanArrearsAgingServiceImpl(jdbcTemplate, businessEventNotifierService, sqlGenerator);
     }
 
@@ -267,6 +294,32 @@ public class LoanAccountConfiguration {
             LoanCollateralManagementMapper loanCollateralManagementMapper, LoanAccrualsProcessingService loanAccrualsProcessingService,
             LoanDisbursementService loanDisbursementService, LoanChargeService loanChargeService, LoanOfficerService loanOfficerService,
             LoanScheduleComponent loanSchedule) {
+        Objects.requireNonNull(loanOfficerService, "loanOfficerService cannot be null");
+        Objects.requireNonNull(loanChargeService, "loanChargeService cannot be null");
+        Objects.requireNonNull(loanDisbursementService, "loanDisbursementService cannot be null");
+        Objects.requireNonNull(loanCollateralManagementMapper, "loanCollateralManagementMapper cannot be null");
+        Objects.requireNonNull(loanChargeMapper, "loanChargeMapper cannot be null");
+        Objects.requireNonNull(loanDisbursementDetailsAssembler, "loanDisbursementDetailsAssembler cannot be null");
+        Objects.requireNonNull(calculationPlatformService, "calculationPlatformService cannot be null");
+        Objects.requireNonNull(loanCollateralAssembler, "loanCollateralAssembler cannot be null");
+        Objects.requireNonNull(glimAccountInfoWritePlatformService, "glimAccountInfoWritePlatformService cannot be null");
+        Objects.requireNonNull(accountNumberGenerator, "accountNumberGenerator cannot be null");
+        Objects.requireNonNull(accountNumberFormatRepository, "accountNumberFormatRepository cannot be null");
+        Objects.requireNonNull(externalIdFactory, "externalIdFactory cannot be null");
+        Objects.requireNonNull(rateAssembler, "rateAssembler cannot be null");
+        Objects.requireNonNull(workingDaysRepository, "workingDaysRepository cannot be null");
+        Objects.requireNonNull(configurationDomainService, "configurationDomainService cannot be null");
+        Objects.requireNonNull(holidayRepository, "holidayRepository cannot be null");
+        Objects.requireNonNull(loanRepaymentScheduleTransactionProcessorFactory, "loanRepaymentScheduleTransactionProcessorFactory cannot be null");
+        Objects.requireNonNull(collateralAssembler, "collateralAssembler cannot be null");
+        Objects.requireNonNull(loanChargeAssembler, "loanChargeAssembler cannot be null");
+        Objects.requireNonNull(codeValueRepository, "codeValueRepository cannot be null");
+        Objects.requireNonNull(staffRepository, "staffRepository cannot be null");
+        Objects.requireNonNull(fundRepository, "fundRepository cannot be null");
+        Objects.requireNonNull(groupRepository, "groupRepository cannot be null");
+        Objects.requireNonNull(clientRepository, "clientRepository cannot be null");
+        Objects.requireNonNull(loanProductRepository, "loanProductRepository cannot be null");
+        Objects.requireNonNull(fromApiJsonHelper, "fromApiJsonHelper cannot be null");
         return new LoanAssemblerImpl(fromApiJsonHelper, loanRepository, loanProductRepository, clientRepository, groupRepository,
                 fundRepository, staffRepository, codeValueRepository, loanScheduleAssembler, loanChargeAssembler, collateralAssembler,
                 loanRepaymentScheduleTransactionProcessorFactory, holidayRepository, configurationDomainService, workingDaysRepository,
@@ -280,6 +333,7 @@ public class LoanAccountConfiguration {
     @ConditionalOnMissingBean(LoanTransactionAssembler.class)
     public LoanTransactionAssembler loanTransactionAssembler(ExternalIdFactory externalIdFactory,
             PaymentDetailWritePlatformService paymentDetailWritePlatformService) {
+        Objects.requireNonNull(paymentDetailWritePlatformService, "paymentDetailWritePlatformService cannot be null");
 
         return new LoanTransactionAssembler(externalIdFactory, paymentDetailWritePlatformService);
     }
@@ -304,6 +358,9 @@ public class LoanAccountConfiguration {
     public LoanChargeReadPlatformService loanChargeReadPlatformService(JdbcTemplate jdbcTemplate,
             ChargeDropdownReadPlatformService chargeDropdownReadPlatformService, DropdownReadPlatformService dropdownReadPlatformService,
             LoanChargeRepository loanChargeRepository) {
+        Objects.requireNonNull(loanChargeRepository, "loanChargeRepository cannot be null");
+        Objects.requireNonNull(dropdownReadPlatformService, "dropdownReadPlatformService cannot be null");
+        Objects.requireNonNull(chargeDropdownReadPlatformService, "chargeDropdownReadPlatformService cannot be null");
         return new LoanChargeReadPlatformServiceImpl(jdbcTemplate, chargeDropdownReadPlatformService, dropdownReadPlatformService,
                 loanChargeRepository);
     }
@@ -326,6 +383,20 @@ public class LoanAccountConfiguration {
             LoanScheduleService loanScheduleService, ReprocessLoanTransactionsService reprocessLoanTransactionsService,
             LoanAccountService loanAccountService, LoanAdjustmentService loanAdjustmentService, LoanChargeService loanChargeService,
             LoanJournalEntryPoster loanJournalEntryPoster) {
+        Objects.requireNonNull(loanJournalEntryPoster, "loanJournalEntryPoster cannot be null");
+        Objects.requireNonNull(loanAdjustmentService, "loanAdjustmentService cannot be null");
+        Objects.requireNonNull(loanAccountService, "loanAccountService cannot be null");
+        Objects.requireNonNull(reprocessLoanTransactionsService, "reprocessLoanTransactionsService cannot be null");
+        Objects.requireNonNull(loanChargeValidator, "loanChargeValidator cannot be null");
+        Objects.requireNonNull(accountTransferDetailRepository, "accountTransferDetailRepository cannot be null");
+        Objects.requireNonNull(accountAssociationsReadPlatformService, "accountAssociationsReadPlatformService cannot be null");
+        Objects.requireNonNull(loanChargeReadPlatformService, "loanChargeReadPlatformService cannot be null");
+        Objects.requireNonNull(loanWritePlatformService, "loanWritePlatformService cannot be null");
+        Objects.requireNonNull(loanAccountDomainService, "loanAccountDomainService cannot be null");
+        Objects.requireNonNull(accountTransfersWritePlatformService, "accountTransfersWritePlatformService cannot be null");
+        Objects.requireNonNull(loanTransactionRepository, "loanTransactionRepository cannot be null");
+        Objects.requireNonNull(chargeRepository, "chargeRepository cannot be null");
+        Objects.requireNonNull(loanChargeApiJsonValidator, "loanChargeApiJsonValidator cannot be null");
         return new LoanChargeWritePlatformServiceImpl(loanChargeApiJsonValidator, loanAssembler, chargeRepository,
                 businessEventNotifierService, loanTransactionRepository, accountTransfersWritePlatformService, loanRepositoryWrapper,
                 loanAccountDomainService, loanChargeRepository, loanWritePlatformService, loanUtilService, loanChargeReadPlatformService,
@@ -355,6 +426,31 @@ public class LoanAccountConfiguration {
             LoanBuyDownFeeBalanceRepository loanBuyDownFeeBalanceRepository,
             @Lazy InterestRefundServiceDelegate interestRefundServiceDelegate, LoanMaximumAmountCalculator loanMaximumAmountCalculator,
             LoanRepaymentScheduleService loanRepaymentScheduleService) {
+        Objects.requireNonNull(loanRepaymentScheduleService, "loanRepaymentScheduleService cannot be null");
+        Objects.requireNonNull(loanMaximumAmountCalculator, "loanMaximumAmountCalculator cannot be null");
+        Objects.requireNonNull(interestRefundServiceDelegate, "interestRefundServiceDelegate cannot be null");
+        Objects.requireNonNull(loanBuyDownFeeBalanceRepository, "loanBuyDownFeeBalanceRepository cannot be null");
+        Objects.requireNonNull(loanCapitalizedIncomeBalanceRepository, "loanCapitalizedIncomeBalanceRepository cannot be null");
+        Objects.requireNonNull(loanBalanceService, "loanBalanceService cannot be null");
+        Objects.requireNonNull(loanTransactionProcessingService, "loanTransactionProcessingService cannot be null");
+        Objects.requireNonNull(loanTransactionMapper, "loanTransactionMapper cannot be null");
+        Objects.requireNonNull(loanForeclosureValidator, "loanForeclosureValidator cannot be null");
+        Objects.requireNonNull(loanTransactionRelationReadService, "loanTransactionRelationReadService cannot be null");
+        Objects.requireNonNull(loanChargePaidByReadService, "loanChargePaidByReadService cannot be null");
+        Objects.requireNonNull(delinquencyReadPlatformService, "delinquencyReadPlatformService cannot be null");
+        Objects.requireNonNull(columnValidator, "columnValidator cannot be null");
+        Objects.requireNonNull(floatingRatesReadPlatformService, "floatingRatesReadPlatformService cannot be null");
+        Objects.requireNonNull(paymentTypeReadPlatformService, "paymentTypeReadPlatformService cannot be null");
+        Objects.requireNonNull(paginationHelper, "paginationHelper cannot be null");
+        Objects.requireNonNull(staffReadPlatformService, "staffReadPlatformService cannot be null");
+        Objects.requireNonNull(codeValueReadPlatformService, "codeValueReadPlatformService cannot be null");
+        Objects.requireNonNull(chargeReadPlatformService, "chargeReadPlatformService cannot be null");
+        Objects.requireNonNull(fundReadPlatformService, "fundReadPlatformService cannot be null");
+        Objects.requireNonNull(loanDropdownReadPlatformService, "loanDropdownReadPlatformService cannot be null");
+        Objects.requireNonNull(groupReadPlatformService, "groupReadPlatformService cannot be null");
+        Objects.requireNonNull(clientReadPlatformService, "clientReadPlatformService cannot be null");
+        Objects.requireNonNull(loanProductReadPlatformService, "loanProductReadPlatformService cannot be null");
+        Objects.requireNonNull(applicationCurrencyRepository, "applicationCurrencyRepository cannot be null");
         return new LoanReadPlatformServiceImpl(jdbcTemplate, context, loanRepositoryWrapper, applicationCurrencyRepository,
                 loanProductReadPlatformService, clientReadPlatformService, groupReadPlatformService, loanDropdownReadPlatformService,
                 fundReadPlatformService, chargeReadPlatformService, codeValueReadPlatformService, calendarReadPlatformService,
@@ -370,6 +466,7 @@ public class LoanAccountConfiguration {
     @ConditionalOnMissingBean(LoanStatusChangePlatformService.class)
     public LoanStatusChangePlatformService loanStatusChangePlatformService(BusinessEventNotifierService businessEventNotifierService,
             LoanAccrualActivityProcessingService loanAccrualActivityProcessingService) {
+        Objects.requireNonNull(loanAccrualActivityProcessingService, "loanAccrualActivityProcessingService cannot be null");
         return new LoanStatusChangePlatformServiceImpl(businessEventNotifierService, loanAccrualActivityProcessingService);
     }
 
@@ -389,6 +486,7 @@ public class LoanAccountConfiguration {
             HolidayRepository holidayRepository, WorkingDaysRepositoryWrapper workingDaysRepository,
             LoanScheduleGeneratorFactory loanScheduleFactory, FloatingRatesReadPlatformService floatingRatesReadPlatformService,
             CalendarReadPlatformService calendarReadPlatformService, NoteRepository noteRepository) {
+        Objects.requireNonNull(loanScheduleFactory, "loanScheduleFactory cannot be null");
         return new LoanUtilService(applicationCurrencyRepository, calendarInstanceRepository, configurationDomainService, holidayRepository,
                 workingDaysRepository, loanScheduleFactory, floatingRatesReadPlatformService, calendarReadPlatformService, noteRepository);
     }
@@ -401,6 +499,8 @@ public class LoanAccountConfiguration {
             ExternalIdFactory externalIdFactory, LoanBuyDownFeeBalanceRepository loanBuyDownFeeBalanceRepository,
             BusinessEventNotifierService businessEventNotifierService, CodeValueRepository codeValueRepository,
             ApplicationEventPublisher eventPublisher) {
+        Objects.requireNonNull(eventPublisher, "eventPublisher cannot be null");
+        Objects.requireNonNull(loanTransactionValidator, "loanTransactionValidator cannot be null");
         return new BuyDownFeeWritePlatformServiceImpl(loanTransactionValidator, loanAssembler, loanTransactionRepository,
                 paymentDetailWritePlatformService, loanJournalEntryPoster, externalIdFactory, loanBuyDownFeeBalanceRepository,
                 businessEventNotifierService, codeValueRepository, eventPublisher);
@@ -448,6 +548,26 @@ public class LoanAccountConfiguration {
             LoanJournalEntryPoster journalEntryPoster, LoanAdjustmentService loanAdjustmentService, LoanMapper loanMapper,
             LoanTransactionProcessingService loanTransactionProcessingService, final LoanBalanceService loanBalanceService,
             LoanTransactionService loanTransactionService) {
+        Objects.requireNonNull(loanTransactionService, "loanTransactionService cannot be null");
+        Objects.requireNonNull(loanMapper, "loanMapper cannot be null");
+        Objects.requireNonNull(journalEntryPoster, "journalEntryPoster cannot be null");
+        Objects.requireNonNull(loanOfficerValidator, "loanOfficerValidator cannot be null");
+        Objects.requireNonNull(loanTransactionAssembler, "loanTransactionAssembler cannot be null");
+        Objects.requireNonNull(loanDownPaymentHandlerService, "loanDownPaymentHandlerService cannot be null");
+        Objects.requireNonNull(errorHandler, "errorHandler cannot be null");
+        Objects.requireNonNull(loanAccrualTransactionBusinessEventService, "loanAccrualTransactionBusinessEventService cannot be null");
+        Objects.requireNonNull(loanAccountLockService, "loanAccountLockService cannot be null");
+        Objects.requireNonNull(loanRepaymentScheduleInstallmentRepository, "loanRepaymentScheduleInstallmentRepository cannot be null");
+        Objects.requireNonNull(postDatedChecksRepository, "postDatedChecksRepository cannot be null");
+        Objects.requireNonNull(repaymentWithPostDatedChecksAssembler, "repaymentWithPostDatedChecksAssembler cannot be null");
+        Objects.requireNonNull(cashierTransactionDataValidator, "cashierTransactionDataValidator cannot be null");
+        Objects.requireNonNull(guarantorDomainService, "guarantorDomainService cannot be null");
+        Objects.requireNonNull(accountAssociationRepository, "accountAssociationRepository cannot be null");
+        Objects.requireNonNull(loanScheduleHistoryWritePlatformService, "loanScheduleHistoryWritePlatformService cannot be null");
+        Objects.requireNonNull(loanReadPlatformService, "loanReadPlatformService cannot be null");
+        Objects.requireNonNull(accountTransfersReadPlatformService, "accountTransfersReadPlatformService cannot be null");
+        Objects.requireNonNull(loanTransactionRelationRepository, "loanTransactionRelationRepository cannot be null");
+        Objects.requireNonNull(loanUpdateCommandFromApiJsonDeserializer, "loanUpdateCommandFromApiJsonDeserializer cannot be null");
         return new LoanWritePlatformServiceJpaRepositoryImpl(context, loanTransactionValidator, loanUpdateCommandFromApiJsonDeserializer,
                 loanRepositoryWrapper, loanAccountDomainService, noteRepository, loanTransactionRepository,
                 loanTransactionRelationRepository, loanAssembler, calendarInstanceRepository, paymentDetailWritePlatformService,
@@ -482,6 +602,8 @@ public class LoanAccountConfiguration {
             LoanTransactionProcessingService loanTransactionProcessingService, LoanLifecycleStateMachine loanLifecycleStateMachine,
             LoanBalanceService loanBalanceService, LoanTransactionService loanTransactionService,
             LoanJournalEntryPoster journalEntryPoster) {
+        Objects.requireNonNull(loanRefundValidator, "loanRefundValidator cannot be null");
+        Objects.requireNonNull(loanRefundService, "loanRefundService cannot be null");
         return new LoanDownPaymentHandlerServiceImpl(loanTransactionRepository, businessEventNotifierService,
                 loanDownPaymentTransactionValidator, loanScheduleService, loanRefundService, loanRefundValidator,
                 reprocessLoanTransactionsService, loanTransactionProcessingService, loanLifecycleStateMachine, loanBalanceService,
@@ -500,6 +622,7 @@ public class LoanAccountConfiguration {
             LoanDisbursementValidator loanDisbursementValidator, LoanChargeService loanChargeService, LoanBalanceService loanBalanceService,
             LoanJournalEntryPoster journalEntryPoster, LoanTransactionRepository loanTransactionRepository,
             ConfigurationDomainService configurationDomainService) {
+        Objects.requireNonNull(loanDisbursementValidator, "loanDisbursementValidator cannot be null");
         return new LoanDisbursementService(loanChargeValidator, loanDisbursementValidator, loanChargeService, loanBalanceService,
                 journalEntryPoster, loanTransactionRepository, configurationDomainService);
     }
@@ -542,6 +665,7 @@ public class LoanAccountConfiguration {
     @Bean
     @ConditionalOnMissingBean(InterestPauseReadPlatformService.class)
     public InterestPauseReadPlatformService interestPauseReadPlatformService(LoanTermVariationsRepository loanTermVariationsRepository) {
+        Objects.requireNonNull(loanTermVariationsRepository, "loanTermVariationsRepository cannot be null");
         return new InterestPauseReadPlatformServiceImpl(loanTermVariationsRepository);
     }
 
@@ -566,6 +690,7 @@ public class LoanAccountConfiguration {
     public LoanCapitalizedIncomeAmortizationEventService loanCapitalizedIncomeAmortizationEventService(
             BusinessEventNotifierService businessEventNotifierService,
             LoanCapitalizedIncomeAmortizationProcessingService loanCapitalizedIncomeAmortizationProcessingService) {
+        Objects.requireNonNull(loanCapitalizedIncomeAmortizationProcessingService, "loanCapitalizedIncomeAmortizationProcessingService cannot be null");
         return new LoanCapitalizedIncomeAmortizationEventService(businessEventNotifierService,
                 loanCapitalizedIncomeAmortizationProcessingService);
     }
@@ -598,6 +723,7 @@ public class LoanAccountConfiguration {
     public LoanBuyDownFeeAmortizationEventService loanBuyDownFeeAmortizationEventService(
             BusinessEventNotifierService businessEventNotifierService,
             LoanBuyDownFeeAmortizationProcessingService loanBuyDownFeeAmortizationProcessingService) {
+        Objects.requireNonNull(loanBuyDownFeeAmortizationProcessingService, "loanBuyDownFeeAmortizationProcessingService cannot be null");
         return new LoanBuyDownFeeAmortizationEventService(businessEventNotifierService, loanBuyDownFeeAmortizationProcessingService);
     }
 

@@ -72,7 +72,7 @@ public class BodyCachingHttpServletRequestWrapper extends HttpServletRequestWrap
             try {
                 return inputStream.available() == 0;
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                throw new RuntimeException
             }
         }
 
@@ -83,6 +83,7 @@ public class BodyCachingHttpServletRequestWrapper extends HttpServletRequestWrap
 
         @Override
         public void setReadListener(ReadListener listener) {
+        Objects.requireNonNull(listener, "listener cannot be null");
             throw new UnsupportedOperationException();
         }
 

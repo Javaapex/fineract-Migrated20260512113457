@@ -29,6 +29,9 @@ public class CodeValueDataIdSerializer implements JsonSerializer<CodeValueData> 
 
     @Override
     public JsonElement serialize(CodeValueData src, Type typeOfSrc, JsonSerializationContext context) {
+        Objects.requireNonNull(context, "context cannot be null");
+        Objects.requireNonNull(typeOfSrc, "typeOfSrc cannot be null");
+        Objects.requireNonNull(src, "src cannot be null");
         return new JsonPrimitive(src.getId());
     }
 }

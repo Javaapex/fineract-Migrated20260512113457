@@ -46,7 +46,7 @@ public class LoanTermVariations extends AbstractAuditableWithUTCDateTimeCustom<L
     @Column(name = "applicable_date", nullable = false)
     private LocalDate termApplicableFrom;
 
-    @Column(name = "decimal_value", scale = 6, precision = 19)
+    @Column(name = "decimal_value", scale = 6, precision = 19
     private BigDecimal decimalValue;
 
     @Column(name = "date_value")
@@ -140,14 +140,17 @@ public class LoanTermVariations extends AbstractAuditableWithUTCDateTimeCustom<L
     }
 
     public void setDateValue(LocalDate dateValue) {
+        Objects.requireNonNull(dateValue, "dateValue cannot be null");
         this.dateValue = dateValue;
     }
 
     public void setTermApplicableFrom(LocalDate termApplicableFrom) {
+        Objects.requireNonNull(termApplicableFrom, "termApplicableFrom cannot be null");
         this.termApplicableFrom = termApplicableFrom;
     }
 
     public void setDecimalValue(BigDecimal decimalValue) {
+        Objects.requireNonNull(decimalValue, "decimalValue cannot be null");
         this.decimalValue = decimalValue;
     }
 

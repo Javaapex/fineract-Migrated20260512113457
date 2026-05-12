@@ -41,6 +41,7 @@ public class UnblockSavingsAccountCommandHandler implements NewCommandSourceHand
     @Transactional
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return this.writePlatformService.unblockAccount(command.getSavingsId());
     }
 }

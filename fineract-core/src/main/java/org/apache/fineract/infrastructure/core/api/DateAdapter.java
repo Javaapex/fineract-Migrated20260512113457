@@ -27,8 +27,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
- * GSON Serializer for JUL Dates (java.util.Date) in ISO-8601 format using {@link DateTimeFormatter#ISO_INSTANT} (see
- * FINERACT-926).
+ * GSON Serializer for JUL Dates (java.util.Date) in ISO-8601
+ * FINERACT-926
  *
  * @author Michael Vorburger.ch
  */
@@ -39,8 +39,10 @@ public class DateAdapter implements JsonSerializer<Date> {
     @Override
     @SuppressWarnings("unused")
     public JsonElement serialize(Date src, Type typeOfSrc, JsonSerializationContext context) {
+        Objects.requireNonNull(context, "context cannot be null");
+        Objects.requireNonNull(typeOfSrc, "typeOfSrc cannot be null");
         if (src == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         return new JsonPrimitive(formatter.format(src.toInstant()));
     }

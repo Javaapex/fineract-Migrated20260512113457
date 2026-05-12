@@ -62,6 +62,8 @@ public class LoanBuyDownFeeAmortizationProcessingServiceImpl implements LoanBuyD
     @Override
     @Transactional
     public void processBuyDownFeeAmortizationTillDate(@NonNull Loan loan, @NonNull LocalDate tillDate, boolean addJournal) {
+        Objects.requireNonNull(tillDate, "tillDate cannot be null");
+        Objects.requireNonNull(loan, "loan cannot be null");
         final List<LoanBuyDownFeeBalance> balances = loanBuyDownFeeBalanceRepository.findAllByLoanIdAndClosedFalse(loan.getId());
 
         final LocalDate maturityDate = loan.getMaturityDate() != null ? loan.getMaturityDate()
@@ -163,6 +165,7 @@ public class LoanBuyDownFeeAmortizationProcessingServiceImpl implements LoanBuyD
     @Transactional
     public void processBuyDownFeeAmortizationOnLoanChargeOff(@NonNull final Loan loan,
             @NonNull final LoanTransaction chargeOffTransaction) {
+        Objects.requireNonNull(chargeOffTransaction, "chargeOffTransaction cannot be null");
         LocalDate transactionDate = loan.getChargedOffOnDate();
         if (transactionDate == null) {
             transactionDate = DateUtils.getBusinessLocalDate();
@@ -185,6 +188,7 @@ public class LoanBuyDownFeeAmortizationProcessingServiceImpl implements LoanBuyD
     @Override
     @Transactional
     public void processBuyDownFeeAmortizationOnLoanUndoChargeOff(@NonNull final LoanTransaction loanTransaction) {
+        Objects.requireNonNull(loanTransaction, "loanTransaction cannot be null");
         final Loan loan = loanTransaction.getLoan();
 
         loan.getLoanTransactions().stream().filter(LoanTransaction::isBuyDownFeeAmortization)

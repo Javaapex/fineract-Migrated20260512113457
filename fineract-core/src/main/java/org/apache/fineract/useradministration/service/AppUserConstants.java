@@ -30,7 +30,7 @@ public final class AppUserConstants {
     public static final String IS_LOGIN_RETRIES_ENABLED = "isLoginRetriesEnabled";
     public static final String IS_PASSWORD_RESET_ALLOWED = "isPasswordResetAllowed";
 
-    // TODO: Remove hard coding of system user name and make this a configurable parameter
+
     public static final String SYSTEM_USER_NAME = "system";
     public static final Long ADMIN_USER_ID = 1L;
     public static final Long SYSTEM_USER_ID = 2L;

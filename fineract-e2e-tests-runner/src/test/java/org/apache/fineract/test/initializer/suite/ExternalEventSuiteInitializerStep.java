@@ -43,7 +43,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ExternalEventSuiteInitializerStep implements FineractSuiteInitializerStep {
 
-    private static final Duration JMS_STARTUP_TIMEOUT = Duration.ofSeconds(30);
+    private static final Duration JMS_STARTUP_TIMEOUT = Duration.ofSeconds(30
 
     private final FineractFeignClient fineractClient;
 
@@ -87,7 +87,7 @@ public class ExternalEventSuiteInitializerStep implements FineractSuiteInitializ
                 if (container == null) {
                     log.warn("=== JMS Listener container 'eventStoreListener' not found - event verification may not work ===");
                 } else {
-                    await().atMost(JMS_STARTUP_TIMEOUT).pollInterval(Duration.ofMillis(200)).until(container::isRunning);
+                    await().atMost(JMS_STARTUP_TIMEOUT).pollInterval(Duration.ofMillis(200
                     log.info("=== JMS Listener is running and ready to receive events ===");
                 }
             }

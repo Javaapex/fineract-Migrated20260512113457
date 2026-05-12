@@ -51,8 +51,8 @@ class CommandRepositoryTest extends CommandBaseTest {
         var now = Instant.now();
 
         command.setPayload(DummyRequest.builder().content(content).build());
-        command.setIdempotencyKey("1234567890");
-        command.setIpAddress("127.0.0.1");
+        command.setIdempotencyKey("1234567890
+        command.setIpAddress("127
         command.setCreatedAt(now);
         command.setExecutedAt(now);
         command.setApprovedAt(now);

@@ -55,6 +55,8 @@ public class LoanBusinessEvent extends BusinessEvent {
 
     @Override
     public boolean verify(ExternalEventResponse externalEvent, DateTimeFormatter formatter) {
+        Objects.requireNonNull(formatter, "formatter cannot be null");
+        Objects.requireNonNull(externalEvent, "externalEvent cannot be null");
         Object summaryRes = externalEvent.getPayLoad().get("summary");
         Object statusRes = externalEvent.getPayLoad().get("status");
         Map<String, Object> summary = summaryRes instanceof Map ? (Map<String, Object>) summaryRes : Map.of();

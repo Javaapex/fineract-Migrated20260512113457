@@ -60,7 +60,7 @@ class DefaultLoanLifecycleStateMachineTest {
     public void setUp() {
 
         moneyHelperStatic = Mockito.mockStatic(MoneyHelper.class);
-        moneyHelperStatic.when(MoneyHelper::getMathContext).thenReturn(new MathContext(12, RoundingMode.UP));
+        moneyHelperStatic.when(MoneyHelper::getMathContext).thenReturn(new MathContext(12
         moneyHelperStatic.when(MoneyHelper::getRoundingMode).thenReturn(RoundingMode.UP);
         underTest = new DefaultLoanLifecycleStateMachine(businessEventNotifierService, loanBalanceService);
     }

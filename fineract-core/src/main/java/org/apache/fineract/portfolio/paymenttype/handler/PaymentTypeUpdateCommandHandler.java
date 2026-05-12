@@ -40,11 +40,13 @@ public class PaymentTypeUpdateCommandHandler implements CommandHandler<PaymentTy
     @Override
     @Transactional
     public PaymentTypeUpdateResponse handle(Command<PaymentTypeUpdateRequest> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return paymentTypeWriteService.updatePaymentType(command.getPayload());
     }
 
     @Override
     public PaymentTypeUpdateResponse fallback(Command<PaymentTypeUpdateRequest> command, Throwable t) {
+        Objects.requireNonNull(t, "t cannot be null");
         return CommandHandler.super.fallback(command, t);
     }
 }

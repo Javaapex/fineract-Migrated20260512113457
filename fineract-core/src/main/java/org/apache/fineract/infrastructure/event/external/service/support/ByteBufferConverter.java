@@ -32,6 +32,7 @@ public class ByteBufferConverter {
     }
 
     public ByteBuffer convert(byte[] buffer) {
+        Objects.requireNonNull(buffer, "buffer cannot be null");
         return ByteBuffer.wrap(buffer);
     }
 }

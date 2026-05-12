@@ -44,6 +44,7 @@ public class InterestRatePeriodData {
     }
 
     public void setFromDate(LocalDate fromDate) {
+        Objects.requireNonNull(fromDate, "fromDate cannot be null");
         this.fromDate = fromDate;
     }
 
@@ -56,14 +57,17 @@ public class InterestRatePeriodData {
     }
 
     public void setLoanDifferentialInterestRate(BigDecimal loanDifferentialInterestRate) {
+        Objects.requireNonNull(loanDifferentialInterestRate, "loanDifferentialInterestRate cannot be null");
         this.loanDifferentialInterestRate = loanDifferentialInterestRate;
     }
 
     public void setLoanProductDifferentialInterestRate(BigDecimal loanProductDifferentialInterestRate) {
+        Objects.requireNonNull(loanProductDifferentialInterestRate, "loanProductDifferentialInterestRate cannot be null");
         this.loanProductDifferentialInterestRate = loanProductDifferentialInterestRate;
     }
 
     public void setEffectiveInterestRate(BigDecimal effectiveInterestRate) {
+        Objects.requireNonNull(effectiveInterestRate, "effectiveInterestRate cannot be null");
         this.effectiveInterestRate = effectiveInterestRate;
     }
 }

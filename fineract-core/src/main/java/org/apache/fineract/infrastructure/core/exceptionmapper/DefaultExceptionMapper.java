@@ -37,11 +37,12 @@ public class DefaultExceptionMapper implements FineractExceptionMapper, Exceptio
 
     @Override
     public int errorCode() {
-        return 9999;
+        return 9999
     }
 
     @Override
     public Response toResponse(RuntimeException exception) {
+        Objects.requireNonNull(exception, "exception cannot be null");
         log.warn("Exception occurred", ErrorHandler.findMostSpecificException(exception));
 
         return Response.status(SC_INTERNAL_SERVER_ERROR)

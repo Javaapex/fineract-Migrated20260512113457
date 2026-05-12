@@ -42,11 +42,13 @@ public class InterestRateChartSlabsCreateCommandHandler
     @Override
     @Transactional
     public InterestRateChartSlabsCreateResponse handle(Command<InterestRateChartSlabsCreateRequest> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return writePlatformService.createInterestRateChartSlab(command.getPayload());
     }
 
     @Override
     public InterestRateChartSlabsCreateResponse fallback(Command<InterestRateChartSlabsCreateRequest> command, Throwable t) {
+        Objects.requireNonNull(t, "t cannot be null");
         // NOTE: fallback method needs to be in the same class
         return CommandHandler.super.fallback(command, t);
     }

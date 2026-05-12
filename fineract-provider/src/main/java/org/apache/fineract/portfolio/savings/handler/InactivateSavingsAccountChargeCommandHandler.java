@@ -41,6 +41,7 @@ public class InactivateSavingsAccountChargeCommandHandler implements NewCommandS
     @Transactional
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return this.writePlatformService.inactivateCharge(command.getSavingsId(), command.entityId());
     }
 

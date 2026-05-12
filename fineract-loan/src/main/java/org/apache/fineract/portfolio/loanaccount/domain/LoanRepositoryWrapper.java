@@ -287,6 +287,7 @@ public class LoanRepositoryWrapper {
     }
 
     public Long findIdByExternalId(ExternalId externalId) {
+        Objects.requireNonNull(externalId, "externalId cannot be null");
         return this.repository.findIdByExternalId(externalId);
     }
 
@@ -307,6 +308,7 @@ public class LoanRepositoryWrapper {
     }
 
     public boolean existsByLoanId(Long loanId) {
+        Objects.requireNonNull(loanId, "loanId cannot be null");
         return repository.existsById(loanId);
     }
 
@@ -315,6 +317,7 @@ public class LoanRepositoryWrapper {
     }
 
     public boolean isLoanInAllowedStatus(Long loanId, List<LoanStatus> allowedLoanStatuses) {
+        Objects.requireNonNull(allowedLoanStatuses, "allowedLoanStatuses cannot be null");
         return repository.isLoanInAllowedStatus(loanId, allowedLoanStatuses);
     }
 

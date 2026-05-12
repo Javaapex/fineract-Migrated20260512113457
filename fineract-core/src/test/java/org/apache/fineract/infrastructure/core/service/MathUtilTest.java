@@ -92,7 +92,7 @@ class MathUtilTest {
     @Test
     void bigDecimalAddReturnsCorrectSum() {
         BigDecimal result = MathUtil.add(new BigDecimal("10.5"), new BigDecimal("5.5"), new MathContext(10));
-        assertEquals(0, result.compareTo(new BigDecimal("16.0")));
+        assertEquals(0, result.compareTo(new BigDecimal("16
     }
 
     @Test

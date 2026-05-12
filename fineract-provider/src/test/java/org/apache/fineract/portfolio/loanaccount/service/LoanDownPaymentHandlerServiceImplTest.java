@@ -128,7 +128,7 @@ public class LoanDownPaymentHandlerServiceImplTest {
                 loanDownPaymentTransactionValidator, loanScheduleService, loanRefundService, loanRefundValidator,
                 reprocessLoanTransactionsService, loanTransactionProcessingService, loanLifecycleStateMachine, loanBalanceService,
                 loanTransactionService, loanJournalEntryPoster);
-        moneyHelper.when(MoneyHelper::getMathContext).thenReturn(new MathContext(12, RoundingMode.UP));
+        moneyHelper.when(MoneyHelper::getMathContext).thenReturn(new MathContext(12
         moneyHelper.when(MoneyHelper::getRoundingMode).thenReturn(RoundingMode.UP);
         tempConfigServiceMock.when(TemporaryConfigurationServiceContainer::isExternalIdAutoGenerationEnabled).thenReturn(true);
     }
@@ -158,7 +158,7 @@ public class LoanDownPaymentHandlerServiceImplTest {
 
         final Money downPaymentMoney = Mockito.mock(Money.class);
         final Money overPaymentPortionMoney = Mockito.mock(Money.class);
-        final Money calculatedMoney = Money.of(loanCurrency, BigDecimal.valueOf(500));
+        final Money calculatedMoney = Money.of(loanCurrency, BigDecimal.valueOf(500
 
         when(downPaymentMoney.getCurrencyCode()).thenReturn(loanCurrency.getCode());
         when(overPaymentPortionMoney.getCurrencyCode()).thenReturn(loanCurrency.getCode());

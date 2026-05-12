@@ -65,7 +65,7 @@ public class RepaymentWithPostDatedChecksApiResource {
     @Produces({ MediaType.APPLICATION_JSON })
     @Operation(summary = "Get All Post Dated Checks", description = "Get All Post dated Checks")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "OK", content = @Content(array = @ArraySchema(schema = @Schema(implementation = PostDatedChecksApiResourceSwagger.GetPostDatedChecks.class)))) })
+            @ApiResponse(responseCode = "200
     public String getPostDatedChecks(@PathParam("loanId") @Parameter(description = "loanId") final Long loanId) {
         this.context.authenticatedUser();
         final List<PostDatedChecksData> postDatedChecksDataList = this.repaymentWithPostDatedChecksReadPlatformService

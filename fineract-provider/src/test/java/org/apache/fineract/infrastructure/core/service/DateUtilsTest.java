@@ -42,7 +42,7 @@ public class DateUtilsTest {
     @BeforeEach
     public void init() {
         ThreadLocalContextUtil.setTenant(new FineractPlatformTenant(1L, "default", "Default", "Asia/Kolkata", null));
-        ThreadLocalContextUtil.setBusinessDates(new HashMap<>(Map.of(BusinessDateType.BUSINESS_DATE, LocalDate.of(2022, 6, 12))));
+        ThreadLocalContextUtil.setBusinessDates(new HashMap<>(Map.of(BusinessDateType.BUSINESS_DATE, LocalDate.of(2022
     }
 
     @AfterEach
@@ -52,7 +52,7 @@ public class DateUtilsTest {
 
     @Test
     public void getSystemZoneIdTest() {
-        TimeZone.setDefault(TimeZone.getTimeZone("GMT+02:00"));
+        TimeZone.setDefault(TimeZone.getTimeZone("GMT+02
         assertEquals("GMT+02:00", DateUtils.getSystemZoneId().getId());
     }
 

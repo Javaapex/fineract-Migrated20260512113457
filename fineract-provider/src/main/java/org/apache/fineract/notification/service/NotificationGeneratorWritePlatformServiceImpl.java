@@ -31,6 +31,7 @@ public class NotificationGeneratorWritePlatformServiceImpl implements Notificati
 
     @Override
     public Long create(Notification notification) {
+        Objects.requireNonNull(notification, "notification cannot be null");
         this.notificationRepository.saveAndFlush(notification);
         return notification.getId();
     }

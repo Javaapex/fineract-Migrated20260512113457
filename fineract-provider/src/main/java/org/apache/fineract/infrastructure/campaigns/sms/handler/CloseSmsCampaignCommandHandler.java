@@ -35,6 +35,7 @@ public class CloseSmsCampaignCommandHandler implements NewCommandSourceHandler {
 
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return this.smsCampaignWritePlatformService.closeSmsCampaign(command.entityId(), command);
     }
 }

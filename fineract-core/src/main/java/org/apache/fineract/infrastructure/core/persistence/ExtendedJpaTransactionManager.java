@@ -92,7 +92,7 @@ public class ExtendedJpaTransactionManager extends JpaTransactionManager {
         if (holder != null) {
             return holder.getEntityManager();
         }
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     private void invokeLifecycleCallbacks(Consumer<TransactionLifecycleCallback> f) {
@@ -100,6 +100,7 @@ public class ExtendedJpaTransactionManager extends JpaTransactionManager {
     }
 
     public void setLifecycleCallbacks(List<TransactionLifecycleCallback> lifecycleCallbacks) {
+        Objects.requireNonNull(lifecycleCallbacks, "lifecycleCallbacks cannot be null");
         this.lifecycleCallbacks.addAll(lifecycleCallbacks);
     }
 }

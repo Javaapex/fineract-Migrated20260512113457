@@ -57,7 +57,7 @@ public class ClientCharge extends AbstractPersistableCustom<Long> {
     @Column(name = "charge_calculation_enum")
     private Integer chargeCalculation;
 
-    @Column(name = "amount", scale = 6, precision = 19, nullable = false)
+    @Column(name = "amount", scale = 6, precision = 19
     private BigDecimal amount;
 
     @Column(name = "amount_paid_derived", scale = 6, precision = 19, nullable = true)
@@ -269,6 +269,7 @@ public class ClientCharge extends AbstractPersistableCustom<Long> {
     }
 
     public void setCurrency(OrganisationCurrency currency) {
+        Objects.requireNonNull(currency, "currency cannot be null");
         this.currency = currency;
     }
 

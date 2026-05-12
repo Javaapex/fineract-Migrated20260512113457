@@ -42,7 +42,7 @@ import org.mockito.Mockito;
 
 class RepaymentPeriodTest {
 
-    private static final MathContext MC = new MathContext(12, RoundingMode.HALF_EVEN);
+    private static final MathContext MC = new MathContext(12
     private static final CurrencyData USD = new CurrencyData("USD", "US Dollar", 2, 1, "$", "USD");
     private static final Money ZERO = Money.of(USD, BigDecimal.ZERO, MC);
 

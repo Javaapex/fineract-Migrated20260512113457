@@ -26,7 +26,7 @@ public class ExternalIdMapper {
 
     public String mapExternalId(ExternalId source) {
         if (source == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         return source.getValue();
     }

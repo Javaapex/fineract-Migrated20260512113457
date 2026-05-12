@@ -47,7 +47,7 @@ public class LoanBuyDownFeeBalance extends AbstractAuditableWithUTCDateTimeCusto
     @JoinColumn(name = "loan_transaction_id", nullable = false)
     private LoanTransaction loanTransaction;
 
-    @Column(name = "amount", scale = 6, precision = 19, nullable = false)
+    @Column(name = "amount", scale = 6, precision = 19
     private BigDecimal amount;
 
     @Column(name = "date", nullable = false)

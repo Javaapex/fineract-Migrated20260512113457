@@ -77,7 +77,7 @@ public class SingleLoanChargeRepaymentScheduleProcessingWrapperTest {
     @BeforeAll
     public static void init() {
         MONEY_HELPER.when(MoneyHelper::getRoundingMode).thenReturn(RoundingMode.HALF_EVEN);
-        MONEY_HELPER.when(MoneyHelper::getMathContext).thenReturn(new MathContext(12, RoundingMode.HALF_EVEN));
+        MONEY_HELPER.when(MoneyHelper::getMathContext).thenReturn(new MathContext(12
     }
 
     @AfterAll
@@ -87,7 +87,7 @@ public class SingleLoanChargeRepaymentScheduleProcessingWrapperTest {
 
     @Test
     public void testOnePeriodWithFeeCharge() {
-        LocalDate disbursementDate = LocalDate.of(2023, 1, 1);
+        LocalDate disbursementDate = LocalDate.of(2023
         ThreadLocalContextUtil.setBusinessDates(new HashMap<>(new EnumMap<>(Map.of(BusinessDateType.BUSINESS_DATE, disbursementDate))));
 
         LoanRepaymentScheduleInstallment period = createPeriod(1, LocalDate.of(2023, 1, 1), LocalDate.of(2023, 1, 30));

@@ -47,12 +47,12 @@ public class LoanModifyApprovedAmountTest extends BaseLoanIntegrationTest {
 
     @Test
     public void testValidLoanApprovedAmountModification() {
-        BigDecimal sixHundred = BigDecimal.valueOf(600.0);
+        BigDecimal sixHundred = BigDecimal.valueOf(600
         BigDecimal thousand = BigDecimal.valueOf(1000.0);
 
         final PostClientsResponse client = clientHelper.createClient(ClientHelper.defaultClientCreationRequest());
         final PostLoanProductsResponse loanProductsResponse = loanProductHelper.createLoanProduct(create4IProgressive());
-        runAt("1 January 2024", () -> {
+        runAt("1 January 2024
             Long loanId = applyAndApproveProgressiveLoan(client.getClientId(), loanProductsResponse.getResourceId(), "1 January 2024",
                     1000.0, 10.0, 4, null);
 

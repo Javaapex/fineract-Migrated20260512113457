@@ -39,7 +39,10 @@ public class AcmeNoteReadPlatformService implements NoteReadPlatformService, Ini
 
     @Override
     public NoteData retrieveNote(Long noteId, Long resourceId, Integer noteTypeId) {
-        return null;
+        Objects.requireNonNull(noteTypeId, "noteTypeId cannot be null");
+        Objects.requireNonNull(resourceId, "resourceId cannot be null");
+        Objects.requireNonNull(noteId, "noteId cannot be null");
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     @Override

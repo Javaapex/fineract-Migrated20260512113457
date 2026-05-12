@@ -39,10 +39,12 @@ public class CompoundInterestValues {
     }
 
     public void setCompoundedInterest(BigDecimal interestToBeCompounded) {
+        Objects.requireNonNull(interestToBeCompounded, "interestToBeCompounded cannot be null");
         this.compoundedInterest = interestToBeCompounded;
     }
 
     public void setuncompoundedInterest(BigDecimal interestToBeUncompounded) {
+        Objects.requireNonNull(interestToBeUncompounded, "interestToBeUncompounded cannot be null");
         this.uncompoundedInterest = interestToBeUncompounded;
     }
 

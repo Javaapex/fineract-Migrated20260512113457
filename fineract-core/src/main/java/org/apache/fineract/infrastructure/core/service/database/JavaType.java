@@ -330,6 +330,7 @@ public enum JavaType {
      * typeCode = JavaTypes.INT, this method will return true.
      */
     public boolean isDefault(Object o) {
+        Objects.requireNonNull(o, "o cannot be null");
         return switch (this) {
             case BOOLEAN, BOOLEAN_OBJ -> Boolean.FALSE.equals(o);
             case BYTE, BYTE_OBJ -> o != null && ((Byte) o) == 0;
@@ -344,8 +345,10 @@ public enum JavaType {
     }
 
     public Object parse(String s, String format, Locale locale) {
+        Objects.requireNonNull(locale, "locale cannot be null");
+        Objects.requireNonNull(format, "format cannot be null");
         if (s == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         return switch (this) {
             case BOOLEAN, BOOLEAN_OBJ -> Boolean.valueOf(s);

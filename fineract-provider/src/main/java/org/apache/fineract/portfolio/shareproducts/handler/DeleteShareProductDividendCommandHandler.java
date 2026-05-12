@@ -41,6 +41,7 @@ public class DeleteShareProductDividendCommandHandler implements NewCommandSourc
     @Transactional
     @Override
     public CommandProcessingResult processCommand(JsonCommand jsonCommand) {
+        Objects.requireNonNull(jsonCommand, "jsonCommand cannot be null");
         return this.shareProductWritePlatformService.deleteShareProductDividend(jsonCommand.entityId());
     }
 

@@ -38,14 +38,14 @@ public class LoanRepaymentScheduleForChargesAfterMaturityTest extends BaseLoanIn
 
     @Test
     public void loanNPlusOneInstallmentIsRetainedAfterLoanRescheduleTest() {
-        runAt("03 March 2023", () -> {
+        runAt("03
             // Create Client
             Long clientId = clientHelper.createClient(ClientHelper.defaultClientCreationRequest()).getClientId();
             // Create Loan Product
             Long loanProductId = createLoanProductWithMultiDisbursalAndRepayments();
 
             // Apply and Approve Loan
-            Long loanId = applyAndApproveLoan(clientId, loanProductId, "01 March 2023", 1500.0, 4, req -> {
+            Long loanId = applyAndApproveLoan(clientId, loanProductId, "01
                 req.setRepaymentEvery(15);
                 req.setLoanTermFrequency(60);
             });

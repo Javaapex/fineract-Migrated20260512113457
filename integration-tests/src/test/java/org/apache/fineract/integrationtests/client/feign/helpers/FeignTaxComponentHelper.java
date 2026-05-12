@@ -36,10 +36,12 @@ public class FeignTaxComponentHelper {
     }
 
     public PostTaxesComponentsResponse createTaxComponent(PostTaxesComponentsRequest request) {
+        Objects.requireNonNull(request, "request cannot be null");
         return ok(() -> fineractClient.taxComponents().createTaxComponent(request));
     }
 
     public GetTaxesComponentsResponse retrieveTaxComponent(Long taxComponentId) {
+        Objects.requireNonNull(taxComponentId, "taxComponentId cannot be null");
         return ok(() -> fineractClient.taxComponents().retrieveOneTaxComponent(taxComponentId));
     }
 

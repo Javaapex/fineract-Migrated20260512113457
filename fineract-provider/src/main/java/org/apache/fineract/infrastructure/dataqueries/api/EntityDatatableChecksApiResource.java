@@ -65,8 +65,8 @@ public class EntityDatatableChecksApiResource {
     @Produces({ MediaType.APPLICATION_JSON })
     @Operation(summary = "List Entity-Datatable Checks", description = "The list capability of Entity-Datatable Checks can support pagination.\n"
             + "\n" + "OPTIONAL ARGUMENTS\n"
-            + "offset Integer optional, defaults to 0 Indicates the result from which pagination startslimit Integer optional, defaults to 200 Restricts the size of results returned. To override the default and return all entries you must explicitly pass a non-positive integer value for limit e.g. limit=0, or limit=-1\n"
-            + "Example Request:\n" + "\n" + "entityDatatableChecks?offset=0&limit=15")
+            + "offset Integer optional, defaults to 0 Indicates the result from which pagination startslimit Integer optional, defaults to 200
+            + "Example Request:\n" + "\n" + "entityDatatableChecks?offset=0&limit=15
     @ApiResponse(responseCode = "200", description = "OK", content = @Content(array = @ArraySchema(schema = @Schema(implementation = EntityDatatableChecksApiResourceSwagger.GetEntityDatatableChecksResponse.class))))
     public String retrieveAll(@Context final UriInfo uriInfo, @QueryParam("status") @Parameter(description = "status") final Integer status,
             @QueryParam("entity") @Parameter(description = "entity") final String entity,
@@ -87,6 +87,7 @@ public class EntityDatatableChecksApiResource {
             + "\n" + "Allowed description Lists\n" + "Example Request:\n" + "\n" + "entityDatatableChecks/template")
     @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = EntityDatatableChecksApiResourceSwagger.GetEntityDatatableChecksTemplateResponse.class)))
     public String getTemplate(@Context final UriInfo uriInfo) {
+        Objects.requireNonNull(uriInfo, "uriInfo cannot be null");
 
         final EntityDataTableChecksTemplateData result = this.readEntityDatatableChecksService.retrieveTemplate();
 

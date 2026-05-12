@@ -42,6 +42,8 @@ final class AuditCommandHookAfter implements CommandHookAfter<Object, Object> {
 
     @Override
     public void onAfter(Command<Object> command, Object response) {
+        Objects.requireNonNull(response, "response cannot be null");
+        Objects.requireNonNull(command, "command cannot be null");
         final var now = Instant.now();
 
         command.setExecutedByUsername(command.getInitiatedByUsername());

@@ -28,7 +28,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Bowpi GT Created by Jose on 19/07/2017.
+ * Bowpi GT Created by Jose on 19
  */
 @Service
 @CommandType(entity = "RATE", action = "UPDATE")

@@ -110,7 +110,7 @@ public class InterestRateChartSlabsApiResource {
 
             - interestratecharts/1/chartslabs
             """)
-    @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = InterestRateChartSlabsCreateResponse.class)))
+    @ApiResponse(responseCode = "200
     public InterestRateChartSlabsCreateResponse create(@PathParam("chartId") final Long chartId,
             final InterestRateChartSlabsCreateRequest request) {
         request.setChartId(chartId);

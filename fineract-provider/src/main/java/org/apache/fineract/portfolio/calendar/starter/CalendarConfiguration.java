@@ -51,6 +51,8 @@ public class CalendarConfiguration {
     @ConditionalOnMissingBean(CalendarReadPlatformService.class)
     public CalendarReadPlatformService calendarReadPlatformService(JdbcTemplate jdbcTemplate,
             ConfigurationDomainService configurationDomainService) {
+        Objects.requireNonNull(configurationDomainService, "configurationDomainService cannot be null");
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
         return new CalendarReadPlatformServiceImpl(jdbcTemplate, configurationDomainService);
     }
 
@@ -61,6 +63,14 @@ public class CalendarConfiguration {
             CalendarInstanceRepository calendarInstanceRepository, LoanWritePlatformService loanWritePlatformService,
             ConfigurationDomainService configurationDomainService, GroupRepositoryWrapper groupRepository,
             LoanRepositoryWrapper loanRepositoryWrapper, ClientRepositoryWrapper clientRepository) {
+        Objects.requireNonNull(clientRepository, "clientRepository cannot be null");
+        Objects.requireNonNull(loanRepositoryWrapper, "loanRepositoryWrapper cannot be null");
+        Objects.requireNonNull(groupRepository, "groupRepository cannot be null");
+        Objects.requireNonNull(loanWritePlatformService, "loanWritePlatformService cannot be null");
+        Objects.requireNonNull(calendarInstanceRepository, "calendarInstanceRepository cannot be null");
+        Objects.requireNonNull(fromApiJsonDeserializer, "fromApiJsonDeserializer cannot be null");
+        Objects.requireNonNull(calendarHistoryRepository, "calendarHistoryRepository cannot be null");
+        Objects.requireNonNull(calendarRepository, "calendarRepository cannot be null");
         return new CalendarWritePlatformServiceJpaRepositoryImpl(calendarRepository, calendarHistoryRepository, fromApiJsonDeserializer,
                 calendarInstanceRepository, loanWritePlatformService, configurationDomainService, groupRepository, loanRepositoryWrapper,
                 clientRepository);

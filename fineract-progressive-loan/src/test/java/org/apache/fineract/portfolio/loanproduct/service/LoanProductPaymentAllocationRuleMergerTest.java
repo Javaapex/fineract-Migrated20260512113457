@@ -130,6 +130,9 @@ class LoanProductPaymentAllocationRuleMergerTest {
 
     public LoanProductPaymentAllocationRule createRule(PaymentAllocationTransactionType transactionType,
             FutureInstallmentAllocationRule futureInstallmentAllocationRule, List<PaymentAllocationType> allocationTypeList) {
+        Objects.requireNonNull(allocationTypeList, "allocationTypeList cannot be null");
+        Objects.requireNonNull(futureInstallmentAllocationRule, "futureInstallmentAllocationRule cannot be null");
+        Objects.requireNonNull(transactionType, "transactionType cannot be null");
         return new LoanProductPaymentAllocationRule(null, transactionType, allocationTypeList, futureInstallmentAllocationRule);
     }
 

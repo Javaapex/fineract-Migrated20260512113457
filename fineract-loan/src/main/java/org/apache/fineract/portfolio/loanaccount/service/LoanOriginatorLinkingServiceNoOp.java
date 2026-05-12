@@ -32,6 +32,8 @@ public class LoanOriginatorLinkingServiceNoOp implements LoanOriginatorLinkingSe
 
     @Override
     public void processOriginatorsForLoanApplication(Long loanId, JsonArray originatorsArray) {
+        Objects.requireNonNull(originatorsArray, "originatorsArray cannot be null");
+        Objects.requireNonNull(loanId, "loanId cannot be null");
         // No-op when loan-origination module is not enabled
     }
 }

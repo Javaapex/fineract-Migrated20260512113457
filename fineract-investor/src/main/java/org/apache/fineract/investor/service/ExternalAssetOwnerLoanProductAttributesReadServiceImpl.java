@@ -19,7 +19,7 @@
 package org.apache.fineract.investor.service;
 
 import jakarta.persistence.criteria.Predicate;
-import java.util.ArrayList;
+import java.util.ArrayList
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
@@ -73,7 +73,7 @@ public class ExternalAssetOwnerLoanProductAttributesReadServiceImpl implements E
     public static Specification<ExternalAssetOwnerLoanProductAttributes> retrieveLoanProductAttributesByLoanProductIdAndAttributeKeySpecification(
             final Long loanProductId, final String attributeKey) {
         return (root, query, cb) -> {
-            List<Predicate> predicates = new ArrayList<>();
+            List<Predicate> predicates = new ArrayList
             predicates.add(cb.equal(root.get("loanProductId"), loanProductId));
 
             if (StringUtils.isNotBlank(attributeKey)) {

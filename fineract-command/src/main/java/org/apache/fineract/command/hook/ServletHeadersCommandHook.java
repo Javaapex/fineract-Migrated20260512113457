@@ -44,6 +44,7 @@ final class ServletHeadersCommandHook implements CommandHookBefore<Object> {
 
     @Override
     public void onBefore(Command<Object> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         if (StringUtils.isEmpty(command.getIpAddress())) {
             command.setIpAddress(getHeader(COMMAND_HTTP_HEADER_IP, false));
         }
@@ -65,6 +66,6 @@ final class ServletHeadersCommandHook implements CommandHookBefore<Object> {
             return value;
         }
 
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 }

@@ -47,21 +47,25 @@ public class OutstandingAmountsDTO {
     }
 
     public OutstandingAmountsDTO plusPrincipal(Money principal) {
+        Objects.requireNonNull(principal, "principal cannot be null");
         this.principal = this.principal.plus(principal);
         return this;
     }
 
     public OutstandingAmountsDTO plusInterest(Money interest) {
+        Objects.requireNonNull(interest, "interest cannot be null");
         this.interest = this.interest.plus(interest);
         return this;
     }
 
     public OutstandingAmountsDTO plusFeeCharges(Money feeCharges) {
+        Objects.requireNonNull(feeCharges, "feeCharges cannot be null");
         this.feeCharges = this.feeCharges.plus(feeCharges);
         return this;
     }
 
     public OutstandingAmountsDTO plusPenaltyCharges(Money penaltyCharges) {
+        Objects.requireNonNull(penaltyCharges, "penaltyCharges cannot be null");
         this.penaltyCharges = this.penaltyCharges.plus(penaltyCharges);
         return this;
     }

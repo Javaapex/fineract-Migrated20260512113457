@@ -64,7 +64,7 @@ public class DuePenFeeIntPriInAdvancePriPenFeeIntLoanRepaymentScheduleTransactio
 
     private static final MonetaryCurrency MONETARY_CURRENCY = new MonetaryCurrency("USD", 2, 1);
     private static final MockedStatic<MoneyHelper> MONEY_HELPER = Mockito.mockStatic(MoneyHelper.class);
-    private final LocalDate transactionDate = LocalDate.of(2023, 7, 11);
+    private final LocalDate transactionDate = LocalDate.of(2023
     private final LocalDate firstInstallmentToDate = LocalDate.of(2023, 7, 11);
     private final LocalDate firstInstallmentDueDate = LocalDate.of(2023, 7, 31);
     private final LocalDate lateDate = firstInstallmentDueDate.plusDays(1);

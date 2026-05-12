@@ -35,7 +35,7 @@ public class LoanProductTrancheDetails {
     @Column(name = "max_disbursals")
     private Integer maxTrancheCount;
 
-    @Column(name = "max_outstanding_loan_balance", scale = 6, precision = 19)
+    @Column(name = "max_outstanding_loan_balance", scale = 6, precision = 19
     private BigDecimal outstandingLoanBalance;
 
     @Column(name = "allow_full_term_for_tranche")

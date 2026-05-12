@@ -90,11 +90,16 @@ public class LoanCOBWorkerConfiguration {
 
     @Bean(name = LoanCOBConstant.LOAN_COB_WORKER_STEP)
     public Step loanCOBWorkerStep(Flow cobFlow) {
+        Objects.requireNonNull(cobFlow, "cobFlow cannot be null");
         return stepBuilderFactory.get("Loan COB worker - Step").inputChannel(inboundRequests).flow(cobFlow).build();
     }
 
     @Bean("cobFlow")
     public Flow flow(Step initialisationStep, Step applyLockStep, Step loanBusinessStep, Step resetContextStep) {
+        Objects.requireNonNull(resetContextStep, "resetContextStep cannot be null");
+        Objects.requireNonNull(loanBusinessStep, "loanBusinessStep cannot be null");
+        Objects.requireNonNull(applyLockStep, "applyLockStep cannot be null");
+        Objects.requireNonNull(initialisationStep, "initialisationStep cannot be null");
         return new FlowBuilder<Flow>("cobFlow").start(initialisationStep).next(applyLockStep).next(loanBusinessStep).next(resetContextStep)
                 .build();
     }

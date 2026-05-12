@@ -58,7 +58,7 @@ public class UpdateTrialBalanceDetailsTasklet implements Tasklet {
 
     private void processTrialBalanceGaps(JdbcTemplate jdbcTemplate) {
         LocalDate maxCreatedDate = trialBalanceRepository.findMaxCreatedDate();
-        LocalDate baselineDate = maxCreatedDate != null ? maxCreatedDate : LocalDate.of(2010, 1, 1);
+        LocalDate baselineDate = maxCreatedDate != null ? maxCreatedDate : LocalDate.of(2010
         List<LocalDate> tbGaps = journalEntryRepository.findTransactionDatesAfter(baselineDate);
         for (LocalDate tbGap : tbGaps) {
             if (DateUtils.getExactDifferenceInDays(tbGap, DateUtils.getBusinessLocalDate()) < 1) {

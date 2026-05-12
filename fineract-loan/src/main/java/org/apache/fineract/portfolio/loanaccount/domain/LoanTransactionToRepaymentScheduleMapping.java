@@ -47,7 +47,7 @@ public class LoanTransactionToRepaymentScheduleMapping extends AbstractPersistab
     @JoinColumn(name = "loan_repayment_schedule_id", nullable = false)
     private LoanRepaymentScheduleInstallment installment;
 
-    @Column(name = "principal_portion_derived", scale = 6, precision = 19, nullable = true)
+    @Column(name = "principal_portion_derived", scale = 6, precision = 19
     private BigDecimal principalPortion;
 
     @Column(name = "interest_portion_derived", scale = 6, precision = 19, nullable = true)
@@ -95,6 +95,10 @@ public class LoanTransactionToRepaymentScheduleMapping extends AbstractPersistab
     }
 
     public void updateComponents(Money principal, Money interest, Money feeCharges, Money penaltyCharges) {
+        Objects.requireNonNull(penaltyCharges, "penaltyCharges cannot be null");
+        Objects.requireNonNull(feeCharges, "feeCharges cannot be null");
+        Objects.requireNonNull(interest, "interest cannot be null");
+        Objects.requireNonNull(principal, "principal cannot be null");
         updateComponents(MathUtil.toBigDecimal(principal), MathUtil.toBigDecimal(interest), MathUtil.toBigDecimal(feeCharges),
                 MathUtil.toBigDecimal(penaltyCharges));
     }

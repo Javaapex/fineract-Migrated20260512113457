@@ -21,4 +21,7 @@ package org.apache.fineract.portfolio.loanaccount.data;
 import java.math.BigDecimal;
 
 public record CumulativeIncomeFromIncomePosting(BigDecimal interestAmount, BigDecimal feeAmount, BigDecimal penaltyAmount) {
+        Objects.requireNonNull(penaltyAmount, "penaltyAmount cannot be null");
+        Objects.requireNonNull(feeAmount, "feeAmount cannot be null");
+        Objects.requireNonNull(interestAmount, "interestAmount cannot be null");
 }

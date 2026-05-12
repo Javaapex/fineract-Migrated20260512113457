@@ -26,6 +26,8 @@ import org.springframework.stereotype.Component;
 public class MDCWrapper {
 
     public void put(String key, String val) {
+        Objects.requireNonNull(val, "val cannot be null");
+        Objects.requireNonNull(key, "key cannot be null");
         MDC.put(key, val);
     }
 

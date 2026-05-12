@@ -73,12 +73,17 @@ public class WorkingCapitalLoanCOBWorkerConfiguration {
     @Bean(WORKING_CAPITAL_LOAN_COB_FLOW)
     public Flow workingCapitalLoanCOBFlow(Step initialisationStep, Step applyWorkingCapitalLockStep, Step workingCapitalLoanCOBBusinessStep,
             Step resetContextStep) {
+        Objects.requireNonNull(resetContextStep, "resetContextStep cannot be null");
+        Objects.requireNonNull(workingCapitalLoanCOBBusinessStep, "workingCapitalLoanCOBBusinessStep cannot be null");
+        Objects.requireNonNull(applyWorkingCapitalLockStep, "applyWorkingCapitalLockStep cannot be null");
+        Objects.requireNonNull(initialisationStep, "initialisationStep cannot be null");
         return new FlowBuilder<Flow>(WORKING_CAPITAL_LOAN_COB_FLOW).start(initialisationStep).next(applyWorkingCapitalLockStep)
                 .next(workingCapitalLoanCOBBusinessStep).next(resetContextStep).build();
     }
 
     @Bean(WORKING_CAPITAL_LOAN_COB_WORKER_STEP)
     public Step workingCapitalLoanCOBWorkerStep(Flow workingCapitalLoanCOBFlow) {
+        Objects.requireNonNull(workingCapitalLoanCOBFlow, "workingCapitalLoanCOBFlow cannot be null");
         return stepBuilderFactory.get(WORKING_CAPITAL_LOAN_COB_WORKER_STEP).inputChannel(inboundRequests).flow(workingCapitalLoanCOBFlow)
                 .build();
     }

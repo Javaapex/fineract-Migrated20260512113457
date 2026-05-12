@@ -49,6 +49,7 @@ public class OrganisationProvisioningConfiguration {
     @Bean
     @ConditionalOnMissingBean(ProvisioningCategoryReadPlatformService.class)
     public ProvisioningCategoryReadPlatformService provisioningCategoryReadPlatformService(JdbcTemplate jdbcTemplate) {
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
         return new ProvisioningCategoryReadPlatformServiceImpl(jdbcTemplate);
     }
 
@@ -57,6 +58,8 @@ public class OrganisationProvisioningConfiguration {
     public ProvisioningCategoryWritePlatformService provisioningCategoryWritePlatformService(
             ProvisioningCategoryRepository provisioningCategoryRepository,
             ProvisioningCategoryDefinitionJsonDeserializer fromApiJsonDeserializer, JdbcTemplate jdbcTemplate) {
+        Objects.requireNonNull(fromApiJsonDeserializer, "fromApiJsonDeserializer cannot be null");
+        Objects.requireNonNull(provisioningCategoryRepository, "provisioningCategoryRepository cannot be null");
         return new ProvisioningCategoryWritePlatformServiceJpaRepositoryImpl(provisioningCategoryRepository, fromApiJsonDeserializer,
                 jdbcTemplate);
     }
@@ -66,6 +69,10 @@ public class OrganisationProvisioningConfiguration {
     public ProvisioningCriteriaAssembler provisioningCriteriaAssembler(FromJsonHelper fromApiJsonHelper,
             ProvisioningCategoryRepository provisioningCategoryRepository, LoanProductRepository loanProductRepository,
             GLAccountRepository glAccountRepository, PlatformSecurityContext platformSecurityContext) {
+        Objects.requireNonNull(platformSecurityContext, "platformSecurityContext cannot be null");
+        Objects.requireNonNull(glAccountRepository, "glAccountRepository cannot be null");
+        Objects.requireNonNull(loanProductRepository, "loanProductRepository cannot be null");
+        Objects.requireNonNull(fromApiJsonHelper, "fromApiJsonHelper cannot be null");
         return new ProvisioningCriteriaAssembler(fromApiJsonHelper, provisioningCategoryRepository, loanProductRepository,
                 glAccountRepository, platformSecurityContext);
     }
@@ -76,6 +83,10 @@ public class OrganisationProvisioningConfiguration {
             ProvisioningCategoryReadPlatformService provisioningCategoryReadPlatformService,
             LoanProductReadPlatformService loanProductReadPlatformService, GLAccountReadPlatformService glAccountReadPlatformService,
             LoanProductReadPlatformService loanProductReaPlatformService) {
+        Objects.requireNonNull(loanProductReaPlatformService, "loanProductReaPlatformService cannot be null");
+        Objects.requireNonNull(glAccountReadPlatformService, "glAccountReadPlatformService cannot be null");
+        Objects.requireNonNull(loanProductReadPlatformService, "loanProductReadPlatformService cannot be null");
+        Objects.requireNonNull(provisioningCategoryReadPlatformService, "provisioningCategoryReadPlatformService cannot be null");
         return new ProvisioningCriteriaReadPlatformServiceImpl(jdbcTemplate, provisioningCategoryReadPlatformService,
                 loanProductReadPlatformService, glAccountReadPlatformService, loanProductReaPlatformService);
     }
@@ -87,6 +98,9 @@ public class OrganisationProvisioningConfiguration {
             ProvisioningCriteriaAssembler provisioningCriteriaAssembler, ProvisioningCriteriaRepository provisioningCriteriaRepository,
             FromJsonHelper fromApiJsonHelper, GLAccountRepository glAccountRepository,
             ProvisioningEntriesReadPlatformService provisioningEntriesReadPlatformService) {
+        Objects.requireNonNull(provisioningEntriesReadPlatformService, "provisioningEntriesReadPlatformService cannot be null");
+        Objects.requireNonNull(provisioningCriteriaRepository, "provisioningCriteriaRepository cannot be null");
+        Objects.requireNonNull(provisioningCriteriaAssembler, "provisioningCriteriaAssembler cannot be null");
         return new ProvisioningCriteriaWritePlatformServiceJpaRepositoryImpl(fromApiJsonDeserializer, provisioningCriteriaAssembler,
                 provisioningCriteriaRepository, fromApiJsonHelper, glAccountRepository, provisioningEntriesReadPlatformService);
     }

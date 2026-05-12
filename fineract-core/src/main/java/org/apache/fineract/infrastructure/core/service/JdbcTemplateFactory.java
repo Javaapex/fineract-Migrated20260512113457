@@ -32,6 +32,7 @@ public class JdbcTemplateFactory {
     private final RoutingDataSource routingDataSource;
 
     public JdbcTemplate create(FineractPlatformTenant tenant) {
+        Objects.requireNonNull(tenant, "tenant cannot be null");
         return new JdbcTemplate(routingDataSource);
     }
 

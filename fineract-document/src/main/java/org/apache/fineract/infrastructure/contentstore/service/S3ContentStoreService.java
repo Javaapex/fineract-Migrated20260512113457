@@ -59,6 +59,7 @@ public class S3ContentStoreService implements ContentStoreService {
 
     @Override
     public InputStream download(String path) {
+        Objects.requireNonNull(path, "path cannot be null");
         downloadContentPolicy.check(ContentPolicyContext.builder().path(path).build());
 
         final var safePath = pathSanitizer.sanitize(path);
@@ -75,6 +76,8 @@ public class S3ContentStoreService implements ContentStoreService {
 
     @Override
     public String upload(String path, InputStream is, String mimeType) {
+        Objects.requireNonNull(mimeType, "mimeType cannot be null");
+        Objects.requireNonNull(is, "is cannot be null");
         requireNonNull(path, "Path missing");
         requireNonNull(is, "Data missing");
 
@@ -92,7 +95,7 @@ public class S3ContentStoreService implements ContentStoreService {
         }
 
         try {
-            // TODO: verify if this is working; maybe there is a better way (e.g. temporary storage on file system)
+
             postUploadContentPolicy
                     .check(ContentPolicyContext.builder().path(path).inputStream(download(safePath)).mimeType(mimeType).build());
         } catch (ContentPolicyException e) {

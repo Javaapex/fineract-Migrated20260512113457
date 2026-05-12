@@ -159,7 +159,7 @@ public class GlobalConfigurationApiResource {
     public String updateConfigurationByName(@PathParam("configName") @Parameter(description = "configName") final String configName,
             @Parameter(hidden = true) final String apiRequestBodyAsJson) {
 
-        // TODO: Would be better to support string based identifier in Commands and resolve the entity by name in the
+
         // service
         final GlobalConfigurationPropertyData configurationData = this.readPlatformService.retrieveGlobalConfiguration(configName);
 

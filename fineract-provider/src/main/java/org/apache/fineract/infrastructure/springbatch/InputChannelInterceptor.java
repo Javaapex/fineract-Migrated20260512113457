@@ -45,6 +45,9 @@ public class InputChannelInterceptor implements ExecutorChannelInterceptor {
     @Override
     public void afterMessageHandled(@NonNull final Message<?> message, @NonNull final MessageChannel channel,
             @NonNull final MessageHandler handler, final Exception ex) {
+        Objects.requireNonNull(handler, "handler cannot be null");
+        Objects.requireNonNull(channel, "channel cannot be null");
+        Objects.requireNonNull(message, "message cannot be null");
         afterHandleMessage();
     }
 
@@ -53,6 +56,7 @@ public class InputChannelInterceptor implements ExecutorChannelInterceptor {
     }
 
     public StepExecutionRequest beforeHandleMessage(ContextualMessage contextualMessage) {
+        Objects.requireNonNull(contextualMessage, "contextualMessage cannot be null");
         log.debug("Initializing ThreadLocal context for message handling: {}", contextualMessage);
         ThreadLocalContextUtil.init(contextualMessage.getContext());
         ThreadLocalContextUtil.setActionContext(ActionContext.COB);

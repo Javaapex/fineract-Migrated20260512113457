@@ -66,6 +66,7 @@ public class FileContentStoreService implements ContentStoreService {
 
     @Override
     public InputStream download(String path) {
+        Objects.requireNonNull(path, "path cannot be null");
         downloadContentPolicy.check(ContentPolicyContext.builder().path(path).build());
 
         final var safePath = pathSanitizer.sanitize(path);
@@ -81,6 +82,8 @@ public class FileContentStoreService implements ContentStoreService {
 
     @Override
     public String upload(String path, InputStream is, String mimeType) {
+        Objects.requireNonNull(mimeType, "mimeType cannot be null");
+        Objects.requireNonNull(is, "is cannot be null");
         requireNonNull(path, "Path missing");
         requireNonNull(is, "Data missing");
 

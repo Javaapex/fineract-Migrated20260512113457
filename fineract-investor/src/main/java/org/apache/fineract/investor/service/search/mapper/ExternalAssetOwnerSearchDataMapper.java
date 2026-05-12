@@ -70,7 +70,7 @@ public interface ExternalAssetOwnerSearchDataMapper {
     @Named("toDetails")
     default ExternalTransferDataDetails toDetails(SearchedExternalAssetOwner source) {
         if (source.getDetailsId() == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         return new ExternalTransferDataDetails(source.getDetailsId(), source.getTotalOutstanding(), source.getPrincipalOutstanding(),
                 source.getInterestOutstanding(), source.getFeeOutstanding(), source.getPenaltyOutstanding(), source.getTotalOverpaid());

@@ -50,6 +50,7 @@ public class PrincipalInterest {
     }
 
     public void setRescheduleInterestPortion(Money rescheduleInterestPortion) {
+        Objects.requireNonNull(rescheduleInterestPortion, "rescheduleInterestPortion cannot be null");
         this.rescheduleInterestPortion = rescheduleInterestPortion;
     }
 }

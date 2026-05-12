@@ -34,7 +34,7 @@ final class LoanCOBCatchUpApiResourceSwagger {
         private GetOldestCOBProcessedLoanResponse() {}
 
         public List<Long> loanIds;
-        @Schema(example = "[2022, 9, 18]")
+        @Schema(example = "[2022
         public LocalDate cobProcessedDate;
         @Schema(example = "[2022, 9, 22]")
         public LocalDate cobBusinessDate;

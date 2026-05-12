@@ -65,7 +65,7 @@ public class LoanCalculateRepaymentPastDueServiceTest {
         ThreadLocalContextUtil
                 .setBusinessDates(new HashMap<>(Map.of(BusinessDateType.BUSINESS_DATE, LocalDate.now(ZoneId.systemDefault()))));
         underTest = new LoanCalculateRepaymentPastDueService();
-        moneyHelper.when(MoneyHelper::getMathContext).thenReturn(new MathContext(12, RoundingMode.UP));
+        moneyHelper.when(MoneyHelper::getMathContext).thenReturn(new MathContext(12
         moneyHelper.when(MoneyHelper::getRoundingMode).thenReturn(RoundingMode.UP);
     }
 

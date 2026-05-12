@@ -34,6 +34,7 @@ public class DummyErrorCommandHandler implements CommandHandler<DummyErrorReques
 
     @Override
     public DummyErrorResponse handle(Command<DummyErrorRequest> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         throw new DummyException("Simulating a business logic error: " + command.getPayload().getContent());
     }
 }

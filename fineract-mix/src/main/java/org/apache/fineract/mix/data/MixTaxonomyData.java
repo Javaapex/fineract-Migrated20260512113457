@@ -49,7 +49,7 @@ public class MixTaxonomyData implements Serializable {
     private Integer type;
     private String description;
 
-    // TODO: why is this different from the PORTFOLIO constant? This doesn't seem right!
+
     @JsonIgnore
     public boolean isPortfolio() {
         return this.type == 5;

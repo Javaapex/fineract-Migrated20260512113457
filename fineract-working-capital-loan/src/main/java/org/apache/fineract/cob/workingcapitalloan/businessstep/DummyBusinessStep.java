@@ -30,6 +30,7 @@ public class DummyBusinessStep extends WorkingCapitalLoanCOBBusinessStep {
 
     @Override
     public WorkingCapitalLoan execute(WorkingCapitalLoan input) {
+        Objects.requireNonNull(input, "input cannot be null");
         log.info("Executing DummyBusinessStep... WorkingCapitalLoan ID = {}", input.getId());
         return input;
     }

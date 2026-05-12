@@ -34,6 +34,7 @@ public class CancelTransactionFromExternalAssetOwnerHandler implements NewComman
 
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return externalAssetOwnersWriteService.cancelTransactionById(command);
     }
 }

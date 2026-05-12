@@ -50,13 +50,14 @@ public class PaymentTypeReadServiceImpl implements PaymentTypeReadService {
 
     @Override
     public PaymentTypeData retrieveOne(Long paymentTypeId) {
+        Objects.requireNonNull(paymentTypeId, "paymentTypeId cannot be null");
         final var paymentType = repository.findById(paymentTypeId).orElseThrow(() -> new PaymentTypeNotFoundException(paymentTypeId));
 
         return paymentTypeMapper.map(paymentType);
     }
 
     /*
-     * // TODO: do proper jakarta validation to fineract api error mapping private void
+     *
      * throwExceptionIfValidationWarningsExist(final List<ApiParameterError> dataValidationErrors) { if
      * (!dataValidationErrors.isEmpty()) { // throw new PlatformApiDataValidationException(dataValidationErrors); } }
      */

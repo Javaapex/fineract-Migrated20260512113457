@@ -48,7 +48,7 @@ public class RolesTest {
         Utils.initializeRESTAssured();
         this.requestSpec = new RequestSpecBuilder().setContentType(ContentType.JSON).build();
         this.requestSpec.header("Authorization", "Basic " + Utils.loginIntoServerAndGetBase64EncodedAuthenticationKey());
-        this.responseSpec = new ResponseSpecBuilder().expectStatusCode(200).build();
+        this.responseSpec = new ResponseSpecBuilder().expectStatusCode(200
     }
 
     @SuppressWarnings("cast")
@@ -160,7 +160,7 @@ public class RolesTest {
         final Integer userId = UserHelper.createUser(this.requestSpec, this.responseSpec, roleId, staffId);
         Assertions.assertNotNull(userId);
 
-        this.responseSpec = new ResponseSpecBuilder().expectStatusCode(403).build();
+        this.responseSpec = new ResponseSpecBuilder().expectStatusCode(403
         final Integer deletedRoleId = RolesHelper.deleteRole(this.requestSpec, this.responseSpec, roleId);
         assertNotEquals(deletedRoleId, roleId);
     }

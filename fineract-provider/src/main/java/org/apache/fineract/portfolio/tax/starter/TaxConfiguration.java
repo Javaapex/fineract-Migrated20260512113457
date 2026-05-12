@@ -44,6 +44,9 @@ public class TaxConfiguration {
     @ConditionalOnMissingBean(TaxAssembler.class)
     public TaxAssembler taxAssembler(FromJsonHelper fromApiJsonHelper, GLAccountRepositoryWrapper glAccountRepositoryWrapper,
             TaxComponentRepositoryWrapper taxComponentRepositoryWrapper) {
+        Objects.requireNonNull(taxComponentRepositoryWrapper, "taxComponentRepositoryWrapper cannot be null");
+        Objects.requireNonNull(glAccountRepositoryWrapper, "glAccountRepositoryWrapper cannot be null");
+        Objects.requireNonNull(fromApiJsonHelper, "fromApiJsonHelper cannot be null");
         return new TaxAssembler(fromApiJsonHelper, glAccountRepositoryWrapper, taxComponentRepositoryWrapper);
     }
 
@@ -53,6 +56,7 @@ public class TaxConfiguration {
             final TaxComponentRepositoryWrapper taxComponentRepositoryWrapper, final TaxComponentMapper taxComponentMapper,
             final TaxGroupRepository taxGroupRepository, final TaxGroupRepositoryWrapper taxGroupRepositoryWrapper,
             final TaxGroupMapper taxGroupMapper, AccountingDropdownReadPlatformService accountingDropdownReadPlatformService) {
+        Objects.requireNonNull(accountingDropdownReadPlatformService, "accountingDropdownReadPlatformService cannot be null");
         return new TaxReadPlatformServiceImpl(accountingDropdownReadPlatformService, taxComponentRepository, taxComponentRepositoryWrapper,
                 taxComponentMapper, taxGroupRepository, taxGroupRepositoryWrapper, taxGroupMapper);
     }
@@ -62,6 +66,10 @@ public class TaxConfiguration {
     public TaxWritePlatformService taxWritePlatformService(TaxValidator validator, TaxAssembler taxAssembler,
             TaxComponentRepository taxComponentRepository, TaxGroupRepository taxGroupRepository,
             TaxComponentRepositoryWrapper taxComponentRepositoryWrapper, TaxGroupRepositoryWrapper taxGroupRepositoryWrapper) {
+        Objects.requireNonNull(taxGroupRepositoryWrapper, "taxGroupRepositoryWrapper cannot be null");
+        Objects.requireNonNull(taxGroupRepository, "taxGroupRepository cannot be null");
+        Objects.requireNonNull(taxAssembler, "taxAssembler cannot be null");
+        Objects.requireNonNull(validator, "validator cannot be null");
         return new TaxWritePlatformServiceImpl(validator, taxAssembler, taxComponentRepository, taxComponentRepositoryWrapper,
                 taxGroupRepository, taxGroupRepositoryWrapper);
     }

@@ -58,6 +58,7 @@ public class LoanProductConfiguration {
     @ConditionalOnMissingBean(LoanDropdownReadPlatformService.class)
     public LoanDropdownReadPlatformService loanDropdownReadPlatformService(
             LoanRepaymentScheduleTransactionProcessorFactory loanRepaymentScheduleTransactionProcessorFactory) {
+        Objects.requireNonNull(loanRepaymentScheduleTransactionProcessorFactory, "loanRepaymentScheduleTransactionProcessorFactory cannot be null");
         return new LoanDropdownReadPlatformServiceImpl(loanRepaymentScheduleTransactionProcessorFactory);
     }
 
@@ -67,6 +68,14 @@ public class LoanProductConfiguration {
             ChargeReadPlatformService chargeReadPlatformService, RateReadService rateReadService, DatabaseSpecificSQLGenerator sqlGenerator,
             FineractEntityAccessUtil fineractEntityAccessUtil, DelinquencyReadPlatformService delinquencyReadPlatformService,
             LoanProductRepository loanProductRepository) {
+        Objects.requireNonNull(loanProductRepository, "loanProductRepository cannot be null");
+        Objects.requireNonNull(delinquencyReadPlatformService, "delinquencyReadPlatformService cannot be null");
+        Objects.requireNonNull(fineractEntityAccessUtil, "fineractEntityAccessUtil cannot be null");
+        Objects.requireNonNull(sqlGenerator, "sqlGenerator cannot be null");
+        Objects.requireNonNull(rateReadService, "rateReadService cannot be null");
+        Objects.requireNonNull(chargeReadPlatformService, "chargeReadPlatformService cannot be null");
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
         return new LoanProductReadPlatformServiceImpl(context, jdbcTemplate, chargeReadPlatformService, rateReadService, sqlGenerator,
                 fineractEntityAccessUtil, delinquencyReadPlatformService, loanProductRepository);
     }
@@ -83,6 +92,20 @@ public class LoanProductConfiguration {
             LoanRepaymentScheduleTransactionProcessorFactory loanRepaymentScheduleTransactionProcessorFactory,
             AdvancedPaymentAllocationsJsonParser advancedPaymentJsonParser, CreditAllocationsJsonParser creditAllocationsJsonParser,
             LoanProductAssembler loanProductAssembler, LoanProductUpdateUtil loanProductUpdateUtil) {
+        Objects.requireNonNull(loanProductUpdateUtil, "loanProductUpdateUtil cannot be null");
+        Objects.requireNonNull(loanProductAssembler, "loanProductAssembler cannot be null");
+        Objects.requireNonNull(creditAllocationsJsonParser, "creditAllocationsJsonParser cannot be null");
+        Objects.requireNonNull(advancedPaymentJsonParser, "advancedPaymentJsonParser cannot be null");
+        Objects.requireNonNull(delinquencyBucketRepository, "delinquencyBucketRepository cannot be null");
+        Objects.requireNonNull(businessEventNotifierService, "businessEventNotifierService cannot be null");
+        Objects.requireNonNull(loanRepositoryWrapper, "loanRepositoryWrapper cannot be null");
+        Objects.requireNonNull(floatingRateRepository, "floatingRateRepository cannot be null");
+        Objects.requireNonNull(accountMappingWritePlatformService, "accountMappingWritePlatformService cannot be null");
+        Objects.requireNonNull(rateRepository, "rateRepository cannot be null");
+        Objects.requireNonNull(chargeRepository, "chargeRepository cannot be null");
+        Objects.requireNonNull(fundRepository, "fundRepository cannot be null");
+        Objects.requireNonNull(aprCalculator, "aprCalculator cannot be null");
+        Objects.requireNonNull(fromApiJsonDeserializer, "fromApiJsonDeserializer cannot be null");
         return new LoanProductWritePlatformServiceJpaRepositoryImpl(context, fromApiJsonDeserializer, loanProductRepository, aprCalculator,
                 fundRepository, chargeRepository, rateRepository, accountMappingWritePlatformService, fineractEntityAccessUtil,
                 floatingRateRepository, loanRepositoryWrapper, businessEventNotifierService, delinquencyBucketRepository,

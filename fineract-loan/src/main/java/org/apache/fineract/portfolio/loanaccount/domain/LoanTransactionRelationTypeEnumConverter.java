@@ -28,11 +28,13 @@ public class LoanTransactionRelationTypeEnumConverter implements AttributeConver
 
     @Override
     public Integer convertToDatabaseColumn(LoanTransactionRelationTypeEnum attribute) {
+        Objects.requireNonNull(attribute, "attribute cannot be null");
         return attribute == null ? null : attribute.getValue();
     }
 
     @Override
     public LoanTransactionRelationTypeEnum convertToEntityAttribute(Integer dbData) {
+        Objects.requireNonNull(dbData, "dbData cannot be null");
         return dbData == null ? null : LoanTransactionRelationTypeEnum.fromInt(dbData);
     }
 }

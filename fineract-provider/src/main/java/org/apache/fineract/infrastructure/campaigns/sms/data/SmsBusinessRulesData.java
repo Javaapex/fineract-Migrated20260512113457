@@ -22,6 +22,12 @@ import java.util.Map;
 
 public record SmsBusinessRulesData(Long reportId, String reportName, String reportType, String reportSubType,
         Map<String, Object> reportParamName, String reportDescription) {
+        Objects.requireNonNull(reportDescription, "reportDescription cannot be null");
+        Objects.requireNonNull(reportParamName, "reportParamName cannot be null");
+        Objects.requireNonNull(reportSubType, "reportSubType cannot be null");
+        Objects.requireNonNull(reportType, "reportType cannot be null");
+        Objects.requireNonNull(reportName, "reportName cannot be null");
+        Objects.requireNonNull(reportId, "reportId cannot be null");
 
     public static SmsBusinessRulesData instance(final Long reportId, final String reportName, final String reportType,
             final String reportSubType, final Map<String, Object> reportParamName, final String reportDescription) {
@@ -30,6 +36,7 @@ public record SmsBusinessRulesData(Long reportId, String reportName, String repo
 
     @Override
     public boolean equals(Object o) {
+        Objects.requireNonNull(o, "o cannot be null");
         if (this == o) {
             return true;
         }

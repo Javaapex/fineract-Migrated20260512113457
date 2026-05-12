@@ -34,8 +34,9 @@ public class TestRailLifecycleHook {
 
     private final ApplicationContext applicationContext;
 
-    @After
+    @AfterEach
     public void tearDown(Scenario scenario) {
+        Objects.requireNonNull(scenario, "scenario cannot be null");
         if (testRailProperties.isEnabled()) {
             TestRailClient testRailClient = applicationContext.getBean(TestRailClient.class);
             testRailClient.saveScenarioResult(scenario);

@@ -33,6 +33,7 @@ public class IdempotencyKeyResolver {
     private final IdempotencyKeyGenerator idempotencyKeyGenerator;
 
     public String resolve(CommandWrapper wrapper) {
+        Objects.requireNonNull(wrapper, "wrapper cannot be null");
         return Optional.ofNullable(wrapper.getIdempotencyKey()).orElseGet(() -> getAttribute().orElseGet(idempotencyKeyGenerator::create));
     }
 

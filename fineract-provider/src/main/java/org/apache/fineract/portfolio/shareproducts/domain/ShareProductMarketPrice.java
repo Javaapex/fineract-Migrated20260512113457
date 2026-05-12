@@ -63,10 +63,12 @@ public class ShareProductMarketPrice extends AbstractPersistableCustom<Long> {
     }
 
     public void setStartDate(LocalDate date) {
+        Objects.requireNonNull(date, "date cannot be null");
         this.fromDate = date;
     }
 
     public void setShareValue(BigDecimal value) {
+        Objects.requireNonNull(value, "value cannot be null");
         this.shareValue = value;
     }
 }

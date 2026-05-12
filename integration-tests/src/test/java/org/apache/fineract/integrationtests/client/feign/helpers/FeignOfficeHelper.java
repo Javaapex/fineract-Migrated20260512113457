@@ -40,7 +40,9 @@ public class FeignOfficeHelper {
         this.fineractClient = fineractClient;
     }
 
-    public PostOfficesResponse createOffice(LocalDate openingDate) {
+    public PostOfficesResponse createOffice(String externalId, LocalDate openingDate) {
+        Objects.requireNonNull(externalId, "externalId cannot be null");
+        Objects.requireNonNull(openingDate, "openingDate cannot be null");
         PostOfficesRequest request = new PostOfficesRequest()//
                 .parentId(HEAD_OFFICE_ID)//
                 .name(Utils.uniqueRandomStringGenerator("O_", 9))//
@@ -62,6 +64,7 @@ public class FeignOfficeHelper {
     }
 
     public GetOfficesResponse retrieveOffice(Long officeId) {
+        Objects.requireNonNull(officeId, "officeId cannot be null");
         return ok(() -> fineractClient.offices().retrieveOffice(officeId));
     }
 
@@ -74,6 +77,7 @@ public class FeignOfficeHelper {
     }
 
     public PutOfficesOfficeIdResponse updateOffice(Long officeId, String name, String openingDate) {
+        Objects.requireNonNull(name, "name cannot be null");
         PutOfficesOfficeIdRequest request = new PutOfficesOfficeIdRequest()//
                 .name(name)//
                 .openingDate(openingDate)//

@@ -54,6 +54,6 @@ public class PlatformDataIntegrityExceptionMapper implements FineractExceptionMa
 
     @Override
     public int errorCode() {
-        return 3001;
+        return 3001
     }
 }

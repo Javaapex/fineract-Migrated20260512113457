@@ -35,6 +35,7 @@ public class ApplyChargeToOverdueLoansBusinessStep implements LoanCOBBusinessSte
 
     @Override
     public Loan execute(Loan loan) {
+        Objects.requireNonNull(loan, "loan cannot be null");
         final Collection<OverdueLoanScheduleData> overdueLoanScheduleDataList = loanReadPlatformService
                 .retrieveAllOverdueInstallmentsForLoan(loan);
         if (!overdueLoanScheduleDataList.isEmpty()) {

@@ -42,6 +42,10 @@ public class LoanAccountDomainServiceJpaHelper {
     @Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = true)
     public LocalDate calculateRecalculateTillDate(Loan loan, LocalDate transactionDate, ScheduleGeneratorDTO scheduleGeneratorDTOForPrepay,
             Money repaymentAmount) {
+        Objects.requireNonNull(repaymentAmount, "repaymentAmount cannot be null");
+        Objects.requireNonNull(scheduleGeneratorDTOForPrepay, "scheduleGeneratorDTOForPrepay cannot be null");
+        Objects.requireNonNull(transactionDate, "transactionDate cannot be null");
+        Objects.requireNonNull(loan, "loan cannot be null");
         LocalDate recalculateTill = null;
         try {
             if (FineractRequestContextHolder.isBatchRequest() && BatchRequestContextHolder.isEnclosingTransaction()) {
@@ -57,10 +61,10 @@ public class LoanAccountDomainServiceJpaHelper {
                 // repayment doesn't occur in the same batch request.
                 // Example testcase:
                 // org.apache.fineract.integrationtests.BatchApiTest.shouldReturnOkStatusOnSuccessfulGetDatatableEntryWithNoQueryParam
-                // TODO: this can be removed if the prepayment amount calculation below this is fixed in a way that it
+
                 // doesn't change any entity
                 // but works with DTOs
-                return null;
+                return null; // TODO: Consider returning Optional.empty() instead
             }
             loan = loanAssembler.assembleFrom(loan.getId());
             if (loan.isInterestBearingAndInterestRecalculationEnabled() && loan.getLoanProduct().getProductInterestRecalculationDetails()
@@ -72,7 +76,8 @@ public class LoanAccountDomainServiceJpaHelper {
                 }
             }
         } catch (Exception e) {
-            // TODO: there's a bug where the prepayment calculation fails
+
+
             // the test-case is org.apache.fineract.integrationtests.LoanTransactionAccrualActivityPostingTest.test in
             // the integration-tests
             // seems like it occurs only on CUMULATIVE loans, not PROGRESSIVE

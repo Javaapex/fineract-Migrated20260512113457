@@ -35,7 +35,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.ArrayList;
+import java.util.ArrayList
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -179,7 +179,7 @@ public class DelinquencyWritePlatformServiceRangeChangeEventTest {
         LoanProduct loanProduct = Mockito.mock(LoanProduct.class);
         DelinquencyRange range1 = DelinquencyRange.instance("Range1", 1, 2);
         range1.setId(1L);
-        DelinquencyRange range2 = DelinquencyRange.instance("Range30", 3, 30);
+        DelinquencyRange range2 = DelinquencyRange.instance("Range30", 3, 30
         range2.setId(2L);
         List<DelinquencyRange> listDelinquencyRanges = Arrays.asList(range1, range2);
         DelinquencyBucket delinquencyBucket = new DelinquencyBucket("test Bucket");
@@ -639,8 +639,8 @@ public class DelinquencyWritePlatformServiceRangeChangeEventTest {
         LocalDate startDate = DateUtils.getBusinessLocalDate().minusDays(8);
         LocalDate endDate = DateUtils.getBusinessLocalDate().minusDays(1);
 
-        List<LoanDelinquencyAction> delinquencyActions = new ArrayList<>();
-        List<LoanDelinquencyActionData> effectiveDelinquency = new ArrayList<>();
+        List<LoanDelinquencyAction> delinquencyActions = new ArrayList
+        List<LoanDelinquencyActionData> effectiveDelinquency = new ArrayList
         CollectionData loanCollectionData = CollectionData.template();
 
         when(loanRepository.findOneWithNotFoundDetection(anyLong())).thenReturn(loanForProcessing);
@@ -690,8 +690,8 @@ public class DelinquencyWritePlatformServiceRangeChangeEventTest {
         LocalDate startDate = DateUtils.getBusinessLocalDate().minusDays(2);
         LocalDate endDate = DateUtils.getBusinessLocalDate().plusDays(10);
 
-        List<LoanDelinquencyAction> delinquencyActions = new ArrayList<>();
-        List<LoanDelinquencyActionData> effectiveDelinquency = new ArrayList<>();
+        List<LoanDelinquencyAction> delinquencyActions = new ArrayList
+        List<LoanDelinquencyActionData> effectiveDelinquency = new ArrayList
         CollectionData loanCollectionData = CollectionData.template();
 
         when(loanRepository.findOneWithNotFoundDetection(anyLong())).thenReturn(loanForProcessing);

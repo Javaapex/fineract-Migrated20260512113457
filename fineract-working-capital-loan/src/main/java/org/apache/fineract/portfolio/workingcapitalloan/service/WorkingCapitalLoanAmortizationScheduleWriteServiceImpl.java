@@ -36,7 +36,7 @@ import org.apache.fineract.portfolio.workingcapitalloan.repository.WorkingCapita
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-// TODO: This is a temporary testing implementation. In the real flow, the amortization schedule
+
 // will be generated and saved as part of the loan lifecycle (approve/disburse) — not via a
 // standalone endpoint. The parameters will come from the loan entity + product, not from the
 // request body. Replace this once the full WCL lifecycle is implemented.
@@ -107,6 +107,7 @@ public class WorkingCapitalLoanAmortizationScheduleWriteServiceImpl implements W
 
     @Override
     public BigDecimal getWorkingCapitalLoanDiscountAmount(WorkingCapitalLoan loan) {
+        Objects.requireNonNull(loan, "loan cannot be null");
         BigDecimal discount = BigDecimal.ZERO;
         if (loan.getLoanProductRelatedDetails() != null) {
             if (loan.getLoanStatus().isSubmittedAndPendingApproval() && loan.getLoanProductRelatedDetails().getDiscountProposed() != null) {

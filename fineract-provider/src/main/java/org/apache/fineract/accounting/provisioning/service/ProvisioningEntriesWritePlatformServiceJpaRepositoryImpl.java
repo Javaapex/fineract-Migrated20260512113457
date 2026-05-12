@@ -85,6 +85,8 @@ public class ProvisioningEntriesWritePlatformServiceJpaRepositoryImpl implements
 
     @Override
     public CommandProcessingResult createProvisioningJournalEntries(Long provisioningEntryId, JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
+        Objects.requireNonNull(provisioningEntryId, "provisioningEntryId cannot be null");
         ProvisioningEntry requestedEntry = this.provisioningEntryRepository.findById(provisioningEntryId)
                 .orElseThrow(() -> new ProvisioningEntryNotfoundException(provisioningEntryId));
 
@@ -157,6 +159,7 @@ public class ProvisioningEntriesWritePlatformServiceJpaRepositoryImpl implements
 
     @Override
     public ProvisioningEntry createProvisioningEntry(LocalDate date, boolean addJournalEntries) {
+        Objects.requireNonNull(date, "date cannot be null");
         ProvisioningEntry existingEntry = this.provisioningEntryRepository.findByProvisioningEntryDate(date);
         if (existingEntry != null) {
             throw new ProvisioningEntryAlreadyCreatedException(existingEntry.getId(), existingEntry.getCreatedDate());
@@ -195,7 +198,7 @@ public class ProvisioningEntriesWritePlatformServiceJpaRepositoryImpl implements
                 .retrieveLoanProductsProvisioningData(date);
         // Collect all referenced IDs upfront and bulk-fetch via findAllById,
         // replacing the previous pattern of N x 5 individual repository calls per
-        // loop iteration (consistent with the optimisation in FINERACT-2561).
+        // loop iteration (consistent with the optimisation in FINERACT-2561
         Set<Long> productIds = entries.stream().map(LoanProductProvisioningEntryData::getProductId).collect(Collectors.toSet());
         Set<Long> officeIds = entries.stream().map(LoanProductProvisioningEntryData::getOfficeId).collect(Collectors.toSet());
         Set<Long> categoryIds = entries.stream().map(LoanProductProvisioningEntryData::getCategoryId).collect(Collectors.toSet());

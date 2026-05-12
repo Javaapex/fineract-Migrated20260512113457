@@ -65,6 +65,7 @@ public class CurrenciesApiResource {
     @Produces({ MediaType.APPLICATION_JSON })
     @Operation(summary = "Update Currency Configuration", description = "Updates the list of currencies permitted for use.")
     public CurrencyUpdateResponse updateCurrencies(@Valid CurrencyUpdateRequest request) {
+        Objects.requireNonNull(request, "request cannot be null");
         final var command = new CurrencyUpdateCommand();
 
         command.setPayload(request);

@@ -37,6 +37,7 @@ public class CapitalizedIncomeAmortizationBusinessStep implements LoanCOBBusines
     @Transactional
     @Override
     public Loan execute(Loan loan) {
+        Objects.requireNonNull(loan, "loan cannot be null");
         LocalDate businessDate = DateUtils.getBusinessLocalDate();
 
         loanCapitalizedIncomeAmortizationProcessingService.processCapitalizedIncomeAmortizationTillDate(loan, businessDate, true);

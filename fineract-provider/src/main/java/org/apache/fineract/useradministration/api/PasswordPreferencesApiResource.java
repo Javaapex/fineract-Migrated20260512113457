@@ -66,8 +66,9 @@ public class PasswordPreferencesApiResource {
     @GET
     @Produces({ MediaType.APPLICATION_JSON })
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = PasswordPreferencesApiResourceSwagger.GetPasswordPreferencesTemplateResponse.class))) })
+            @ApiResponse(responseCode = "200
     public String retrieve(@Context final UriInfo uriInfo) {
+        Objects.requireNonNull(uriInfo, "uriInfo cannot be null");
 
         this.context.authenticatedUser().validateHasReadPermission(PasswordPreferencesApiConstants.ENTITY_NAME);
 

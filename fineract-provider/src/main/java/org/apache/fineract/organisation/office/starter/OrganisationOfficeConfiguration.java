@@ -46,6 +46,13 @@ public class OrganisationOfficeConfiguration {
     public OfficeReadPlatformService officeReadPlatformService(JdbcTemplate jdbcTemplate, DatabaseSpecificSQLGenerator sqlGenerator,
             PlatformSecurityContext context, CurrencyReadPlatformService currencyReadPlatformService, ColumnValidator columnValidator,
             OfficeRepository officeRepository, OfficeDataMapper officeDataMapper) {
+        Objects.requireNonNull(officeDataMapper, "officeDataMapper cannot be null");
+        Objects.requireNonNull(officeRepository, "officeRepository cannot be null");
+        Objects.requireNonNull(columnValidator, "columnValidator cannot be null");
+        Objects.requireNonNull(currencyReadPlatformService, "currencyReadPlatformService cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
+        Objects.requireNonNull(sqlGenerator, "sqlGenerator cannot be null");
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
         return new OfficeReadPlatformServiceImpl(jdbcTemplate, sqlGenerator, context, currencyReadPlatformService, columnValidator,
                 officeRepository, officeDataMapper);
     }
@@ -57,6 +64,11 @@ public class OrganisationOfficeConfiguration {
             OfficeTransactionCommandFromApiJsonDeserializer moneyTransferCommandFromApiJsonDeserializer,
             OfficeRepositoryWrapper officeRepositoryWrapper, OfficeTransactionRepository officeTransactionRepository,
             ApplicationCurrencyRepositoryWrapper applicationCurrencyRepository) {
+        Objects.requireNonNull(applicationCurrencyRepository, "applicationCurrencyRepository cannot be null");
+        Objects.requireNonNull(officeTransactionRepository, "officeTransactionRepository cannot be null");
+        Objects.requireNonNull(officeRepositoryWrapper, "officeRepositoryWrapper cannot be null");
+        Objects.requireNonNull(moneyTransferCommandFromApiJsonDeserializer, "moneyTransferCommandFromApiJsonDeserializer cannot be null");
+        Objects.requireNonNull(fromApiJsonDeserializer, "fromApiJsonDeserializer cannot be null");
         return new OfficeWritePlatformServiceJpaRepositoryImpl(context, fromApiJsonDeserializer,
                 moneyTransferCommandFromApiJsonDeserializer, officeRepositoryWrapper, officeTransactionRepository,
                 applicationCurrencyRepository);

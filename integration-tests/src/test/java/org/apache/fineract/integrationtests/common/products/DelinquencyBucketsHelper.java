@@ -58,7 +58,7 @@ public class DelinquencyBucketsHelper {
                 .getResourceId();
         Long range2Id = Calls
                 .ok(FineractClientHelper.getFineractClient().delinquencyRangeAndBucketsManagement.createRange(new DelinquencyRangeRequest()
-                        .classification(Utils.randomStringGenerator("DLQ_R_", 10)).minimumAgeDays(4).maximumAgeDays(60).locale("en")))
+                        .classification(Utils.randomStringGenerator("DLQ_R_", 10)).minimumAgeDays(4).maximumAgeDays(60
                 .getResourceId();
         return Calls
                 .ok(FineractClientHelper.getFineractClient().delinquencyRangeAndBucketsManagement.createBucket(

@@ -31,6 +31,7 @@ public class LoanAccountOwnerTransferConfiguration {
     @Bean
     @ConditionalOnMissingBean(LoanTransferabilityService.class)
     public LoanTransferabilityService loanTransferabilityService(DelayedSettlementAttributeService delayedSettlementAttributeService) {
+        Objects.requireNonNull(delayedSettlementAttributeService, "delayedSettlementAttributeService cannot be null");
         return new LoanTransferabilityServiceImpl(delayedSettlementAttributeService);
     }
 }

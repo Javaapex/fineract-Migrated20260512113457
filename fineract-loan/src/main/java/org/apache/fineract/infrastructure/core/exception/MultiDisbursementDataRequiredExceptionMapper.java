@@ -36,6 +36,7 @@ public class MultiDisbursementDataRequiredExceptionMapper
 
     @Override
     public Response toResponse(MultiDisbursementDataRequiredException exception) {
+        Objects.requireNonNull(exception, "exception cannot be null");
         log.warn("Exception occurred", ErrorHandler.findMostSpecificException(exception));
         final ApiGlobalErrorResponse notFoundErrorResponse = ApiGlobalErrorResponse.domainRuleViolation(
                 exception.getGlobalisationMessageCode(), exception.getDefaultUserMessage(), exception.getDefaultUserMessageArgs());
@@ -46,6 +47,6 @@ public class MultiDisbursementDataRequiredExceptionMapper
 
     @Override
     public int errorCode() {
-        return 3003;
+        return 3003
     }
 }

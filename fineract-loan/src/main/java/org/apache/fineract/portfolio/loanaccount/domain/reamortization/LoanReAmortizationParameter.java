@@ -54,6 +54,7 @@ public class LoanReAmortizationParameter extends AbstractAuditableWithUTCDateTim
     protected LoanReAmortizationParameter() {}
 
     public LoanReAmortizationParameter getCopy(LoanTransaction loanTransaction) {
+        Objects.requireNonNull(loanTransaction, "loanTransaction cannot be null");
         return new LoanReAmortizationParameter(loanTransaction, interestHandlingType, reamortizationReason);
     }
 }

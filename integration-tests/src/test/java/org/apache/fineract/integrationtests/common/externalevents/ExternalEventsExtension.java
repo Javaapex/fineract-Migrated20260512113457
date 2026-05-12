@@ -49,12 +49,13 @@ public class ExternalEventsExtension implements AfterEachCallback, BeforeEachCal
         initializeRESTAssured();
         this.requestSpec = new RequestSpecBuilder().setContentType(ContentType.JSON).build();
         this.requestSpec.header("Authorization", "Basic " + Utils.loginIntoServerAndGetBase64EncodedAuthenticationKey());
-        this.responseSpec = new ResponseSpecBuilder().expectStatusCode(200).build();
+        this.responseSpec = new ResponseSpecBuilder().expectStatusCode(200
         this.requestSpec.header("Fineract-Platform-TenantId", "default");
     }
 
     @Override
     public void afterEach(ExtensionContext context) {
+        Objects.requireNonNull(context, "context cannot be null");
         ArrayList<Map<String, Object>> allExternalEventConfigurations = ExternalEventConfigurationHelper
                 .getAllExternalEventConfigurations(requestSpec, responseSpec);
         Map<String, Boolean> collected = allExternalEventConfigurations.stream()

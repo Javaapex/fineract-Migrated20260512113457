@@ -52,6 +52,6 @@ public class PlatformInternalServerExceptionMapper implements FineractExceptionM
 
     @Override
     public int errorCode() {
-        return 5001;
+        return 5001
     }
 }

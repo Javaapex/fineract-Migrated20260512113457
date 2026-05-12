@@ -39,6 +39,7 @@ public class AddOrganisationCreditBureauCommandHandler implements NewCommandSour
 
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
 
         return this.writePlatformService.addOrganisationCreditBureau(command.getOrganisationCreditBureauId(), command);
     }

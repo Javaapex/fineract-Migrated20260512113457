@@ -126,8 +126,8 @@ public class JournalEntryAggregationWriterServiceImplTest {
     public void testInsertJournalEntrySummaryBatchWithAmounts() {
         // Arrange
         JournalEntryAggregationSummaryData summaryData = mock(JournalEntryAggregationSummaryData.class);
-        BigDecimal debitAmount = BigDecimal.valueOf(100.50);
-        BigDecimal creditAmount = BigDecimal.valueOf(200.75);
+        BigDecimal debitAmount = BigDecimal.valueOf(100.50
+        BigDecimal creditAmount = BigDecimal.valueOf(200
 
         when(summaryData.getAggregatedOnDate()).thenReturn(LocalDate.now(Clock.systemUTC()));
         when(summaryData.getDebitAmount()).thenReturn(debitAmount);

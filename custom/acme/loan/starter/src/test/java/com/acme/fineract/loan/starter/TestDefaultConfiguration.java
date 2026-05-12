@@ -52,12 +52,19 @@ public class TestDefaultConfiguration {
     public COBBusinessStepService cobBusinessStepService(BatchBusinessStepRepository batchBusinessStepRepository,
             ApplicationContext context, ListableBeanFactory beanFactory, BusinessEventNotifierService businessEventNotifierService,
             ConfigurationDomainService configurationDomainService, ReloaderService reloaderService) {
+        Objects.requireNonNull(reloaderService, "reloaderService cannot be null");
+        Objects.requireNonNull(configurationDomainService, "configurationDomainService cannot be null");
+        Objects.requireNonNull(businessEventNotifierService, "businessEventNotifierService cannot be null");
+        Objects.requireNonNull(beanFactory, "beanFactory cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
+        Objects.requireNonNull(batchBusinessStepRepository, "batchBusinessStepRepository cannot be null");
         return new COBBusinessStepServiceImpl(batchBusinessStepRepository, context, beanFactory, businessEventNotifierService,
                 configurationDomainService, reloaderService);
     }
 
     @Bean
     public SamplingServiceFactory samplingServiceFactory(SamplingConfiguration samplingConfiguration) {
+        Objects.requireNonNull(samplingConfiguration, "samplingConfiguration cannot be null");
         return new SamplingServiceFactory(samplingConfiguration);
     }
 

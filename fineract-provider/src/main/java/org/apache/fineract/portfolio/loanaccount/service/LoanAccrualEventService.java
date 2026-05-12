@@ -46,6 +46,7 @@ public class LoanAccrualEventService {
 
         @Override
         public void onBusinessEvent(LoanCloseBusinessEvent event) {
+        Objects.requireNonNull(event, "event cannot be null");
             final Loan loan = event.get();
             LoanStatus status = loan.getStatus();
             if (status.isClosedObligationsMet() || status.isOverpaid()) {

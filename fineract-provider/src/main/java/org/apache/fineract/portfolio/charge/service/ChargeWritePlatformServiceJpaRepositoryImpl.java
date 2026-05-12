@@ -144,7 +144,7 @@ public class ChargeWritePlatformServiceJpaRepositoryImpl implements ChargeWriteP
                 // IF the key exists then it has changed (otherwise it would
                 // have been filtered), so check current state:
                 if (!chargeForUpdate.isActive()) {
-                    // TODO: Change this function to only check the mappings!!!
+
                     final Boolean isChargeExistWithLoans = isAnyLoanProductsAssociateWithThisCharge(chargeId);
                     final Boolean isChargeExistWithSavings = isAnySavingsProductsAssociateWithThisCharge(chargeId);
 
@@ -228,7 +228,7 @@ public class ChargeWritePlatformServiceJpaRepositoryImpl implements ChargeWriteP
         final Boolean isChargeExistWithLoans = isAnyLoansAssociateWithThisCharge(chargeId);
         final Boolean isChargeExistWithSavings = isAnySavingsAssociateWithThisCharge(chargeId);
 
-        // TODO: Change error messages around:
+
         if (!loanProducts.isEmpty() || isChargeExistWithLoans || isChargeExistWithSavings) {
             throw new ChargeCannotBeDeletedException("error.msg.charge.cannot.be.deleted.it.is.already.used.in.loan",
                     "This charge cannot be deleted, it is already used in loan");

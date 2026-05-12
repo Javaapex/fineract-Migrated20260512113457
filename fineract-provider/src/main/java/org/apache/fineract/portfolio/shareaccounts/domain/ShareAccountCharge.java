@@ -51,7 +51,7 @@ public class ShareAccountCharge extends AbstractPersistableCustom<Long> {
     @Column(name = "charge_calculation_enum")
     private Integer chargeCalculation;
 
-    @Column(name = "calculation_percentage", scale = 6, precision = 19, nullable = true)
+    @Column(name = "calculation_percentage", scale = 6, precision = 19
     private BigDecimal percentage;
 
     @Column(name = "calculation_on_amount", scale = 6, precision = 19, nullable = true)
@@ -374,6 +374,7 @@ public class ShareAccountCharge extends AbstractPersistableCustom<Long> {
     }
 
     public BigDecimal deriveChargeAmount(BigDecimal transactionAmount, final MonetaryCurrency currency) {
+        Objects.requireNonNull(transactionAmount, "transactionAmount cannot be null");
         BigDecimal toReturnAmount = amountOrPercentage;
         if (ChargeCalculationType.fromInt(this.chargeCalculation) == ChargeCalculationType.PERCENT_OF_AMOUNT) {
             toReturnAmount = Money.of(currency, percentageOf(transactionAmount, this.percentage)).getAmount();

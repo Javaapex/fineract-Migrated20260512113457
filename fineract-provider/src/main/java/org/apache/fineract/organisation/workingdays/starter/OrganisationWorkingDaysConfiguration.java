@@ -35,6 +35,7 @@ public class OrganisationWorkingDaysConfiguration {
     @Bean
     @ConditionalOnMissingBean(WorkingDaysReadPlatformService.class)
     public WorkingDaysReadPlatformService workingDaysReadPlatformService(JdbcTemplate jdbcTemplate) {
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
         return new WorkingDaysReadPlatformServiceImpl(jdbcTemplate);
     }
 
@@ -42,6 +43,8 @@ public class OrganisationWorkingDaysConfiguration {
     @ConditionalOnMissingBean(WorkingDaysWritePlatformService.class)
     public WorkingDaysWritePlatformService workingDaysWritePlatformService(WorkingDaysRepositoryWrapper daysRepositoryWrapper,
             WorkingDaysUpdateRequestValidator validator) {
+        Objects.requireNonNull(validator, "validator cannot be null");
+        Objects.requireNonNull(daysRepositoryWrapper, "daysRepositoryWrapper cannot be null");
         return new WorkingDaysWritePlatformServiceJpaRepositoryImpl(daysRepositoryWrapper, validator);
     }
 }

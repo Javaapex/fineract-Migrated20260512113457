@@ -78,7 +78,7 @@ public class InternalExternalEventService {
             return convertToReadableFormat(externalEvents);
         } catch (ClassNotFoundException | NoSuchMethodException | InvocationTargetException | IllegalAccessException
                 | JsonProcessingException e) {
-            throw new RuntimeException("Error while converting external events to readable format", e);
+            throw new RuntimeException
         }
     }
 

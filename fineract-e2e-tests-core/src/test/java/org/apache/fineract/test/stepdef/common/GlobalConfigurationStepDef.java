@@ -44,6 +44,7 @@ public class GlobalConfigurationStepDef {
 
     @Given("Global configuration {string} is disabled")
     public void disableGlobalConfiguration(String configKey) {
+        Objects.requireNonNull(configKey, "configKey cannot be null");
         globalConfigurationHelper.disableGlobalConfiguration(configKey, 0L);
     }
 
@@ -54,6 +55,7 @@ public class GlobalConfigurationStepDef {
 
     @When("Global config {string} value set to {string}")
     public void setGlobalConfigValueString(String configKey, String configValue) {
+        Objects.requireNonNull(configValue, "configValue cannot be null");
         globalConfigurationHelper.setGlobalConfigValueString(configKey, configValue);
     }
 
@@ -71,7 +73,7 @@ public class GlobalConfigurationStepDef {
             throw new AssertionError("Expected FeignException but request succeeded");
         } catch (FeignException e) {
             final ErrorResponse errorDetails = ErrorResponse.fromFeignException(e);
-            assertThat(errorDetails.getHttpStatusCode()).as(ErrorMessageHelper.setCurrencyEmptyValueFailure()).isEqualTo(400);
+            assertThat(errorDetails.getHttpStatusCode()).as(ErrorMessageHelper.setCurrencyEmptyValueFailure()).isEqualTo(400
 
             if (errorDetails.getErrors() != null && !errorDetails.getErrors().isEmpty()) {
                 boolean hasExpectedError = errorDetails.getErrors().stream().anyMatch(
@@ -113,13 +115,14 @@ public class GlobalConfigurationStepDef {
 
     @When("Update currency as {string} value outcomes with an error")
     public void updateCurrencyIncorrectValueFailure(String currency) {
+        Objects.requireNonNull(currency, "currency cannot be null");
         var request = new CurrencyUpdateRequest();
         try {
             fineractClient.currency().updateCurrencies(request.currencies(Collections.singletonList(currency)));
             throw new AssertionError("Expected FeignException but request succeeded");
         } catch (FeignException e) {
             final ErrorResponse errorDetails = ErrorResponse.fromFeignException(e);
-            assertThat(errorDetails.getHttpStatusCode()).as(ErrorMessageHelper.setCurrencyIncorrectValueFailure(currency)).isEqualTo(404);
+            assertThat(errorDetails.getHttpStatusCode()).as(ErrorMessageHelper.setCurrencyIncorrectValueFailure(currency)).isEqualTo(404
             assertThat(errorDetails.getSingleError().getDeveloperMessageWithoutPrefix())
                     .isEqualTo(ErrorMessageHelper.setCurrencyIncorrectValueFailure(currency));
         }

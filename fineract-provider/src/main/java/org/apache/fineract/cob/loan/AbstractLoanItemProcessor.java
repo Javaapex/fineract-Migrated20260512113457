@@ -50,6 +50,7 @@ public abstract class AbstractLoanItemProcessor extends AbstractItemProcessor<Lo
 
     @Override
     public void setLastRun(Loan processedLoan) {
+        Objects.requireNonNull(processedLoan, "processedLoan cannot be null");
         processedLoan.setLastClosedBusinessDate(getBusinessDate());
     }
 

@@ -36,6 +36,7 @@ public class AccrualPeriodsData {
     private final List<AccrualPeriodData> periods = new ArrayList<>();
 
     public AccrualPeriodsData addPeriod(AccrualPeriodData period) {
+        Objects.requireNonNull(period, "period cannot be null");
         periods.add(period);
         return this;
     }
@@ -53,6 +54,7 @@ public class AccrualPeriodsData {
     }
 
     public AccrualPeriodData getPeriodByInstallmentNumber(Integer installmentNumber) {
+        Objects.requireNonNull(installmentNumber, "installmentNumber cannot be null");
         return installmentNumber == null ? null
                 : periods.stream().filter(p -> installmentNumber.equals(p.getInstallmentNumber())).findFirst().orElse(null);
     }

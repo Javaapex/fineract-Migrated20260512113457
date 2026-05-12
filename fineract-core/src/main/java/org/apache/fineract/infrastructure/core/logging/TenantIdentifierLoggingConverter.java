@@ -26,6 +26,7 @@ public class TenantIdentifierLoggingConverter extends ClassicConverter {
 
     @Override
     public String convert(ILoggingEvent event) {
+        Objects.requireNonNull(event, "event cannot be null");
         return ThreadLocalContextUtil.getTenant() != null ? ThreadLocalContextUtil.getTenant().getTenantIdentifier() : "no-tenant";
     }
 }

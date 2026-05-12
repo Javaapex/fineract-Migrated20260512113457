@@ -60,6 +60,20 @@ public class ProgressiveLoanAccountConfiguration {
             ReprocessLoanTransactionsService reprocessLoanTransactionsService, LoanBalanceService loanBalanceService,
             LoanLifecycleStateMachine loanLifecycleStateMachine, BusinessEventNotifierService businessEventNotifierService,
             CodeValueRepository codeValueRepository, LoanScheduleService loanScheduleService, ApplicationEventPublisher eventPublisher) {
+        Objects.requireNonNull(eventPublisher, "eventPublisher cannot be null");
+        Objects.requireNonNull(loanScheduleService, "loanScheduleService cannot be null");
+        Objects.requireNonNull(codeValueRepository, "codeValueRepository cannot be null");
+        Objects.requireNonNull(businessEventNotifierService, "businessEventNotifierService cannot be null");
+        Objects.requireNonNull(loanLifecycleStateMachine, "loanLifecycleStateMachine cannot be null");
+        Objects.requireNonNull(loanBalanceService, "loanBalanceService cannot be null");
+        Objects.requireNonNull(reprocessLoanTransactionsService, "reprocessLoanTransactionsService cannot be null");
+        Objects.requireNonNull(capitalizedIncomeBalanceRepository, "capitalizedIncomeBalanceRepository cannot be null");
+        Objects.requireNonNull(externalIdFactory, "externalIdFactory cannot be null");
+        Objects.requireNonNull(journalEntryPoster, "journalEntryPoster cannot be null");
+        Objects.requireNonNull(paymentDetailWritePlatformService, "paymentDetailWritePlatformService cannot be null");
+        Objects.requireNonNull(loanTransactionRepository, "loanTransactionRepository cannot be null");
+        Objects.requireNonNull(loanAssembler, "loanAssembler cannot be null");
+        Objects.requireNonNull(loanTransactionValidator, "loanTransactionValidator cannot be null");
         return new CapitalizedIncomeWritePlatformServiceImpl(loanTransactionValidator, loanAssembler, loanTransactionRepository,
                 paymentDetailWritePlatformService, journalEntryPoster, externalIdFactory, capitalizedIncomeBalanceRepository,
                 reprocessLoanTransactionsService, loanBalanceService, loanLifecycleStateMachine, businessEventNotifierService,
@@ -73,6 +87,11 @@ public class ProgressiveLoanAccountConfiguration {
             LoanCapitalizedIncomeBalanceRepository loanCapitalizedIncomeBalanceRepository,
             LoanBuyDownFeeBalanceRepository loanBuydownFeeBalanceRepository, LoanTransactionRepository loanTransactionRepository,
             LoanMaximumAmountCalculator loanMaximumAmountCalculator) {
+        Objects.requireNonNull(loanMaximumAmountCalculator, "loanMaximumAmountCalculator cannot be null");
+        Objects.requireNonNull(loanBuydownFeeBalanceRepository, "loanBuydownFeeBalanceRepository cannot be null");
+        Objects.requireNonNull(loanCapitalizedIncomeBalanceRepository, "loanCapitalizedIncomeBalanceRepository cannot be null");
+        Objects.requireNonNull(loanRepositoryWrapper, "loanRepositoryWrapper cannot be null");
+        Objects.requireNonNull(fromApiJsonHelper, "fromApiJsonHelper cannot be null");
         return new ProgressiveLoanTransactionValidatorImpl(fromApiJsonHelper, loanTransactionValidator, loanRepositoryWrapper,
                 loanCapitalizedIncomeBalanceRepository, loanBuydownFeeBalanceRepository, loanTransactionRepository,
                 loanMaximumAmountCalculator);

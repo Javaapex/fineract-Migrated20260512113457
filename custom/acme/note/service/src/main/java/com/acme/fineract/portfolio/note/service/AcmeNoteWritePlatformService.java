@@ -42,6 +42,7 @@ public class AcmeNoteWritePlatformService implements NoteWritePlatformService, I
 
     @Override
     public NoteCreateResponse createNote(NoteCreateRequest request) {
+        Objects.requireNonNull(request, "request cannot be null");
         throw new UnsupportedOperationException("createNote() is not yet implemented.");
     }
 

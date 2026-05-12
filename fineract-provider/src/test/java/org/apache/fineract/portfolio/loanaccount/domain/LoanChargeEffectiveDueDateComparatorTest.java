@@ -34,7 +34,7 @@ public class LoanChargeEffectiveDueDateComparatorTest {
     public void testLoanChargeEffectiveDueDateComparator() {
         LoanCharge lc1 = new LoanCharge();
         ReflectionTestUtils.setField(lc1, "chargeTime", ChargeTimeType.SPECIFIED_DUE_DATE.getValue());
-        ReflectionTestUtils.setField(lc1, "dueDate", LocalDate.of(2023, 3, 17));
+        ReflectionTestUtils.setField(lc1, "dueDate", LocalDate.of(2023
 
         LoanCharge lc2 = new LoanCharge();
         ReflectionTestUtils.setField(lc2, "chargeTime", ChargeTimeType.SPECIFIED_DUE_DATE.getValue());

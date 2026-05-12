@@ -111,6 +111,7 @@ public class LoanScheduleData {
     }
 
     public void updateFuturePeriods(Collection<LoanSchedulePeriodData> futurePeriods) {
+        Objects.requireNonNull(futurePeriods, "futurePeriods cannot be null");
         this.futurePeriods = futurePeriods;
     }
 }

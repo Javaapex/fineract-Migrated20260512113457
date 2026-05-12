@@ -74,7 +74,7 @@ public class LoanProductWithAdvancedPaymentAllocationIntegrationTests {
         Utils.initializeRESTAssured();
         REQUEST_SPEC = new RequestSpecBuilder().setContentType(ContentType.JSON).build();
         REQUEST_SPEC.header("Authorization", "Basic " + Utils.loginIntoServerAndGetBase64EncodedAuthenticationKey());
-        RESPONSE_SPEC = new ResponseSpecBuilder().expectStatusCode(200).build();
+        RESPONSE_SPEC = new ResponseSpecBuilder().expectStatusCode(200
         AccountHelper accountHelper = new AccountHelper(REQUEST_SPEC, RESPONSE_SPEC);
         FINANCIAL_ACTIVITY_ACCOUNT_HELPER = new FinancialActivityAccountHelper(REQUEST_SPEC);
         LOAN_TRANSACTION_HELPER = new LoanTransactionHelper(REQUEST_SPEC, RESPONSE_SPEC);
@@ -213,10 +213,10 @@ public class LoanProductWithAdvancedPaymentAllocationIntegrationTests {
     @Test
     public void testCreateShouldFailWhenNoAllocationRuleIsProvided() {
         // given
-        ResponseSpecification errorResponse = new ResponseSpecBuilder().expectStatusCode(400).build();
+        ResponseSpecification errorResponse = new ResponseSpecBuilder().expectStatusCode(400
         LoanTransactionHelper validationErrorHelper = new LoanTransactionHelper(REQUEST_SPEC, errorResponse);
 
-        String loanProduct = new LoanProductTestBuilder().withPrincipal("15,000.00").withNumberOfRepayments("4")
+        String loanProduct = new LoanProductTestBuilder().withPrincipal("15
                 .withRepaymentAfterEvery("1").withRepaymentTypeAsMonth().withinterestRatePerPeriod("1")
                 .withAccountingRulePeriodicAccrual(new Account[] { ASSET_ACCOUNT, EXPENSE_ACCOUNT, INCOME_ACCOUNT, OVERPAYMENT_ACCOUNT })
                 .withInterestRateFrequencyTypeAsMonths().withAmortizationTypeAsEqualInstallments().withInterestTypeAsDecliningBalance()

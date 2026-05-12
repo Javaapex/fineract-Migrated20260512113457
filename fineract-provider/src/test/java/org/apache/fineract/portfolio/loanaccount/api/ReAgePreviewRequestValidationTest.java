@@ -189,7 +189,7 @@ class ReAgePreviewRequestValidationTest {
     @Test
     void invalidStartDateFormat() {
         var params = validParams();
-        params.setStartDate("2025-05-12");
+        params.setStartDate("2025
 
         var errors = validator.validate(params);
 

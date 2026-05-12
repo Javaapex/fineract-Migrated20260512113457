@@ -56,12 +56,13 @@ public class WorkingCapitalLoanCOBWorkerItemReader implements ItemReader<Working
                 throw new LockedReadException(loanId, e);
             }
         }
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     @BeforeStep
     @SuppressWarnings({ "unchecked" })
     public void beforeStep(@NonNull StepExecution stepExecution) {
+        Objects.requireNonNull(stepExecution, "stepExecution cannot be null");
         setRemainingData(itemReaderHelper.filterRemainingData(stepExecution));
     }
 

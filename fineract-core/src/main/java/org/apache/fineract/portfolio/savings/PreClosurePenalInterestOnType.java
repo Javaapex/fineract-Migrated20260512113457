@@ -60,7 +60,7 @@ public enum PreClosurePenalInterestOnType {
         }
     }
 
-    // TODO: do we really need this?!?
+
     public static Object[] integerValues() {
         return Arrays.stream(values()).filter(value -> !INVALID.equals(value)).map(value -> value.value).toList().toArray();
     }

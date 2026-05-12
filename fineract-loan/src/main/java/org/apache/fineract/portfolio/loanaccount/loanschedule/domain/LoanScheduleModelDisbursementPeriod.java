@@ -70,37 +70,37 @@ public final class LoanScheduleModelDisbursementPeriod implements LoanScheduleMo
 
     @Override
     public Integer periodNumber() {
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     @Override
     public LocalDate periodFromDate() {
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     @Override
     public LocalDate periodDueDate() {
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     @Override
     public BigDecimal principalDue() {
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     @Override
     public BigDecimal interestDue() {
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     @Override
     public BigDecimal feeChargesDue() {
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     @Override
     public BigDecimal penaltyChargesDue() {
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     @Override
@@ -125,7 +125,7 @@ public final class LoanScheduleModelDisbursementPeriod implements LoanScheduleMo
 
     @Override
     public Set<InterestRecalculationAdditionalDetailData> getLoanCompoundingDetails() {
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     @Override
@@ -140,11 +140,12 @@ public final class LoanScheduleModelDisbursementPeriod implements LoanScheduleMo
 
     @Override
     public BigDecimal rescheduleInterestPortion() {
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     @Override
     public void setRescheduleInterestPortion(BigDecimal rescheduleInterestPortion) {
+        Objects.requireNonNull(rescheduleInterestPortion, "rescheduleInterestPortion cannot be null");
         return;
     }
 }

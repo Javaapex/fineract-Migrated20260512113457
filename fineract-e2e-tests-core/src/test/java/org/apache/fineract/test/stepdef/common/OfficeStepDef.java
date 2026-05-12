@@ -40,7 +40,7 @@ public class OfficeStepDef extends AbstractStepDef {
         final PostOfficesRequest request = new PostOfficesRequest()//
                 .name(Utils.randomStringGenerator("Office_", 5))//
                 .parentId(1L)//
-                .openingDate(LocalDate.of(2000, 1, 1))//
+                .openingDate(LocalDate.of(2000
                 .dateFormat("yyyy-MM-dd")//
                 .locale("en");//
 

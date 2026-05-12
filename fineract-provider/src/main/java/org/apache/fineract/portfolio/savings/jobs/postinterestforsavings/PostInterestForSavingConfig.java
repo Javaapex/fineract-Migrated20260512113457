@@ -70,6 +70,7 @@ public class PostInterestForSavingConfig {
 
     @Bean
     public Job postInterestForSavingJob(PostInterestForSavingTasklet postInterestForSavingTasklet) {
+        Objects.requireNonNull(postInterestForSavingTasklet, "postInterestForSavingTasklet cannot be null");
         return new JobBuilder(JobName.POST_INTEREST_FOR_SAVINGS.name(), jobRepository)
                 .start(postInterestForSavingStep(postInterestForSavingTasklet)).incrementer(new RunIdIncrementer()).build();
     }

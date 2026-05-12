@@ -41,6 +41,7 @@ public class CloseShareAccountCommandHandler implements NewCommandSourceHandler 
     @Transactional
     @Override
     public CommandProcessingResult processCommand(JsonCommand jsonCommand) {
+        Objects.requireNonNull(jsonCommand, "jsonCommand cannot be null");
         return this.shareAccountWritePlatformService.closeShareAccount(jsonCommand.entityId(), jsonCommand);
     }
 

@@ -31,6 +31,7 @@ public class MetricsConfig {
 
     @Bean
     public TimedAspect timedAspect(MeterRegistry registry) {
+        Objects.requireNonNull(registry, "registry cannot be null");
         return new TimedAspect(registry);
     }
 }

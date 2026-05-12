@@ -41,11 +41,13 @@ public class StaffUpdateCommandHandler implements CommandHandler<StaffUpdateRequ
     @Override
     @Transactional
     public StaffUpdateResponse handle(Command<StaffUpdateRequest> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return writePlatformService.updateStaff(command.getPayload());
     }
 
     @Override
     public StaffUpdateResponse fallback(Command<StaffUpdateRequest> command, Throwable t) {
+        Objects.requireNonNull(t, "t cannot be null");
         // NOTE: fallback method needs to be in the same class
         return CommandHandler.super.fallback(command, t);
     }

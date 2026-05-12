@@ -69,21 +69,26 @@ public class ProgressiveLoanInterestScheduleModelParserServiceGsonImpl implement
 
     @Override
     public String toJson(@NonNull ProgressiveLoanInterestScheduleModel model) {
+        Objects.requireNonNull(model, "model cannot be null");
         return gsonSerializer.toJson(model);
     }
 
     @Override
     public ProgressiveLoanInterestScheduleModel fromJson(String s, @NonNull ILoanConfigurationDetails loanProductRelatedDetail,
             @NonNull MathContext mc, Integer installmentAmountInMultipliesOf) {
+        Objects.requireNonNull(installmentAmountInMultipliesOf, "installmentAmountInMultipliesOf cannot be null");
+        Objects.requireNonNull(mc, "mc cannot be null");
+        Objects.requireNonNull(loanProductRelatedDetail, "loanProductRelatedDetail cannot be null");
         if (s == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         try {
             Gson gson = createDeserializer(loanProductRelatedDetail, mc, installmentAmountInMultipliesOf);
             return gson.fromJson(s, ProgressiveLoanInterestScheduleModel.class);
         } catch (Exception e) {
+
             log.warn("Failed to parse ProgressiveLoanInterestScheduleModel json. Falling back to default value.", e);
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
     }
 }

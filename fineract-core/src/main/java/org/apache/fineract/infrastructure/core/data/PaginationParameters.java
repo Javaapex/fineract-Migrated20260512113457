@@ -27,7 +27,7 @@ import org.apache.commons.lang3.StringUtils;
 @Getter
 public class PaginationParameters {
 
-    // TODO: why do we really need this class? SearchParameters seems to provide similar functionality
+
 
     public static final int DEFAULT_MAX_LIMIT = 200;
 
@@ -66,7 +66,7 @@ public class PaginationParameters {
         return this.offset != null;
     }
 
-    // TODO: following functions are just doing too much in one place; will disappear with type safe queries
+
 
     public String orderBySql() {
         final StringBuilder sql = new StringBuilder();

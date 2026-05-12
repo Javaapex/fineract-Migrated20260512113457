@@ -36,7 +36,7 @@ import org.springframework.stereotype.Component;
  * friendly format.
  *
  * The exception is thrown when a user's credentials are valid but they must reset their password before proceeding.
- * This mapper returns a 403 FORBIDDEN response with the authenticated user data, including the
+ * This mapper returns a 403
  * {@code shouldRenewPassword} flag set to true.
  */
 @Provider

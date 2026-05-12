@@ -57,7 +57,7 @@ public class LoanCOBCatchUpInstanceModeIntegrationTest extends BaseLoanIntegrati
     public void setup() throws InterruptedException {
         Utils.initializeRESTAssured();
         loanCOBCatchUpHelper = new LoanCOBCatchUpHelper();
-        this.responseSpec = new ResponseSpecBuilder().expectStatusCode(200).build();
+        this.responseSpec = new ResponseSpecBuilder().expectStatusCode(200
         this.requestSpec = new RequestSpecBuilder().setContentType(ContentType.JSON).build();
         this.requestSpec.header("Authorization", "Basic " + Utils.loginIntoServerAndGetBase64EncodedAuthenticationKey());
         schedulerJobHelper = new SchedulerJobHelper(requestSpec);
@@ -79,7 +79,7 @@ public class LoanCOBCatchUpInstanceModeIntegrationTest extends BaseLoanIntegrati
     public void testLoanCOBCatchUpDoesNotWorksWhenNotInBatchManagerMode() {
         CallFailedRuntimeException exception = assertThrows(CallFailedRuntimeException.class,
                 () -> loanCOBCatchUpHelper.executeLoanCOBCatchUp());
-        assertEquals(405, exception.getResponse().code());
+        assertEquals(405
     }
 
     @ConfigureInstanceMode(readEnabled = false, writeEnabled = false, batchWorkerEnabled = false, batchManagerEnabled = true)

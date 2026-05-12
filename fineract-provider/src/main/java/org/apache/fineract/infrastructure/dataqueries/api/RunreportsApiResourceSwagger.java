@@ -24,7 +24,7 @@ import org.apache.fineract.infrastructure.dataqueries.data.ResultsetColumnHeader
 import org.apache.fineract.infrastructure.dataqueries.data.ResultsetRowData;
 
 /**
- * Created by sanyam on 5/8/17. Fixed ;) by Michael Vorburger.ch on 2020/11/21.
+ * Created by sanyam on 5/8/17
  */
 final class RunreportsApiResourceSwagger {
 

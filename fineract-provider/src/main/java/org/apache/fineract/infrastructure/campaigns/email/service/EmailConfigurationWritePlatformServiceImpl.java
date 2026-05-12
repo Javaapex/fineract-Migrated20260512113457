@@ -42,7 +42,7 @@ public class EmailConfigurationWritePlatformServiceImpl implements EmailConfigur
 
     @Override
     public CommandProcessingResult update(final JsonCommand command) {
-        // TODO: leaving function call for backward compatibility... but security configuration should be done somewhere
+
         // else
         this.context.authenticatedUser();
 

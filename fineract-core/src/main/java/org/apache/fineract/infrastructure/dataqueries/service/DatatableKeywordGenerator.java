@@ -24,6 +24,8 @@ import org.springframework.stereotype.Component;
 public class DatatableKeywordGenerator {
 
     public String generateIndexName(String tableName, String columnName) {
+        Objects.requireNonNull(columnName, "columnName cannot be null");
+        Objects.requireNonNull(tableName, "tableName cannot be null");
         return "idx_%s_%s".formatted(tableName, columnName);
     }
 

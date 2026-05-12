@@ -40,6 +40,7 @@ public class CumulativeLoanSummaryDataProvider extends CommonLoanSummaryDataProv
 
     @Override
     public boolean accept(String loanProcessingStrategyCode) {
+        Objects.requireNonNull(loanProcessingStrategyCode, "loanProcessingStrategyCode cannot be null");
         return !loanProcessingStrategyCode.equalsIgnoreCase("advanced-payment-allocation-strategy");
     }
 
@@ -47,6 +48,7 @@ public class CumulativeLoanSummaryDataProvider extends CommonLoanSummaryDataProv
     public BigDecimal computeTotalUnpaidPayableNotDueInterestAmountOnActualPeriod(final Loan loan,
             final Collection<LoanSchedulePeriodData> periods, final LocalDate businessDate, final CurrencyData currency,
             BigDecimal totalUnpaidPayableDueInterest) {
+        Objects.requireNonNull(totalUnpaidPayableDueInterest, "totalUnpaidPayableDueInterest cannot be null");
         // Find the current Period (If exists one) based on the Business date
         final Optional<LoanSchedulePeriodData> optCurrentPeriod = periods.stream().filter(period -> !period.isDownPaymentPeriod() //
                 && period.getPeriod() != null //
@@ -69,6 +71,10 @@ public class CumulativeLoanSummaryDataProvider extends CommonLoanSummaryDataProv
     @Transactional(readOnly = true)
     public LoanSummaryData withTransactionAmountsSummary(Long loanId, LoanSummaryData defaultSummaryData,
             LoanScheduleData repaymentSchedule, Collection<? extends LoanTransactionBalance> loanTransactionBalances) {
+        Objects.requireNonNull(loanTransactionBalances, "loanTransactionBalances cannot be null");
+        Objects.requireNonNull(repaymentSchedule, "repaymentSchedule cannot be null");
+        Objects.requireNonNull(defaultSummaryData, "defaultSummaryData cannot be null");
+        Objects.requireNonNull(loanId, "loanId cannot be null");
         Loan loan = null;
         return super.withTransactionAmountsSummary(loan, defaultSummaryData, repaymentSchedule, loanTransactionBalances);
     }

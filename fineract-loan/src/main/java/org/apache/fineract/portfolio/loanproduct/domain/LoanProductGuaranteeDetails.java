@@ -44,7 +44,7 @@ public class LoanProductGuaranteeDetails extends AbstractPersistableCustom<Long>
     @JoinColumn(name = "loan_product_id", nullable = false)
     private LoanProduct loanProduct;
 
-    @Column(name = "mandatory_guarantee", scale = 6, precision = 19, nullable = false)
+    @Column(name = "mandatory_guarantee", scale = 6, precision = 19
     private BigDecimal mandatoryGuarantee;
 
     @Column(name = "minimum_guarantee_from_own_funds", scale = 6, precision = 19)

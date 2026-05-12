@@ -563,7 +563,7 @@ public class AdvancedPaymentScheduleTransactionProcessor extends AbstractLoanRep
             case REAGE -> handleReAge(loanTransaction, ctx);
             case CAPITALIZED_INCOME -> handleCapitalizedIncome(loanTransaction, ctx);
             case CONTRACT_TERMINATION -> handleContractTermination(loanTransaction, ctx);
-            // TODO: Cover rest of the transaction types
+
             default -> log.warn("Unhandled transaction processing for transaction type: {}", loanTransaction.getTypeOf());
         }
         return ctx.getChangedTransactionDetail();
@@ -736,7 +736,7 @@ public class AdvancedPaymentScheduleTransactionProcessor extends AbstractLoanRep
 
             distributeFeeAmongFutureInstallments(totalOverDueFee, futureInstallments);
         } else {
-            // TODO: implement interestRecalculation = false logic
+
             throw new UnsupportedOperationException(
                     "Logic for re-amortization when interest bearing loan has interestRecalculation disabled is not implemented");
         }
@@ -777,7 +777,7 @@ public class AdvancedPaymentScheduleTransactionProcessor extends AbstractLoanRep
                 && loanTransaction.getLoan().isInterestBearingAndInterestRecalculationEnabled()) {
             handleReAmortizationWithInterestRecalculationEnabled(loanTransaction, progressiveTransactionCtx);
         } else {
-            // TODO: implement interestRecalculation = false logic
+
             throw new UnsupportedOperationException(
                     "Logic for re-amortization when interest bearing loan has interestRecalculation disabled is not implemented");
         }
@@ -3308,7 +3308,7 @@ public class AdvancedPaymentScheduleTransactionProcessor extends AbstractLoanRep
                         && loanTransaction.getLoan().isInterestBearingAndInterestRecalculationEnabled()) {
                     handleReAgeWithInterestRecalculationEnabled(loanTransaction, progressiveTransactionCtx);
                 } else if (loanTransaction.getLoan().isInterestBearing() && !loanTransaction.getLoan().isInterestRecalculationEnabled()) {
-                    // TODO: implement interestRecalculation = false logic
+
                     throw new UnsupportedOperationException(
                             "Logic for re-aging when interest bearing loan has interestRecalculation disabled is not implemented");
                 }

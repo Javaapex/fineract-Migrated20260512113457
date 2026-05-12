@@ -40,6 +40,7 @@ public class ContentS3Config {
     @Bean
     @ConditionalOnProperty("fineract.content.s3.enabled")
     public S3Client contentS3Client(FineractProperties fineractProperties) {
+        Objects.requireNonNull(fineractProperties, "fineractProperties cannot be null");
         S3ClientBuilder builder = S3Client.builder().credentialsProvider(getCredentialProvider(fineractProperties.getContent().getS3()));
 
         if (!Strings.isNullOrEmpty(fineractProperties.getContent().getS3().getRegion())) {

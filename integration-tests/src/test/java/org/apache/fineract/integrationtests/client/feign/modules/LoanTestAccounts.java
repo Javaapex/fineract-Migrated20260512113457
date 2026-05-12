@@ -71,6 +71,7 @@ public class LoanTestAccounts implements LoanProductTemplates {
 
     @Override
     public Long getAssetAccountId(String accountName) {
+        Objects.requireNonNull(accountName, "accountName cannot be null");
         return switch (accountName) {
             case "loansReceivable" -> loansReceivableAccount.getAccountID().longValue();
             case "interestReceivable" -> interestReceivableAccount.getAccountID().longValue();

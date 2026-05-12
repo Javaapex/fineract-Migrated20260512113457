@@ -38,6 +38,7 @@ public class LoanCollateralManagementWritePlatformServiceImpl implements LoanCol
     @Transactional
     @Override
     public CommandProcessingResult deleteLoanCollateral(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         final Long id = command.entityId();
         final LoanCollateralManagement loanCollateralManagement = this.loanCollateralManagementRepository.findById(id).orElseThrow();
         ClientCollateralManagement clientCollateralManagement = loanCollateralManagement.getClientCollateralManagement();

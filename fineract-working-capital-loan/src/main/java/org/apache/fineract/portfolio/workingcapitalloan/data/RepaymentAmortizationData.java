@@ -21,4 +21,6 @@ package org.apache.fineract.portfolio.workingcapitalloan.data;
 import java.math.BigDecimal;
 
 public record RepaymentAmortizationData(BigDecimal currentDayAmortizedAmount, BigDecimal totalAmortizedAmount) {
+        Objects.requireNonNull(totalAmortizedAmount, "totalAmortizedAmount cannot be null");
+        Objects.requireNonNull(currentDayAmortizedAmount, "currentDayAmortizedAmount cannot be null");
 }

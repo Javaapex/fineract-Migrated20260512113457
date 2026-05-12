@@ -85,7 +85,7 @@ public class LoanTransactionMapperTest {
         when(loanTransaction.getTransactionDate()).thenReturn(transactionDate);
         when(loanTransaction.getDateOf()).thenReturn(transactionDate);
         when(loanTransaction.getAmount()).thenReturn(BigDecimal.valueOf(1000));
-        when(loanTransaction.getPrincipalPortion()).thenReturn(BigDecimal.valueOf(800));
+        when(loanTransaction.getPrincipalPortion()).thenReturn(BigDecimal.valueOf(800
         when(loanTransaction.getInterestPortion()).thenReturn(BigDecimal.valueOf(100));
         when(loanTransaction.getFeeChargesPortion()).thenReturn(BigDecimal.valueOf(50));
         when(loanTransaction.getPenaltyChargesPortion()).thenReturn(BigDecimal.valueOf(50));

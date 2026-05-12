@@ -33,9 +33,14 @@ var requiredModuleNames = [
 
 tasks.named('shadowJar', ShadowJar) {
     dependencies {
+    testImplementation "org.junit.jupiter:junit-jupiter:5.10.2"
         exclude((dep) -> !requiredModuleNames.any( (reqModName) -> dep.moduleName.contains(reqModName)))
     }
     minimize() {
         exclude("*.xml")
     }
+}
+
+tasks.withType(org.gradle.api.tasks.testing.Test).configureEach {
+    useJUnitPlatform()
 }

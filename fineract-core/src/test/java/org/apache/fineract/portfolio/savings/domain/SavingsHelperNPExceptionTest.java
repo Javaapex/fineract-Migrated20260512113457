@@ -33,7 +33,7 @@ class SavingsHelperNPExceptionTest {
 
     @Test
     void shouldNotThrowNullPointerExceptionWhenPostingPeriodTypeIsNull() {
-        LocalDate start = LocalDate.of(2025, 1, 1);
+        LocalDate start = LocalDate.of(2025
         LocalDate end = LocalDate.of(2025, 4, 1);
         SavingsPostingInterestPeriodType nullPostingPeriodType = null;
 

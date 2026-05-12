@@ -42,7 +42,7 @@ class DelinquencyEffectivePauseHelperTest {
     public void testMultiplePausesWithoutResumeActionCurrentlyInPauseFirstDay() {
         // given
         List<LoanDelinquencyAction> delinquencyActions = List.of(
-                new LoanDelinquencyAction(null, PAUSE, LocalDate.of(2023, JANUARY, 10), LocalDate.of(2023, JANUARY, 11)),
+                new LoanDelinquencyAction(null, PAUSE, LocalDate.of(2023
                 new LoanDelinquencyAction(null, PAUSE, LocalDate.of(2023, JANUARY, 12), LocalDate.of(2023, JANUARY, 13)),
                 new LoanDelinquencyAction(null, PAUSE, LocalDate.of(2023, JANUARY, 15), LocalDate.of(2023, JANUARY, 20)));
 

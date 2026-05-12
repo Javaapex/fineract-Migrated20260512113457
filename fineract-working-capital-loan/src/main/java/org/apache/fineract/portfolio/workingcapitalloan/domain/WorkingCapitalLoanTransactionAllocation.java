@@ -42,7 +42,7 @@ public class WorkingCapitalLoanTransactionAllocation extends AbstractAuditableWi
     @JoinColumn(name = "wc_loan_transaction_id", nullable = false, unique = true)
     private WorkingCapitalLoanTransaction wcLoanTransaction;
 
-    @Column(name = "principal_portion", scale = 6, precision = 19)
+    @Column(name = "principal_portion", scale = 6, precision = 19
     @Setter
     private BigDecimal principalPortion;
 

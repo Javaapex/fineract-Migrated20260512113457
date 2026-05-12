@@ -40,11 +40,13 @@ public class ProductMixDeleteCommandHandler implements CommandHandler<ProductMix
     @Override
     @Transactional
     public ProductMixDeleteResponse handle(Command<ProductMixDeleteRequest> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return writePlatformService.deleteProductMix(command.getPayload());
     }
 
     @Override
     public ProductMixDeleteResponse fallback(Command<ProductMixDeleteRequest> command, Throwable t) {
+        Objects.requireNonNull(t, "t cannot be null");
         return CommandHandler.super.fallback(command, t);
     }
 }

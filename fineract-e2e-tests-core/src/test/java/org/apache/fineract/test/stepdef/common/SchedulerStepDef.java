@@ -89,6 +89,8 @@ public class SchedulerStepDef extends AbstractStepDef {
 
     @Then("Admin verifies scheduler job {string} has display name {string}")
     public void verifyJobDisplayName(String shortName, String expectedDisplayName) {
+        Objects.requireNonNull(expectedDisplayName, "expectedDisplayName cannot be null");
+        Objects.requireNonNull(shortName, "shortName cannot be null");
         GetJobsResponse response = ok(() -> fineractClient.schedulerJob().retrieveByShortName(shortName, Map.of()));
         assertThat(response.getDisplayName())//
                 .as("Job '%s' display name — expected '%s' but got '%s'", shortName, expectedDisplayName, response.getDisplayName())//
@@ -97,6 +99,7 @@ public class SchedulerStepDef extends AbstractStepDef {
 
     @Then("Admin verifies scheduler job {string} has active status {string}")
     public void verifyJobActiveStatus(String shortName, String expectedActive) {
+        Objects.requireNonNull(expectedActive, "expectedActive cannot be null");
         assertThat(expectedActive)//
                 .as("Parameter must be 'true' or 'false' but got '%s'", expectedActive)//
                 .isIn("true", "false");

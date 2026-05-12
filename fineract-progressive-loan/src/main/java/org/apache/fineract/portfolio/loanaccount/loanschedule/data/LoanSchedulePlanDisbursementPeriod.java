@@ -32,7 +32,7 @@ public final class LoanSchedulePlanDisbursementPeriod implements LoanSchedulePla
 
     @Override
     public Integer periodNumber() {
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     @Override

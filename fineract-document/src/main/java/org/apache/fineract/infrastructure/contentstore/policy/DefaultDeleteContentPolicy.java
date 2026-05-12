@@ -33,6 +33,7 @@ public class DefaultDeleteContentPolicy implements ContentPolicy {
 
     @Override
     public void check(ContentPolicyContext ctx) {
+        Objects.requireNonNull(ctx, "ctx cannot be null");
         traversalContentPolicy.check(ctx);
     }
 }

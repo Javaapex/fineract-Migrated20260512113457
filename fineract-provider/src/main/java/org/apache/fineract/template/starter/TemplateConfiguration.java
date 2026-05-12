@@ -33,12 +33,14 @@ public class TemplateConfiguration {
     @Bean
     @ConditionalOnMissingBean(TemplateDomainService.class)
     public TemplateDomainService templateDomainService(TemplateRepository templateRepository) {
+        Objects.requireNonNull(templateRepository, "templateRepository cannot be null");
         return new JpaTemplateDomainService(templateRepository);
     }
 
     @Bean
     @ConditionalOnMissingBean(TemplateMergeService.class)
     public TemplateMergeService templateMergeService(FineractProperties fineractProperties) {
+        Objects.requireNonNull(fineractProperties, "fineractProperties cannot be null");
         return new TemplateMergeService(fineractProperties);
     }
 

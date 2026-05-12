@@ -33,6 +33,8 @@ public class FineractProgressiveLoanBeanConfiguration {
     public ProgressivePossibleNextRepaymentCalculationServiceImpl progressivePossibleNextRepaymentCalculationService(
             InterestScheduleModelRepositoryWrapper interestScheduleModelRepository,
             AdvancedPaymentScheduleTransactionProcessor advancedPaymentScheduleTransactionProcessor) {
+        Objects.requireNonNull(advancedPaymentScheduleTransactionProcessor, "advancedPaymentScheduleTransactionProcessor cannot be null");
+        Objects.requireNonNull(interestScheduleModelRepository, "interestScheduleModelRepository cannot be null");
         return new ProgressivePossibleNextRepaymentCalculationServiceImpl(interestScheduleModelRepository,
                 advancedPaymentScheduleTransactionProcessor);
     }

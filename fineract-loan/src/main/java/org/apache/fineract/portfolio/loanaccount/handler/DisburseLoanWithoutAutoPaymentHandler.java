@@ -39,6 +39,7 @@ public class DisburseLoanWithoutAutoPaymentHandler implements NewCommandSourceHa
 
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         try {
             return writePlatformService.disburseLoan(command.entityId(), command, false, true);
         } catch (final JpaSystemException | DataIntegrityViolationException dve) {

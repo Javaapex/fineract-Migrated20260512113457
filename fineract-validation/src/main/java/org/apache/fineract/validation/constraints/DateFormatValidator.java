@@ -27,6 +27,8 @@ public class DateFormatValidator implements ConstraintValidator<DateFormat, Stri
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
+        Objects.requireNonNull(context, "context cannot be null");
+        Objects.requireNonNull(value, "value cannot be null");
         if (StringUtils.isBlank(value)) {
             return true; // blank is allowed; use @NotBlank if required
         }

@@ -43,7 +43,7 @@ public class LoanItemWriterStepDefinitions implements En {
 
             Loan loan = mock(Loan.class);
             lenient().when(loan.getId()).thenReturn(1L);
-            if (action.equals("error")) {
+            if ("error".equals(action)) {
                 items = new Chunk<>();
             } else {
                 items = new Chunk<>(loan);

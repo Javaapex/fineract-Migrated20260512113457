@@ -49,6 +49,7 @@ public class JournalEntryAggregationJobReader extends JdbcCursorItemReader<Journ
 
     @BeforeStep
     public void beforeStep(StepExecution stepExecution) {
+        Objects.requireNonNull(stepExecution, "stepExecution cannot be null");
         ExecutionContext ctx = stepExecution.getJobExecution().getExecutionContext();
 
         this.aggregatedOnDateFrom = (LocalDate) ctx.get(JournalEntryAggregationJobConstant.AGGREGATED_ON_DATE_FROM);

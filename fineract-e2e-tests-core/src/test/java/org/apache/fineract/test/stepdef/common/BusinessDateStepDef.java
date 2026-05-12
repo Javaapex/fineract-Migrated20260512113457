@@ -48,6 +48,7 @@ public class BusinessDateStepDef extends AbstractStepDef {
 
     @When("Admin sets the business date to {string}")
     public void setBusinessDate(String businessDate) {
+        Objects.requireNonNull(businessDate, "businessDate cannot be null");
         businessDateHelper.setBusinessDate(businessDate);
     }
 
@@ -75,7 +76,7 @@ public class BusinessDateStepDef extends AbstractStepDef {
             throw new AssertionError("Expected FeignException but request succeeded");
         } catch (FeignException e) {
             final ErrorResponse errorDetails = ErrorResponse.fromFeignException(e);
-            assertThat(errorDetails.getHttpStatusCode()).as(ErrorMessageHelper.setIncorrectBusinessDateFailure()).isEqualTo(400);
+            assertThat(errorDetails.getHttpStatusCode()).as(ErrorMessageHelper.setIncorrectBusinessDateFailure()).isEqualTo(400
             assertThat(errorDetails.getSingleError().getDeveloperMessageWithoutPrefix())
                     .isEqualTo(ErrorMessageHelper.setIncorrectBusinessDateFailure());
         }
@@ -84,7 +85,7 @@ public class BusinessDateStepDef extends AbstractStepDef {
     @Then("Set incorrect business date with empty value {string} outcomes with an error")
     public void setNullOrEmptyBusinessDateFailure(String businessDate) {
         BusinessDateUpdateRequest businessDateRequest = businessDateHelper.defaultBusinessDateRequest();
-        if (businessDate.equals("null")) {
+        if ("null".equals(businessDate)) {
             businessDateRequest.date(null);
         } else {
             businessDateRequest.date(businessDate);

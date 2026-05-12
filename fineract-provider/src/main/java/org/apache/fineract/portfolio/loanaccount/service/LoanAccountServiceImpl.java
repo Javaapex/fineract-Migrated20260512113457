@@ -40,6 +40,7 @@ public class LoanAccountServiceImpl implements LoanAccountService {
 
     @Override
     public LoanTransaction saveLoanTransactionWithDataIntegrityViolationChecks(LoanTransaction newRepaymentTransaction) {
+        Objects.requireNonNull(newRepaymentTransaction, "newRepaymentTransaction cannot be null");
         try {
             return this.loanTransactionRepository.saveAndFlush(newRepaymentTransaction);
         } catch (final JpaSystemException | DataIntegrityViolationException e) {

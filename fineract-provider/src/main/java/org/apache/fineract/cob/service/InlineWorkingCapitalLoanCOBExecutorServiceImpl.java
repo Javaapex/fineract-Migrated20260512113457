@@ -50,6 +50,9 @@ public class InlineWorkingCapitalLoanCOBExecutorServiceImpl extends InlineCommon
 
     @Override
     public WorkingCapitalLoanAccountLock createAccountLock(Long loanId, LockOwner loanInlineCobProcessing, LocalDate businessDate) {
+        Objects.requireNonNull(businessDate, "businessDate cannot be null");
+        Objects.requireNonNull(loanInlineCobProcessing, "loanInlineCobProcessing cannot be null");
+        Objects.requireNonNull(loanId, "loanId cannot be null");
         return new WorkingCapitalLoanAccountLock(loanId, loanInlineCobProcessing, businessDate);
     }
 }

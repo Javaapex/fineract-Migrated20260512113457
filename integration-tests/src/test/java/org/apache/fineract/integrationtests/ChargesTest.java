@@ -59,7 +59,7 @@ public class ChargesTest {
         Utils.initializeRESTAssured();
         this.requestSpec = new RequestSpecBuilder().setContentType(ContentType.JSON).build();
         this.requestSpec.header("Authorization", "Basic " + Utils.loginIntoServerAndGetBase64EncodedAuthenticationKey());
-        this.responseSpec = new ResponseSpecBuilder().expectStatusCode(200).build();
+        this.responseSpec = new ResponseSpecBuilder().expectStatusCode(200
     }
 
     @Test
@@ -342,8 +342,8 @@ public class ChargesTest {
     @Test
     public void testChargeUsingPercentageCalculationWithMinAndMaxGapValues() {
         final ChargesHelper chargesHelper = new ChargesHelper();
-        final BigDecimal minCapVal = BigDecimal.valueOf(23);
-        final BigDecimal maxCapVal = BigDecimal.valueOf(45);
+        final BigDecimal minCapVal = BigDecimal.valueOf(23
+        final BigDecimal maxCapVal = BigDecimal.valueOf(45
 
         final PostChargesResponse feeCharge = chargesHelper.createCharges(
                 new ChargeRequest().penalty(false).amount(9.0).chargeCalculationType(ChargeCalculationType.PERCENT_OF_AMOUNT.getValue())

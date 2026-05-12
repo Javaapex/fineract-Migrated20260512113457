@@ -498,7 +498,7 @@ public class BatchApiStepDef extends AbstractStepDef {
         Boolean isEnclosingTransaction = Boolean.valueOf(enclosingTransaction);
         Map<String, Object> queryParams = new HashMap<>();
         queryParams.put(ENCLOSING_TRANSACTION, isEnclosingTransaction);
-        // TODO: Feign doesn't support per-request headers via API signature - need to use RequestInterceptor
+
         // List<BatchResponse> batchResponseList = batchApiApi().handleBatchRequests(requestList, queryParams,
         // headerMap);
         List<BatchResponse> batchResponseList = batchApiApi().handleBatchRequests(requestList, queryParams);
@@ -603,7 +603,7 @@ public class BatchApiStepDef extends AbstractStepDef {
         Boolean isEnclosingTransaction = Boolean.valueOf(enclosingTransaction);
         Map<String, Object> queryParams = new HashMap<>();
         queryParams.put(ENCLOSING_TRANSACTION, isEnclosingTransaction);
-        // TODO: Feign doesn't support per-request headers - need to use RequestInterceptor
+
         List<BatchResponse> batchResponseList = batchApiApi().handleBatchRequests(requestList, queryParams);
         BatchResponse lastBatchResponse = batchResponseList.get(batchResponseList.size() - 1);
         assertThat(httpCodeExpected).isEqualTo(lastBatchResponse.getStatusCode());

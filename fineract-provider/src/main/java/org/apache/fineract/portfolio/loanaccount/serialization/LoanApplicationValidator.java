@@ -1620,7 +1620,7 @@ public final class LoanApplicationValidator {
          * For multi-disbursal loans where schedules are auto-generated based on a fixed EMI, ensure the number of
          * repayments is within the permissible range defined by the loan product
          */
-        // TODO: is this condition necessary?
+
         if (loan.getFixedEmiAmount() != null) {
             Integer minimumNoOfRepayments = loan.loanProduct().getMinNumberOfRepayments();
             Integer maximumNoOfRepayments = loan.loanProduct().getMaxNumberOfRepayments();
@@ -1867,7 +1867,7 @@ public final class LoanApplicationValidator {
 
     private void validateTransactionProcessingStrategy(final String transactionProcessingStrategy, final LoanProduct loanProduct) {
 
-        // TODO: Review exceptions
+
         if (!AdvancedPaymentScheduleTransactionProcessor.ADVANCED_PAYMENT_ALLOCATION_STRATEGY
                 .equals(loanProduct.getTransactionProcessingStrategyCode())
                 && AdvancedPaymentScheduleTransactionProcessor.ADVANCED_PAYMENT_ALLOCATION_STRATEGY.equals(transactionProcessingStrategy)) {
@@ -1877,7 +1877,7 @@ public final class LoanApplicationValidator {
             // PROGRESSIVE: Repayment strategy MUST be only "advanced payment allocation"
             if (LoanScheduleType.PROGRESSIVE.equals(loanProduct.getLoanProductRelatedDetail().getLoanScheduleType())) {
                 if (!LoanProductConstants.ADVANCED_PAYMENT_ALLOCATION_STRATEGY.equals(transactionProcessingStrategy)) {
-                    // TODO: GeneralPlatformDomainRuleException vs PlatformApiDataValidationException
+
                     throw new GeneralPlatformDomainRuleException(
                             "error.msg.loan.repayment.strategy.can.not.be.different.than.advanced.payment.allocation",
                             "Loan repayment strategy can not be different than Advanced Payment Allocation");
@@ -1885,7 +1885,7 @@ public final class LoanApplicationValidator {
                 // CUMULATIVE: Repayment strategy CANNOT be "advanced payment allocation"
             } else if (LoanScheduleType.CUMULATIVE.equals(loanProduct.getLoanProductRelatedDetail().getLoanScheduleType())) {
                 if (LoanProductConstants.ADVANCED_PAYMENT_ALLOCATION_STRATEGY.equals(transactionProcessingStrategy)) {
-                    // TODO: GeneralPlatformDomainRuleException vs PlatformApiDataValidationException
+
                     throw new GeneralPlatformDomainRuleException(
                             "error.msg.loan.repayment.strategy.can.not.be.equal.to.advanced.payment.allocation",
                             "Loan repayment strategy can not be equal to Advanced Payment Allocation");
@@ -1952,7 +1952,7 @@ public final class LoanApplicationValidator {
                     submittedOnDate.toString(), closeDate.toString());
         }
 
-        // TODO: Common exception handling would be nice
+
         if (DateUtils.isDateInTheFuture(submittedOnDate)) {
             final String errorMessage = "The date on which a loan is submitted cannot be in the future.";
             throw new InvalidLoanStateTransitionException("submittal", "cannot.be.a.future.date", errorMessage, submittedOnDate,

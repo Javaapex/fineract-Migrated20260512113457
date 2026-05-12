@@ -79,6 +79,8 @@ public class JPAConfig extends JpaBaseConfiguration {
     @DependsOn("tenantDatabaseUpgradeService")
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(EntityManagerFactoryBuilder factoryBuilder,
             PersistenceManagedTypes persistenceManagedTypes) {
+        Objects.requireNonNull(persistenceManagedTypes, "persistenceManagedTypes cannot be null");
+        Objects.requireNonNull(factoryBuilder, "factoryBuilder cannot be null");
         Map<String, Object> vendorProperties = getVendorProperties(getDataSource());
         String[] packagesToScan = getPackagesToScan();
         return factoryBuilder.dataSource(getDataSource()).properties(vendorProperties).persistenceUnit("jpa-pu").packages(packagesToScan)
@@ -106,6 +108,9 @@ public class JPAConfig extends JpaBaseConfiguration {
     public EntityManagerFactoryBuilder entityManagerFactoryBuilder(JpaVendorAdapter jpaVendorAdapter,
             ObjectProvider<PersistenceUnitManager> persistenceUnitManager,
             ObjectProvider<EntityManagerFactoryBuilderCustomizer> customizers) {
+        Objects.requireNonNull(customizers, "customizers cannot be null");
+        Objects.requireNonNull(persistenceUnitManager, "persistenceUnitManager cannot be null");
+        Objects.requireNonNull(jpaVendorAdapter, "jpaVendorAdapter cannot be null");
         EntityManagerFactoryBuilder builder = super.entityManagerFactoryBuilder(jpaVendorAdapter, persistenceUnitManager, customizers);
         builder.setPersistenceUnitPostProcessors(getPersistenceUnitPostProcessors());
         return builder;
@@ -130,6 +135,7 @@ public class JPAConfig extends JpaBaseConfiguration {
 
     @Bean
     public TransactionTemplate txTemplate(PlatformTransactionManager transactionManager) {
+        Objects.requireNonNull(transactionManager, "transactionManager cannot be null");
         TransactionTemplate tt = new TransactionTemplate();
         tt.setTransactionManager(transactionManager);
         return tt;

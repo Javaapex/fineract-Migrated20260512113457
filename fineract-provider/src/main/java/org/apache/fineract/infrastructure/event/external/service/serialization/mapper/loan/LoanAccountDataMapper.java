@@ -28,7 +28,7 @@ import org.mapstruct.Mapping;
         LoanDelinquencyPausePeriodMapper.class })
 public interface LoanAccountDataMapper {
 
-    // TODO: avoid prefix "is" in class attributes; I would recommend to fix this also in the Avro structures
+
     @Mapping(source = "loanProductLinkedToFloatingRate", target = "isLoanProductLinkedToFloatingRate")
     @Mapping(source = "floatingInterestRate", target = "isFloatingInterestRate")
     @Mapping(source = "topup", target = "isTopup")

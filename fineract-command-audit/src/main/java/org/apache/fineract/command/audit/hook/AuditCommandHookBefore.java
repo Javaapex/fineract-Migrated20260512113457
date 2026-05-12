@@ -42,6 +42,7 @@ final class AuditCommandHookBefore implements CommandHookBefore<Object> {
 
     @Override
     public void onBefore(Command<Object> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         final var now = Instant.now();
 
         command.setExecutedByUsername(command.getInitiatedByUsername());

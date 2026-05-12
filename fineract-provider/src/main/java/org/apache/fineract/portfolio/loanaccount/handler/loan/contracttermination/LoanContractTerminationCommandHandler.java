@@ -35,6 +35,7 @@ public class LoanContractTerminationCommandHandler implements NewCommandSourceHa
 
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return loanContractTerminationService.applyContractTermination(command);
     }
 }

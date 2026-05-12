@@ -29,12 +29,14 @@ public class JsonExcludeAnnotationBasedExclusionStrategy implements ExclusionStr
 
     @Override
     public boolean shouldSkipField(FieldAttributes fieldAttributes) {
+        Objects.requireNonNull(fieldAttributes, "fieldAttributes cannot be null");
         JsonExclude annotation = fieldAttributes.getAnnotation(JsonExclude.class);
         return annotation != null;
     }
 
     @Override
     public boolean shouldSkipClass(Class<?> aClass) {
+        Objects.requireNonNull(aClass, "aClass cannot be null");
         return false;
     }
 }

@@ -39,7 +39,7 @@ import org.apache.fineract.infrastructure.survey.service.ReadLikelihoodService;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by Cieyou on 3/12/14.
+ * Created by Cieyou on 3/12
  */
 @Path("/v1/likelihood")
 @Component

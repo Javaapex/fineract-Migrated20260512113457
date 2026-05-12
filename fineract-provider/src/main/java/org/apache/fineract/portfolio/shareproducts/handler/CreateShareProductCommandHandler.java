@@ -41,6 +41,7 @@ public class CreateShareProductCommandHandler implements NewCommandSourceHandler
     @Transactional
     @Override
     public CommandProcessingResult processCommand(JsonCommand jsonCommand) {
+        Objects.requireNonNull(jsonCommand, "jsonCommand cannot be null");
         return this.shareProductWritePlatformService.createShareProduct(jsonCommand);
     }
 

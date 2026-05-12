@@ -19,5 +19,7 @@
 package org.apache.fineract.infrastructure.campaigns.sms.data;
 
 public record CampaignPreviewData(String campaignMessage, Integer totalNumberOfMessages) {
+        Objects.requireNonNull(totalNumberOfMessages, "totalNumberOfMessages cannot be null");
+        Objects.requireNonNull(campaignMessage, "campaignMessage cannot be null");
 
 }

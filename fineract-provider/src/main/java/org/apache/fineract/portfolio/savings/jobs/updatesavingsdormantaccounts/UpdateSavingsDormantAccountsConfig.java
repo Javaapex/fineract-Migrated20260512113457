@@ -46,6 +46,7 @@ public class UpdateSavingsDormantAccountsConfig {
 
     @Bean
     public Job updateSavingsDormantAccountsJob(UpdateSavingsDormantAccountsTasklet updateSavingsDormantAccountsTasklet) {
+        Objects.requireNonNull(updateSavingsDormantAccountsTasklet, "updateSavingsDormantAccountsTasklet cannot be null");
         return new JobBuilder(JobName.UPDATE_SAVINGS_DORMANT_ACCOUNTS.name(), jobRepository)
                 .start(updateSavingsDormantAccountsStep(updateSavingsDormantAccountsTasklet)).incrementer(new RunIdIncrementer()).build();
     }

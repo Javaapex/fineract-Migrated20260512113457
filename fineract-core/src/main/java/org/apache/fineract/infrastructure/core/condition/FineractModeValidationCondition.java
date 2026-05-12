@@ -29,6 +29,8 @@ public class FineractModeValidationCondition implements Condition {
 
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
+        Objects.requireNonNull(metadata, "metadata cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
         boolean isReadModeEnabled = Optional.ofNullable(context.getEnvironment().getProperty("fineract.mode.read-enabled", Boolean.class))
                 .orElse(true);
         boolean isWriteModeEnabled = Optional.ofNullable(context.getEnvironment().getProperty("fineract.mode.write-enabled", Boolean.class))

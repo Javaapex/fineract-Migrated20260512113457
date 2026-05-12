@@ -42,11 +42,13 @@ public class JournalEntryAggregationJobWriter implements ItemWriter<JournalEntry
 
     @Override
     public void beforeStep(@NonNull StepExecution stepExecution) {
+        Objects.requireNonNull(stepExecution, "stepExecution cannot be null");
         this.stepExecution = stepExecution;
     }
 
     @Override
     public void write(@NonNull Chunk<? extends JournalEntryAggregationSummaryData> journalEntrySummaries) {
+        Objects.requireNonNull(journalEntrySummaries, "journalEntrySummaries cannot be null");
         final Long jobExecutionId = stepExecution.getJobExecution().getId();
         List<JournalEntryAggregationSummaryData> summariesList = journalEntrySummaries.getItems().stream().map(item -> {
             item.setJobExecutionId(jobExecutionId);

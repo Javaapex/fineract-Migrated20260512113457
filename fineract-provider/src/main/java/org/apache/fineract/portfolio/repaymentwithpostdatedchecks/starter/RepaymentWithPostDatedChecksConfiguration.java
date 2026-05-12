@@ -37,6 +37,7 @@ public class RepaymentWithPostDatedChecksConfiguration {
     @Bean
     @ConditionalOnMissingBean(RepaymentWithPostDatedChecksAssembler.class)
     public RepaymentWithPostDatedChecksAssembler repaymentWithPostDatedChecksAssembler(FromJsonHelper fromJsonHelper) {
+        Objects.requireNonNull(fromJsonHelper, "fromJsonHelper cannot be null");
         return new RepaymentWithPostDatedChecksAssembler(fromJsonHelper);
     }
 
@@ -45,6 +46,9 @@ public class RepaymentWithPostDatedChecksConfiguration {
     public RepaymentWithPostDatedChecksReadPlatformService repaymentWithPostDatedChecksReadPlatformService(
             PostDatedChecksRepository postDatedChecksRepository, LoanRepository loanRepository,
             LoanRepaymentScheduleInstallmentRepository loanRepaymentScheduleInstallmentRepository) {
+        Objects.requireNonNull(loanRepaymentScheduleInstallmentRepository, "loanRepaymentScheduleInstallmentRepository cannot be null");
+        Objects.requireNonNull(loanRepository, "loanRepository cannot be null");
+        Objects.requireNonNull(postDatedChecksRepository, "postDatedChecksRepository cannot be null");
         return new RepaymentWithPostDatedChecksReadPlatformServiceImpl(postDatedChecksRepository, loanRepository,
                 loanRepaymentScheduleInstallmentRepository);
     }
@@ -53,6 +57,7 @@ public class RepaymentWithPostDatedChecksConfiguration {
     @ConditionalOnMissingBean(RepaymentWithPostDatedChecksWritePlatformService.class)
     public RepaymentWithPostDatedChecksWritePlatformService repaymentWithPostDatedChecksWritePlatformService(
             PostDatedChecksRepository postDatedChecksRepository, FromJsonHelper fromApiJsonHelper, LoanRepository loanRepository) {
+        Objects.requireNonNull(fromApiJsonHelper, "fromApiJsonHelper cannot be null");
         return new RepaymentWithPostDatedChecksWritePlatformServiceImpl(postDatedChecksRepository, fromApiJsonHelper, loanRepository);
     }
 }

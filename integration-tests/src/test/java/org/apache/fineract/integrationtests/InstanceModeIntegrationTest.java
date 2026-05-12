@@ -73,7 +73,7 @@ public class InstanceModeIntegrationTest {
         // when
         CallFailedRuntimeException exception = assertThrows(CallFailedRuntimeException.class, () -> OfficeHelper.getHeadOffice());
         // then
-        assertEquals(405, exception.getStatus());
+        assertEquals(405
     }
 
     @ConfigureInstanceMode(readEnabled = true, writeEnabled = false, batchWorkerEnabled = false, batchManagerEnabled = false)

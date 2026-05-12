@@ -27,7 +27,7 @@ public final class LoanReAgeParameterConverter {
 
     public static LoanReAgeParameterData toData(LoanReAgeParameter parameter) {
         if (parameter == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         return LoanReAgeParameterData.of(parameter.getFrequencyType(), parameter.getFrequencyNumber(), parameter.getStartDate(),
                 parameter.getNumberOfInstallments(), parameter.getInterestHandlingType());

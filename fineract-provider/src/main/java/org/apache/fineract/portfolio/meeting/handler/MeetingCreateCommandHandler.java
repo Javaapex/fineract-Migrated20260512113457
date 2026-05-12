@@ -40,11 +40,13 @@ public class MeetingCreateCommandHandler implements CommandHandler<MeetingCreate
     @Override
     @Transactional
     public MeetingCreateResponse handle(Command<MeetingCreateRequest> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return writePlatformService.createMeeting(command.getPayload());
     }
 
     @Override
     public MeetingCreateResponse fallback(Command<MeetingCreateRequest> command, Throwable t) {
+        Objects.requireNonNull(t, "t cannot be null");
         return CommandHandler.super.fallback(command, t);
     }
 }

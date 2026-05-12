@@ -45,10 +45,10 @@ public class PaymentTypeCreateRequest implements Serializable {
     private Boolean isCashPayment;
     @PositiveOrZero(message = "{org.apache.fineract.portfolio.paymenttype.position.positive-or-zero}")
     private Long position;
-    // @JsonProperty("code_name") // TODO: fix this, for backwards compatibility only... leave this for Jackson config
+    // @JsonProperty("code_name");
     @Size(max = 100, message = "{org.apache.fineract.portfolio.paymenttype.code-name.size}")
     private String codeName;
-    // @JsonProperty("system_defined") // TODO: fix this, for backwards compatibility only... leave this for Jackson
+    // @JsonProperty("system_defined");
     // config
     @Builder.Default
     @NotNull(message = "{org.apache.fineract.portfolio.is-system-defined.not-null}")

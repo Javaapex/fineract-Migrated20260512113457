@@ -46,6 +46,7 @@ public class PaymentTypeWriteServiceImpl implements PaymentTypeWriteService {
     @Override
     @CacheEvict(value = "payment_types", key = "T(org.apache.fineract.infrastructure.core.service.ThreadLocalContextUtil).getTenant().getTenantIdentifier().concat('payment_types')")
     public PaymentTypeCreateResponse createPaymentType(@Valid PaymentTypeCreateRequest request) {
+        Objects.requireNonNull(request, "request cannot be null");
         final var paymentType = createRequestMapper.map(request);
 
         repository.saveAndFlush(paymentType);

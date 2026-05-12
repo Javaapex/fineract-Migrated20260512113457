@@ -33,6 +33,7 @@ public final class FileContentDetector implements ContentDetector {
 
     @Override
     public ContentDetectorContext detect(ContentDetectorContext ctx) {
+        Objects.requireNonNull(ctx, "ctx cannot be null");
         try {
             final var mimeType = Files.probeContentType(Paths.get(ctx.getFileName()));
             final var format = FilenameUtils.getExtension(ctx.getFileName());

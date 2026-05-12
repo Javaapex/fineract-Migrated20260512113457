@@ -28,6 +28,8 @@ public class EnableFineractEventListenerCondition implements Condition {
 
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
+        Objects.requireNonNull(metadata, "metadata cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
         boolean isReadModeEnabled = Optional.ofNullable(
                 context.getEnvironment().getProperty(FineractInstanceModeConstants.FINERACT_MODE_READ_ENABLE_PROPERTY, Boolean.class))
                 .orElse(true);

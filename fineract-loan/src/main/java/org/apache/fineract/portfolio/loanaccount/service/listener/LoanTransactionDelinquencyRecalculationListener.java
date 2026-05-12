@@ -56,6 +56,7 @@ public class LoanTransactionDelinquencyRecalculationListener
 
     @Override
     public void onBusinessEvent(LoanTransactionBusinessEvent event) {
+        Objects.requireNonNull(event, "event cannot be null");
         if (SUPPORTED_EVENT_TYPES.contains(event.getClass())) {
             LoanTransaction tx = event.get();
             loanAccountDomainService.setLoanDelinquencyTag(tx.getLoan(), tx.getTransactionDate());

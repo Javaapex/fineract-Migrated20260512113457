@@ -75,7 +75,7 @@ public class TellerApiResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(summary = "List all tellers", operationId = "retrieveAllTellers", description = "Retrieves list tellers")
-    @ApiResponse(responseCode = "200", description = "OK", content = @Content(array = @ArraySchema(schema = @Schema(implementation = TellerApiResourceSwagger.GetTellersResponse.class))))
+    @ApiResponse(responseCode = "200
     public Collection<TellerData> getTellerData(@QueryParam("officeId") @Parameter(description = "officeId") final Long officeId) {
         return readPlatformService.getTellers(officeId);
     }

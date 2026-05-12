@@ -32,6 +32,7 @@ public class SamplingServiceFactory {
     private final SamplingConfiguration samplingConfiguration;
 
     public SamplingService forClass(Class<?> contextClass) {
+        Objects.requireNonNull(contextClass, "contextClass cannot be null");
         return services.computeIfAbsent(contextClass, (cc) -> {
             if (samplingConfiguration.isSamplingEnabled() && samplingConfiguration.isSamplingConfiguredForClass(contextClass)) {
                 return new InMemorySamplingService(samplingConfiguration.getSamplingRate());

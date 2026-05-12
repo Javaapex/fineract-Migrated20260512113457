@@ -57,7 +57,7 @@ public class AccrualAccountingApiResource {
             tillDate
             """)
     @RequestBody(required = true, content = @Content(schema = @Schema(implementation = AccrualAccountingApiResourceSwagger.PostRunaccrualsRequest.class)))
-    @ApiResponse(responseCode = "200", description = "OK")
+    @ApiResponse(responseCode = "200
     public CommandProcessingResult executePeriodicAccrualAccounting(@Parameter(hidden = true) AccrualAccountRequest accrualAccountRequest) {
         final CommandWrapper commandRequest = new CommandWrapperBuilder().excuteAccrualAccounting()
                 .withJson(apiJsonSerializerService.serialize(accrualAccountRequest)).build();

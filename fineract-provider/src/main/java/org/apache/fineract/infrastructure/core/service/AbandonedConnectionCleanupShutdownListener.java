@@ -66,6 +66,7 @@ public class AbandonedConnectionCleanupShutdownListener implements ApplicationLi
         try {
             Thread.sleep(2000L);
         } catch (Exception e) {
+
             LOG.error("Exception Occcurred while trying to sleep.", e);
         }
     }

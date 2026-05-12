@@ -29,6 +29,7 @@ public class FetcherRule<P, R> {
     private final Function<P, R> action;
 
     public boolean matches(P params) {
+        Objects.requireNonNull(params, "params cannot be null");
         return condition.test(params);
     }
 

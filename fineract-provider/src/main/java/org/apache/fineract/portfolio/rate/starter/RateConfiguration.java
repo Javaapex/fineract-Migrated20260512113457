@@ -40,12 +40,16 @@ public class RateConfiguration {
     @Bean
     @ConditionalOnMissingBean(RateAssembler.class)
     public RateAssembler rateAssembler(FromJsonHelper fromApiJsonHelper, RateRepositoryWrapper rateRepository) {
+        Objects.requireNonNull(rateRepository, "rateRepository cannot be null");
+        Objects.requireNonNull(fromApiJsonHelper, "fromApiJsonHelper cannot be null");
         return new RateAssembler(fromApiJsonHelper, rateRepository);
     }
 
     @Bean
     @ConditionalOnMissingBean(RateReadService.class)
     public RateReadService rateReadService(JdbcTemplate jdbcTemplate, PlatformSecurityContext context) {
+        Objects.requireNonNull(context, "context cannot be null");
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
         return new RateReadServiceImpl(jdbcTemplate, context);
     }
 
@@ -53,6 +57,8 @@ public class RateConfiguration {
     @ConditionalOnMissingBean(RateWriteService.class)
     public RateWriteService rateWriteService(RateRepository rateRepository, AppUserRepository appUserRepository,
             PlatformSecurityContext context, RateDefinitionCommandFromApiJsonDeserializer fromApiJsonDeserializer) {
+        Objects.requireNonNull(fromApiJsonDeserializer, "fromApiJsonDeserializer cannot be null");
+        Objects.requireNonNull(appUserRepository, "appUserRepository cannot be null");
         return new RateWriteServiceImpl(rateRepository, appUserRepository, context, fromApiJsonDeserializer);
     }
 }

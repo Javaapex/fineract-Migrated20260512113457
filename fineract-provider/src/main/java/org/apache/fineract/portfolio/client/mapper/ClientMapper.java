@@ -86,7 +86,7 @@ public interface ClientMapper {
     default CodeValueData clientTypeCode(Client client) {
         final CodeValue code = client.getClientType();
         if (code == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         return CodeValueData.instance(code.getId(), code.getLabel());
     }
@@ -95,7 +95,7 @@ public interface ClientMapper {
     default CodeValueData clientClassificationCode(Client client) {
         final CodeValue code = client.getClientClassification();
         if (code == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         return CodeValueData.instance(code.getId(), code.getLabel());
     }
@@ -104,7 +104,7 @@ public interface ClientMapper {
     default CodeValueData clientSubStatusCode(Client client) {
         final CodeValue code = client.getSubStatus();
         if (code == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         return CodeValueData.instance(code.getId(), code.getLabel());
     }
@@ -113,7 +113,7 @@ public interface ClientMapper {
     default CodeValueData clientGenderCode(Client client) {
         final CodeValue code = client.getGender();
         if (code == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         return CodeValueData.instance(code.getId(), code.getLabel());
     }

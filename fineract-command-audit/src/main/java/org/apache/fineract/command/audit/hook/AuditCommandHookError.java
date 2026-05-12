@@ -42,6 +42,8 @@ final class AuditCommandHookError implements CommandHookError<Object> {
 
     @Override
     public void onError(Command<Object> command, Throwable error) {
+        Objects.requireNonNull(error, "error cannot be null");
+        Objects.requireNonNull(command, "command cannot be null");
         final var now = Instant.now();
 
         command.setError(error.getMessage());

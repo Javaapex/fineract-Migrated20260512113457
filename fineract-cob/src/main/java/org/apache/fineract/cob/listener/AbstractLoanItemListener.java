@@ -67,6 +67,7 @@ public abstract class AbstractLoanItemListener<T extends AccountLock, S extends 
 
     @OnReadError
     public void onReadError(Exception e) {
+        Objects.requireNonNull(e, "e cannot be null");
         if (e instanceof LockedReadException ee) {
             log.warn("Error was triggered during reading of Loan (id={}) due to: {}", ee.getId(), ThrowableSerialization.serialize(e));
             updateAccountLockWithError(List.of(ee.getId()), "Loan (id: %d) reading is failed", e);
@@ -77,12 +78,14 @@ public abstract class AbstractLoanItemListener<T extends AccountLock, S extends 
 
     @OnProcessError
     public void onProcessError(@NonNull S item, Exception e) {
+        Objects.requireNonNull(item, "item cannot be null");
         log.warn("Error was triggered during processing of Loan (id={}) due to: {}", item.getId(), ThrowableSerialization.serialize(e));
         updateAccountLockWithError(List.of(item.getId()), "Loan (id: %d) processing is failed", e);
     }
 
     @OnWriteError
     public void onWriteError(Exception e, @NonNull Chunk<? extends S> items) {
+        Objects.requireNonNull(items, "items cannot be null");
         List<Long> loanIds = items.getItems().stream().map(AbstractPersistableCustom::getId).toList();
         log.warn("Error was triggered during writing of Loans (ids={}) due to: {}", loanIds, ThrowableSerialization.serialize(e));
 

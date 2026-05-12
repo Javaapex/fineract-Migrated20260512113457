@@ -52,7 +52,7 @@ import org.apache.fineract.infrastructure.survey.service.ReadSurveyService;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by Cieyou on 2/27/14.
+ * Created by Cieyou on 2/27
  */
 @Path("/v1/survey")
 @Component
@@ -70,7 +70,7 @@ public class SurveyApiResource {
     @GET
     @Produces({ MediaType.APPLICATION_JSON })
     @Operation(summary = "Retrieve surveys", description = "Retrieve surveys. This allows to retrieve the list of survey tables registered .")
-    @ApiResponse(responseCode = "200", description = "OK", content = @Content(array = @ArraySchema(schema = @Schema(implementation = SurveyApiResourceSwagger.GetSurveyResponse.class))))
+    @ApiResponse(responseCode = "200
     public String retrieveSurveys() {
 
         this.context.authenticatedUser().validateHasReadPermission(SurveyApiConstants.SURVEY_RESOURCE_NAME);

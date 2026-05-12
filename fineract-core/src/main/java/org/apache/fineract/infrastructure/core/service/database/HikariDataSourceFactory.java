@@ -26,6 +26,7 @@ import org.springframework.stereotype.Component;
 public class HikariDataSourceFactory {
 
     public HikariDataSource create(HikariConfig config) {
+        Objects.requireNonNull(config, "config cannot be null");
         return new HikariDataSource(config);
     }
 }

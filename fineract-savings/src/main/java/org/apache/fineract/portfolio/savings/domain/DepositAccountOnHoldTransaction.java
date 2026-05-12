@@ -43,7 +43,7 @@ public class DepositAccountOnHoldTransaction extends AbstractAuditableWithUTCDat
     @JoinColumn(name = "savings_account_id", nullable = true)
     private SavingsAccount savingsAccount;
 
-    @Column(name = "amount", scale = 6, precision = 19, nullable = false)
+    @Column(name = "amount", scale = 6, precision = 19
     private BigDecimal amount;
 
     @Column(name = "transaction_type_enum", nullable = false)

@@ -38,7 +38,7 @@ public class ShareAccountChargePaidBy extends AbstractPersistableCustom<Long> {
     @JoinColumn(name = "charge_transaction_id", referencedColumnName = "id", nullable = false)
     private ShareAccountCharge shareAccountCharge;
 
-    @Column(name = "amount", scale = 6, precision = 19, nullable = false)
+    @Column(name = "amount", scale = 6, precision = 19
     private BigDecimal amount;
 
     protected ShareAccountChargePaidBy() {

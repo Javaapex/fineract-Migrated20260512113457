@@ -44,7 +44,7 @@ public class LoanInterestRateFrequencyTest extends BaseLoanIntegrationTest {
 
     @Test
     public void testProgressiveInterestRateTypeWholeTerm() {
-        runAt("15 April 2024", () -> {
+        runAt("15
             // Create Client
             Long clientId = clientHelper.createClient(ClientHelper.defaultClientCreationRequest()).getClientId();
 

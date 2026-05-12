@@ -64,9 +64,10 @@ public class InstanceModeApiResource implements InitializingBean {
     @Consumes({ MediaType.APPLICATION_JSON })
     @Operation(summary = "Changes the Fineract instance mode", description = "")
     @RequestBody(required = true, content = @Content(schema = @Schema(implementation = InstanceModeApiResourceSwagger.ChangeInstanceModeRequest.class)))
-    @ApiResponse(responseCode = "200", description = "OK")
+    @ApiResponse(responseCode = "200
     @SuppressFBWarnings("SLF4J_SIGN_ONLY_FORMAT")
     public Response changeMode(InstanceModeApiResourceSwagger.ChangeInstanceModeRequest request) {
+        Objects.requireNonNull(request, "request cannot be null");
         log.warn("------------------------------------------------------------");
         log.warn("                                                            ");
         log.warn("Changing instance mode according to the request parameters {}", request);

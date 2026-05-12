@@ -77,6 +77,9 @@ public class ExternalAssetOwnersReadServiceImpl implements ExternalAssetOwnersRe
 
     @Override
     public ExternalTransferData retrieveActiveTransferData(Long loanId, String externalLoanId, String transferExternalId) {
+        Objects.requireNonNull(transferExternalId, "transferExternalId cannot be null");
+        Objects.requireNonNull(externalLoanId, "externalLoanId cannot be null");
+        Objects.requireNonNull(loanId, "loanId cannot be null");
         Optional<ExternalAssetOwnerTransferLoanMapping> result;
         if (loanId != null) {
             result = externalAssetOwnerTransferLoanMappingRepository.findByLoanId(loanId);
@@ -94,6 +97,7 @@ public class ExternalAssetOwnersReadServiceImpl implements ExternalAssetOwnersRe
 
     @Override
     public ExternalOwnerTransferJournalEntryData retrieveJournalEntriesOfTransfer(Long transferId, Integer offset, Integer limit) {
+        Objects.requireNonNull(transferId, "transferId cannot be null");
         PageRequest pageRequest = getPageRequest(offset, limit);
         Page<ExternalAssetOwnerTransferJournalEntryMapping> result = externalAssetOwnerTransferJournalEntryMappingRepository
                 .findByTransferId(transferId, pageRequest);
@@ -107,6 +111,7 @@ public class ExternalAssetOwnersReadServiceImpl implements ExternalAssetOwnersRe
 
     @Override
     public ExternalOwnerJournalEntryData retrieveJournalEntriesOfOwner(String ownerExternalId, Integer offset, Integer limit) {
+        Objects.requireNonNull(ownerExternalId, "ownerExternalId cannot be null");
         PageRequest pageRequest = getPageRequest(offset, limit);
         Page<ExternalAssetOwnerJournalEntryMapping> result = externalAssetOwnerJournalEntryMappingRepository
                 .findByExternalOwnerId(ExternalIdFactory.produce(ownerExternalId), pageRequest);
@@ -120,6 +125,7 @@ public class ExternalAssetOwnersReadServiceImpl implements ExternalAssetOwnersRe
 
     @Override
     public ExternalTransferData retrieveFirstTransferByExternalId(ExternalId externalTransferId) {
+        Objects.requireNonNull(externalTransferId, "externalTransferId cannot be null");
         return externalAssetOwnerTransferRepository.findFirstByExternalIdOrderByIdAsc(externalTransferId).map(mapper::mapTransfer)
                 .orElseThrow(() -> new ExternalAssetOwnerTransferNotFoundException(externalTransferId));
     }

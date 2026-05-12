@@ -86,7 +86,7 @@ public class ApplyLoanLockTaskletStepDefinitions implements En {
 
             if ("error".equals(action)) {
                 lenient().when(fineractProperties.getQuery()).thenReturn(fineractQueryProperties);
-                lenient().when(fineractQueryProperties.getInClauseParameterSizeLimit()).thenReturn(65000);
+                lenient().when(fineractQueryProperties.getInClauseParameterSizeLimit()).thenReturn(65000
                 lenient().when(loanLockingService.findAllByLoanIdIn(Mockito.anyList())).thenThrow(new RuntimeException("fail"));
             } else if ("db-error-first-try".equals(action)) {
                 LoanAccountLock lock1 = new LoanAccountLock(1L, LockOwner.LOAN_COB_CHUNK_PROCESSING, LocalDate.now(ZoneId.systemDefault()));

@@ -496,7 +496,7 @@ public class BulkImportWorkbookPopulatorServiceImpl implements BulkImportWorkboo
         return new OfficeWorkbookPopulator(offices);
     }
 
-    // TODO: officeId seems to be unused and used in getTemplate() needs to be evaluated and removed
+
     private WorkbookPopulator populateChartOfAccountsWorkbook(Long officeId) {
         this.context.authenticatedUser().validateHasReadPermission(TemplatePopulateImportConstants.GL_ACCOUNT_ENTITY_TYPE);
         List<GLAccountData> glAccounts = fetchGLAccounts();

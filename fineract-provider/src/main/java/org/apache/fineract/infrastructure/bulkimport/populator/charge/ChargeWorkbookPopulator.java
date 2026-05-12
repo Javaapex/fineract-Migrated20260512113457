@@ -33,6 +33,8 @@ public class ChargeWorkbookPopulator extends AbstractWorkbookPopulator {
 
     @Override
     public void populate(Workbook workbook, String dateFormat) {
+        Objects.requireNonNull(dateFormat, "dateFormat cannot be null");
+        Objects.requireNonNull(workbook, "workbook cannot be null");
         Sheet chargeSheet = workbook.createSheet(TemplatePopulateImportConstants.CHARGE_SHEET_NAME);
         setLayout(chargeSheet);
         // setRules(chargeSheet, dateFormat);

@@ -46,11 +46,13 @@ public class ProductMixCreateCommandHandler implements CommandHandler<ProductMix
     @Override
     @Transactional
     public ProductMixCreateResponse handle(Command<ProductMixCreateRequest> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return writePlatformService.createProductMix(command.getPayload());
     }
 
     @Override
     public ProductMixCreateResponse fallback(Command<ProductMixCreateRequest> command, Throwable t) {
+        Objects.requireNonNull(t, "t cannot be null");
         return CommandHandler.super.fallback(command, t);
     }
 }

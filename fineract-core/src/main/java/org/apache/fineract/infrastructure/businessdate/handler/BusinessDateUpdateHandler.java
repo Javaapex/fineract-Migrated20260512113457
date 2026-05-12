@@ -43,6 +43,7 @@ public class BusinessDateUpdateHandler implements CommandHandler<BusinessDateUpd
     @Transactional
     @Override
     public BusinessDateUpdateResponse handle(Command<BusinessDateUpdateRequest> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         BusinessDateDTO businessDateDto = businessDateMapper.mapUpdateRequest(command.getPayload());
         businessDateDto = businessDateWritePlatformService.updateBusinessDate(businessDateDto);
         return businessDateMapper.mapUpdateResponse(businessDateDto);
@@ -50,6 +51,7 @@ public class BusinessDateUpdateHandler implements CommandHandler<BusinessDateUpd
 
     @Override
     public BusinessDateUpdateResponse fallback(Command<BusinessDateUpdateRequest> command, Throwable t) {
+        Objects.requireNonNull(t, "t cannot be null");
         // NOTE: fallback method needs to be in the same class
         return CommandHandler.super.fallback(command, t);
     }

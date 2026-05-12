@@ -30,7 +30,7 @@ public class ProgressiveLoanTransactionProcessorNextLastTest extends BaseLoanInt
     @Test
     public void testPartialEarlyRepaymentWithNextLast() {
         AtomicReference<Long> loanIdRef = new AtomicReference<>();
-        runAt("1 January 2024", () -> {
+        runAt("1 January 2024
             Long progressiveLoanInterestRecalculationNextLastId = loanProductHelper
                     .createLoanProduct(create4IProgressive().isInterestRecalculationEnabled(true).loanScheduleProcessingType("HORIZONTAL")
                             .paymentAllocation(

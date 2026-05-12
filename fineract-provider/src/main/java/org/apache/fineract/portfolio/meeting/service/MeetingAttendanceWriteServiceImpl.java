@@ -70,7 +70,7 @@ public class MeetingAttendanceWriteServiceImpl implements MeetingAttendanceWrite
         var actualChanges = new HashMap<String, Object>();
         var clientAttendanceChanges = new HashMap<String, Object>();
 
-        // TODO: never use "goto" statemements... ever; leaving it here, because the whole class will eventually
+
         // disappear
         updateAttendanceLoop: for (var clientAttendance : clientsAttendance) {
             if (meeting.getClientsAttendance() == null) {

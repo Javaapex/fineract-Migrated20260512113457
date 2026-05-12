@@ -130,6 +130,7 @@ public class AccountTransferDetails extends AbstractPersistableCustom<Long> {
     }
 
     public void addAccountTransferTransaction(AccountTransferTransaction accountTransferTransaction) {
+        Objects.requireNonNull(accountTransferTransaction, "accountTransferTransaction cannot be null");
         this.accountTransferTransactions.add(accountTransferTransaction);
     }
 

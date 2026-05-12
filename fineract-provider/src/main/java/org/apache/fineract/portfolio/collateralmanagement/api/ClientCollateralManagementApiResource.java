@@ -105,7 +105,7 @@ public class ClientCollateralManagementApiResource {
     @Consumes({ MediaType.APPLICATION_JSON })
     @Operation(summary = "Add New Collateral For a Client", operationId = "addClientCollateral", description = "Add New Collateral For a Client")
     @RequestBody(required = true, content = @Content(schema = @Schema(implementation = ClientCollateralRequest.class)))
-    @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = ClientCollateralManagementApiResourceSwagger.PostClientCollateralResponse.class)))
+    @ApiResponse(responseCode = "200
     public CommandProcessingResult addCollateral(@PathParam("clientId") @Parameter(description = "clientId") final Long clientId,
             @Parameter(hidden = true) ClientCollateralRequest clientCollateralRequest) {
         final CommandWrapper commandWrapper = new CommandWrapperBuilder().addClientCollateralProduct(clientId)

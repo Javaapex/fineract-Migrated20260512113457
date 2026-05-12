@@ -46,7 +46,7 @@ public class LoanInstallmentCharge extends AbstractPersistableCustom<Long> imple
     @JoinColumn(name = "loan_schedule_id", nullable = false)
     private LoanRepaymentScheduleInstallment installment;
 
-    @Column(name = "amount", scale = 6, precision = 19, nullable = false)
+    @Column(name = "amount", scale = 6, precision = 19
     private BigDecimal amount;
 
     @Column(name = "amount_paid_derived", scale = 6, precision = 19, nullable = true)
@@ -79,6 +79,7 @@ public class LoanInstallmentCharge extends AbstractPersistableCustom<Long> imple
 
     @Override
     public int compareTo(LoanInstallmentCharge o) {
+        Objects.requireNonNull(o, "o cannot be null");
         return this.installment.getInstallmentNumber().compareTo(o.installment.getInstallmentNumber());
     }
 
@@ -135,7 +136,7 @@ public class LoanInstallmentCharge extends AbstractPersistableCustom<Long> imple
 
     private BigDecimal calculateOutstanding() {
         if (this.amount == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         BigDecimal amountPaidLocal = BigDecimal.ZERO;
         if (this.amountPaid != null) {
@@ -174,6 +175,7 @@ public class LoanInstallmentCharge extends AbstractPersistableCustom<Long> imple
     }
 
     public boolean isChargeAmountpaid(MonetaryCurrency currency) {
+        Objects.requireNonNull(currency, "currency cannot be null");
         Money amounPaidThroughChargePayment = Money.of(currency, this.amountThroughChargePayment);
         Money paid = Money.of(currency, this.amountPaid);
         return amounPaidThroughChargePayment.isEqualTo(paid);
@@ -285,6 +287,7 @@ public class LoanInstallmentCharge extends AbstractPersistableCustom<Long> imple
     }
 
     public void updateInstallment(LoanRepaymentScheduleInstallment installment) {
+        Objects.requireNonNull(installment, "installment cannot be null");
         this.installment = installment;
     }
 

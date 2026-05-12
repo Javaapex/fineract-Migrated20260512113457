@@ -39,6 +39,8 @@ public class ChargeStepDef extends AbstractStepDef {
 
     @When("Admin updates charge {string} with {string} calculation type and {double} % of transaction amount")
     public void updateCharge(String chargeType, String chargeCalculationType, double amount) {
+        Objects.requireNonNull(chargeCalculationType, "chargeCalculationType cannot be null");
+        Objects.requireNonNull(chargeType, "chargeType cannot be null");
         ChargeRequest disbursementChargeUpdateRequest = new ChargeRequest();
         ChargeCalculationType chargeProductTypeValue = ChargeCalculationType.valueOf(chargeCalculationType);
         disbursementChargeUpdateRequest.chargeCalculationType(chargeProductTypeValue.value).amount(amount).locale("en");

@@ -30,6 +30,9 @@ public class MoneySerializer implements JsonSerializer<Money> {
 
     @Override
     public JsonElement serialize(Money money, Type type, JsonSerializationContext jsonSerializationContext) {
+        Objects.requireNonNull(jsonSerializationContext, "jsonSerializationContext cannot be null");
+        Objects.requireNonNull(type, "type cannot be null");
+        Objects.requireNonNull(money, "money cannot be null");
         return new JsonPrimitive(money.getAmount());
     }
 

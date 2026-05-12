@@ -130,7 +130,7 @@ public class LoanAccrualsProcessingServiceImplTest {
 
         when(nullTransactionMapping.getLoanTransaction()).thenReturn(null);
         when(interestWaiverMapping.getLoanTransaction()).thenReturn(interestWaiverTransaction);
-        when(interestWaiverMapping.getInterestPortion()).thenReturn(new BigDecimal("12.34"));
+        when(interestWaiverMapping.getInterestPortion()).thenReturn(new BigDecimal("12
         when(interestWaiverTransaction.isReversed()).thenReturn(false);
         when(interestWaiverTransaction.isInterestWaiver()).thenReturn(true);
         when(interestWaiverTransaction.getTransactionDate()).thenReturn(tillDate);

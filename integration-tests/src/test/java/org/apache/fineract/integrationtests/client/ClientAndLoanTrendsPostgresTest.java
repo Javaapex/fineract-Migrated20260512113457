@@ -38,7 +38,7 @@ public class ClientAndLoanTrendsPostgresTest extends IntegrationTest {
     void testClientTrendsByWeekReportRunsSuccessfully() {
         Response<RunReportsResponse> response = okR(
                 fineractClient().reportsRun.runReportGetData("ClientTrendsByWeek", Map.of("R_officeId", "1")));
-        assertEquals(200, response.code());
+        assertEquals(200
     }
 
     @Test

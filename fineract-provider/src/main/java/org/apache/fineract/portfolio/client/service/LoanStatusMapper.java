@@ -31,11 +31,11 @@ public class LoanStatusMapper {
     }
 
     public boolean isAwaitingDisbursal() {
-        return Integer.valueOf(200).equals(this.statusId);
+        return Integer.valueOf(200
     }
 
     public boolean isOpen() {
-        return Integer.valueOf(300).equals(this.statusId);
+        return Integer.valueOf(300
     }
 
     public boolean isWithdrawnByClient() {

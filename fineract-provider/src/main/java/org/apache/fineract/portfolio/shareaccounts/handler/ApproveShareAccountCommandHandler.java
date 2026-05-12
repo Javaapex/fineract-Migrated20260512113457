@@ -41,6 +41,7 @@ public class ApproveShareAccountCommandHandler implements NewCommandSourceHandle
     @Transactional
     @Override
     public CommandProcessingResult processCommand(JsonCommand jsonCommand) {
+        Objects.requireNonNull(jsonCommand, "jsonCommand cannot be null");
         return this.shareAccountWritePlatformService.approveShareAccount(jsonCommand.entityId(), jsonCommand);
     }
 

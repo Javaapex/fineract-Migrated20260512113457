@@ -24,6 +24,7 @@ public abstract class AbstractJobParameterProvider<T> implements JobParameterPro
 
     @Override
     public boolean canProvideParametersForJob(String jobName) {
+        Objects.requireNonNull(jobName, "jobName cannot be null");
         return getJobNames().contains(jobName);
     }
 

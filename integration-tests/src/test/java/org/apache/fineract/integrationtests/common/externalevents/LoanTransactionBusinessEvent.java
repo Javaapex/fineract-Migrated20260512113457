@@ -48,6 +48,8 @@ public class LoanTransactionBusinessEvent extends BusinessEvent {
 
     @Override
     public boolean verify(ExternalEventResponse externalEvent, DateTimeFormatter formatter) {
+        Objects.requireNonNull(formatter, "formatter cannot be null");
+        Objects.requireNonNull(externalEvent, "externalEvent cannot be null");
         Object amount = externalEvent.getPayLoad().get("amount");
         Object outstandingLoanBalance = externalEvent.getPayLoad().get("outstandingLoanBalance");
         Object principalPortion = externalEvent.getPayLoad().get("principalPortion");

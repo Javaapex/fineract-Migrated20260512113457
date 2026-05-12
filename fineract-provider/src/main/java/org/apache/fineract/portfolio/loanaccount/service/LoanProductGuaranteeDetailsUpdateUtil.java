@@ -32,6 +32,7 @@ public class LoanProductGuaranteeDetailsUpdateUtil {
 
     public void update(final LoanProductGuaranteeDetails loanProductGuaranteeDetails, final JsonCommand command,
             final Map<String, Object> actualChanges) {
+        Objects.requireNonNull(actualChanges, "actualChanges cannot be null");
 
         if (command.isChangeInBigDecimalParameterNamed(LoanProductConstants.mandatoryGuaranteeParamName,
                 loanProductGuaranteeDetails.getMandatoryGuarantee())) {

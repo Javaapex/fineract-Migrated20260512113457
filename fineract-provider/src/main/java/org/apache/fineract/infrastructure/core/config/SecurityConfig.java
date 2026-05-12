@@ -309,7 +309,7 @@ public class SecurityConfig {
                     .requestMatchers(API_MATCHER.matcher(HttpMethod.POST, "/api/*/mixmapping/*"))
                     .hasAnyAuthority(ALL_FUNCTIONS, ALL_FUNCTIONS_WRITE, "CREATE_MIX_MAPPING")
                     .requestMatchers(API_MATCHER.matcher(HttpMethod.PUT, "/api/*/mixmapping/*"))
-                    // TODO: "UPDATE_XBRLMAPPING" is the legacy permission name; we should rename for consistency
+
                     .hasAnyAuthority(ALL_FUNCTIONS, ALL_FUNCTIONS_WRITE, "UPDATE_MIX_MAPPING", "UPDATE_XBRLMAPPING")
                     .requestMatchers(API_MATCHER.matcher(HttpMethod.DELETE, "/api/*/mixmapping/*"))
                     .hasAnyAuthority(ALL_FUNCTIONS, ALL_FUNCTIONS_WRITE, "DELETE_MIX_MAPPING")

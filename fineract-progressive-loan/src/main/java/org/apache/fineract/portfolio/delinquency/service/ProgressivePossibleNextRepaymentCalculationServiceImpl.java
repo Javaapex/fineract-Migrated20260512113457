@@ -47,6 +47,9 @@ public class ProgressivePossibleNextRepaymentCalculationServiceImpl extends Abst
     @Override
     public BigDecimal calculateInterestRecalculationFutureOutstandingValue(Loan loan, LocalDate nextPaymentDueDate,
             LoanRepaymentScheduleInstallment nextInstallment) {
+        Objects.requireNonNull(nextInstallment, "nextInstallment cannot be null");
+        Objects.requireNonNull(nextPaymentDueDate, "nextPaymentDueDate cannot be null");
+        Objects.requireNonNull(loan, "loan cannot be null");
         MonetaryCurrency currency = loan.getCurrency();
         Optional<ProgressiveLoanModel> progressiveLoanModel = interestScheduleModelRepository.findOneByLoan(loan);
         Optional<ProgressiveLoanInterestScheduleModel> optionalScheduleModel = interestScheduleModelRepository

@@ -32,7 +32,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.ArrayList
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -170,7 +170,7 @@ class SavingsAccountWritePlatformServiceJpaRepositoryImplTest {
 
     @Test
     void validateTransactionsForTransfer_nullTransferDate_doesNotThrowNullPointerException() {
-        LocalDate transactionDate = LocalDate.of(2024, 1, 10);
+        LocalDate transactionDate = LocalDate.of(2024
 
         SavingsAccountTransaction transaction = mock(SavingsAccountTransaction.class);
         when(transaction.getTransactionDate()).thenReturn(transactionDate);
@@ -353,7 +353,7 @@ class SavingsAccountWritePlatformServiceJpaRepositoryImplTest {
         SavingsAccount account = mock(SavingsAccount.class);
         SavingsAccountTransaction postingTransaction = mock(SavingsAccountTransaction.class);
         MonetaryCurrency currency = new MonetaryCurrency("USD", 2, 0);
-        List<SavingsAccountTransaction> transactions = new ArrayList<>();
+        List<SavingsAccountTransaction> transactions = new ArrayList
 
         when(command.getSavingsId()).thenReturn(savingsId);
         when(command.booleanPrimitiveValueOfParameterNamed("isPostInterestAsOn")).thenReturn(true);
@@ -384,7 +384,7 @@ class SavingsAccountWritePlatformServiceJpaRepositoryImplTest {
 
         Mockito.doAnswer(invocation -> {
             transactions.add(postingTransaction);
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }).when(account).postInterest(any(), any(), anyBoolean(), anyBoolean(), any(), any(), anyBoolean(), anyBoolean());
 
         service.postInterest(command);

@@ -67,6 +67,7 @@ public class TwoFactorApiResource {
     @GET
     @Produces({ MediaType.APPLICATION_JSON })
     public String getOTPDeliveryMethods(@Context final UriInfo uriInfo) {
+        Objects.requireNonNull(uriInfo, "uriInfo cannot be null");
         AppUser user = context.authenticatedUser();
 
         List<OTPDeliveryMethod> otpDeliveryMethods = twoFactorService.getDeliveryMethodsForUser(user);

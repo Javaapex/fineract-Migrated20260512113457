@@ -97,7 +97,7 @@ class ExternalAssetOwnerTransferOutstandingInterestCalculationTest {
         when(loan.isOpen()).thenReturn(true);
         when(configurationDomainService.getAssetOwnerTransferOustandingInterestStrategy()).thenReturn("TOTAL_OUTSTANDING_INTEREST");
         when(loan.getSummary()).thenReturn(loanSummary);
-        BigDecimal expectedInterest = new BigDecimal("150.50");
+        BigDecimal expectedInterest = new BigDecimal("150
         when(loanSummary.getTotalInterestOutstanding()).thenReturn(expectedInterest);
 
         // When

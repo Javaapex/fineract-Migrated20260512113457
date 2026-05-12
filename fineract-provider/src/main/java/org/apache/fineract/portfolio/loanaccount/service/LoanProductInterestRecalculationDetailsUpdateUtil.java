@@ -35,6 +35,7 @@ public class LoanProductInterestRecalculationDetailsUpdateUtil {
 
     public void update(final LoanProductInterestRecalculationDetails loanProductInterestRecalculationDetails, final JsonCommand command,
             final Map<String, Object> actualChanges, final String localeAsInput) {
+        Objects.requireNonNull(actualChanges, "actualChanges cannot be null");
 
         if (command.isChangeInIntegerParameterNamed(LoanProductConstants.interestRecalculationCompoundingMethodParameterName,
                 loanProductInterestRecalculationDetails.getInterestRecalculationCompoundingMethod())) {

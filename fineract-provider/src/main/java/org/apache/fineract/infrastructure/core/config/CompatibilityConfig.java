@@ -106,6 +106,7 @@ public class CompatibilityConfig {
 
     @Bean(destroyMethod = "close")
     public HikariDataSource hikariTenantDataSource(HikariConfig hc) {
+        Objects.requireNonNull(hc, "hc cannot be null");
         return new HikariDataSource(hc);
     }
 
@@ -120,7 +121,7 @@ public class CompatibilityConfig {
         hc.setPassword(environment.getProperty("fineract_tenants_pwd"));
         hc.setMinimumIdle(3);
         hc.setMaximumPoolSize(10);
-        hc.setIdleTimeout(60000);
+        hc.setIdleTimeout(60000
         hc.setConnectionTestQuery("SELECT 1");
         hc.setDataSourceProperties(dataSourceProperties());
 
@@ -133,7 +134,7 @@ public class CompatibilityConfig {
         Properties props = new Properties();
 
         props.setProperty("cachePrepStmts", "true");
-        props.setProperty("prepStmtCacheSize", "250");
+        props.setProperty("prepStmtCacheSize", "250
         props.setProperty("prepStmtCacheSqlLimit", "2048");
         props.setProperty("useServerPrepStmts", "true");
         props.setProperty("useLocalSessionState", "true");

@@ -33,6 +33,8 @@ public class AccountingAccrualConfiguration {
     @ConditionalOnMissingBean(AccrualAccountingWritePlatformService.class)
     public AccrualAccountingWritePlatformService accrualAccountingWritePlatformService(
             LoanAccrualsProcessingService loanAccrualsProcessingService, AccrualAccountingDataValidator accountingDataValidator) {
+        Objects.requireNonNull(accountingDataValidator, "accountingDataValidator cannot be null");
+        Objects.requireNonNull(loanAccrualsProcessingService, "loanAccrualsProcessingService cannot be null");
         return new AccrualAccountingWritePlatformServiceImpl(loanAccrualsProcessingService, accountingDataValidator);
     }
 }

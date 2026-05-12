@@ -66,27 +66,27 @@ public enum PeriodFrequencyType {
         }
     }
 
-    // TODO: why not just use the enum values... just more boilerplate code here!!
+
     public boolean isMonthly() {
         return this.equals(MONTHS);
     }
 
-    // TODO: why not just use the enum values... just more boilerplate code here!!
+
     public boolean isYearly() {
         return this.equals(YEARS);
     }
 
-    // TODO: why not just use the enum values... just more boilerplate code here!!
+
     public boolean isWeekly() {
         return this.equals(WEEKS);
     }
 
-    // TODO: why not just use the enum values... just more boilerplate code here!!
+
     public boolean isDaily() {
         return this.equals(DAYS);
     }
 
-    // TODO: do we really need this?!?
+
     public static Object[] integerValues() {
         return Arrays.stream(values()).filter(value -> !INVALID.equals(value)).map(value -> value.value).toList().toArray();
     }

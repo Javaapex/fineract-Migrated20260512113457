@@ -28,6 +28,7 @@ import org.springframework.stereotype.Component;
 public final class LoanMaximumAmountCalculator {
 
     public BigDecimal getOverAppliedMax(Loan loan) {
+        Objects.requireNonNull(loan, "loan cannot be null");
         final LoanProduct loanProduct = loan.getLoanProduct();
         if (LoanOverAppliedCalculationType.valueOf(loanProduct.getOverAppliedCalculationType().toUpperCase()).isPercentage()) {
             BigDecimal overAppliedNumber = BigDecimal.valueOf(loanProduct.getOverAppliedNumber());

@@ -26,11 +26,13 @@ public class LoanSubStatusConverter implements AttributeConverter<LoanSubStatus,
 
     @Override
     public Integer convertToDatabaseColumn(LoanSubStatus attribute) {
+        Objects.requireNonNull(attribute, "attribute cannot be null");
         return attribute == null ? null : attribute.getValue();
     }
 
     @Override
     public LoanSubStatus convertToEntityAttribute(Integer dbData) {
+        Objects.requireNonNull(dbData, "dbData cannot be null");
         return dbData == null ? null : LoanSubStatus.fromInt(dbData);
     }
 }

@@ -32,7 +32,7 @@ import org.apache.fineract.portfolio.loanaccount.data.LoanCollateralManagementDa
 @Table(name = "m_loan_collateral_management")
 public class LoanCollateralManagement extends AbstractPersistableCustom<Long> {
 
-    @Column(name = "quantity", nullable = false, scale = 5, precision = 20)
+    @Column(name = "quantity", nullable = false, scale = 5, precision = 20
     private BigDecimal quantity;
 
     @ManyToOne()
@@ -65,6 +65,7 @@ public class LoanCollateralManagement extends AbstractPersistableCustom<Long> {
     }
 
     public void setLoan(Loan loan) {
+        Objects.requireNonNull(loan, "loan cannot be null");
         this.loan = loan;
     }
 

@@ -98,7 +98,7 @@ class LoanReAmortizationValidatorTest {
     public void testValidateReAmortize_ShouldThrowException_WhenExternalIdIsLongerThan100() {
         // given
         Loan loan = loan();
-        JsonCommand command = jsonCommand(RandomStringUtils.randomAlphabetic(120));
+        JsonCommand command = jsonCommand(RandomStringUtils.randomAlphabetic(120
         // when
         PlatformApiDataValidationException result = assertThrows(PlatformApiDataValidationException.class,
                 () -> underTest.validateReAmortize(loan, command));
@@ -225,7 +225,7 @@ class LoanReAmortizationValidatorTest {
     }
 
     private JsonCommand jsonCommand() {
-        return jsonCommand("123456");
+        return jsonCommand("123456
     }
 
     private JsonCommand jsonCommand(String externalId) {

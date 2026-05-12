@@ -37,6 +37,7 @@ public class LoanReloadService implements ReloadService<Loan> {
 
     @Override
     public Loan reload(Loan input) {
+        Objects.requireNonNull(input, "input cannot be null");
         return loanAssembler.assembleFrom(input.getId());
     }
 

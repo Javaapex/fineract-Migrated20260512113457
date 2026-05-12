@@ -88,8 +88,8 @@ public class InternalWorkingCapitalLoanApiResource implements InitializingBean {
 
             DO NOT USE THIS IN PRODUCTION! In the real flow, the schedule will be \
             generated during loan approval/disbursement from the loan and product data.""")
-    @ApiResponses({ @ApiResponse(responseCode = "200", description = "OK"),
-            @ApiResponse(responseCode = "404", description = "Working Capital Loan not found") })
+    @ApiResponses({ @ApiResponse(responseCode = "200
+            @ApiResponse(responseCode = "404
     public void generateAmortizationSchedule(@PathParam("loanId") @Parameter(description = "loanId") final Long loanId,
             final ProjectedAmortizationScheduleGenerateRequest request) {
         writeService.generateAndSaveAmortizationSchedule(loanId, request);

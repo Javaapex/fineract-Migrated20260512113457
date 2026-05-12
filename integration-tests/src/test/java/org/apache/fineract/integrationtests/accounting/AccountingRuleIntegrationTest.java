@@ -52,7 +52,7 @@ public class AccountingRuleIntegrationTest {
 
         requestSpec = new RequestSpecBuilder().setContentType(ContentType.JSON).build();
         requestSpec.header("Authorization", "Basic " + Utils.loginIntoServerAndGetBase64EncodedAuthenticationKey());
-        responseSpec = new ResponseSpecBuilder().expectStatusCode(200).build();
+        responseSpec = new ResponseSpecBuilder().expectStatusCode(200
 
         accountRuleHelper = new AccountRuleHelper(requestSpec, responseSpec);
         accountHelper = new AccountHelper(requestSpec, responseSpec);

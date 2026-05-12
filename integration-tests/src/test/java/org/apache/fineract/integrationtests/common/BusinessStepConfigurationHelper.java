@@ -40,7 +40,7 @@ public final class BusinessStepConfigurationHelper {
 
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -48,7 +48,7 @@ public final class BusinessStepConfigurationHelper {
         return new Gson().toJson(new BusinessStepWrapper(batchRequests));
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -56,7 +56,7 @@ public final class BusinessStepConfigurationHelper {
         return new Gson().fromJson(json, new TypeToken<JobBusinessStepConfigData>() {}.getType());
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -64,7 +64,7 @@ public final class BusinessStepConfigurationHelper {
         return new Gson().fromJson(json, new TypeToken<ApiParameterError>() {}.getType());
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -72,7 +72,7 @@ public final class BusinessStepConfigurationHelper {
         return new Gson().fromJson(json, new TypeToken<JobBusinessStepDetail>() {}.getType());
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -84,7 +84,7 @@ public final class BusinessStepConfigurationHelper {
         return BusinessStepConfigurationHelper.configuredBusinessStepFromJsonString(response);
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -96,7 +96,7 @@ public final class BusinessStepConfigurationHelper {
         return BusinessStepConfigurationHelper.availableBusinessStepFromJsonString(response);
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)
@@ -107,7 +107,7 @@ public final class BusinessStepConfigurationHelper {
         log.info("BusinessStepConfigurationHelper Response: {}", response);
     }
 
-    // TODO: Rewrite to use fineract-client instead!
+
     // Example: org.apache.fineract.integrationtests.common.loans.LoanTransactionHelper.disburseLoan(java.lang.Long,
     // org.apache.fineract.client.models.PostLoansLoanIdRequest)
     @Deprecated(forRemoval = true)

@@ -93,7 +93,7 @@ public class LoanAccountOwnerTransferServiceTest {
     @BeforeAll
     public static void init() {
         MONEY_HELPER.when(MoneyHelper::getRoundingMode).thenReturn(RoundingMode.HALF_EVEN);
-        MONEY_HELPER.when(MoneyHelper::getMathContext).thenReturn(new MathContext(12, RoundingMode.HALF_EVEN));
+        MONEY_HELPER.when(MoneyHelper::getMathContext).thenReturn(new MathContext(12
     }
 
     @AfterAll

@@ -33,6 +33,16 @@ import org.apache.fineract.infrastructure.core.exception.PlatformApiDataValidati
 
 public record GLAccountCommand(Long id, String name, Long parentId, String glCode, Boolean disabled, Boolean manualEntriesAllowed,
         Integer type, Integer usage, String description, Long tagId) {
+        Objects.requireNonNull(tagId, "tagId cannot be null");
+        Objects.requireNonNull(description, "description cannot be null");
+        Objects.requireNonNull(usage, "usage cannot be null");
+        Objects.requireNonNull(type, "type cannot be null");
+        Objects.requireNonNull(manualEntriesAllowed, "manualEntriesAllowed cannot be null");
+        Objects.requireNonNull(disabled, "disabled cannot be null");
+        Objects.requireNonNull(glCode, "glCode cannot be null");
+        Objects.requireNonNull(parentId, "parentId cannot be null");
+        Objects.requireNonNull(name, "name cannot be null");
+        Objects.requireNonNull(id, "id cannot be null");
 
     public void validateForCreate() {
 
@@ -40,10 +50,10 @@ public record GLAccountCommand(Long id, String name, Long parentId, String glCod
 
         final DataValidatorBuilder baseDataValidator = new DataValidatorBuilder(dataValidationErrors).resource("GLAccount");
 
-        baseDataValidator.reset().parameter(GLAccountJsonInputParams.NAME.getValue()).value(this.name).notBlank().notExceedingLengthOf(200);
+        baseDataValidator.reset().parameter(GLAccountJsonInputParams.NAME.getValue()).value(this.name).notBlank().notExceedingLengthOf(200
 
         baseDataValidator.reset().parameter(GLAccountJsonInputParams.GL_CODE.getValue()).value(this.glCode).notBlank()
-                .notExceedingLengthOf(45);
+                .notExceedingLengthOf(45
 
         baseDataValidator.reset().parameter(GLAccountJsonInputParams.PARENT_ID.getValue()).value(this.parentId).ignoreIfNull()
                 .integerGreaterThanZero();
@@ -55,7 +65,7 @@ public record GLAccountCommand(Long id, String name, Long parentId, String glCod
                 .inMinMaxRange(GLAccountUsage.getMinValue(), GLAccountUsage.getMaxValue());
 
         baseDataValidator.reset().parameter(GLAccountJsonInputParams.DESCRIPTION.getValue()).value(this.description).ignoreIfNull()
-                .notExceedingLengthOf(500);
+                .notExceedingLengthOf(500
 
         baseDataValidator.reset().parameter(GLAccountJsonInputParams.MANUAL_ENTRIES_ALLOWED.getValue()).value(this.manualEntriesAllowed)
                 .notBlank();

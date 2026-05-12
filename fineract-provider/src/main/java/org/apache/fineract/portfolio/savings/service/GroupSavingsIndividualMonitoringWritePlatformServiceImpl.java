@@ -40,6 +40,13 @@ public class GroupSavingsIndividualMonitoringWritePlatformServiceImpl implements
     @Override
     public GroupSavingsIndividualMonitoring addGSIMAccountInfo(String accountNumber, Group group, BigDecimal parentDeposit,
             Long childAccountsCount, Boolean isAcceptingChild, Integer loanStatus, BigDecimal applicationId) {
+        Objects.requireNonNull(applicationId, "applicationId cannot be null");
+        Objects.requireNonNull(loanStatus, "loanStatus cannot be null");
+        Objects.requireNonNull(isAcceptingChild, "isAcceptingChild cannot be null");
+        Objects.requireNonNull(childAccountsCount, "childAccountsCount cannot be null");
+        Objects.requireNonNull(parentDeposit, "parentDeposit cannot be null");
+        Objects.requireNonNull(group, "group cannot be null");
+        Objects.requireNonNull(accountNumber, "accountNumber cannot be null");
 
         GroupSavingsIndividualMonitoring glimAccountInfo = GroupSavingsIndividualMonitoring.getInstance(accountNumber, group, parentDeposit,
                 childAccountsCount, isAcceptingChild, loanStatus, applicationId);
@@ -50,6 +57,7 @@ public class GroupSavingsIndividualMonitoringWritePlatformServiceImpl implements
 
     @Override
     public void setIsAcceptingChild(GroupSavingsIndividualMonitoring glimAccount) {
+        Objects.requireNonNull(glimAccount, "glimAccount cannot be null");
         glimAccount.setIsAcceptingChild(true);
         gsimAccountRepository.save(glimAccount);
 

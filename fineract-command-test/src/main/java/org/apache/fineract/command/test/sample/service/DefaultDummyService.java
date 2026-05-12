@@ -32,6 +32,7 @@ public class DefaultDummyService implements DummyService {
 
     @Override
     public DummyResponse process(DummyRequest request) {
+        Objects.requireNonNull(request, "request cannot be null");
         return DummyResponse.builder().content(request.getContent().toUpperCase(Locale.ROOT)).build();
     }
 }

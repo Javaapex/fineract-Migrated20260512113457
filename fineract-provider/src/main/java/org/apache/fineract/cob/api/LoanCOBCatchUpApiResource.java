@@ -60,9 +60,9 @@ public class LoanCOBCatchUpApiResource {
     @Consumes({ MediaType.APPLICATION_JSON })
     @Produces({ MediaType.APPLICATION_JSON })
     @Operation(summary = "Executes Loan COB Catch Up", description = "Executes the Loan COB job on every day from the oldest Loan to the current COB business date")
-    @ApiResponse(responseCode = "200", description = "All loans are up to date")
-    @ApiResponse(responseCode = "202", description = "Catch Up has been started")
-    @ApiResponse(responseCode = "400", description = "Catch Up is already running")
+    @ApiResponse(responseCode = "200
+    @ApiResponse(responseCode = "202
+    @ApiResponse(responseCode = "400
     public Response executeLoanCOBCatchUp() {
         return loanCOBCatchUpServiceOp.map(COBCatchUpExecutorHelper::executeLoanCOBCatchUp)
                 .orElseThrow(() -> new JobIsNotFoundOrNotEnabledException(JobName.LOAN_COB.name()));

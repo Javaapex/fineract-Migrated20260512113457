@@ -124,6 +124,7 @@ public class ReprocessLoanTransactionsServiceImpl implements ReprocessLoanTransa
 
     @Override
     public void updateModel(Loan loan) {
+        Objects.requireNonNull(loan, "loan cannot be null");
         interestScheduleModelRepositoryWrapper.getSavedModel(loan, ThreadLocalContextUtil.getBusinessDate());
     }
 

@@ -37,7 +37,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Test to verify that the MoneyHelper tenant isolation fix works correctly with pure utility class approach. This
- * validates that PS-2617 has been properly resolved using the new architecture.
+ * validates that PS-2617
  */
 class MoneyHelperTenantIsolationTest {
 
@@ -99,7 +99,7 @@ class MoneyHelperTenantIsolationTest {
 
         // Create test amount that will show rounding differences when divided by 3
         MonetaryCurrency currency = new MonetaryCurrency("USD", 2, null);
-        BigDecimal testAmount = new BigDecimal("1.00"); // 1.00 / 3 = 0.333... which rounds differently
+        BigDecimal testAmount = new BigDecimal("1.00
 
         // Tenant A gets MathContext and creates Money with it
         ThreadLocalContextUtil.setTenant(tenantA);

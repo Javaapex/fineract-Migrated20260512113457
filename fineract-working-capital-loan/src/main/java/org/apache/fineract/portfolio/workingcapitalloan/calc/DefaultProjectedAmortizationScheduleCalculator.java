@@ -38,6 +38,13 @@ public final class DefaultProjectedAmortizationScheduleCalculator implements Pro
             @NonNull final BigDecimal netDisbursementAmount, @NonNull final BigDecimal totalPaymentValue,
             @NonNull final BigDecimal periodPaymentRate, final int npvDayCount, @NonNull final LocalDate expectedDisbursementDate,
             @NonNull final MathContext mc, @NonNull final MonetaryCurrency currency) {
+        Objects.requireNonNull(currency, "currency cannot be null");
+        Objects.requireNonNull(mc, "mc cannot be null");
+        Objects.requireNonNull(expectedDisbursementDate, "expectedDisbursementDate cannot be null");
+        Objects.requireNonNull(periodPaymentRate, "periodPaymentRate cannot be null");
+        Objects.requireNonNull(totalPaymentValue, "totalPaymentValue cannot be null");
+        Objects.requireNonNull(netDisbursementAmount, "netDisbursementAmount cannot be null");
+        Objects.requireNonNull(originationFeeAmount, "originationFeeAmount cannot be null");
         return ProjectedAmortizationScheduleModel.generate(originationFeeAmount, netDisbursementAmount, totalPaymentValue,
                 periodPaymentRate, npvDayCount, expectedDisbursementDate, mc, currency);
     }
@@ -46,12 +53,18 @@ public final class DefaultProjectedAmortizationScheduleCalculator implements Pro
     @NonNull
     public ProjectedAmortizationScheduleModel addDisbursement(@NonNull final ProjectedAmortizationScheduleModel model,
             @NonNull final BigDecimal newDiscountAmount, @NonNull final BigDecimal newNetAmount, @NonNull final LocalDate newStartDate) {
+        Objects.requireNonNull(newStartDate, "newStartDate cannot be null");
+        Objects.requireNonNull(newNetAmount, "newNetAmount cannot be null");
+        Objects.requireNonNull(newDiscountAmount, "newDiscountAmount cannot be null");
+        Objects.requireNonNull(model, "model cannot be null");
         return model.regenerate(newDiscountAmount, newNetAmount, newStartDate);
     }
 
     @Override
     public void applyPayment(@NonNull final ProjectedAmortizationScheduleModel model, @NonNull final LocalDate paymentDate,
             @NonNull final BigDecimal paymentAmount) {
+        Objects.requireNonNull(paymentAmount, "paymentAmount cannot be null");
+        Objects.requireNonNull(paymentDate, "paymentDate cannot be null");
         model.applyPayment(paymentDate, paymentAmount);
     }
 }

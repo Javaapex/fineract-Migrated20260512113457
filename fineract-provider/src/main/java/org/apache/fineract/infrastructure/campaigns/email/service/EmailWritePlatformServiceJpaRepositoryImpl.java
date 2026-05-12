@@ -56,9 +56,9 @@ public class EmailWritePlatformServiceJpaRepositoryImpl implements EmailWritePla
 
             final EmailMessage message = this.assembler.assembleFromJson(command);
 
-            // TODO: at this point we also want to fire off request using third
+
             // party service to send Email.
-            // TODO: decision to be made on wheter we 'wait' for response or use
+
             // 'future/promise' to capture response and update the EmailMessage
             // table
             this.repository.saveAndFlush(message);

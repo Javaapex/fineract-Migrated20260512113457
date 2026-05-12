@@ -38,6 +38,7 @@ public class ActiveMQNotificationEventPublisher implements NotificationEventPubl
 
     @Override
     public void broadcastNotification(NotificationData notificationData) {
+        Objects.requireNonNull(notificationData, "notificationData cannot be null");
         Queue queue = new ActiveMQQueue("NotificationQueue");
         this.jmsTemplate.send(queue, session -> session.createObjectMessage(notificationData));
     }

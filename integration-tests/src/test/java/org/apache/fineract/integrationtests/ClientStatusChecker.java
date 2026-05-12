@@ -35,7 +35,7 @@ public final class ClientStatusChecker {
     }
 
     public static void verifyClientIsActive(final HashMap<String, Object> clientStatusHashMap) {
-        assertEquals(300, (int) clientStatusHashMap.get("id"));
+        assertEquals(300
     }
 
     public static void verifyClientStatus(final ClientStatus status, final GetClientsClientIdResponse clientResponse) {
@@ -44,7 +44,7 @@ public final class ClientStatusChecker {
 
     public static void verifyClientClosed(final HashMap<String, Object> clientStatusHashMap) {
         LOG.info("\n-------------------------------------- VERIFYING CLIENT IS CLOSED ------------------------------------");
-        assertEquals(600, (int) clientStatusHashMap.get("id"));
+        assertEquals(600
         LOG.info("Client Status: {} \n", clientStatusHashMap);
     }
 

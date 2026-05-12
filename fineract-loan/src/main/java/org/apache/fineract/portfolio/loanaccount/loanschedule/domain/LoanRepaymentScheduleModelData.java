@@ -37,4 +37,18 @@ public record LoanRepaymentScheduleModelData(@NotNull LocalDate scheduleGenerati
         @NotNull Boolean interestRecognitionOnDisbursementDate, @Nullable DaysInYearCustomStrategyType daysInYearCustomStrategy,
         @NotNull InterestMethod interestMethod, @NotNull boolean allowPartialPeriodInterestCalculation,
         @NotNull boolean allowFullTermForTranche) {
+        Objects.requireNonNull(interestMethod, "interestMethod cannot be null");
+        Objects.requireNonNull(daysInYearCustomStrategy, "daysInYearCustomStrategy cannot be null");
+        Objects.requireNonNull(interestRecognitionOnDisbursementDate, "interestRecognitionOnDisbursementDate cannot be null");
+        Objects.requireNonNull(fixedLength, "fixedLength cannot be null");
+        Objects.requireNonNull(installmentAmountInMultiplesOf, "installmentAmountInMultiplesOf cannot be null");
+        Objects.requireNonNull(downPaymentPercentage, "downPaymentPercentage cannot be null");
+        Objects.requireNonNull(daysInYear, "daysInYear cannot be null");
+        Objects.requireNonNull(daysInMonth, "daysInMonth cannot be null");
+        Objects.requireNonNull(annualNominalInterestRate, "annualNominalInterestRate cannot be null");
+        Objects.requireNonNull(repaymentFrequencyType, "repaymentFrequencyType cannot be null");
+        Objects.requireNonNull(disbursementDate, "disbursementDate cannot be null");
+        Objects.requireNonNull(disbursementAmount, "disbursementAmount cannot be null");
+        Objects.requireNonNull(currency, "currency cannot be null");
+        Objects.requireNonNull(scheduleGenerationStartDate, "scheduleGenerationStartDate cannot be null");
 }

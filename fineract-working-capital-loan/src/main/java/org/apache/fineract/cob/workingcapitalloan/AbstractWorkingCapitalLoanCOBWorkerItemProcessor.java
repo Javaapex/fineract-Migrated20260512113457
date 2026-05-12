@@ -30,6 +30,7 @@ public abstract class AbstractWorkingCapitalLoanCOBWorkerItemProcessor extends A
 
     @Override
     public void setLastRun(WorkingCapitalLoan processedLoan) {
+        Objects.requireNonNull(processedLoan, "processedLoan cannot be null");
         processedLoan.setLastClosedBusinessDate(getBusinessDate());
     }
 

@@ -65,6 +65,7 @@ public class WorkingDaysApiResource {
     @Operation(summary = "Update a Working Day", description = "Mandatory Fields\n"
             + "recurrence,repaymentRescheduleType,extendTermForDailyRepayments,locale")
     public WorkingDaysUpdateResponse update(@Valid WorkingDaysUpdateRequest request) {
+        Objects.requireNonNull(request, "request cannot be null");
 
         final var command = new WorkingDaysUpdateCommand();
 

@@ -36,7 +36,7 @@ public final class FeignCalls {
      *            the Feign call to execute
      * @return the result of the successful call (never null)
      * @throws CallFailedRuntimeException
-     *             thrown if a problem occurred talking to the server, or the HTTP response code was not [200..300)
+     *             thrown if a problem occurred talking to the server, or the HTTP response code was not [200
      *             successful
      */
     public static <T> T ok(Supplier<T> feignCall) throws CallFailedRuntimeException {

@@ -36,16 +36,21 @@ public class CsvDatatableReportExportServiceImpl implements DatatableReportExpor
     @Override
     public ResponseHolder export(String reportName, MultivaluedMap<String, String> queryParams, Map<String, String> reportParams,
             String parameterTypeValue) {
+        Objects.requireNonNull(parameterTypeValue, "parameterTypeValue cannot be null");
+        Objects.requireNonNull(reportParams, "reportParams cannot be null");
+        Objects.requireNonNull(queryParams, "queryParams cannot be null");
+        Objects.requireNonNull(reportName, "reportName cannot be null");
         final StreamingOutput result = this.readExtraDataAndReportingService.retrieveReportCSV(reportName, parameterTypeValue,
                 reportParams);
         return new ResponseHolder(Response.Status.OK).contentType("text/csv")
                 .addHeader("Content-Disposition",
-                        "attachment;filename=" + DatatableExportUtil.generatePlainExportFileName(255, "csv", reportName, reportParams))
+                        "attachment;filename=" + DatatableExportUtil.generatePlainExportFileName(255
                 .entity(result);
     }
 
     @Override
     public boolean supports(DatatableExportTargetParameter exportType) {
+        Objects.requireNonNull(exportType, "exportType cannot be null");
         return exportType == DatatableExportTargetParameter.CSV;
     }
 }

@@ -38,7 +38,7 @@ public class IdempotentCommandProcessFailedException extends AbstractIdempotentC
 
     @NotNull
     public Integer getStatusCode() {
-        // If the database inconsistent we return http 500 instead of null pointer exception
+        // If the database inconsistent we return http 500
         return statusCode == null ? Integer.valueOf(SC_INTERNAL_SERVER_ERROR) : statusCode;
     }
 }

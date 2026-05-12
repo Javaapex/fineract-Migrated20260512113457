@@ -43,6 +43,9 @@ public class InternalWorkingCapitalLoanPaymentServiceImpl implements InternalWor
 
     @Override
     public void makePayment(Long loanId, BigDecimal amount, LocalDate transactionDate) {
+        Objects.requireNonNull(transactionDate, "transactionDate cannot be null");
+        Objects.requireNonNull(amount, "amount cannot be null");
+        Objects.requireNonNull(loanId, "loanId cannot be null");
         delinquencyRangeScheduleService.applyRepayment(loanId, transactionDate, amount);
         breachScheduleService.applyRepayment(loanId, transactionDate, amount);
         if (globalConfigurationRepository.findOneByNameWithNotFoundDetection(ENABLE_INSTANT_DELINQUENCY_CALCULATION).isEnabled()) {

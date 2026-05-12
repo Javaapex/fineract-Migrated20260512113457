@@ -61,7 +61,7 @@ public class LoanProductTemplateTest {
         assertEquals("In advance fee", loanProductsTemplateResponse.getAdvancedPaymentAllocationTypes().get(9).getValue());
         assertEquals("IN_ADVANCE_PRINCIPAL", loanProductsTemplateResponse.getAdvancedPaymentAllocationTypes().get(10).getCode());
         assertEquals("In advance principal", loanProductsTemplateResponse.getAdvancedPaymentAllocationTypes().get(10).getValue());
-        assertEquals("IN_ADVANCE_INTEREST", loanProductsTemplateResponse.getAdvancedPaymentAllocationTypes().get(11).getCode());
+        assertEquals("IN_ADVANCE_INTEREST", loanProductsTemplateResponse.getAdvancedPaymentAllocationTypes().get(11
         assertEquals("In advanced interest", loanProductsTemplateResponse.getAdvancedPaymentAllocationTypes().get(11).getValue());
         // assert payment allocation transaction types
         assertEquals("DEFAULT", loanProductsTemplateResponse.getAdvancedPaymentAllocationTransactionTypes().get(0).getCode());

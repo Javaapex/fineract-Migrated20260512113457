@@ -40,7 +40,7 @@ class TraversalContentPolicyTest {
 
     @Test
     void pathTraversal() {
-        var paths = List.of("/tmp/../17/michael.vorburger-crepes.jpg", "../17/michael.vorburger-crepes.jpg",
+        var paths = List.of("/tmp/../17
                 "/tmp/..//17//michael.vorburger-crepes.jpg", "/tmp/..//17/michael.vorburger-crepes.jpg",
                 "..//17/michael.vorburger-crepes.jpg", "../../../../../../../../../../tmp/michael.vorburger-crepes.jpg",
                 "/tmp/../../../../../../../../../../tmp/image-text-wrong-content.jsp",

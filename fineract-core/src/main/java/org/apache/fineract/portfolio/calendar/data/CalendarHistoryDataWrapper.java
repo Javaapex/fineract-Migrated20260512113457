@@ -37,6 +37,8 @@ public class CalendarHistoryDataWrapper {
 
             @Override
             public int compare(CalendarHistory calendarHistory1, CalendarHistory calendarHistory2) {
+        Objects.requireNonNull(calendarHistory2, "calendarHistory2 cannot be null");
+        Objects.requireNonNull(calendarHistory1, "calendarHistory1 cannot be null");
                 return DateUtils.compareWithNullsLast(calendarHistory1.getEndDate(), calendarHistory2.getEndDate());
             }
         };

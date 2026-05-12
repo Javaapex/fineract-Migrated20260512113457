@@ -50,6 +50,8 @@ public class CacheSwitchCommandHandler implements CommandHandler<CacheSwitchRequ
 
     @Override
     public CacheSwitchResponse fallback(Command<CacheSwitchRequest> command, Throwable t) {
+        Objects.requireNonNull(t, "t cannot be null");
+        Objects.requireNonNull(command, "command cannot be null");
         // NOTE: fallback method needs to be in the same class
         return CommandHandler.super.fallback(command, t);
     }

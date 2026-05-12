@@ -38,11 +38,13 @@ public class DummyCommandHandler implements CommandHandler<DummyRequest, DummyRe
     @Retry(name = "commandDummy", fallbackMethod = "fallback")
     @Override
     public DummyResponse handle(Command<DummyRequest> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return dummyService.process(command.getPayload());
     }
 
     @Override
     public DummyResponse fallback(Command<DummyRequest> command, Throwable t) {
+        Objects.requireNonNull(t, "t cannot be null");
         // NOTE: fallback method needs to be in the same class
         return CommandHandler.super.fallback(command, t);
     }

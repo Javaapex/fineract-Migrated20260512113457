@@ -39,6 +39,7 @@ public class MixTaxonomyMappingWriteServiceImpl implements MixTaxonomyMappingWri
     @Transactional
     @Override
     public MixTaxonomyMappingUpdateResponse updateMapping(@Valid final MixTaxonomyMappingUpdateRequest request) {
+        Objects.requireNonNull(request, "request cannot be null");
         final var taxonomyMapping = mapper.map(request);
 
         repository.save(taxonomyMapping);

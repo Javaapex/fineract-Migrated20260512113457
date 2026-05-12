@@ -33,6 +33,9 @@ public class ExternalServicesPropertiesRepositoryWrapper {
     }
 
     public ExternalServicesProperties findOneByIdAndName(Long id, String name, String externalServiceName) {
+        Objects.requireNonNull(externalServiceName, "externalServiceName cannot be null");
+        Objects.requireNonNull(name, "name cannot be null");
+        Objects.requireNonNull(id, "id cannot be null");
         final ExternalServicesProperties externalServicesProperties = this.repository.findOneByExternalServicePropertiesPK(name, id);
         if (externalServicesProperties == null) {
             throw new ExternalServiceConfigurationNotFoundException(externalServiceName, name);

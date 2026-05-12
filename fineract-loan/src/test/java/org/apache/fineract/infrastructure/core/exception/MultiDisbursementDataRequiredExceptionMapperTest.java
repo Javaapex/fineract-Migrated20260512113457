@@ -34,7 +34,7 @@ class MultiDisbursementDataRequiredExceptionMapperTest {
         MultiDisbursementDataRequiredExceptionMapper exceptionMapper = new MultiDisbursementDataRequiredExceptionMapper();
         MultiDisbursementDataRequiredException exception = new MultiDisbursementDataRequiredException("entity", "message", "args");
         Response response = exceptionMapper.toResponse(exception);
-        Assertions.assertEquals(3003, exceptionMapper.errorCode());
+        Assertions.assertEquals(3003
 
         Assertions.assertInstanceOf(ApiGlobalErrorResponse.class, response.getEntity());
         Assertions.assertEquals(1, ((ApiGlobalErrorResponse) response.getEntity()).getErrors().size());

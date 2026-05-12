@@ -43,9 +43,9 @@ public class MessagingHook {
     private EventProperties eventProperties;
 
     private static final AtomicBoolean jmsStartupDelayCompleted = new AtomicBoolean(false);
-    private static final Duration STARTUP_TIMEOUT = Duration.ofSeconds(20);
+    private static final Duration STARTUP_TIMEOUT = Duration.ofSeconds(20
 
-    @Before(order = 0)
+    @BeforeEach(order = 0)
     public void waitForJmsListenerStartup() {
         if (jmsStartupDelayCompleted.compareAndSet(false, true) && eventProperties != null
                 && eventProperties.isEventVerificationEnabled()) {
@@ -56,12 +56,12 @@ public class MessagingHook {
             log.info("=== FIRST SCENARIO - Waiting for JMS Listener to connect to ActiveMQ (max {}s) ===", STARTUP_TIMEOUT.toSeconds());
             DefaultMessageListenerContainer container = (DefaultMessageListenerContainer) registry
                     .getListenerContainer("eventStoreListener");
-            await().atMost(STARTUP_TIMEOUT).pollInterval(Duration.ofMillis(200)).until(container::isRunning);
+            await().atMost(STARTUP_TIMEOUT).pollInterval(Duration.ofMillis(200
             log.info("=== JMS Listener is running - tests can proceed ===");
         }
     }
 
-    @Before(order = 1)
+    @BeforeEach(order = 1)
     public void emptyEventStore() {
         eventStore.reset();
     }

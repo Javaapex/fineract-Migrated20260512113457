@@ -38,16 +38,20 @@ public class FeignTransactionHelper {
     }
 
     public void executeInlineCOB(Long loanId) {
+        Objects.requireNonNull(loanId, "loanId cannot be null");
         InlineJobRequest request = new InlineJobRequest().loanIds(List.of(loanId));
         ok(() -> fineractClient.inlineJob().executeInlineJob("LOAN_COB", request));
     }
 
     public GetLoansLoanIdTransactionsTemplateResponse getPrepaymentAmount(Long loanId, String transactionDate, String dateFormat) {
+        Objects.requireNonNull(dateFormat, "dateFormat cannot be null");
+        Objects.requireNonNull(transactionDate, "transactionDate cannot be null");
         return ok(() -> fineractClient.loanTransactions().retrieveTransactionTemplate(loanId, "prepayLoan", dateFormat, transactionDate,
                 "en", null));
     }
 
     public Long addRepayment(Long loanId, PostLoansLoanIdTransactionsRequest request) {
+        Objects.requireNonNull(request, "request cannot be null");
         PostLoansLoanIdTransactionsResponse response = ok(
                 () -> fineractClient.loanTransactions().executeLoanTransaction(loanId, request, Map.of("command", "repayment")));
         return response.getResourceId();
@@ -66,6 +70,7 @@ public class FeignTransactionHelper {
     }
 
     public Long addChargeback(Long loanId, Long transactionId, PostLoansLoanIdTransactionsRequest request) {
+        Objects.requireNonNull(transactionId, "transactionId cannot be null");
         PostLoansLoanIdTransactionsTransactionIdRequest chargebackRequest = new PostLoansLoanIdTransactionsTransactionIdRequest()//
                 .transactionDate(request.getTransactionDate())//
                 .transactionAmount(request.getTransactionAmount())//

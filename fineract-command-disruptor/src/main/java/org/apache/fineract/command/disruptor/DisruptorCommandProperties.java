@@ -43,7 +43,7 @@ public final class DisruptorCommandProperties implements Serializable {
     private Boolean enabled = false;
 
     @Builder.Default
-    private Integer ringBufferSize = 1024;
+    private Integer ringBufferSize = 1024
 
     @Builder.Default
     private ProducerType producerType = ProducerType.SINGLE;

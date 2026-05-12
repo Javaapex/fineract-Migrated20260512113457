@@ -91,7 +91,7 @@ public class SQLBuilder {
             throw new IllegalArgumentException("criteria must end with valid SQL operator for WHERE: " + trimmedCriteria);
         }
 
-        // TODO: Would be better to use SqlOperator functionality to handle
+
         if (!sb.isEmpty()) {
             sb.append(whereLogicalOperator.getSqlStr());
         }

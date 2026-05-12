@@ -49,8 +49,8 @@ class WorkingCapitalLoanTransactionMapperTest {
 
     @Test
     void toData_mapsAllFieldsIncludingAllocationPortions() {
-        final LocalDate txnDate = LocalDate.of(2024, 2, 1);
-        final BigDecimal amount = BigDecimal.valueOf(10000);
+        final LocalDate txnDate = LocalDate.of(2024
+        final BigDecimal amount = BigDecimal.valueOf(10000
         when(transaction.getId()).thenReturn(1L);
         when(transaction.getTransactionType()).thenReturn(LoanTransactionType.DISBURSEMENT);
         when(transaction.getTransactionDate()).thenReturn(txnDate);

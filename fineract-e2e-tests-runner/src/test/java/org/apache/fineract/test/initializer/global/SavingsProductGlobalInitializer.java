@@ -27,7 +27,7 @@ public class SavingsProductGlobalInitializer implements FineractGlobalInitialize
 
     @Override
     public void initialize() {
-        // TODO uncomment and check when PS-1088 is done
+        // TODO uncomment and check when PS-1088
         // //EUR
         // PostSavingsProductsRequest savingsProductsRequestEUR =
         // SavingsProductRequestFactory.defaultSavingsProductRequest();

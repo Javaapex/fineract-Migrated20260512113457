@@ -64,9 +64,9 @@ public class LoanOriginatorApiResource {
     @Produces({ MediaType.APPLICATION_JSON })
     @Operation(summary = "Create a new loan originator", operationId = "createLoanOriginator", description = "Creates a new loan originator record. Requires CREATE_LOAN_ORIGINATOR permission.")
     @RequestBody(required = true, content = @Content(schema = @Schema(implementation = LoanOriginatorApiResourceSwagger.PostLoanOriginatorsRequest.class)))
-    @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = LoanOriginatorApiResourceSwagger.PostLoanOriginatorsResponse.class)))
-    @ApiResponse(responseCode = "400", description = "Required parameter is missing or incorrect format")
-    @ApiResponse(responseCode = "403", description = "Duplicate external ID or insufficient permissions")
+    @ApiResponse(responseCode = "200
+    @ApiResponse(responseCode = "400
+    @ApiResponse(responseCode = "403
     public CommandProcessingResult create(@Parameter(hidden = true) final String apiRequestBodyAsJson) {
         final CommandWrapper commandRequest = new CommandWrapperBuilder().createLoanOriginator().withJson(apiRequestBodyAsJson).build();
         return this.commandsSourceWritePlatformService.logCommandSource(commandRequest);

@@ -49,7 +49,7 @@ public class DatabaseIndependentQueryService implements DatabaseQueryService {
             }
             return result;
         } catch (SQLException e) {
-            throw new RuntimeException("Error while trying to choose the proper query service", e);
+            throw new RuntimeException
         }
     }
 
@@ -60,6 +60,8 @@ public class DatabaseIndependentQueryService implements DatabaseQueryService {
 
     @Override
     public boolean isTablePresent(DataSource dataSource, String tableName) {
+        Objects.requireNonNull(tableName, "tableName cannot be null");
+        Objects.requireNonNull(dataSource, "dataSource cannot be null");
         return choose(dataSource).isTablePresent(dataSource, tableName);
     }
 

@@ -45,7 +45,7 @@ public class LoanChargeTaxDetails extends AbstractPersistableCustom<Long> {
     @JoinColumn(name = "tax_component_id", nullable = false)
     private TaxComponent taxComponent;
 
-    @Column(name = "amount", scale = 6, precision = 19, nullable = false)
+    @Column(name = "amount", scale = 6, precision = 19
     private BigDecimal amount;
 
     public LoanChargeTaxDetails() {

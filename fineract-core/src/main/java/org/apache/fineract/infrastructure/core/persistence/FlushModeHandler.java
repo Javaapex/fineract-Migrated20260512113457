@@ -31,9 +31,11 @@ public class FlushModeHandler {
     private EntityManager entityManager;
 
     public void withFlushMode(FlushModeType flushMode, Runnable runnable) {
+        Objects.requireNonNull(runnable, "runnable cannot be null");
+        Objects.requireNonNull(flushMode, "flushMode cannot be null");
         withFlushMode(flushMode, () -> {
             runnable.run();
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         });
     }
 

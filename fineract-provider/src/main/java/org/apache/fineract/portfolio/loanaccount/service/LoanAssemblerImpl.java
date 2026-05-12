@@ -288,14 +288,14 @@ public class LoanAssemblerImpl implements LoanAssembler {
         loanSchedule.updateLoanSchedule(loanApplication, loanScheduleModel);
 
         copyAdvancedPaymentRulesIfApplicable(transactionProcessingStrategyCode, loanProduct, loanApplication);
-        // TODO: review
+
         loanChargeService.recalculateAllCharges(loanApplication);
         topUpLoanConfiguration(element, loanApplication);
         loanAccrualsProcessingService.reprocessExistingAccruals(loanApplication, false);
         return loanApplication;
     }
 
-    // TODO: Review... it might be better somewhere else and rethink due to the account number generation logic is
+
     // intertwined with GLIM logic
     @Override
     public void accountNumberGeneration(final JsonCommand command, final Loan loan) {
@@ -308,7 +308,7 @@ public class LoanAssemblerImpl implements LoanAssembler {
         }
 
         final AccountNumberFormat accountNumberFormat = this.accountNumberFormatRepository.findByAccountType(EntityAccountType.LOAN);
-        // TODO: It is really weird to set GLIM info only if account number was not provided
+
         // if application is of GLIM type
         if (loan.getLoanType().isGLIMAccount()) {
             Group group = loan.getGroup();
@@ -330,7 +330,7 @@ public class LoanAssemblerImpl implements LoanAssembler {
 
             if (this.fromApiJsonHelper.extractBooleanNamed("isParentAccount", element) != null) {
                 // empty table check
-                // TODO: This count here is weird... and seems parent-empty and parent not empty looks the same
+
                 if (glimRepository.count() != 0) {
                     // **************Parent-Not an empty
                     // table********************
@@ -341,7 +341,7 @@ public class LoanAssemblerImpl implements LoanAssembler {
                     createAndSetGLIMAccount(totalLoan, loan, accountNumberFormat, group, applicationId);
                 }
             } else {
-                // TODO: This count here is weird...
+
                 if (glimRepository.count() != 0) {
                     // Child-Not an empty table
                     GroupLoanIndividualMonitoringAccount glimAccount = glimRepository.findOneByIsAcceptingChildAndApplicationId(true,

@@ -38,7 +38,7 @@ public class LoanChargePaidBy extends AbstractPersistableCustom<Long> {
     @JoinColumn(name = "loan_charge_id", nullable = false)
     private LoanCharge loanCharge;
 
-    @Column(name = "amount", scale = 6, precision = 19, nullable = false)
+    @Column(name = "amount", scale = 6, precision = 19
     private BigDecimal amount;
 
     @Column(name = "installment_number", nullable = true)
@@ -77,6 +77,7 @@ public class LoanChargePaidBy extends AbstractPersistableCustom<Long> {
     }
 
     public void setInstallmentNumber(Integer installmentNumber) {
+        Objects.requireNonNull(installmentNumber, "installmentNumber cannot be null");
         this.installmentNumber = installmentNumber;
     }
 }

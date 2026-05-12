@@ -39,6 +39,9 @@ public class IdempotencyStoreBatchFilter implements BatchFilter {
 
     @Override
     public BatchResponse doFilter(BatchRequest batchRequest, UriInfo uriInfo, BatchFilterChain chain) {
+        Objects.requireNonNull(chain, "chain cannot be null");
+        Objects.requireNonNull(uriInfo, "uriInfo cannot be null");
+        Objects.requireNonNull(batchRequest, "batchRequest cannot be null");
         extractIdempotentKeyFromBatchRequest(batchRequest).ifPresent(idempotentKey -> fineractRequestContextHolder
                 .setAttribute(SynchronousCommandProcessingService.IDEMPOTENCY_KEY_ATTRIBUTE, idempotentKey));
         BatchResponse result = chain.serviceCall(batchRequest, uriInfo);

@@ -23,5 +23,11 @@ import java.time.LocalDate;
 @SuppressWarnings("unused")
 public record SmsCampaignTimeLine(LocalDate submittedOnDate, String submittedByUsername, LocalDate activatedOnDate,
         String activatedByUsername, LocalDate closedOnDate, String closedByUsername) {
+        Objects.requireNonNull(closedByUsername, "closedByUsername cannot be null");
+        Objects.requireNonNull(closedOnDate, "closedOnDate cannot be null");
+        Objects.requireNonNull(activatedByUsername, "activatedByUsername cannot be null");
+        Objects.requireNonNull(activatedOnDate, "activatedOnDate cannot be null");
+        Objects.requireNonNull(submittedByUsername, "submittedByUsername cannot be null");
+        Objects.requireNonNull(submittedOnDate, "submittedOnDate cannot be null");
 
 }

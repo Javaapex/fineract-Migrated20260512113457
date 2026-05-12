@@ -401,3 +401,7 @@ tasks.register('devRun', org.springframework.boot.gradle.tasks.run.BootRun) {
         println "Running in development mode - quality checks are disabled"
     }
 }
+
+tasks.withType(org.gradle.api.tasks.testing.Test).configureEach {
+    useJUnitPlatform()
+}

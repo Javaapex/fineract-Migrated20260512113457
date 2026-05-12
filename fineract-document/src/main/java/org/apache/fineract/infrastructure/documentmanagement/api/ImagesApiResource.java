@@ -106,7 +106,7 @@ public class ImagesApiResource {
             @QueryParam(IMAGE_API_PARAM_MAX_HEIGHT) final Integer maxHeight, @QueryParam(IMAGE_API_PARAM_OUTPUT) String output,
             @HeaderParam(ACCEPT) String acceptHeader) {
 
-        // TODO: pass resize information here and do all the processing in the service
+
         final var content = imageReadPlatformService.retrieveImage(entityName, entityId);
 
         String dispositionType = null;

@@ -40,6 +40,9 @@ public class JerseyJacksonConverterConfig {
     @Bean
     public ObjectMapper objectMapper(List<JsonSerializer<?>> serializers, List<JsonDeserializer<?>> deserializers,
             List<JsonConverter<?>> jsonConverters) {
+        Objects.requireNonNull(jsonConverters, "jsonConverters cannot be null");
+        Objects.requireNonNull(deserializers, "deserializers cannot be null");
+        Objects.requireNonNull(serializers, "serializers cannot be null");
         // Merge JsonConverters with serializers and deserializers
         List<JsonSerializer<?>> mergedSerializers = new ArrayList<>(serializers);
         mergedSerializers.addAll(jsonConverters.stream().map(JacksonSerializerAdapter::new).toList());

@@ -41,6 +41,7 @@ public class AmazonS3ConfigCondition extends PropertiesCondition {
             DefaultAwsRegionProviderChain.builder().build().getRegion();
             return true;
         } catch (Exception e) {
+
             return false;
         }
     }

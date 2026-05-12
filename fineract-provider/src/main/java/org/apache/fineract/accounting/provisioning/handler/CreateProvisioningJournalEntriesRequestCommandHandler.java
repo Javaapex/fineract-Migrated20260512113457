@@ -37,6 +37,7 @@ public class CreateProvisioningJournalEntriesRequestCommandHandler implements Ne
     @Transactional
     @Override
     public CommandProcessingResult processCommand(JsonCommand jsonCommand) {
+        Objects.requireNonNull(jsonCommand, "jsonCommand cannot be null");
         return this.provisioningEntriesWritePlatformService.createProvisioningJournalEntries(jsonCommand.entityId(), jsonCommand);
     }
 

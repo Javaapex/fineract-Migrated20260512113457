@@ -95,7 +95,7 @@ public class BusinessDateWritePlatformServiceTest {
 
     @Test
     public void businessDateSetNew() {
-        BusinessDateDTO businessDateDTO = BusinessDateDTO.builder().date(LocalDate.of(2022, 6, 13)).type(BUSINESS_DATE).build();
+        BusinessDateDTO businessDateDTO = BusinessDateDTO.builder().date(LocalDate.of(2022
         given(configurationDomainService.isBusinessDateEnabled()).willReturn(Boolean.TRUE);
         given(configurationDomainService.isCOBDateAdjustmentEnabled()).willReturn(Boolean.FALSE);
         Optional<BusinessDate> newEntity = Optional.empty();

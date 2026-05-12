@@ -33,6 +33,7 @@ public class PaginationParametersDataValidator {
 
     public void validateParameterValues(PaginationParameters parameters, final Set<String> supportedOrdeByValues,
             final String resourceName) {
+        Objects.requireNonNull(parameters, "parameters cannot be null");
         final List<ApiParameterError> dataValidationErrors = new ArrayList<>();
         if (parameters.hasOrderBy() && !supportedOrdeByValues.contains(parameters.getOrderBy())) {
             final String defaultUserMessage = "The orderBy value '" + parameters.getOrderBy()

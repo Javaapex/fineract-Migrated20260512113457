@@ -171,7 +171,7 @@ public abstract class AbstractLoanRepaymentScheduleTransactionProcessor implemen
 
         MoneyHolder overpaymentHolder = new MoneyHolder(Money.zero(currency));
         for (final LoanTransaction loanTransaction : transactionsToBeProcessed) {
-            // TODO: analyze and remove this
+
             if (!loanTransaction.getTypeOf().equals(LoanTransactionType.REFUND_FOR_ACTIVE_LOAN)) {
                 final Comparator<LoanRepaymentScheduleInstallment> byDate = Comparator
                         .comparing(LoanRepaymentScheduleInstallment::getDueDate);
@@ -449,7 +449,7 @@ public abstract class AbstractLoanRepaymentScheduleTransactionProcessor implemen
             }
         }
 
-        // TODO: rewrite and handle it at the proper place when disbursement handling got fixed
+
         for (LoanRepaymentScheduleInstallment loanRepaymentScheduleInstallment : installments) {
             if (loanRepaymentScheduleInstallment.getTotalOutstanding(currency).isGreaterThanZero()) {
                 loanRepaymentScheduleInstallment.updateObligationMet(false);

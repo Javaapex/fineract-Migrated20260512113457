@@ -66,7 +66,7 @@ class ChargeTaxApplicationServiceTest {
 
     @Test
     void computeTax_returnsEmptyMap_whenTaxGroupIsNull() {
-        Map<TaxComponent, BigDecimal> result = service.computeTax(null, new BigDecimal("100.00"), actualDate, 6);
+        Map<TaxComponent, BigDecimal> result = service.computeTax(null, new BigDecimal("100.00
 
         assertThat(result).isEmpty();
     }

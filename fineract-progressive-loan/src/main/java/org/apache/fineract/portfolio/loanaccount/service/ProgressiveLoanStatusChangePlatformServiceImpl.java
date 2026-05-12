@@ -44,6 +44,7 @@ public class ProgressiveLoanStatusChangePlatformServiceImpl {
 
         @Override
         public void onBusinessEvent(LoanStatusChangedBusinessEvent event) {
+        Objects.requireNonNull(event, "event cannot be null");
             final Loan loan = event.get();
             log.debug("Loan Status change for loan {}", loan.getId());
             if (!event.getOldStatus().isSubmittedAndPendingApproval() && loan.isApproved()) {

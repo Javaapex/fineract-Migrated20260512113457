@@ -65,7 +65,7 @@ public class GroupLoanIntegrationTest {
         Utils.initializeRESTAssured();
         this.requestSpec = new RequestSpecBuilder().setContentType(ContentType.JSON).build();
         this.requestSpec.header("Authorization", "Basic " + Utils.loginIntoServerAndGetBase64EncodedAuthenticationKey());
-        this.responseSpec = new ResponseSpecBuilder().expectStatusCode(200).build();
+        this.responseSpec = new ResponseSpecBuilder().expectStatusCode(200
     }
 
     @Test
@@ -101,7 +101,7 @@ public class GroupLoanIntegrationTest {
         LOG.info("LoanId : {} ", loanId);
 
         List<Map<String, Object>> approvalFormData = new ArrayList<>();
-        approvalFormData.add(approvalFormData(loanId, "20 September 2011"));
+        approvalFormData.add(approvalFormData(loanId, "20
 
         HashMap loanStatusHashMap = this.loanTransactionHelper.approveGlimAccount(this.requestSpec, this.responseSpec, approvalFormData,
                 glimId);

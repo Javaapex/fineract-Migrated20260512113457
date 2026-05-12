@@ -271,7 +271,7 @@ public class InteropServiceImpl implements InteropService {
     public InteropIdentifierAccountResponseData registerAccountIdentifier(@NonNull InteropIdentifierType idType, @NonNull String idValue,
             String subIdOrType, @NonNull JsonCommand command) {
         InteropIdentifierRequestData request = dataValidator.validateAndParseCreateIdentifier(idType, idValue, subIdOrType, command);
-        // TODO: error handling
+
         SavingsAccount savingsAccount = validateAndGetSavingAccount(request.getAccountId());
 
         try {
@@ -325,7 +325,7 @@ public class InteropServiceImpl implements InteropService {
         // always Payer
         InteropTransactionRequestData request = dataValidator.validateAndParseCreateRequest(command);
 
-        // TODO: error handling
+
         validateAndGetSavingAccount(request);
 
         return InteropTransactionRequestResponseData.build(command.commandId(), request.getTransactionCode(), InteropActionState.ACCEPTED,
@@ -566,7 +566,7 @@ public class InteropServiceImpl implements InteropService {
     }
 
     private SavingsAccount validateAndGetSavingAccount(@NonNull InteropRequestData request) {
-        // TODO: error handling
+
         SavingsAccount savingsAccount = validateAndGetSavingAccount(request.getAccountId());
         savingsAccount.setHelpers(savingsAccountTransactionSummaryWrapper, savingsHelper, configurationDomainService);
 
@@ -592,7 +592,7 @@ public class InteropServiceImpl implements InteropService {
             if (!savingsAccount.getCurrency().getCode().equals(requestFee.getCurrency())) {
                 throw new DifferentCurrenciesException(savingsAccount.getCurrency().getCode(), requestFee.getCurrency());
             }
-            // TODO: compare with calculated quote fee
+
             total = MathUtil.add(total, requestFee.getAmount());
         }
         MoneyData requestCommission = request.getFspCommission();
@@ -600,7 +600,7 @@ public class InteropServiceImpl implements InteropService {
             if (!savingsAccount.getCurrency().getCode().equals(requestCommission.getCurrency())) {
                 throw new DifferentCurrenciesException(savingsAccount.getCurrency().getCode(), requestCommission.getCurrency());
             }
-            // TODO: compare with calculated quote commission
+
             total = MathUtil.subtractToZero(total, requestCommission.getAmount());
         }
         return total;
@@ -625,7 +625,7 @@ public class InteropServiceImpl implements InteropService {
             if (!paymentType.getIsCashPayment()) {
                 return paymentType;
             }
-            // TODO: for now first not cash is retured:
+
             // 1. must be added as initial setup,
             // 2. if more than one non-cashe type added then update this code
         }

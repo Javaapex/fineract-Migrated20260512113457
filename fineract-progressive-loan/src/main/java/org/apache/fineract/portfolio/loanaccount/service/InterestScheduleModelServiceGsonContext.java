@@ -40,6 +40,7 @@ public class InterestScheduleModelServiceGsonContext {
     private final Integer installmentAmountInMultipliesOf;
 
     public RepaymentPeriod createRepaymentPeriodInstance(Type type) {
+        Objects.requireNonNull(type, "type cannot be null");
         if (type == RepaymentPeriod.class) {
 
             setPrev(RepaymentPeriod.empty(getPrev(), getMc(), getLoanProductRelatedDetail()));

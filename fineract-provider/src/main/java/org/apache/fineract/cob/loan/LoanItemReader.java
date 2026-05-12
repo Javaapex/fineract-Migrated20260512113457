@@ -40,6 +40,7 @@ public class LoanItemReader extends AbstractLoanItemReader<Loan> {
 
     @BeforeStep
     public void beforeStep(@NonNull StepExecution stepExecution) {
+        Objects.requireNonNull(stepExecution, "stepExecution cannot be null");
         setRemainingData(beforeStepLockingItemReaderHelper.filterRemainingData(stepExecution));
     }
 

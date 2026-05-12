@@ -56,7 +56,7 @@ public class AcmeBusinessStepDefinitions implements En {
 
                 this.businessStep = ctx.getBean((Class<COBBusinessStep<Loan>>) Class.forName(stepClass));
 
-                // TODO: not yet working, because no storage configured/mocked
+
                 this.result = businessStepService.getCOBBusinessSteps(this.businessStep.getClass(), stepName);
             });
         });

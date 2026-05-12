@@ -39,6 +39,7 @@ public class LoanCOBCatchUpHelper {
     }
 
     public boolean isLoanCOBCatchUpFinishedFor(@NonNull LocalDate cobBusinessDate) {
+        Objects.requireNonNull(cobBusinessDate, "cobBusinessDate cannot be null");
         Response<IsCatchUpRunningDTO> response = executeGetLoanCatchUpStatus();
         IsCatchUpRunningDTO isCatchUpRunningResponse = Objects.requireNonNull(response.body());
         OldestCOBProcessedLoanDTO getOldestCOBProcessedLoanResponse = executeRetrieveOldestCOBProcessedLoan();

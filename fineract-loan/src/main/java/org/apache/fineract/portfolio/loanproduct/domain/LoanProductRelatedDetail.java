@@ -58,7 +58,7 @@ public class LoanProductRelatedDetail {
     @Embedded
     private MonetaryCurrency currency;
 
-    @Column(name = "principal_amount", scale = 6, precision = 19)
+    @Column(name = "principal_amount", scale = 6, precision = 19
     private BigDecimal principal;
 
     @Column(name = "nominal_interest_rate_per_period", scale = 6, precision = 19)

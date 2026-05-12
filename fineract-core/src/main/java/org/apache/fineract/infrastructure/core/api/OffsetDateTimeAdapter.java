@@ -27,7 +27,7 @@ import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Serializer for Java Offset Date Time {@link OffsetDateTime} that returns the date in ISO-8601 Offset date time format
+ * Serializer for Java Offset Date Time {@link OffsetDateTime} that returns the date in ISO-8601
  */
 public class OffsetDateTimeAdapter implements JsonSerializer<OffsetDateTime> {
 

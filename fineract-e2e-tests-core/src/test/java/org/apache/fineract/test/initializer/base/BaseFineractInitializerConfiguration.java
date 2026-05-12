@@ -39,6 +39,9 @@ public class BaseFineractInitializerConfiguration {
     @Bean
     public FineractInitializer fineractInitializer(List<FineractGlobalInitializerStep> globalInitializerSteps,
             List<FineractSuiteInitializerStep> suiteInitializerSteps, List<FineractScenarioInitializerStep> scenarioInitializerSteps) {
+        Objects.requireNonNull(scenarioInitializerSteps, "scenarioInitializerSteps cannot be null");
+        Objects.requireNonNull(suiteInitializerSteps, "suiteInitializerSteps cannot be null");
+        Objects.requireNonNull(globalInitializerSteps, "globalInitializerSteps cannot be null");
         return new FineractInitializer(globalInitializerSteps, suiteInitializerSteps, scenarioInitializerSteps);
     }
 }

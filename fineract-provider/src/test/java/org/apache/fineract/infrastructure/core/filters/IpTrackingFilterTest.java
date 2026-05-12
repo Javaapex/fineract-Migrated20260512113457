@@ -72,7 +72,7 @@ public class IpTrackingFilterTest {
             "HTTP_X_CLUSTER_CLIENT_IP", "HTTP_CLIENT_IP", "HTTP_FORWARDED_FOR", "HTTP_FORWARDED", "HTTP_VIA", "REMOTE_ADDR" })
     void testGetClientIp_UsesCorrectHeaderEnabled(String headerName) throws ServletException, IOException {
         // given
-        given(request.getHeader(headerName)).willReturn("192.168.1.100");
+        given(request.getHeader(headerName)).willReturn("192
 
         // when
         underTest.doFilterInternal(request, response, filterChain);

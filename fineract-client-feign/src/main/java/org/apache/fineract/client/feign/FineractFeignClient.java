@@ -173,7 +173,7 @@ import org.apache.fineract.client.feign.services.WorkingDaysApi;
  * <pre>
  * {@code
  *
- * FineractFeignClient client = FineractFeignClient.builder().baseUrl("https://localhost:8443/fineract-provider/api/v1")
+ * FineractFeignClient client = FineractFeignClient.builder().baseUrl("https://localhost:8443
  *         .credentials("username", "password").build();
  *
  * // Access API clients
@@ -811,6 +811,7 @@ public final class FineractFeignClient {
          * @return This builder instance
          */
         public Builder baseUrl(String baseUrl) {
+        Objects.requireNonNull(baseUrl, "baseUrl cannot be null");
             configBuilder.baseUrl(baseUrl);
             return this;
         }
@@ -825,6 +826,8 @@ public final class FineractFeignClient {
          * @return This builder instance
          */
         public Builder credentials(String username, String password) {
+        Objects.requireNonNull(password, "password cannot be null");
+        Objects.requireNonNull(username, "username cannot be null");
             configBuilder.credentials(username, password);
             return this;
         }
@@ -839,6 +842,7 @@ public final class FineractFeignClient {
          * @return This builder instance
          */
         public Builder connectTimeout(int timeout, java.util.concurrent.TimeUnit unit) {
+        Objects.requireNonNull(unit, "unit cannot be null");
             configBuilder.connectTimeout(timeout, unit);
             return this;
         }
@@ -882,6 +886,7 @@ public final class FineractFeignClient {
         }
 
         public Builder tenantId(String tenantId) {
+        Objects.requireNonNull(tenantId, "tenantId cannot be null");
             configBuilder.tenantId(tenantId);
             return this;
         }
@@ -946,6 +951,7 @@ public final class FineractFeignClient {
          * @return This builder instance
          */
         public Builder httpClientType(FineractFeignClientConfig.HttpClientType clientType) {
+        Objects.requireNonNull(clientType, "clientType cannot be null");
             configBuilder.httpClientType(clientType);
             return this;
         }

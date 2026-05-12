@@ -76,7 +76,7 @@ public class TomcatJdbcDataSourcePerTenantService implements RoutingDataSourceSe
                     (key) -> dataSourcePerTenantServiceFactory.createNewDataSourceFor(tenant, tenantConnection));
         }
 
-        // TODO: This is definitely not the optimal place to initialize the rounding modes
+
         // Preferably nothing should use a statically referenced context and the initialization
         // should happen within the rounding mode retrieval
         if (moneyHelperInitializationService != null && tenant != null) {

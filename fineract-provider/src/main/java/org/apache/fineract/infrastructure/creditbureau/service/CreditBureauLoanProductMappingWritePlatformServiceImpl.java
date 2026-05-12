@@ -62,6 +62,8 @@ public class CreditBureauLoanProductMappingWritePlatformServiceImpl implements C
     @Transactional
     @Override
     public CommandProcessingResult addCreditBureauLoanProductMapping(Long organisationCreditBureauId, JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
+        Objects.requireNonNull(organisationCreditBureauId, "organisationCreditBureauId cannot be null");
         this.context.authenticatedUser();
 
         this.fromApiJsonDeserializer.validateForCreate(command.json(), organisationCreditBureauId);

@@ -66,6 +66,7 @@ public class TrialBalance extends AbstractPersistableCustom<Long> {
 
     @Override
     public boolean equals(Object obj) {
+        Objects.requireNonNull(obj, "obj cannot be null");
         if (!(obj instanceof TrialBalance)) {
             return false;
         }

@@ -36,6 +36,10 @@ public abstract class CommonLoanSummaryDataProvider implements LoanSummaryDataPr
     @Override
     public LoanSummaryData withTransactionAmountsSummary(Loan loan, LoanSummaryData defaultSummaryData, LoanScheduleData repaymentSchedule,
             Collection<? extends LoanTransactionBalance> loanTransactionBalances) {
+        Objects.requireNonNull(loanTransactionBalances, "loanTransactionBalances cannot be null");
+        Objects.requireNonNull(repaymentSchedule, "repaymentSchedule cannot be null");
+        Objects.requireNonNull(defaultSummaryData, "defaultSummaryData cannot be null");
+        Objects.requireNonNull(loan, "loan cannot be null");
         final LocalDate businessDate = DateUtils.getBusinessLocalDate();
 
         BigDecimal totalMerchantRefund = BigDecimal.ZERO;
@@ -157,12 +161,14 @@ public abstract class CommonLoanSummaryDataProvider implements LoanSummaryDataPr
 
     @Override
     public BigDecimal computeTotalUnpaidPayableDueInterestAmount(Collection<LoanSchedulePeriodData> periods, final LocalDate businessDate) {
+        Objects.requireNonNull(periods, "periods cannot be null");
         return periods.stream().filter(period -> !period.isDownPaymentPeriod() && !businessDate.isBefore(period.getDueDate()))
                 .map(LoanSchedulePeriodData::getInterestOutstanding).reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
     @Override
     public LoanSummaryData withOnlyCurrencyData(CurrencyData currencyData) {
+        Objects.requireNonNull(currencyData, "currencyData cannot be null");
         return LoanSummaryData.builder().currency(currencyData).build();
     }
 }

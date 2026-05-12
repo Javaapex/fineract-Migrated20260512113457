@@ -21,7 +21,7 @@ package org.apache.fineract.commands.api;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
- * Created by sanyam on 27/7/17.
+ * Created by sanyam on 27
  */
 final class MakercheckersApiResourceSwagger {
 

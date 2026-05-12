@@ -45,10 +45,14 @@ public class ExternalAssetOwnerHelper {
     public ExternalAssetOwnerHelper() {}
 
     public PostInitiateTransferResponse initiateTransferByLoanId(Long loanId, String command, ExternalAssetOwnerRequest request) {
+        Objects.requireNonNull(request, "request cannot be null");
+        Objects.requireNonNull(command, "command cannot be null");
+        Objects.requireNonNull(loanId, "loanId cannot be null");
         return Calls.ok(FineractClientHelper.getFineractClient().externalAssetOwners.transferRequestWithLoanId(loanId, request, command));
     }
 
     public void cancelTransferByTransferExternalId(String transferExternalId) {
+        Objects.requireNonNull(transferExternalId, "transferExternalId cannot be null");
         Calls.ok(FineractClientHelper.getFineractClient().externalAssetOwners.transferRequestWithIdByExternalId(transferExternalId,
                 "cancel"));
     }
@@ -57,7 +61,7 @@ public class ExternalAssetOwnerHelper {
         CallFailedRuntimeException exception = assertThrows(CallFailedRuntimeException.class,
                 () -> Calls.okR(FineractClientHelper.getFineractClient().externalAssetOwners
                         .transferRequestWithIdByExternalId(transferExternalId, "cancel")));
-        assertEquals(403, exception.getResponse().code());
+        assertEquals(403
     }
 
     public PageExternalTransferData retrieveTransferByTransferExternalId(String transferExternalId) {
@@ -65,6 +69,7 @@ public class ExternalAssetOwnerHelper {
     }
 
     public PageExternalTransferData retrieveTransferByLoanExternalId(String loanExternalId) {
+        Objects.requireNonNull(loanExternalId, "loanExternalId cannot be null");
         return Calls.ok(FineractClientHelper.getFineractClient().externalAssetOwners.getTransfers(null, null, loanExternalId, 0, 100));
     }
 
@@ -89,10 +94,12 @@ public class ExternalAssetOwnerHelper {
     }
 
     public ExternalOwnerTransferJournalEntryData retrieveJournalEntriesOfTransfer(Long transferId) {
+        Objects.requireNonNull(transferId, "transferId cannot be null");
         return Calls.ok(FineractClientHelper.getFineractClient().externalAssetOwners.getJournalEntriesOfTransfer(transferId, 0, 100));
     }
 
     public ExternalOwnerJournalEntryData retrieveJournalEntriesOfOwner(String ownerExternalId) {
+        Objects.requireNonNull(ownerExternalId, "ownerExternalId cannot be null");
         return Calls.ok(FineractClientHelper.getFineractClient().externalAssetOwners.getJournalEntriesOfOwner(ownerExternalId, 0, 100));
     }
 
@@ -102,15 +109,21 @@ public class ExternalAssetOwnerHelper {
 
     public PagedRequestExternalAssetOwnerSearchRequest buildExternalAssetOwnerSearchRequest(String text, String attribute,
             LocalDate fromDate, LocalDate toDate, Integer page, Integer size) {
+        Objects.requireNonNull(size, "size cannot be null");
+        Objects.requireNonNull(page, "page cannot be null");
+        Objects.requireNonNull(toDate, "toDate cannot be null");
+        Objects.requireNonNull(fromDate, "fromDate cannot be null");
+        Objects.requireNonNull(attribute, "attribute cannot be null");
+        Objects.requireNonNull(text, "text cannot be null");
         // increase it if tests create more than 200 items
         final Integer DEFAULT_PAGE_SIZE = 200;
         PagedRequestExternalAssetOwnerSearchRequest pagedRequest = new PagedRequestExternalAssetOwnerSearchRequest();
         ExternalAssetOwnerSearchRequest searchRequest = new ExternalAssetOwnerSearchRequest();
         searchRequest.text(text);
-        if (attribute.equals("effective")) {
+        if ("effective".equals(attribute)) {
             searchRequest.setEffectiveFromDate(fromDate);
             searchRequest.setEffectiveToDate(toDate);
-        } else if (attribute.equals("settlement")) {
+        } else if ("settlement".equals(attribute)) {
             searchRequest.setSubmittedFromDate(fromDate);
             searchRequest.setSubmittedToDate(toDate);
         }
@@ -122,6 +135,8 @@ public class ExternalAssetOwnerHelper {
     }
 
     public void setProperFinancialActivity(FinancialActivityAccountHelper financialActivityAccountHelper, Account transferAccount) {
+        Objects.requireNonNull(transferAccount, "transferAccount cannot be null");
+        Objects.requireNonNull(financialActivityAccountHelper, "financialActivityAccountHelper cannot be null");
         List<GetFinancialActivityAccountsResponse> financialMappings = financialActivityAccountHelper.getAllFinancialActivityAccounts();
         financialMappings.forEach(mapping -> financialActivityAccountHelper.deleteFinancialActivityAccount(mapping.getId()));
         financialActivityAccountHelper.createFinancialActivityAccount(new PostFinancialActivityAccountsRequest()

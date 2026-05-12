@@ -73,7 +73,7 @@ public class FixedLengthLoanProductIntegrationTest extends BaseLoanIntegrationTe
 
     @Test
     public void testLoanApplicationWithFixedLengthInheritedFromLoanProduct() {
-        runAt("01 January 2023", () -> {
+        runAt("01
             Long clientId = clientHelper.createClient(ClientHelper.defaultClientCreationRequest()).getClientId();
 
             PostLoanProductsResponse loanProduct = loanProductHelper.createLoanProduct(fixedLengthLoanProduct(4));

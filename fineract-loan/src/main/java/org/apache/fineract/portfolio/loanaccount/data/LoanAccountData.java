@@ -85,7 +85,7 @@ public class LoanAccountData {
     private Long loanProductId;
     private String loanProductName;
     private String loanProductDescription;
-    // TODO: avoid prefix "is"
+
     private boolean isLoanProductLinkedToFloatingRate;
     private Long fundId;
     private String fundName;
@@ -114,7 +114,7 @@ public class LoanAccountData {
     private BigDecimal interestRatePerPeriod;
     private EnumOptionData interestRateFrequencyType;
     private BigDecimal annualInterestRate;
-    // TODO: avoid prefix "is"
+
     private boolean isFloatingInterestRate;
     private BigDecimal interestRateDifferential;
 
@@ -207,7 +207,7 @@ public class LoanAccountData {
     private Collection<LoanTermVariationsData> loanTermVariations;
     private Collection<LoanAccountSummaryData> clientActiveLoanOptions;
     private Boolean canUseForTopup;
-    // TODO: avoid prefix "is"
+
     private boolean isTopup;
     private boolean fraud;
     private Long closureLoanId;
@@ -219,14 +219,14 @@ public class LoanAccountData {
     private Map<Long, LoanBorrowerCycleData> memberVariations;
 
     private Boolean inArrears;
-    // TODO: avoid prefix "is"
+
     private Boolean isNPA;
     private Collection<ChargeData> overdueCharges;
 
     private EnumOptionData daysInMonthType;
     private EnumOptionData daysInYearType;
     private StringEnumOptionData daysInYearCustomStrategy;
-    // TODO: avoid prefix "is"
+
     private boolean isInterestRecalculationEnabled;
 
     private LoanInterestRecalculationData interestRecalculationData;
@@ -238,19 +238,19 @@ public class LoanAccountData {
     private Collection<InterestRatePeriodData> interestRatesPeriods;
 
     // VariableInstallments
-    // TODO: avoid prefix "is"
+
     private Boolean isVariableInstallmentsAllowed;
     private Integer minimumGap;
     private Integer maximumGap;
 
     private List<DatatableData> datatables;
-    // TODO: avoid prefix "is"
+
     private Boolean isEqualAmortization;
     private BigDecimal fixedPrincipalPercentagePerInstallment;
 
     // Rate
     private List<RateData> rates;
-    // TODO: avoid prefix "is"
+
     private Boolean isRatesEnabled;
 
     // import fields
@@ -577,7 +577,7 @@ public class LoanAccountData {
             final List<StringEnumOptionData> buyDownFeeCalculationTypeOptions, final List<StringEnumOptionData> buyDownFeeStrategyOptions,
             final List<StringEnumOptionData> buyDownFeeIncomeTypeOptions) {
 
-        // TODO: why are these variables 'calendarData', 'chargeTemplate' never used (see original private constructor)
+
 
         return this.setRepaymentSchedule(repaymentSchedule).setTransactions(transactions).setCharges(charges).setCollateral(collateral)
                 .setGuarantors(guarantors).setProductOptions(productOptions).setTermFrequencyTypeOptions(termFrequencyTypeOptions)

@@ -40,7 +40,7 @@ public class SavingsAccountTransactionTaxDetails extends AbstractPersistableCust
     @JoinColumn(name = "tax_component_id", nullable = false)
     private TaxComponent taxComponent;
 
-    @Column(name = "amount", scale = 6, precision = 19, nullable = false)
+    @Column(name = "amount", scale = 6, precision = 19
     private BigDecimal amount;
 
     protected SavingsAccountTransactionTaxDetails() {}
@@ -61,6 +61,7 @@ public class SavingsAccountTransactionTaxDetails extends AbstractPersistableCust
     }
 
     public void updateAmount(Money amount) {
+        Objects.requireNonNull(amount, "amount cannot be null");
         this.amount = amount.getAmount();
     }
 
@@ -69,6 +70,7 @@ public class SavingsAccountTransactionTaxDetails extends AbstractPersistableCust
     }
 
     public void setSavingsAccountTransaction(SavingsAccountTransaction savingsAccountTransaction) {
+        Objects.requireNonNull(savingsAccountTransaction, "savingsAccountTransaction cannot be null");
         this.savingsAccountTransaction = savingsAccountTransaction;
     }
 }

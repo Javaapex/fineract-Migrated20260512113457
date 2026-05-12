@@ -68,7 +68,7 @@ public class CollateralManagementApiResource {
     @Produces({ MediaType.APPLICATION_JSON })
     @Operation(summary = "Create a new collateral", description = "Collateral Creation")
     @RequestBody(required = true, content = @Content(schema = @Schema(implementation = CollateralManagementProductRequest.class)))
-    @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = CollateralManagementApiResourceSwagger.PostCollateralManagementProductResponse.class)))
+    @ApiResponse(responseCode = "200
     public CommandProcessingResult createCollateral(
             @Parameter(hidden = true) final CollateralManagementProductRequest collateralManagementProductRequest) {
         final CommandWrapper commandWrapper = new CommandWrapperBuilder().createCollateral()

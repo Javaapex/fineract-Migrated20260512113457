@@ -41,6 +41,7 @@ public class RejectAddtionalSharesCommandHandler implements NewCommandSourceHand
     @Transactional
     @Override
     public CommandProcessingResult processCommand(JsonCommand jsonCommand) {
+        Objects.requireNonNull(jsonCommand, "jsonCommand cannot be null");
         return this.shareAccountWritePlatformService.rejectAdditionalShares(jsonCommand.entityId(), jsonCommand);
     }
 

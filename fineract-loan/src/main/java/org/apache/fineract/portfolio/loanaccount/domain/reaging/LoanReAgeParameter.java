@@ -34,7 +34,7 @@ import org.apache.fineract.infrastructure.core.domain.AbstractAuditableWithUTCDa
 import org.apache.fineract.portfolio.common.domain.PeriodFrequencyType;
 import org.apache.fineract.portfolio.loanaccount.domain.LoanTransaction;
 
-// TODO FINERACT-1932-Fineract modularization: Move to fineract-progressive-loan module after refactor of Loan and LoanTransaction classes
+// TODO FINERACT-1932
 @Entity
 @Table(name = "m_loan_reage_parameter")
 @AllArgsConstructor
@@ -70,6 +70,7 @@ public class LoanReAgeParameter extends AbstractAuditableWithUTCDateTimeCustom<L
     protected LoanReAgeParameter() {}
 
     public LoanReAgeParameter getCopy(LoanTransaction loanTransaction) {
+        Objects.requireNonNull(loanTransaction, "loanTransaction cannot be null");
         return new LoanReAgeParameter(loanTransaction, frequencyType, frequencyNumber, startDate, numberOfInstallments,
                 interestHandlingType, reageReason);
     }

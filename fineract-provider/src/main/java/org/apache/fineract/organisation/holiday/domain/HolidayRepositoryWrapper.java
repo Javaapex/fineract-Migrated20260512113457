@@ -69,6 +69,8 @@ public class HolidayRepositoryWrapper {
     }
 
     public boolean isHoliday(Long officeId, LocalDate transactionDate) {
+        Objects.requireNonNull(transactionDate, "transactionDate cannot be null");
+        Objects.requireNonNull(officeId, "officeId cannot be null");
         final List<Holiday> holidays = findByOfficeIdAndGreaterThanDate(officeId, transactionDate);
         return HolidayUtil.isHoliday(transactionDate, holidays);
     }

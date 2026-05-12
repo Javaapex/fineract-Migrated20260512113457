@@ -41,6 +41,7 @@ public class ReleaseAmountSavingsAccountCommandHandler implements NewCommandSour
     @Transactional
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         final Long transactionId = Long.valueOf(command.getTransactionId());
         return this.writePlatformService.releaseAmount(command.getSavingsId(), transactionId, command);
     }

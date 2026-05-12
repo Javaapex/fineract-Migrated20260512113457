@@ -97,7 +97,8 @@ public final class ProcessorHelper {
     }
 
     @SuppressWarnings("rawtypes")
-    public Callback createCallback(final String url) {
+    public Callback createCallback(final String url, String payload) {
+        Objects.requireNonNull(payload, "payload cannot be null");
         return new Callback() {
 
             @Override

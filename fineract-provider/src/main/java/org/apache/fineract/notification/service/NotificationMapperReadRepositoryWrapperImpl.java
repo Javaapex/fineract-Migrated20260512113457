@@ -32,6 +32,7 @@ public class NotificationMapperReadRepositoryWrapperImpl implements Notification
 
     @Override
     public NotificationMapper findById(Long id) {
+        Objects.requireNonNull(id, "id cannot be null");
         return this.notificationMapperRepository.findById(id).orElse(null);
     }
 

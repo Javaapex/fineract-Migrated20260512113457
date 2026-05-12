@@ -100,6 +100,7 @@ public class NotificationDomainServiceImpl implements NotificationDomainService 
 
         @Override
         public void onBusinessEvent(ClientCreateBusinessEvent event) {
+        Objects.requireNonNull(event, "event cannot be null");
             Client client = event.get();
             buildNotification("ACTIVATE_CLIENT", "client", client.getId(), "New client created", "created",
                     context.authenticatedUser().getId(), client.getOffice().getId());

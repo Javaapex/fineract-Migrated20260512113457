@@ -49,6 +49,7 @@ public class FeignSchedulerHelper {
     }
 
     public void executeAndAwaitJob(String jobDisplayName) {
+        Objects.requireNonNull(jobDisplayName, "jobDisplayName cannot be null");
         stopScheduler();
 
         List<GetJobsResponse> allJobs = ok(() -> fineractClient.schedulerJob().retrieveAllSchedulerJobs());

@@ -53,10 +53,13 @@ public class MutableUriInfo implements UriInfo {
     }
 
     public void addAdditionalQueryParameter(String key, String value) {
+        Objects.requireNonNull(value, "value cannot be null");
+        Objects.requireNonNull(key, "key cannot be null");
         additionalQueryParameters.add(key, value);
     }
 
     public void putAdditionalQueryParameter(String key, List<String> values) {
+        Objects.requireNonNull(values, "values cannot be null");
         additionalQueryParameters.put(key, values);
     }
 
@@ -137,6 +140,7 @@ public class MutableUriInfo implements UriInfo {
 
     @Override
     public URI resolve(URI uri) {
+        Objects.requireNonNull(uri, "uri cannot be null");
         return delegate.resolve(uri);
     }
 

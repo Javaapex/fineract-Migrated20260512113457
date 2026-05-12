@@ -67,7 +67,7 @@ public interface WorkingCapitalLoanSummaryMapper {
     @Named("buildTimeline")
     default LoanApplicationTimelineData buildTimeline(final WorkingCapitalLoan loan) {
         if (loan == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         final LoanApplicationTimelineData timeline = new LoanApplicationTimelineData();
         timeline.setSubmittedOnDate(loan.getSubmittedOnDate());

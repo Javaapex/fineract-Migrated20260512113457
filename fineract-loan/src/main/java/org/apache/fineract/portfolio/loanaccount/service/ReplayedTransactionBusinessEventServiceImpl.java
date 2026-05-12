@@ -55,6 +55,7 @@ public class ReplayedTransactionBusinessEventServiceImpl implements ReplayedTran
             }
             businessEventNotifierService.stopExternalEventRecording();
         } catch (Exception e) {
+
             businessEventNotifierService.resetEventRecording();
             throw e;
         }

@@ -175,7 +175,7 @@ public class LoanWritePlatformServiceJpaRepositoryImplTest {
         appUser = mock(AppUser.class);
 
         ThreadLocalContextUtil
-                .setBusinessDates(new HashMap<>(Map.of(BusinessDateType.BUSINESS_DATE, DateUtils.parseLocalDate("2025-05-20"))));
+                .setBusinessDates(new HashMap<>(Map.of(BusinessDateType.BUSINESS_DATE, DateUtils.parseLocalDate("2025
 
         when(context.getAuthenticatedUserIfPresent()).thenReturn(appUser);
     }

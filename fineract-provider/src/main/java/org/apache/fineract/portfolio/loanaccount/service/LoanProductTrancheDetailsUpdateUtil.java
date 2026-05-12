@@ -32,6 +32,7 @@ public class LoanProductTrancheDetailsUpdateUtil {
 
     public void update(final LoanProductTrancheDetails loanProductTrancheDetails, final JsonCommand command,
             final Map<String, Object> actualChanges) {
+        Objects.requireNonNull(actualChanges, "actualChanges cannot be null");
         if (command.isChangeInBooleanParameterNamed(LoanProductConstants.MULTI_DISBURSE_LOAN_PARAMETER_NAME,
                 loanProductTrancheDetails.isMultiDisburseLoan())) {
             final boolean newValue = command.booleanPrimitiveValueOfParameterNamed(LoanProductConstants.MULTI_DISBURSE_LOAN_PARAMETER_NAME);

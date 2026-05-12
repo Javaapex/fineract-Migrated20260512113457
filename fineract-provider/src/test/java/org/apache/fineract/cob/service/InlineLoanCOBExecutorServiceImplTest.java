@@ -93,7 +93,7 @@ class InlineLoanCOBExecutorServiceImplTest {
         when(fineractProperties.getQuery()).thenReturn(fineractQueryProperties);
         when(fineractProperties.getApi()).thenReturn(fineractApiProperties);
         when(dataParser.parseExecution(any())).thenReturn(List.of(1L));
-        when(fineractQueryProperties.getInClauseParameterSizeLimit()).thenReturn(65000);
+        when(fineractQueryProperties.getInClauseParameterSizeLimit()).thenReturn(65000
         when(fineractApiProperties.getBodyItemSizeLimit()).thenReturn(fineractBodyItemSizeLimitProperties);
         when(fineractBodyItemSizeLimitProperties.getInlineLoanCob()).thenReturn(1000);
         when(retrieveIdService.retrieveLoanIdsBehindDateOrNull(any(), anyList())).thenReturn(List.of(loan));

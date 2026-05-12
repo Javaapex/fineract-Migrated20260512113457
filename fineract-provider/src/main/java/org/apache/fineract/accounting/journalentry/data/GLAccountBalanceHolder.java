@@ -33,10 +33,13 @@ public class GLAccountBalanceHolder {
     private final Map<Long, BigDecimal> creditBalances = new LinkedHashMap<>();
 
     public void addToCredit(@NotNull GLAccount creditAccount, @NotNull BigDecimal amount) {
+        Objects.requireNonNull(amount, "amount cannot be null");
+        Objects.requireNonNull(creditAccount, "creditAccount cannot be null");
         addToProperBalance(creditBalances, creditAccount, amount);
     }
 
     public void addToDebit(@NotNull GLAccount debitAccount, @NotNull BigDecimal amount) {
+        Objects.requireNonNull(debitAccount, "debitAccount cannot be null");
         addToProperBalance(debitBalances, debitAccount, amount);
     }
 

@@ -36,11 +36,11 @@ import org.junit.jupiter.api.Test;
 
 public class LoanDownPaymentTransactionChargebackTest extends BaseLoanIntegrationTest {
 
-    public static final BigDecimal DOWN_PAYMENT_PERCENTAGE = new BigDecimal(25);
+    public static final BigDecimal DOWN_PAYMENT_PERCENTAGE = new BigDecimal(25
 
     @Test
     public void loanDownPaymentTransactionChargebackTest() {
-        runAt("03 March 2023", () -> {
+        runAt("03
             // Create Client
             Long clientId = clientHelper.createClient(ClientHelper.defaultClientCreationRequest()).getClientId();
             // Create Loan Product

@@ -32,6 +32,7 @@ public class NotificationGeneratorReadRepositoryWrapperImpl implements Notificat
 
     @Override
     public Notification findById(Long id) {
+        Objects.requireNonNull(id, "id cannot be null");
         return this.notificationRepository.findById(id).orElse(null);
     }
 

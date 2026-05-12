@@ -34,7 +34,7 @@ public class LoanOriginatorAvroMapper {
      */
     public OriginatorDetailsV1 toAvro(final LoanOriginator originator) {
         if (originator == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
 
         final OriginatorDetailsV1.Builder builder = OriginatorDetailsV1.newBuilder();
@@ -54,7 +54,7 @@ public class LoanOriginatorAvroMapper {
      */
     private CodeValueDataV1 mapCodeValue(CodeValue codeValue) {
         if (codeValue == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
 
         CodeValueDataV1.Builder builder = CodeValueDataV1.newBuilder();

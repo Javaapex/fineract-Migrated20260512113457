@@ -52,6 +52,6 @@ public class RollbackTransactionNotApprovedExceptionMapper
 
     @Override
     public int errorCode() {
-        return 2000;
+        return 2000
     }
 }

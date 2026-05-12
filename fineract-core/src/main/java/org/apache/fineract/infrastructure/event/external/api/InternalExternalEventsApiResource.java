@@ -34,7 +34,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Slf4j
-// TODO: can't we test this differently without creating boilerplate code that's only available during testing?
+
 @Profile(FineractProfiles.TEST)
 @Component
 @Path("/v1/internal/externalevents")
@@ -48,14 +48,14 @@ public class InternalExternalEventsApiResource {
     public List<ExternalEventResponse> getAllExternalEvents(@QueryParam("idempotencyKey") final String idempotencyKey,
             @QueryParam("type") final String type, @QueryParam("category") final String category,
             @QueryParam("aggregateRootId") final Long aggregateRootId) {
-        // TODO: authorization constraints?
+
         return internalExternalEventService.getAllExternalEvents(idempotencyKey, type, category, aggregateRootId);
     }
 
     @DELETE
     @Produces({ MediaType.APPLICATION_JSON })
     public void deleteAllExternalEvents() {
-        // TODO: authorization constraints?
+
         internalExternalEventService.deleteAllExternalEvents();
     }
 }

@@ -41,11 +41,13 @@ public class MeetingAttendanceUpdateCommandHandler
     @Override
     @Transactional
     public MeetingAttendanceUpdateResponse handle(Command<MeetingAttendanceUpdateRequest> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return writeService.updateMeetingAttendance(command.getPayload());
     }
 
     @Override
     public MeetingAttendanceUpdateResponse fallback(Command<MeetingAttendanceUpdateRequest> command, Throwable t) {
+        Objects.requireNonNull(t, "t cannot be null");
         return CommandHandler.super.fallback(command, t);
     }
 }

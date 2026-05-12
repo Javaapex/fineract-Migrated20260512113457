@@ -56,6 +56,7 @@ public class ConfigJobParameterServiceImpl implements ConfigJobParameterService,
 
     @Override
     public JobBusinessStepConfigData getBusinessStepConfigByJobName(String jobName) {
+        Objects.requireNonNull(jobName, "jobName cannot be null");
         List<BatchBusinessStep> batchBusinessSteps = batchBusinessStepRepository.findAllByJobName(jobName);
         JobBusinessStepConfigData jobBusinessStepConfigData = new JobBusinessStepConfigData();
         jobBusinessStepConfigData.setJobName(jobName);
@@ -95,7 +96,7 @@ public class ConfigJobParameterServiceImpl implements ConfigJobParameterService,
     public JobBusinessStepDetail getAvailableBusinessStepsByJobName(String jobName) {
         Class<? extends COBBusinessStep> businessStepClass = businessStepCategoryService.getBusinessStepByCategory(jobName);
         if (businessStepClass == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         List<String> businessStepBeanNames = Arrays.stream(applicationContext.getBeanNamesForType(businessStepClass)).toList();
         JobBusinessStepDetail jobBusinessStepDetail = new JobBusinessStepDetail();

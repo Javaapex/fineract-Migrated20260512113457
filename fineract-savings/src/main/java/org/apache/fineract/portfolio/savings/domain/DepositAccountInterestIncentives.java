@@ -53,6 +53,7 @@ public class DepositAccountInterestIncentives extends AbstractPersistableCustom<
     }
 
     public void updateDepositAccountInterestRateChartSlabs(DepositAccountInterestRateChartSlabs depositAccountInterestRateChartSlabs) {
+        Objects.requireNonNull(depositAccountInterestRateChartSlabs, "depositAccountInterestRateChartSlabs cannot be null");
         this.depositAccountInterestRateChartSlabs = depositAccountInterestRateChartSlabs;
     }
 

@@ -42,7 +42,7 @@ public class DaysInYearCustomStrategyTest extends BaseLoanIntegrationTest {
                         .daysInYearType(DaysInYearType.DAYS_360).daysInYearCustomStrategy(DaysInYearCustomStrategy.FEB_29_PERIOD_ONLY));
         try {
             Response<PostLoanProductsResponse> response = loanProductCall.execute();
-            Assertions.assertEquals(403, response.code());
+            Assertions.assertEquals(403
         } catch (IOException e) {
             Assertions.fail("Unexpected exception", e);
         }
@@ -66,7 +66,7 @@ public class DaysInYearCustomStrategyTest extends BaseLoanIntegrationTest {
 
     @Test
     public void testFEB_29_PERIOD_ONLY() {
-        runAt("1 January 2024", () -> {
+        runAt("1 January 2024
             PostLoanProductsResponse loanProduct = loanProductHelper.createLoanProduct(create4IProgressive().currencyCode("USD")
                     .daysInYearType(DaysInYearType.ACTUAL).daysInYearCustomStrategy(DaysInYearCustomStrategy.FEB_29_PERIOD_ONLY));
             Long loanId = applyAndApproveProgressiveLoan(clientId, loanProduct.getResourceId(), "1 January 2024", 10000.0, 99.99, 12, null);

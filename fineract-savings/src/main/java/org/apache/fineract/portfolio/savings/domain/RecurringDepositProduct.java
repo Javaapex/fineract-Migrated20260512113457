@@ -48,7 +48,7 @@ import org.apache.fineract.portfolio.savings.SavingsPostingInterestPeriodType;
 import org.apache.fineract.portfolio.tax.domain.TaxGroup;
 
 @Entity
-@DiscriminatorValue("300")
+@DiscriminatorValue("300
 public class RecurringDepositProduct extends FixedDepositProduct {
 
     @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)

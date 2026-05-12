@@ -21,7 +21,7 @@ package org.apache.fineract.infrastructure.jobs.api;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
- * Created by sanyam on 12/8/17.
+ * Created by sanyam on 12
  */
 final class SchedulerApiResourceSwagger {
 

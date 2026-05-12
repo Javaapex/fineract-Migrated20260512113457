@@ -31,12 +31,13 @@ public class MessageConsumer {
 
     @JmsListener(id = "eventStoreListener", destination = "${fineract-test.messaging.jms.topic-name}")
     public void receiveMessage(ActiveMQBytesMessage message) {
+        Objects.requireNonNull(message, "message cannot be null");
         try {
             byte[] buffer = new byte[(int) message.getBodyLength()];
             message.readBytes(buffer);
             eventStore.receive(buffer);
         } catch (Exception e) {
-            throw new RuntimeException("Error while consuming message", e);
+            throw new RuntimeException
         }
     }
 }

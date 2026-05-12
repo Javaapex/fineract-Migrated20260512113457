@@ -98,7 +98,7 @@ public class AddressWritePlatformServiceImpl implements AddressWritePlatformServ
         }
 
         // This is confusing because only the last client address id is returned
-        // TODO: clean this up
+
         return new CommandProcessingResultBuilder() //
                 .withCommandId(command.commandId()) //
                 .withEntityId(clientAddress.getId()) //

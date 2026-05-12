@@ -86,7 +86,7 @@ public class WorkingCapitalLoanTransactionReadPlatformServiceImpl implements Wor
                             .retrieveCodeValuesByCode(WorkingCapitalLoanConstants.CREDIT_BALANCE_REFUND_CLASSIFICATION_CODE_NAME))
                     .build();
         }
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     @Override

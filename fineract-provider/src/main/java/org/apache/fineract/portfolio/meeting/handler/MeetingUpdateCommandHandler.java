@@ -40,11 +40,13 @@ public class MeetingUpdateCommandHandler implements CommandHandler<MeetingUpdate
     @Override
     @Transactional
     public MeetingUpdateResponse handle(Command<MeetingUpdateRequest> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return writePlatformService.updateMeeting(command.getPayload());
     }
 
     @Override
     public MeetingUpdateResponse fallback(Command<MeetingUpdateRequest> command, Throwable t) {
+        Objects.requireNonNull(t, "t cannot be null");
         return CommandHandler.super.fallback(command, t);
     }
 }

@@ -48,12 +48,12 @@ public class InitializingHook {
         FineractInitializerFactory.get().setupDefaultsForSuite();
     }
 
-    @Before
+    @BeforeEach
     public static void before() throws Exception {
         FineractInitializerFactory.get().setupDefaultsForScenario();
     }
 
-    @After
+    @AfterEach
     public static void after() throws Exception {
         FineractInitializerFactory.get().resetDefaultsAfterScenario();
     }

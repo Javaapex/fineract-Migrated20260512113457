@@ -41,6 +41,7 @@ public class ReactivateEmailCampaignCommandHandler implements NewCommandSourceHa
     @Transactional
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return this.emailCampaignWritePlatformService.reactivateEmailCampaign(command.entityId(), command);
     }
 }

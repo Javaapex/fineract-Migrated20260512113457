@@ -41,6 +41,7 @@ public class FineractJwtAuthenticationTokenConverter implements Converter<Jwt, F
     @Override
     @NonNull
     public FineractJwtAuthenticationToken convert(@NonNull Jwt jwt) {
+        Objects.requireNonNull(jwt, "jwt cannot be null");
         try {
             UserDetails user = userDetailsService.loadUserByUsername(jwt.getSubject());
             Collection<GrantedAuthority> authorities = new JwtGrantedAuthoritiesConverter().convert(jwt);

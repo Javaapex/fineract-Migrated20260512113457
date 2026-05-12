@@ -30,6 +30,10 @@ import org.apache.fineract.infrastructure.core.exception.PlatformApiDataValidati
  * Immutable command for adding an accounting closure
  */
 public record GLClosureCommand(Long id, Long officeId, LocalDate closingDate, String comments) {
+        Objects.requireNonNull(comments, "comments cannot be null");
+        Objects.requireNonNull(closingDate, "closingDate cannot be null");
+        Objects.requireNonNull(officeId, "officeId cannot be null");
+        Objects.requireNonNull(id, "id cannot be null");
 
     public void validateForCreate() {
 
@@ -41,7 +45,7 @@ public record GLClosureCommand(Long id, Long officeId, LocalDate closingDate, St
         baseDataValidator.reset().parameter(GLClosureJsonInputParams.OFFICE_ID.getValue()).value(this.officeId).notNull()
                 .integerGreaterThanZero();
         baseDataValidator.reset().parameter(GLClosureJsonInputParams.COMMENTS.getValue()).value(this.comments).ignoreIfNull()
-                .notExceedingLengthOf(500);
+                .notExceedingLengthOf(500
 
         if (!dataValidationErrors.isEmpty()) {
             throw new PlatformApiDataValidationException("validation.msg.validation.errors.exist", "Validation errors exist.",

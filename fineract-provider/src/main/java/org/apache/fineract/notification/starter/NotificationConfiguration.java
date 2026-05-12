@@ -49,6 +49,9 @@ public class NotificationConfiguration {
     @ConditionalOnMissingBean(NotificationDomainService.class)
     public NotificationDomainService notificationDomainService(BusinessEventNotifierService businessEventNotifierService,
             PlatformSecurityContext context, UserNotificationService userNotificationService) {
+        Objects.requireNonNull(userNotificationService, "userNotificationService cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
+        Objects.requireNonNull(businessEventNotifierService, "businessEventNotifierService cannot be null");
         return new NotificationDomainServiceImpl(businessEventNotifierService, context, userNotificationService);
     }
 
@@ -56,6 +59,10 @@ public class NotificationConfiguration {
     @ConditionalOnMissingBean(NotificationReadPlatformService.class)
     public NotificationReadPlatformService notificationReadPlatformService(JdbcTemplate jdbcTemplate, PlatformSecurityContext context,
             ColumnValidator columnValidator, PaginationHelper paginationHelper, DatabaseSpecificSQLGenerator sqlGenerator) {
+        Objects.requireNonNull(sqlGenerator, "sqlGenerator cannot be null");
+        Objects.requireNonNull(paginationHelper, "paginationHelper cannot be null");
+        Objects.requireNonNull(columnValidator, "columnValidator cannot be null");
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
         return new NotificationReadPlatformServiceImpl(jdbcTemplate, context, columnValidator, paginationHelper, sqlGenerator);
     }
 
@@ -65,6 +72,10 @@ public class NotificationConfiguration {
             NotificationGeneratorWritePlatformService notificationGeneratorWritePlatformService,
             NotificationGeneratorReadRepositoryWrapper notificationGeneratorReadRepositoryWrapper, AppUserRepository appUserRepository,
             NotificationMapperWritePlatformService notificationMapperWritePlatformService) {
+        Objects.requireNonNull(notificationMapperWritePlatformService, "notificationMapperWritePlatformService cannot be null");
+        Objects.requireNonNull(appUserRepository, "appUserRepository cannot be null");
+        Objects.requireNonNull(notificationGeneratorReadRepositoryWrapper, "notificationGeneratorReadRepositoryWrapper cannot be null");
+        Objects.requireNonNull(notificationGeneratorWritePlatformService, "notificationGeneratorWritePlatformService cannot be null");
         return new NotificationWritePlatformServiceImpl(notificationGeneratorWritePlatformService,
                 notificationGeneratorReadRepositoryWrapper, appUserRepository, notificationMapperWritePlatformService);
     }
@@ -75,6 +86,10 @@ public class NotificationConfiguration {
             AppUserRepository appUserRepository, FineractProperties fineractProperties,
             NotificationReadPlatformService notificationReadPlatformService,
             NotificationWritePlatformService notificationWritePlatformService) {
+        Objects.requireNonNull(notificationWritePlatformService, "notificationWritePlatformService cannot be null");
+        Objects.requireNonNull(notificationReadPlatformService, "notificationReadPlatformService cannot be null");
+        Objects.requireNonNull(fineractProperties, "fineractProperties cannot be null");
+        Objects.requireNonNull(notificationEventPublisher, "notificationEventPublisher cannot be null");
         return new UserNotificationServiceImpl(notificationEventPublisher, appUserRepository, fineractProperties,
                 notificationReadPlatformService, notificationWritePlatformService);
     }

@@ -65,6 +65,12 @@ public class UserAdministrationConfiguration {
     public AppUserReadPlatformService appUserReadPlatformService(PlatformSecurityContext context, JdbcTemplate jdbcTemplate,
             OfficeReadPlatformService officeReadPlatformService, RoleReadPlatformService roleReadPlatformService,
             AppUserRepository appUserRepository, StaffReadService staffReadPlatformService) {
+        Objects.requireNonNull(staffReadPlatformService, "staffReadPlatformService cannot be null");
+        Objects.requireNonNull(appUserRepository, "appUserRepository cannot be null");
+        Objects.requireNonNull(roleReadPlatformService, "roleReadPlatformService cannot be null");
+        Objects.requireNonNull(officeReadPlatformService, "officeReadPlatformService cannot be null");
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
         return new AppUserReadPlatformServiceImpl(context, jdbcTemplate, officeReadPlatformService, roleReadPlatformService,
                 appUserRepository, staffReadPlatformService);
     }
@@ -76,6 +82,14 @@ public class UserAdministrationConfiguration {
             OfficeRepositoryWrapper officeRepositoryWrapper, RoleRepository roleRepository, UserDataValidator fromApiJsonDeserializer,
             AppUserPreviousPasswordRepository appUserPreviewPasswordRepository, StaffRepository staffRepository,
             ConfigurationDomainService configurationDomainService) {
+        Objects.requireNonNull(configurationDomainService, "configurationDomainService cannot be null");
+        Objects.requireNonNull(staffRepository, "staffRepository cannot be null");
+        Objects.requireNonNull(appUserPreviewPasswordRepository, "appUserPreviewPasswordRepository cannot be null");
+        Objects.requireNonNull(fromApiJsonDeserializer, "fromApiJsonDeserializer cannot be null");
+        Objects.requireNonNull(roleRepository, "roleRepository cannot be null");
+        Objects.requireNonNull(officeRepositoryWrapper, "officeRepositoryWrapper cannot be null");
+        Objects.requireNonNull(platformPasswordEncoder, "platformPasswordEncoder cannot be null");
+        Objects.requireNonNull(userDomainService, "userDomainService cannot be null");
         return new AppUserWritePlatformServiceJpaRepositoryImpl(context, userDomainService, platformPasswordEncoder, appUserRepository,
                 officeRepositoryWrapper, roleRepository, fromApiJsonDeserializer, appUserPreviewPasswordRepository, staffRepository,
                 configurationDomainService);
@@ -85,6 +99,8 @@ public class UserAdministrationConfiguration {
     @ConditionalOnMissingBean(PasswordPreferencesWritePlatformService.class)
     public PasswordPreferencesWritePlatformService passwordPreferencesWritePlatformService(
             PasswordValidationPolicyRepository validationPolicyRepository, PasswordPreferencesDataValidator dataValidator) {
+        Objects.requireNonNull(dataValidator, "dataValidator cannot be null");
+        Objects.requireNonNull(validationPolicyRepository, "validationPolicyRepository cannot be null");
         return new PasswordPreferencesWritePlatformServiceJpaRepositoryImpl(validationPolicyRepository, dataValidator);
     }
 
@@ -92,6 +108,7 @@ public class UserAdministrationConfiguration {
     @ConditionalOnMissingBean(PasswordValidationPolicyReadPlatformService.class)
     public PasswordValidationPolicyReadPlatformService passwordValidationPolicyReadPlatformService(JdbcTemplate jdbcTemplate,
             DatabaseSpecificSQLGenerator sqlGenerator) {
+        Objects.requireNonNull(sqlGenerator, "sqlGenerator cannot be null");
         return new PasswordValidationPolicyReadPlatformServiceImpl(jdbcTemplate, sqlGenerator);
     }
 
@@ -106,6 +123,7 @@ public class UserAdministrationConfiguration {
     @ConditionalOnMissingBean(PermissionWritePlatformService.class)
     public PermissionWritePlatformService permissionWritePlatformService(PlatformSecurityContext context,
             PermissionRepository permissionRepository, PermissionsCommandFromApiJsonDeserializer fromApiJsonDeserializer) {
+        Objects.requireNonNull(permissionRepository, "permissionRepository cannot be null");
         return new PermissionWritePlatformServiceJpaRepositoryImpl(context, permissionRepository, fromApiJsonDeserializer);
     }
 
@@ -120,6 +138,8 @@ public class UserAdministrationConfiguration {
     public RoleWritePlatformService roleWritePlatformService(PlatformSecurityContext context, RoleRepository roleRepository,
             PermissionRepository permissionRepository, RoleDataValidator roleCommandFromApiJsonDeserializer,
             PermissionsCommandFromApiJsonDeserializer permissionsFromApiJsonDeserializer) {
+        Objects.requireNonNull(permissionsFromApiJsonDeserializer, "permissionsFromApiJsonDeserializer cannot be null");
+        Objects.requireNonNull(roleCommandFromApiJsonDeserializer, "roleCommandFromApiJsonDeserializer cannot be null");
         return new RoleWritePlatformServiceJpaRepositoryImpl(context, roleRepository, permissionRepository,
                 roleCommandFromApiJsonDeserializer, permissionsFromApiJsonDeserializer);
     }

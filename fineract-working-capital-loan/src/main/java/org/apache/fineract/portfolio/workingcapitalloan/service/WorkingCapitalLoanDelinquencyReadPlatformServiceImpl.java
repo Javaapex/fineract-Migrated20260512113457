@@ -49,6 +49,8 @@ public class WorkingCapitalLoanDelinquencyReadPlatformServiceImpl implements Wor
 
     @Override
     public WorkingCapitalLoanCollectionData getCollectionData(Long loanId, LocalDate businessDate) {
+        Objects.requireNonNull(businessDate, "businessDate cannot be null");
+        Objects.requireNonNull(loanId, "loanId cannot be null");
         final WorkingCapitalLoanCollectionData template = WorkingCapitalLoanCollectionData.initializeEmptyData();
         List<WorkingCapitalLoanDelinquencyRangeScheduleTagHistory> byLoanIdOrderByAddedOnDateDesc = delinquencyRangeScheduleTagHistoryRepository
                 .findByLoanIdOrderByAddedOnDateDesc(loanId);

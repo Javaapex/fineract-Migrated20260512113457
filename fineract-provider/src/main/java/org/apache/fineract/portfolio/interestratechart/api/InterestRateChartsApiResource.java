@@ -70,7 +70,7 @@ public class InterestRateChartsApiResource {
             This is a convenience resource. It can be useful when building maintenance user interface screens for creating a chart. The template data returned consists of any or all of: Field Defaults Allowed Value Lists
             Example Request: interestratecharts/template
             """)
-    @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = InterestRateChartsApiResourceSwagger.GetInterestRateChartsTemplateResponse.class)))
+    @ApiResponse(responseCode = "200
     public InterestRateChartData template() {
         return chartReadPlatformService.template();
     }

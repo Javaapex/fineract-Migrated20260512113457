@@ -26,6 +26,7 @@ import org.springframework.stereotype.Component;
 public class DatatableNameGenerator {
 
     public String generate(DatatableEntityType entityType) {
+        Objects.requireNonNull(entityType, "entityType cannot be null");
         return Utils.randomStringGenerator("dt_%s_".formatted(entityType.getReferencedTableName()), 5).toLowerCase(Locale.ROOT);
     }
 }

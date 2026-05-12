@@ -39,6 +39,7 @@ public class LoanReAmortizationCommandHandler implements NewCommandSourceHandler
 
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         try {
             return loanReAmortizationService.reAmortize(command.getLoanId(), command);
         } catch (final JpaSystemException | DataIntegrityViolationException dve) {

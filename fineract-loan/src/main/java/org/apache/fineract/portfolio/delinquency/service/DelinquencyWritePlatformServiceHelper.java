@@ -145,6 +145,7 @@ public class DelinquencyWritePlatformServiceHelper {
 
     public void applyDelinquencyForLoanInstallments(final Loan loan, final DelinquencyBucket delinquencyBucket,
             final Map<Long, CollectionData> installmentsCollectionData) {
+        Objects.requireNonNull(installmentsCollectionData, "installmentsCollectionData cannot be null");
         boolean isDelinquencyRangeChangedForAnyOfInstallment = false;
         for (LoanRepaymentScheduleInstallment installment : loan.getRepaymentScheduleInstallments()) {
             if (installmentsCollectionData.containsKey(installment.getId())) {

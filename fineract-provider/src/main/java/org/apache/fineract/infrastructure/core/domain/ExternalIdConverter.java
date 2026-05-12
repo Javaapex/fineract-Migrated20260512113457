@@ -28,6 +28,7 @@ public class ExternalIdConverter implements AttributeConverter<ExternalId, Strin
 
     @Override
     public String convertToDatabaseColumn(ExternalId externalId) {
+        Objects.requireNonNull(externalId, "externalId cannot be null");
         return externalId != null ? externalId.getValue() : null;
     }
 

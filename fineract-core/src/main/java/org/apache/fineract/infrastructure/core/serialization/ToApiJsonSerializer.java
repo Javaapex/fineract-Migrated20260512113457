@@ -34,7 +34,7 @@ public interface ToApiJsonSerializer<T> {
 
     String serialize(ApiRequestJsonSerializationSettings settings, Page<T> singleObject);
 
-    // TODO: TECHDEBT - bottom three will be deprecated going forward to remove
+
     // need for people to pass full list of supported parameters. It was only
     // used in cases where the partial response features was used (fields=x,y,x)
     // to report error if incorrect field was passed. From now on it will just

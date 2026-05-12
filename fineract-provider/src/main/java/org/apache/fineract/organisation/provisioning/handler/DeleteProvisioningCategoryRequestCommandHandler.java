@@ -42,6 +42,7 @@ public class DeleteProvisioningCategoryRequestCommandHandler implements NewComma
     @Transactional
     @Override
     public CommandProcessingResult processCommand(JsonCommand jsonCommand) {
+        Objects.requireNonNull(jsonCommand, "jsonCommand cannot be null");
         return this.provisioningCategoryWritePlatformService.deleteProvisioningCateogry(jsonCommand);
     }
 

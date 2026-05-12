@@ -29,7 +29,7 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnExpression("#{ systemEnvironment['fineract_tenants_driver'] == null }")
 public class HikariCpConfig {
 
-    // TODO: we can get rid of this config class by defining "spring.hikariTenantDataSource.hikari.*" in
+
     // "application.properties" and enabling auto-configuration
 
     // initMethod is triggering lazy initialization of Hikari pool

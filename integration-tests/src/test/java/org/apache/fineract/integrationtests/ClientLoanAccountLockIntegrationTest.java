@@ -40,7 +40,7 @@ public class ClientLoanAccountLockIntegrationTest extends BaseLoanIntegrationTes
                 .getResourceId();
 
         final PostLoansResponse loanResponse = loanTransactionHelper
-                .applyLoan(applyLoanRequest(clientId, loanProductId, "20 September 2011", 12000.0, 4));
+                .applyLoan(applyLoanRequest(clientId, loanProductId, "20
         final Long loanId = loanResponse.getLoanId();
 
         loanTransactionHelper.approveLoan(loanId, new PostLoansLoanIdRequest() //

@@ -52,6 +52,14 @@ public class OrganisationTellerConfiguration {
             PlatformSecurityContext context, OfficeReadPlatformService officeReadPlatformService, StaffReadService staffReadPlatformService,
             CurrencyReadPlatformService currencyReadPlatformService, DatabaseSpecificSQLGenerator sqlGenerator,
             PaginationHelper paginationHelper, SqlValidator sqlValidator) {
+        Objects.requireNonNull(sqlValidator, "sqlValidator cannot be null");
+        Objects.requireNonNull(paginationHelper, "paginationHelper cannot be null");
+        Objects.requireNonNull(sqlGenerator, "sqlGenerator cannot be null");
+        Objects.requireNonNull(currencyReadPlatformService, "currencyReadPlatformService cannot be null");
+        Objects.requireNonNull(staffReadPlatformService, "staffReadPlatformService cannot be null");
+        Objects.requireNonNull(officeReadPlatformService, "officeReadPlatformService cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
         return new TellerManagementReadPlatformServiceImpl(jdbcTemplate, context, officeReadPlatformService, staffReadPlatformService,
                 currencyReadPlatformService, sqlGenerator, paginationHelper, sqlValidator);
     }
@@ -64,6 +72,15 @@ public class OrganisationTellerConfiguration {
             CashierTransactionRepository cashierTxnRepository, JournalEntryRepository glJournalEntryRepository,
             FinancialActivityAccountRepositoryWrapper financialActivityAccountRepositoryWrapper,
             CashierTransactionDataValidator cashierTransactionDataValidator) {
+        Objects.requireNonNull(cashierTransactionDataValidator, "cashierTransactionDataValidator cannot be null");
+        Objects.requireNonNull(financialActivityAccountRepositoryWrapper, "financialActivityAccountRepositoryWrapper cannot be null");
+        Objects.requireNonNull(glJournalEntryRepository, "glJournalEntryRepository cannot be null");
+        Objects.requireNonNull(cashierTxnRepository, "cashierTxnRepository cannot be null");
+        Objects.requireNonNull(cashierRepository, "cashierRepository cannot be null");
+        Objects.requireNonNull(staffRepository, "staffRepository cannot be null");
+        Objects.requireNonNull(officeRepositoryWrapper, "officeRepositoryWrapper cannot be null");
+        Objects.requireNonNull(tellerRepositoryWrapper, "tellerRepositoryWrapper cannot be null");
+        Objects.requireNonNull(fromApiJsonDeserializer, "fromApiJsonDeserializer cannot be null");
         return new TellerWritePlatformServiceJpaImpl(context, fromApiJsonDeserializer, tellerRepositoryWrapper, officeRepositoryWrapper,
                 staffRepository, cashierRepository, cashierTxnRepository, glJournalEntryRepository,
                 financialActivityAccountRepositoryWrapper, cashierTransactionDataValidator);

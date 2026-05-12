@@ -40,11 +40,13 @@ public class MeetingDeleteCommandHandler implements CommandHandler<MeetingDelete
     @Override
     @Transactional
     public MeetingDeleteResponse handle(Command<MeetingDeleteRequest> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return writePlatformService.deleteMeeting(command.getPayload());
     }
 
     @Override
     public MeetingDeleteResponse fallback(Command<MeetingDeleteRequest> command, Throwable t) {
+        Objects.requireNonNull(t, "t cannot be null");
         return CommandHandler.super.fallback(command, t);
     }
 }

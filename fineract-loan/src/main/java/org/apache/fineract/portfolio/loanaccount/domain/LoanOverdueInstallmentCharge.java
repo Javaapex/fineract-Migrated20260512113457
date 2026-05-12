@@ -54,6 +54,7 @@ public class LoanOverdueInstallmentCharge extends AbstractPersistableCustom<Long
     }
 
     public void updateLoanRepaymentScheduleInstallment(LoanRepaymentScheduleInstallment loanRepaymentScheduleInstallment) {
+        Objects.requireNonNull(loanRepaymentScheduleInstallment, "loanRepaymentScheduleInstallment cannot be null");
         this.installment = loanRepaymentScheduleInstallment;
     }
 }

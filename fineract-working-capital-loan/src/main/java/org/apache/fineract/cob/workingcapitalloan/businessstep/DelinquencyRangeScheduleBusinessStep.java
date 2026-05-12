@@ -37,6 +37,7 @@ public class DelinquencyRangeScheduleBusinessStep extends WorkingCapitalLoanCOBB
 
     @Override
     public WorkingCapitalLoan execute(WorkingCapitalLoan input) {
+        Objects.requireNonNull(input, "input cannot be null");
         boolean isDisbursed = input.getDisbursementDetails().stream().map(WorkingCapitalLoanDisbursementDetails::getActualDisbursementDate)
                 .anyMatch(Objects::nonNull);
         if (!isDisbursed) {

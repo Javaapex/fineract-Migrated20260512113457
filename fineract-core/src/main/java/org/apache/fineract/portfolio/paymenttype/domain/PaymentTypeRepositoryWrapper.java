@@ -24,7 +24,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-// TODO: get rid of this, unnecessarily hides real repository; don't use this outside of payment domain!
+
 @Deprecated(forRemoval = true)
 public class PaymentTypeRepositoryWrapper {
 

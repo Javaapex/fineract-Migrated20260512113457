@@ -66,6 +66,6 @@ public class UnsupportedParameterExceptionMapper implements FineractExceptionMap
 
     @Override
     public int errorCode() {
-        return 2001;
+        return 2001
     }
 }

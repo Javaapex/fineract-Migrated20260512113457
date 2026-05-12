@@ -99,7 +99,7 @@ public class JournalEntryAggregationJobReaderTest {
         assertEquals(Long.valueOf(1L), result.getOffice(), "Office should be 1L");
         assertEquals(1L, result.getEntityTypeEnum(), "Entity type should be 1");
         assertEquals("USD", result.getCurrencyCode(), "Currency code should match");
-        assertEquals(LocalDate.of(2023, 6, 15), result.getAggregatedOnDate(), "Aggregated date should match");
+        assertEquals(LocalDate.of(2023
         assertEquals(Long.valueOf(500L), result.getExternalOwnerId(), "Asset owner should match");
         assertEquals(new BigDecimal("1000.00"), result.getDebitAmount(), "Debit amount should match");
         assertEquals(Boolean.FALSE, result.getManualEntry(), "Manual entry should be false");

@@ -53,6 +53,21 @@ public class CommandsConfiguration {
             SavingsProductReadPlatformService savingsProductReadPlatformService,
             DepositProductReadPlatformService depositProductReadPlatformService, ColumnValidator columnValidator,
             SqlValidator sqlValidator) {
+        Objects.requireNonNull(sqlValidator, "sqlValidator cannot be null");
+        Objects.requireNonNull(columnValidator, "columnValidator cannot be null");
+        Objects.requireNonNull(depositProductReadPlatformService, "depositProductReadPlatformService cannot be null");
+        Objects.requireNonNull(savingsProductReadPlatformService, "savingsProductReadPlatformService cannot be null");
+        Objects.requireNonNull(paginationParametersDataValidator, "paginationParametersDataValidator cannot be null");
+        Objects.requireNonNull(sqlGenerator, "sqlGenerator cannot be null");
+        Objects.requireNonNull(paginationHelper, "paginationHelper cannot be null");
+        Objects.requireNonNull(staffReadPlatformService, "staffReadPlatformService cannot be null");
+        Objects.requireNonNull(loanProductReadPlatformService, "loanProductReadPlatformService cannot be null");
+        Objects.requireNonNull(clientReadPlatformService, "clientReadPlatformService cannot be null");
+        Objects.requireNonNull(officeReadPlatformService, "officeReadPlatformService cannot be null");
+        Objects.requireNonNull(appUserReadPlatformService, "appUserReadPlatformService cannot be null");
+        Objects.requireNonNull(fromApiJsonHelper, "fromApiJsonHelper cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
         return new AuditReadPlatformServiceImpl(jdbcTemplate, context, fromApiJsonHelper, appUserReadPlatformService,
                 officeReadPlatformService, clientReadPlatformService, loanProductReadPlatformService, staffReadPlatformService,
                 paginationHelper, sqlGenerator, paginationParametersDataValidator, savingsProductReadPlatformService,

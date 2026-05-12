@@ -25,3 +25,11 @@ base {
 }
 
 apply from: 'dependencies.gradle'
+
+dependencies {
+    testImplementation "org.junit.jupiter:junit-jupiter:5.10.2"
+}
+
+tasks.withType(org.gradle.api.tasks.testing.Test).configureEach {
+    useJUnitPlatform()
+}

@@ -49,7 +49,7 @@ import org.springframework.batch.item.ExecutionContext;
 class LoanCOBPartitionerTest {
 
     private static final Set<BusinessStepNameAndOrder> BUSINESS_STEP_SET = Set.of(new BusinessStepNameAndOrder("Business step", 1L));
-    private static final LocalDate BUSINESS_DATE = LocalDate.parse("2023-06-28");
+    private static final LocalDate BUSINESS_DATE = LocalDate.parse("2023
     @Mock
     private PropertyService propertyService;
     @Mock

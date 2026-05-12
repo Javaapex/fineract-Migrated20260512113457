@@ -34,7 +34,7 @@ class LinkedAccountRequiredExceptionMapperTest {
         LinkedAccountRequiredExceptionMapper exceptionMapper = new LinkedAccountRequiredExceptionMapper();
         LinkedAccountRequiredException exception = new LinkedAccountRequiredException("entity", "message", "args");
         Response response = exceptionMapper.toResponse(exception);
-        Assertions.assertEquals(3002, exceptionMapper.errorCode());
+        Assertions.assertEquals(3002
 
         Assertions.assertInstanceOf(ApiGlobalErrorResponse.class, response.getEntity());
         Assertions.assertEquals(1, ((ApiGlobalErrorResponse) response.getEntity()).getErrors().size());

@@ -23,6 +23,10 @@ import java.util.Objects;
 import org.apache.fineract.organisation.monetary.domain.Money;
 
 public record EqualAmortizationValues(Money totalOutstanding, Integer numberOfInstallments, Money value, Money adjustment) {
+        Objects.requireNonNull(adjustment, "adjustment cannot be null");
+        Objects.requireNonNull(value, "value cannot be null");
+        Objects.requireNonNull(numberOfInstallments, "numberOfInstallments cannot be null");
+        Objects.requireNonNull(totalOutstanding, "totalOutstanding cannot be null");
 
     public Money getAdjustedValue() {
         return value.add(adjustment);
@@ -36,6 +40,7 @@ public record EqualAmortizationValues(Money totalOutstanding, Integer numberOfIn
      * @return calculated value for the given index
      */
     public Money calculateValue(Integer index) {
+        Objects.requireNonNull(index, "index cannot be null");
         if (getAdjustedValue().isLessThanZero()) {
             return totalOutstanding.minus(value.multipliedBy(index + 1)).isLessThanZero() ? value.zero() : value;
         }
@@ -47,8 +52,9 @@ public record EqualAmortizationValues(Money totalOutstanding, Integer numberOfIn
     }
 
     public EqualAmortizationValues add(EqualAmortizationValues other) {
+        Objects.requireNonNull(other, "other cannot be null");
         if (!Objects.equals(numberOfInstallments, other.numberOfInstallments)) {
-            throw new RuntimeException("Incompatible EqualAmortizationValues. numberOfInstallments parameter should match.");
+            throw new RuntimeException
         }
         return new EqualAmortizationValues(totalOutstanding.add(other.totalOutstanding), numberOfInstallments, value.add(other.value),
                 adjustment.add(other.adjustment));

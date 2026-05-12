@@ -26,11 +26,13 @@ public class LoanTransactionTypeConverter implements AttributeConverter<LoanTran
 
     @Override
     public Integer convertToDatabaseColumn(LoanTransactionType attribute) {
+        Objects.requireNonNull(attribute, "attribute cannot be null");
         return attribute == null ? null : attribute.getValue();
     }
 
     @Override
     public LoanTransactionType convertToEntityAttribute(Integer dbData) {
+        Objects.requireNonNull(dbData, "dbData cannot be null");
         return dbData == null ? null : LoanTransactionType.fromInt(dbData);
     }
 }

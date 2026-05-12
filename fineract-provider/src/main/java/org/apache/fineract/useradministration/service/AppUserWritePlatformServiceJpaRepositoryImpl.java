@@ -304,7 +304,7 @@ public class AppUserWritePlatformServiceJpaRepositoryImpl implements AppUserWrit
      * Return an exception to throw, no matter what the data integrity issue is.
      */
     private RuntimeException handleDataIntegrityIssues(final JsonCommand command, final Throwable realCause, final Exception dve) {
-        // TODO: this needs to be fixed. The error condition should be independent from the underlying message and
+
         // naming of the constraint
         if (realCause.getMessage().contains("username_org")) {
             final String username = command.stringValueOfParameterNamed("username");

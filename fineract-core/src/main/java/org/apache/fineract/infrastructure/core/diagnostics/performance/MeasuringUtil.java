@@ -31,7 +31,7 @@ public final class MeasuringUtil {
     public static void measure(Runnable r, Consumer<Duration> c) {
         measure(() -> {
             r.run();
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }, c);
     }
 

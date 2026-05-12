@@ -30,7 +30,7 @@ final class CollateralManagementApiResourceSwagger {
 
         private PostCollateralManagementProductResponse() {}
 
-        @Schema(example = "14")
+        @Schema(example = "14
         public Long resourceId;
     }
 
@@ -39,7 +39,7 @@ final class CollateralManagementApiResourceSwagger {
 
         private PutCollateralProductResponse() {}
 
-        @Schema(example = "12")
+        @Schema(example = "12
         public Long resourceId;
         public CollateralProductRequest changes;
     }

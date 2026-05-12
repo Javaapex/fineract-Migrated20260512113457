@@ -122,7 +122,7 @@ final class LegacyMeetingAttendanceListener {
     public void updateAttendance(Meeting meeting, final Collection<MeetingAttendance> clientsAttendance) {
         var result = new ArrayList<MeetingAttendance>();
 
-        // TODO: never use "goto" statemements... ever; leaving it here, because the whole class will eventually
+
         // disappear
         updateAttendanceLoop: for (final MeetingAttendance clientAttendance : clientsAttendance) {
             if (meeting.getClientsAttendance() == null) {
@@ -156,7 +156,7 @@ final class LegacyMeetingAttendanceListener {
     }
 
     private Collection<MeetingAttendance> getClientsAttendance(final Meeting meeting, final JsonCommand command) {
-        // TODO: maybe slightly more modern approach could be to introduce Jackson's ObjectMapper to avoid all these
+
         // magic strings; not sure if it's worth it though
 
         final Collection<MeetingAttendance> clientsAttendance = new ArrayList<>();

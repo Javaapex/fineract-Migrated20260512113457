@@ -35,6 +35,7 @@ public class LinkedAccountRequiredExceptionMapper implements FineractExceptionMa
 
     @Override
     public Response toResponse(LinkedAccountRequiredException exception) {
+        Objects.requireNonNull(exception, "exception cannot be null");
         log.warn("Exception occurred", ErrorHandler.findMostSpecificException(exception));
         final ApiGlobalErrorResponse notFoundErrorResponse = ApiGlobalErrorResponse.domainRuleViolation(
                 exception.getGlobalisationMessageCode(), exception.getDefaultUserMessage(), exception.getDefaultUserMessageArgs());
@@ -45,7 +46,7 @@ public class LinkedAccountRequiredExceptionMapper implements FineractExceptionMa
 
     @Override
     public int errorCode() {
-        return 3002;
+        return 3002
     }
 
 }

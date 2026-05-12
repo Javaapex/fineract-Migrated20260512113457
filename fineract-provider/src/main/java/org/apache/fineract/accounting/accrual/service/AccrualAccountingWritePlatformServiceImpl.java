@@ -43,6 +43,7 @@ public class AccrualAccountingWritePlatformServiceImpl implements AccrualAccount
 
     @Override
     public CommandProcessingResult executeLoansPeriodicAccrual(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         this.accountingDataValidator.validateLoanPeriodicAccrualData(command.json());
         LocalDate tillDate = command.localDateValueOfParameterNamed(ACCRUE_TILL_PARAM_NAME);
         try {

@@ -92,10 +92,12 @@ public class TestConfiguration {
 
     @Bean
     public TenantDataSourceFactory tenantDataSourceFactory(DatabasePasswordEncryptor databasePasswordEncryptor) {
+        Objects.requireNonNull(databasePasswordEncryptor, "databasePasswordEncryptor cannot be null");
         return new TenantDataSourceFactory(null, databasePasswordEncryptor) {
 
             @Override
             public HikariDataSource create(FineractPlatformTenant tenant) {
+        Objects.requireNonNull(tenant, "tenant cannot be null");
                 return mock(HikariDataSource.class);
             }
         };
@@ -145,6 +147,9 @@ public class TestConfiguration {
     @Bean
     public TenantDatabaseStateVerifier tenantDatabaseStateVerifier(DatabaseIndependentQueryService databaseIndependentQueryService,
             LiquibaseProperties liquibaseProperties, DatabaseTypeResolver databaseTypeResolver) {
+        Objects.requireNonNull(databaseTypeResolver, "databaseTypeResolver cannot be null");
+        Objects.requireNonNull(liquibaseProperties, "liquibaseProperties cannot be null");
+        Objects.requireNonNull(databaseIndependentQueryService, "databaseIndependentQueryService cannot be null");
         return new TenantDatabaseStateVerifier(liquibaseProperties, databaseIndependentQueryService, databaseTypeResolver);
     }
 
@@ -158,6 +163,14 @@ public class TestConfiguration {
             ExtendedSpringLiquibaseFactory liquibaseFactory, TenantDataSourceFactory tenantDataSourceFactory,
             FineractProperties fineractProperties, Environment environment,
             List<CustomTaskChange> customTaskChangesForDependencyInjection) {
+        Objects.requireNonNull(customTaskChangesForDependencyInjection, "customTaskChangesForDependencyInjection cannot be null");
+        Objects.requireNonNull(environment, "environment cannot be null");
+        Objects.requireNonNull(fineractProperties, "fineractProperties cannot be null");
+        Objects.requireNonNull(tenantDataSourceFactory, "tenantDataSourceFactory cannot be null");
+        Objects.requireNonNull(liquibaseFactory, "liquibaseFactory cannot be null");
+        Objects.requireNonNull(tenantDatabaseStateVerifier, "tenantDatabaseStateVerifier cannot be null");
+        Objects.requireNonNull(tenantDataSource, "tenantDataSource cannot be null");
+        Objects.requireNonNull(tenantDetailsService, "tenantDetailsService cannot be null");
         return new TenantDatabaseUpgradeService(tenantDetailsService, tenantDataSource, fineractProperties, tenantDatabaseStateVerifier,
                 liquibaseFactory, tenantDataSourceFactory, environment, customTaskChangesForDependencyInjection);
     }

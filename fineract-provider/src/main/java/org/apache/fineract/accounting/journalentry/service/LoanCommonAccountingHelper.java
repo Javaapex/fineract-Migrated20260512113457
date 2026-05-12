@@ -103,6 +103,7 @@ public class LoanCommonAccountingHelper {
 
     public void populateDebitAccountEntry(final Long loanProductId, final BigDecimal transactionPartAmount, final Integer debitAccountType,
             final Map<Integer, BigDecimal> accountMapForDebit, final Long paymentTypeId) {
+        Objects.requireNonNull(accountMapForDebit, "accountMapForDebit cannot be null");
         final Integer accountDebit = returnExistingDebitAccountInMapMatchingGLAccount(loanProductId, paymentTypeId, debitAccountType,
                 accountMapForDebit);
         if (accountMapForDebit.containsKey(accountDebit)) {

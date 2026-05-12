@@ -41,6 +41,7 @@ public class BlockDebitsFromSavingsAccountCommandHandler implements NewCommandSo
     @Transactional
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
         return this.writePlatformService.blockDebits(command.getSavingsId(), command);
     }
 

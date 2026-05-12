@@ -344,7 +344,7 @@ public class ExternalCreditBureauIntegrationWritePlatformServiceImplTest {
         });
     }
 
-    @Test // TODO: Null body not handled
+    @Test
     public void okHttpNoBodyReturned() throws IOException {
         mockOkHttpCall(request -> createOkhttpResponse(request, 200, "OK", null));
 

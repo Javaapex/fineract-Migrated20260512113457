@@ -63,7 +63,7 @@ public class WorkingCapitalLoanTransaction extends AbstractAuditableWithUTCDateT
     @Column(name = "submitted_on_date", nullable = false)
     private LocalDate submittedOnDate;
 
-    @Column(name = "transaction_amount", scale = 6, precision = 19, nullable = false)
+    @Column(name = "transaction_amount", scale = 6, precision = 19
     private BigDecimal transactionAmount;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)

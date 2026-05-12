@@ -28,6 +28,8 @@ public class NoopSamplingService implements SamplingService {
 
     @Override
     public void sample(String key, Runnable r) {
+        Objects.requireNonNull(r, "r cannot be null");
+        Objects.requireNonNull(key, "key cannot be null");
         r.run();
     }
 

@@ -42,7 +42,7 @@ public class LoanInterestRecalcualtionAdditionalDetails extends AbstractPersista
     @Column(name = "effective_date")
     private LocalDate effectiveDate;
 
-    @Column(name = "amount", scale = 6, precision = 19, nullable = false)
+    @Column(name = "amount", scale = 6, precision = 19
     private BigDecimal amount;
 
     protected LoanInterestRecalcualtionAdditionalDetails() {

@@ -39,7 +39,7 @@ import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
-// TODO: WIP - not ready yet for prime time
+
 @Slf4j
 @RequiredArgsConstructor
 @Component
@@ -100,6 +100,7 @@ public class DisruptorCommandDispatcher implements CommandDispatcher, Closeable 
 
         @Override
         public void onEvent(CommandEvent event, long sequence, boolean endOfBatch) {
+        Objects.requireNonNull(event, "event cannot be null");
             var command = event.getCommand();
 
             try {
@@ -111,6 +112,7 @@ public class DisruptorCommandDispatcher implements CommandDispatcher, Closeable 
 
                 event.getFuture().complete(result);
             } catch (Exception e) {
+
                 hookManager.error(command, e);
 
                 event.getFuture().completeExceptionally(e);

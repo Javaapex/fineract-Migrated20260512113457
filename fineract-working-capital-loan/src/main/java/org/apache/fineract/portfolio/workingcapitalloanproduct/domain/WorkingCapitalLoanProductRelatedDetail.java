@@ -49,7 +49,7 @@ public class WorkingCapitalLoanProductRelatedDetail {
     @Column(name = "npv_day_count", nullable = false)
     private Integer npvDayCount;
 
-    @Column(name = "principal_amount", scale = 6, precision = 19, nullable = false)
+    @Column(name = "principal_amount", scale = 6, precision = 19
     private BigDecimal principal;
 
     @Column(name = "period_payment_rate", scale = 6, precision = 19, nullable = false)

@@ -190,7 +190,7 @@ public class StaffApiResource {
 
         final Supplier<StaffUpdateResponse> response = dispatcher.dispatch(command);
 
-        // TODO: return the whole body, a number is not a valid JSON element!
+
         return response.get().getResourceId();
     }
 }

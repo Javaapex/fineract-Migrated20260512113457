@@ -58,6 +58,7 @@ public class ScheduleCurrentPeriodParams {
     }
 
     public void plusEarlyPaidAmount(Money earlyPaidAmount) {
+        Objects.requireNonNull(earlyPaidAmount, "earlyPaidAmount cannot be null");
         this.earlyPaidAmount = this.earlyPaidAmount.plus(earlyPaidAmount);
     }
 
@@ -70,6 +71,7 @@ public class ScheduleCurrentPeriodParams {
     }
 
     public void setLastInstallment(LoanScheduleModelPeriod lastInstallment) {
+        Objects.requireNonNull(lastInstallment, "lastInstallment cannot be null");
         this.lastInstallment = lastInstallment;
     }
 
@@ -86,6 +88,7 @@ public class ScheduleCurrentPeriodParams {
     }
 
     public void setInterestForThisPeriod(Money interestForThisPeriod) {
+        Objects.requireNonNull(interestForThisPeriod, "interestForThisPeriod cannot be null");
         this.interestForThisPeriod = interestForThisPeriod;
     }
 
@@ -98,6 +101,7 @@ public class ScheduleCurrentPeriodParams {
     }
 
     public void setPrincipalForThisPeriod(Money principalForThisPeriod) {
+        Objects.requireNonNull(principalForThisPeriod, "principalForThisPeriod cannot be null");
         this.principalForThisPeriod = principalForThisPeriod;
     }
 
@@ -114,6 +118,7 @@ public class ScheduleCurrentPeriodParams {
     }
 
     public void setReducedBalance(Money reducedBalance) {
+        Objects.requireNonNull(reducedBalance, "reducedBalance cannot be null");
         this.reducedBalance = reducedBalance;
     }
 
@@ -122,6 +127,7 @@ public class ScheduleCurrentPeriodParams {
     }
 
     public void setFeeChargesForInstallment(Money feeChargesForInstallment) {
+        Objects.requireNonNull(feeChargesForInstallment, "feeChargesForInstallment cannot be null");
         this.feeChargesForInstallment = feeChargesForInstallment;
     }
 
@@ -134,6 +140,7 @@ public class ScheduleCurrentPeriodParams {
     }
 
     public void setPenaltyChargesForInstallment(Money penaltyChargesForInstallment) {
+        Objects.requireNonNull(penaltyChargesForInstallment, "penaltyChargesForInstallment cannot be null");
         this.penaltyChargesForInstallment = penaltyChargesForInstallment;
     }
 

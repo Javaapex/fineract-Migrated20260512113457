@@ -38,6 +38,7 @@ final class TimestampCommandHook implements CommandHookBefore<Object> {
 
     @Override
     public void onBefore(Command<Object> command) {
+        Objects.requireNonNull(command, "command cannot be null");
         if (command.getCreatedAt() == null) {
             command.setCreatedAt(Instant.now());
         }

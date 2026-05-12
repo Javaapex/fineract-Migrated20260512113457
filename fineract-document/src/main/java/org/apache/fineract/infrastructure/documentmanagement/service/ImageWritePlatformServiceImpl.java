@@ -62,7 +62,7 @@ public class ImageWritePlatformServiceImpl implements ImageWritePlatformService 
     public ImageCreateResponse createImage(final ImageCreateRequest request) {
         try {
             if (StringUtils.isEmpty(request.getEntityType())) {
-                // TODO: keeping the path segment always "clients" not consistent how this works with documents
+
                 request.setEntityType(DEFAULT_ENTITY_TYPE);
             }
             final var imageEntityType = normalizeImageEntityType(request.getEntityType());
@@ -83,7 +83,7 @@ public class ImageWritePlatformServiceImpl implements ImageWritePlatformService 
                 request.setType(type);
             }
 
-            // TODO: make "prefix" configurable?
+
             var path = getPath(STORE_PREFIX, imageEntityType, request.getEntityId(), request.getFileName(), storeService.getDelimiter());
 
             final var imagePath = storeService.upload(path, request.getStream(), request.getType());

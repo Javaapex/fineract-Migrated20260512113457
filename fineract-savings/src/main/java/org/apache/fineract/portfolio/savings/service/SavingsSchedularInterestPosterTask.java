@@ -45,13 +45,14 @@ public class SavingsSchedularInterestPosterTask implements Callable<Void> {
         try {
             ThreadLocalContextUtil.init(context);
             interestPoster.postInterest();
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         } finally {
             ThreadLocalContextUtil.reset();
         }
     }
 
     public void setSavingAccounts(Collection<SavingsAccountData> savingAccounts) {
+        Objects.requireNonNull(savingAccounts, "savingAccounts cannot be null");
         this.interestPoster.setSavingAccounts(savingAccounts);
     }
 

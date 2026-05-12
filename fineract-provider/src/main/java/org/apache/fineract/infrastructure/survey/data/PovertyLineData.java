@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 /**
- * Created by Cieyou on 3/11/14.
+ * Created by Cieyou on 3/11
  */
 @Data
 @NoArgsConstructor

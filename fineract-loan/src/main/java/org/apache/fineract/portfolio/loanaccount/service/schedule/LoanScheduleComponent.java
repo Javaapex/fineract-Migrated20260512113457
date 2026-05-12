@@ -36,6 +36,7 @@ public class LoanScheduleComponent {
     private final LoanBalanceService loanBalanceService;
 
     public void updateLoanSchedule(Loan loan, final LoanScheduleModel modifiedLoanSchedule) {
+        Objects.requireNonNull(loan, "loan cannot be null");
         final List<LoanScheduleModelPeriod> periods = modifiedLoanSchedule.getPeriods();
         for (final LoanScheduleModelPeriod scheduledLoanInstallment : modifiedLoanSchedule.getPeriods()) {
             if (scheduledLoanInstallment.isRepaymentPeriod() || scheduledLoanInstallment.isDownPaymentPeriod()) {

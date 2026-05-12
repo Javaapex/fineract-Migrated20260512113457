@@ -349,7 +349,7 @@ public class SynchronousCommandProcessingService implements CommandProcessingSer
 
             final HookEventSource hookEventSource = new HookEventSource(entityName, actionName);
 
-            // TODO: Add support for publishing array events
+
             if (command.json() != null) {
                 Type type = new TypeToken<Map<String, Object>>() {
 

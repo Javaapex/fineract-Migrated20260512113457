@@ -36,6 +36,7 @@ public class AddPeriodicAccrualEntriesBusinessStep implements LoanCOBBusinessSte
 
     @Override
     public Loan execute(Loan loan) {
+        Objects.requireNonNull(loan, "loan cannot be null");
         log.debug("start processing period accrual business step for loan with Id [{}]", loan.getId());
         try {
             loanAccrualsProcessingService.addPeriodicAccruals(DateUtils.getBusinessLocalDate(), loan);

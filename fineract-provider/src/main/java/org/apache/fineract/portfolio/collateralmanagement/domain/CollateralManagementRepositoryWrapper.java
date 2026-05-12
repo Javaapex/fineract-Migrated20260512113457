@@ -34,10 +34,12 @@ public class CollateralManagementRepositoryWrapper {
     }
 
     public CollateralManagementDomain create(CollateralManagementDomain collateralData) {
+        Objects.requireNonNull(collateralData, "collateralData cannot be null");
         return this.collateralManagementDomainRepository.saveAndFlush(collateralData);
     }
 
     public CollateralManagementDomain getCollateral(Long collateralId) {
+        Objects.requireNonNull(collateralId, "collateralId cannot be null");
         return this.collateralManagementDomainRepository.findById(collateralId)
                 .orElseThrow(() -> new CollateralNotFoundException(collateralId));
     }
@@ -47,6 +49,7 @@ public class CollateralManagementRepositoryWrapper {
     }
 
     public CollateralManagementDomain update(CollateralManagementDomain collateralManagementData) {
+        Objects.requireNonNull(collateralManagementData, "collateralManagementData cannot be null");
         return this.collateralManagementDomainRepository.saveAndFlush(collateralManagementData);
     }
 

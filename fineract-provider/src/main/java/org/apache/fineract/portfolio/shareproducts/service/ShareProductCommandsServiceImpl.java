@@ -32,16 +32,20 @@ public class ShareProductCommandsServiceImpl implements ProductCommandsService {
     private final FromJsonHelper fromApiJsonHelper;
 
     public CommandProcessingResult postDividends(Long productId, JsonCommand jsonCommand) {
-        return null;
+        Objects.requireNonNull(jsonCommand, "jsonCommand cannot be null");
+        Objects.requireNonNull(productId, "productId cannot be null");
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     @Override
     public Object handleCommand(Long productId, String command, String jsonBody) {
+        Objects.requireNonNull(jsonBody, "jsonBody cannot be null");
+        Objects.requireNonNull(command, "command cannot be null");
         final JsonElement parsedCommand = this.fromApiJsonHelper.parse(jsonBody);
         final JsonCommand jsonCommand = JsonCommand.from(jsonBody, parsedCommand, this.fromApiJsonHelper, null, null, null, null, null,
                 null, null, null, null, null, null, null, null, null);
         if (ShareProductApiConstants.PREIEW_DIVIDENDS_COMMAND_STRING.equals(command)) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         } else if (ShareProductApiConstants.POST_DIVIDENdS_COMMAND_STRING.equals(command)) {
             return postDividends(productId, jsonCommand);
         }

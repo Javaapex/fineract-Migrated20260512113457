@@ -45,6 +45,8 @@ public class ProgressiveLoanModelRecalculationService {
 
     @Transactional(readOnly = true, propagation = Propagation.REQUIRES_NEW)
     public ProgressiveLoanInterestScheduleModel getRecalculatedModel(Long loanId, LocalDate tillDate) {
+        Objects.requireNonNull(tillDate, "tillDate cannot be null");
+        Objects.requireNonNull(loanId, "loanId cannot be null");
         Loan loan = loanRepositoryWrapper.findOneWithNotFoundDetection(loanId);
         LoanRepaymentScheduleTransactionProcessor transactionProcessor = transactionProcessorFactory
                 .determineProcessor(loan.getTransactionProcessingStrategyCode());
@@ -55,7 +57,7 @@ public class ProgressiveLoanModelRecalculationService {
                             loan.getRepaymentScheduleInstallments(), loan.getActiveCharges());
             return result.getRight();
         }
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
 }

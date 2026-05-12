@@ -42,6 +42,10 @@ public class CollateralConfiguration {
     @ConditionalOnMissingBean(CollateralAssembler.class)
     public CollateralAssembler collateralAssembler(FromJsonHelper fromApiJsonHelper, CodeValueRepositoryWrapper codeValueRepository,
             CodeValueRepository codeValueRepositoryDirect, LoanCollateralRepository loanCollateralRepository) {
+        Objects.requireNonNull(loanCollateralRepository, "loanCollateralRepository cannot be null");
+        Objects.requireNonNull(codeValueRepositoryDirect, "codeValueRepositoryDirect cannot be null");
+        Objects.requireNonNull(codeValueRepository, "codeValueRepository cannot be null");
+        Objects.requireNonNull(fromApiJsonHelper, "fromApiJsonHelper cannot be null");
         return new CollateralAssembler(fromApiJsonHelper, codeValueRepository, codeValueRepositoryDirect, loanCollateralRepository);
     }
 
@@ -49,6 +53,9 @@ public class CollateralConfiguration {
     @ConditionalOnMissingBean(CollateralReadPlatformService.class)
     public CollateralReadPlatformService collateralReadPlatformService(PlatformSecurityContext context, JdbcTemplate jdbcTemplate,
             LoanRepositoryWrapper loanRepositoryWrapper) {
+        Objects.requireNonNull(loanRepositoryWrapper, "loanRepositoryWrapper cannot be null");
+        Objects.requireNonNull(jdbcTemplate, "jdbcTemplate cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
         return new CollateralReadPlatformServiceImpl(context, jdbcTemplate, loanRepositoryWrapper);
     }
 
@@ -58,6 +65,8 @@ public class CollateralConfiguration {
             LoanRepositoryWrapper loanRepositoryWrapper, LoanCollateralRepository collateralRepository,
             CodeValueRepositoryWrapper codeValueRepository,
             CollateralCommandFromApiJsonDeserializer collateralCommandFromApiJsonDeserializer) {
+        Objects.requireNonNull(collateralCommandFromApiJsonDeserializer, "collateralCommandFromApiJsonDeserializer cannot be null");
+        Objects.requireNonNull(collateralRepository, "collateralRepository cannot be null");
         return new CollateralWritePlatformServiceJpaRepositoryImpl(context, loanRepositoryWrapper, collateralRepository,
                 codeValueRepository, collateralCommandFromApiJsonDeserializer);
     }

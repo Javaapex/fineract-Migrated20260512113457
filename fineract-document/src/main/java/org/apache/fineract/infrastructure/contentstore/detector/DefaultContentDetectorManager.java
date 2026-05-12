@@ -31,6 +31,7 @@ public final class DefaultContentDetectorManager implements ContentDetectorManag
 
     @Override
     public ContentDetectorContext detect(ContentDetectorContext ctx) {
+        Objects.requireNonNull(ctx, "ctx cannot be null");
         return tikaContentDetector.detect(ctx);
     }
 }

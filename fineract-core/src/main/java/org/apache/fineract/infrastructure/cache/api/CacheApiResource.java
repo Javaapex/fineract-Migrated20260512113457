@@ -74,6 +74,7 @@ public class CacheApiResource {
     @Consumes({ MediaType.APPLICATION_JSON })
     @Operation(summary = "Switch Cache", description = "Switches the cache to chosen one.")
     public CacheSwitchResponse switchCache(@Valid CacheSwitchRequest request) {
+        Objects.requireNonNull(request, "request cannot be null");
         final var command = new CacheSwitchCommand();
 
         command.setPayload(request);

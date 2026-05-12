@@ -40,6 +40,7 @@ public class DeleteClientFamilyMemberCommandHandler implements NewCommandSourceH
 
     @Override
     public CommandProcessingResult processCommand(JsonCommand command) {
+        Objects.requireNonNull(command, "command cannot be null");
 
         return this.clientFamilyMembersWritePlatformService.deleteFamilyMember(command.entityId(), command);
     }

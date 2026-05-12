@@ -33,6 +33,13 @@ public class GLIMAccountInfoWritePlatformServiceImpl implements GLIMAccountInfoW
     @Override
     public GroupLoanIndividualMonitoringAccount createGLIMAccount(String accountNumber, Group group, BigDecimal principalAmount,
             Long childAccountsCount, Boolean isAcceptingChild, Integer loanStatus, BigDecimal applicationId) {
+        Objects.requireNonNull(applicationId, "applicationId cannot be null");
+        Objects.requireNonNull(loanStatus, "loanStatus cannot be null");
+        Objects.requireNonNull(isAcceptingChild, "isAcceptingChild cannot be null");
+        Objects.requireNonNull(childAccountsCount, "childAccountsCount cannot be null");
+        Objects.requireNonNull(principalAmount, "principalAmount cannot be null");
+        Objects.requireNonNull(group, "group cannot be null");
+        Objects.requireNonNull(accountNumber, "accountNumber cannot be null");
 
         GroupLoanIndividualMonitoringAccount glimAccountInfo = GroupLoanIndividualMonitoringAccount.getInstance(accountNumber, group,
                 principalAmount, childAccountsCount, isAcceptingChild, loanStatus, applicationId);
@@ -42,6 +49,7 @@ public class GLIMAccountInfoWritePlatformServiceImpl implements GLIMAccountInfoW
 
     @Override
     public void setIsAcceptingChild(GroupLoanIndividualMonitoringAccount glimAccount) {
+        Objects.requireNonNull(glimAccount, "glimAccount cannot be null");
         glimAccount.setIsAcceptingChild(true);
         glimAccountRepository.save(glimAccount);
 

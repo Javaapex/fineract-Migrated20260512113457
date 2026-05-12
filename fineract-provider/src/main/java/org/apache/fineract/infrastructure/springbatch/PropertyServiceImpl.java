@@ -32,6 +32,7 @@ public class PropertyServiceImpl implements PropertyService {
 
     @Override
     public Integer getPartitionSize(String jobName) {
+        Objects.requireNonNull(jobName, "jobName cannot be null");
         return getProperty(jobName, FineractProperties.PartitionedJobProperty::getPartitionSize);
     }
 

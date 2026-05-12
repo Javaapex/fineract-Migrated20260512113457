@@ -32,6 +32,8 @@ public class FineractPartitionJobConfigValidationCondition implements Condition 
 
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
+        Objects.requireNonNull(metadata, "metadata cannot be null");
+        Objects.requireNonNull(context, "context cannot be null");
         FineractProperties.FineractPartitionedJob partitionedJobProperties = ExplicitConfigurationPropertiesFactory.getProperty(context,
                 "fineract.partitioned-job", FineractProperties.FineractPartitionedJob.class);
         if (partitionedJobProperties != null) {

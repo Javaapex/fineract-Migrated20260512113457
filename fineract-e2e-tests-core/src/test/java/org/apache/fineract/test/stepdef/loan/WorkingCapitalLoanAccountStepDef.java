@@ -2644,7 +2644,7 @@ public class WorkingCapitalLoanAccountStepDef extends AbstractStepDef {
 
     @When("Customer undo {string}th {string} transaction made on {string} on Working Capital loan")
     public void undoWorkingCapitalLoanTransaction(String nthItemStr, String transactionType, String transactionDate) throws IOException {
-        // TODO: Implement undo transaction for working capital loans when backend support is available (PS-3194)
+
         throw new UnsupportedOperationException("Undo transaction for working capital loans is not yet implemented");
     }
 }

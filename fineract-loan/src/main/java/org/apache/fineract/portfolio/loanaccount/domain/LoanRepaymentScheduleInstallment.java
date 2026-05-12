@@ -67,7 +67,7 @@ public class LoanRepaymentScheduleInstallment extends AbstractAuditableWithUTCDa
     @Column(name = "duedate", nullable = false)
     private LocalDate dueDate;
 
-    @Column(name = "principal_amount", scale = 6, precision = 19)
+    @Column(name = "principal_amount", scale = 6, precision = 19
     private BigDecimal principal;
 
     @Column(name = "principal_completed_derived", scale = 6, precision = 19)
@@ -142,7 +142,7 @@ public class LoanRepaymentScheduleInstallment extends AbstractAuditableWithUTCDa
     @Column(name = "is_additional", nullable = false)
     private boolean additional;
 
-    // TODO: At some point in time this database column needs to be renamed to credited_principal using the following
+
     // approach
     // https://blog.thepete.net/blog/2023/12/05/expand/contract-making-a-breaking-change-without-a-big-bang/
     @Column(name = "credits_amount", scale = 6, precision = 19)
@@ -517,6 +517,7 @@ public class LoanRepaymentScheduleInstallment extends AbstractAuditableWithUTCDa
 
     @Override
     public int compareTo(LoanRepaymentScheduleInstallment o) {
+        Objects.requireNonNull(o, "o cannot be null");
         return this.installmentNumber.compareTo(o.installmentNumber);
     }
 
@@ -593,6 +594,8 @@ public class LoanRepaymentScheduleInstallment extends AbstractAuditableWithUTCDa
     }
 
     public PaymentFunction getPaymentFunction(AllocationType allocationType, PaymentAction action) {
+        Objects.requireNonNull(action, "action cannot be null");
+        Objects.requireNonNull(allocationType, "allocationType cannot be null");
         return switch (allocationType) {
             case PENALTY -> PaymentAction.PAY.equals(action) ? this::payPenaltyChargesComponent
                     : PaymentAction.UNPAY.equals(action) ? this::unpayPenaltyChargesComponent : null;
@@ -1093,6 +1096,7 @@ public class LoanRepaymentScheduleInstallment extends AbstractAuditableWithUTCDa
     }
 
     public Money getDue(MonetaryCurrency currency) {
+        Objects.requireNonNull(currency, "currency cannot be null");
         return getPrincipal(currency).plus(getInterestCharged(currency)).plus(getFeeChargesCharged(currency))
                 .plus(getPenaltyChargesCharged(currency));
     }
@@ -1119,6 +1123,7 @@ public class LoanRepaymentScheduleInstallment extends AbstractAuditableWithUTCDa
     }
 
     public boolean isTransactionDateWithinPeriod(LocalDate referenceDate) {
+        Objects.requireNonNull(referenceDate, "referenceDate cannot be null");
         return DateUtils.isAfter(referenceDate, getFromDate()) && !DateUtils.isAfter(referenceDate, getDueDate());
     }
 
@@ -1289,15 +1294,16 @@ public class LoanRepaymentScheduleInstallment extends AbstractAuditableWithUTCDa
 
     private BigDecimal setScaleAndDefaultToNullIfZero(final BigDecimal value) {
         if (value == null) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         if (value.compareTo(BigDecimal.ZERO) == 0) {
-            return null;
+            return null; // TODO: Consider returning Optional.empty() instead
         }
         return value.setScale(6, MoneyHelper.getRoundingMode());
     }
 
     public boolean isFirstNormalInstallment(List<LoanRepaymentScheduleInstallment> installments) {
+        Objects.requireNonNull(installments, "installments cannot be null");
         return installments.stream().filter(rp -> !rp.isDownPayment()).findFirst().stream().anyMatch(rp -> rp.equals(this));
     }
 }

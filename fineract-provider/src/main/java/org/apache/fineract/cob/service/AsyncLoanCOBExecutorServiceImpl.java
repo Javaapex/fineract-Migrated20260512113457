@@ -43,6 +43,7 @@ public class AsyncLoanCOBExecutorServiceImpl extends AsyncCommonCOBExecutorServi
     @Override
     @Async(TaskExecutorConstant.LOAN_COB_CATCH_UP_TASK_EXECUTOR_BEAN_NAME)
     public void executeLoanCOBCatchUpAsync(FineractContext context) {
+        Objects.requireNonNull(context, "context cannot be null");
         super.executeLoanCOBCatchUpAsync(context);
     }
 

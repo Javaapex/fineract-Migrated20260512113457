@@ -81,7 +81,7 @@ public class CollectionSheetWritePlatformServiceJpaRepositoryImpl implements Col
 
         changes.putAll(updateBulkMandatorySavingsDuePayments(command, paymentDetail));
 
-        // TODO: send type safe event one day when we refactor this module
+
         eventPublisher.publishEvent(command);
 
         return new CommandProcessingResultBuilder() //
@@ -151,7 +151,7 @@ public class CollectionSheetWritePlatformServiceJpaRepositoryImpl implements Col
                         .mandatorySavingsAccountDeposit(savingsAccountTransactionDTO);
                 depositTransactionIds.add(savingsAccountTransaction.getId());
             } catch (Exception e) {
-                // TODO: handle exception
+
             }
         }
         changes.put("SavingsTransactions", depositTransactionIds);

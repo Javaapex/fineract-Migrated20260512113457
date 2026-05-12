@@ -80,3 +80,11 @@ jmh {
     timeOnIteration = '2s' // Time per iteration
     benchmarkMode = ['thrpt'] // Default benchmark mode
 }
+
+dependencies {
+    testImplementation "org.junit.jupiter:junit-jupiter:5.10.2"
+}
+
+tasks.withType(org.gradle.api.tasks.testing.Test).configureEach {
+    useJUnitPlatform()
+}

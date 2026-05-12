@@ -37,6 +37,11 @@ public class SearchConfiguration {
     public SearchReadService searchReadService(NamedParameterJdbcTemplate namedParameterJdbcTemplate,
             LoanProductReadPlatformService loanProductReadPlatformService, OfficeReadPlatformService officeReadPlatformService,
             DatabaseSpecificSQLGenerator sqlGenerator, SqlValidator sqlValidator) {
+        Objects.requireNonNull(sqlValidator, "sqlValidator cannot be null");
+        Objects.requireNonNull(sqlGenerator, "sqlGenerator cannot be null");
+        Objects.requireNonNull(officeReadPlatformService, "officeReadPlatformService cannot be null");
+        Objects.requireNonNull(loanProductReadPlatformService, "loanProductReadPlatformService cannot be null");
+        Objects.requireNonNull(namedParameterJdbcTemplate, "namedParameterJdbcTemplate cannot be null");
         return new SearchReadServiceImpl(namedParameterJdbcTemplate, loanProductReadPlatformService, officeReadPlatformService,
                 sqlGenerator, sqlValidator);
     }

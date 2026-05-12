@@ -36,6 +36,7 @@ public class JsonNodeWritingConverter implements Converter<JsonNode, String> {
     @SneakyThrows
     @Override
     public String convert(JsonNode source) {
+        Objects.requireNonNull(source, "source cannot be null");
         return mapper.writeValueAsString(source);
     }
 }

@@ -49,7 +49,7 @@ public class GuarantorFundingDetails extends AbstractPersistableCustom<Long> {
     @Column(name = "status_enum", nullable = false)
     private Integer status;
 
-    @Column(name = "amount", scale = 6, precision = 19, nullable = false)
+    @Column(name = "amount", scale = 6, precision = 19
     private BigDecimal amount;
 
     @Column(name = "amount_released_derived", scale = 6, precision = 19, nullable = true)

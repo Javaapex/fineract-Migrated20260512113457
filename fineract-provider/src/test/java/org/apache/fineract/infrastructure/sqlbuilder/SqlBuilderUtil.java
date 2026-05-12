@@ -27,7 +27,7 @@ final class SqlBuilderUtil {
     static Object transform(String argument) {
         if (!StringUtils.isBlank(argument)) {
             if ("NULL".equals(argument)) {
-                return null;
+                return null; // TODO: Consider returning Optional.empty() instead
             } else if ("EMPTY".equals(argument)) {
                 return "";
             } else if (isInt(argument)) {
@@ -39,7 +39,7 @@ final class SqlBuilderUtil {
             }
         }
 
-        return null;
+        return null; // TODO: Consider returning Optional.empty() instead
     }
 
     static boolean isInt(String str) {
